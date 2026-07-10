@@ -1749,7 +1749,132 @@ document.addEventListener('DOMContentLoaded', function() {
 
 })();
 </script>
-<!-- SOCRATES + HOME BUTTON FIX: paste immediately before </body> in index.html -->
+<style id="socrates-home-button-fix-css">
+  .hcard, .hcard * {
+    cursor: pointer !important;
+  }
+
+  .hcard-btn {
+    pointer-events: none !important;
+  }
+
+  .tutor-inline-free,
+  .tp-free-badge {
+    display: none !important;
+  }
+</style>
+
+<script id="socrates-home-button-fix-js">
+(function () {
+  var LABEL = 'Socrates, your historical AI tutor';
+
+  function all(selector) {
+    return Array.prototype.slice.call(document.querySelectorAll(selector));
+  }
+
+  function renameTutor() {
+    all('.tutor-inline-title, .tp-head-title, .tutor-standalone-title').forEach(function (element) {
+      element.textContent = LABEL;
+    });
+
+    all('.tutor-inline-sub, .tp-head-sub, .tutor-standalone-desc').forEach(function (element) {
+      element.textContent = 'Guides students with Socratic questioning, essay structure and source analysis';
+    });
+
+    all('.tutor-m.ai').forEach(function (element) {
+      element.innerHTML = element.innerHTML
+        .replace(/Socratic History Tutor FREE/g, LABEL)
+        .replace(/Socratic History Tutor/g, LABEL)
+        .replace(/free Socratic history tutor/g, LABEL)
+        .replace(/FREE/g, '')
+        .replace(/free/g, '');
+    });
+  }
+
+  function showPage(id) {
+    var page = document.getElementById(id);
+    if (!page) return false;
+
+    all('.pg').forEach(function (section) {
+      section.classList.remove('active');
+      section.style.display = 'none';
+    });
+
+    page.classList.add('active');
+    page.style.display = 'block';
+
+    all('.nb').forEach(function (button) {
+      button.classList.remove('active');
+    });
+
+    all('.nb[data-t="' + id + '"]').forEach(function (button) {
+      button.classList.add('active');
+    });
+
+    if (history && history.replaceState) {
+      history.replaceState(null, '', '#' + id);
+    }
+
+    renameTutor();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return true;
+  }
+
+  function getCardTarget(card) {
+    var text = (card.textContent || '').toLowerCase();
+
+    if (text.indexOf('year 7') !== -1) return 'y7';
+    if (text.indexOf('year 8') !== -1) return 'y8';
+    if (text.indexOf('year 9') !== -1) return 'y9';
+    if (text.indexOf('igcse') !== -1 || text.indexOf('gcse') !== -1) return 'ig';
+    if (text.indexOf('revision') !== -1) return 'rv';
+    if (text.indexOf('source') !== -1) return 'src';
+
+    return null;
+  }
+
+  window.nav = function (id) {
+    return showPage(id);
+  };
+
+  window.go = function (id) {
+    return showPage(id);
+  };
+
+  document.addEventListener('click', function (event) {
+    var card = event.target.closest && event.target.closest('.hcard');
+
+    if (card) {
+      var target = getCardTarget(card);
+
+      if (target) {
+        event.preventDefault();
+        event.stopPropagation();
+        showPage(target);
+        return;
+      }
+    }
+
+    var navButton = event.target.closest && event.target.closest('.nb[data-t]');
+
+    if (navButton) {
+      event.preventDefault();
+      event.stopPropagation();
+      showPage(navButton.getAttribute('data-t'));
+    }
+  }, true);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    renameTutor();
+  });
+
+  renameTutor();
+})();
+</script>
+
+})();
+</script>
+
 <style id="socrates-home-button-fix-css">
   ...
 </style>
@@ -1757,8 +1882,5 @@ document.addEventListener('DOMContentLoaded', function() {
 <script id="socrates-home-button-fix-js">
   ...
 </script>
-
-</body>
-</html>
 
 </body></html>
