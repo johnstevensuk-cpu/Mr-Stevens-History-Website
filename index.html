@@ -1075,8 +1075,7 @@ function _tiAddMsg(uid, role, text) {
   if (!c) return;
   var d = document.createElement('div');
   d.className = 'tutor-m ' + role;
-  d.innerHTML = text.replace(/
-/g,'<br>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  d.innerHTML = text.replace(/\n/g,'<br>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
   c.appendChild(d);
   c.scrollTop = c.scrollHeight;
 }
