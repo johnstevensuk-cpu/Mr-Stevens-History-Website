@@ -2327,5 +2327,46 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('hashchange', insertBlogPanels);
 })();
 </script>
+<script id="blog-spot-test-force-visible">
+(function () {
+  function addTestBlogSpot() {
+    if (document.getElementById('blog-spot-home-test')) return;
+
+    var home = document.getElementById('home');
+    if (!home) return;
+
+    var panel = document.createElement('div');
+    panel.id = 'blog-spot-home-test';
+    panel.className = 'blog-spot-panel';
+    panel.style.maxWidth = '900px';
+    panel.style.margin = '20px auto';
+    panel.innerHTML = ''
+      + '<div class="blog-spot-head">'
+      + '<div class="blog-spot-icon">💬</div>'
+      + '<div>'
+      + '<div class="blog-spot-title">Blog Spot: Home Test</div>'
+      + '<div class="blog-spot-sub">If this appears, the Blog Spot styling is working.</div>'
+      + '</div>'
+      + '</div>'
+      + '<div class="blog-spot-question">Which historical topic are you most interested in debating, and why?</div>'
+      + '<textarea class="blog-spot-input" placeholder="Write your comment here..."></textarea>'
+      + '<div class="blog-spot-row">'
+      + '<input class="blog-spot-name" placeholder="Name or initials optional">'
+      + '<button class="blog-spot-post" type="button">Post</button>'
+      + '</div>'
+      + '<div class="blog-spot-comments">'
+      + '<div class="blog-spot-empty">No comments yet. This is a visibility test.</div>'
+      + '</div>';
+
+    home.appendChild(panel);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addTestBlogSpot);
+  } else {
+    addTestBlogSpot();
+  }
+})();
+</script>
 
 </body></html>
