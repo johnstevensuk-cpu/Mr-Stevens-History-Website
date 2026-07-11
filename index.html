@@ -1749,623 +1749,330 @@ document.addEventListener('DOMContentLoaded', function() {
 
 })();
 </script>
-<style id="socrates-home-button-fix-css">
-  .hcard, .hcard * {
-    cursor: pointer !important;
-  }
-
-  .hcard-btn {
-    pointer-events: none !important;
-  }
-
-  .tutor-inline-free,
-  .tp-free-badge {
-    display: none !important;
-  }
+<style id="jhs-blog-css">
+.blog-spot{background:linear-gradient(135deg,#fffbeb,#fff7ed);border:2px solid rgba(217,119,6,.38);
+ border-radius:13px;padding:13px 14px;margin:10px 0 11px;box-shadow:0 3px 16px rgba(120,53,15,.11);}
+.blog-spot-head{display:flex;align-items:flex-start;gap:9px;margin-bottom:9px;}
+.blog-spot-ico{font-size:1.4rem;line-height:1;flex-shrink:0;}
+.blog-spot-title{font-size:.87rem;font-weight:800;color:#92400e;line-height:1.25;}
+.blog-spot-sub{font-size:.64rem;color:#7c2d12;margin-top:2px;line-height:1.42;}
+.blog-spot-q{background:#fff;border-left:4px solid #d97706;border-radius:0 9px 9px 0;
+ padding:9px 12px;font-size:.81rem;font-weight:700;color:#1a2540;line-height:1.55;margin-bottom:8px;}
+.blog-spot-chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;}
+.blog-spot-chip{background:#fff;border:1px solid rgba(217,119,6,.3);color:#92400e;
+ border-radius:999px;padding:2px 8px;font-size:.62rem;font-weight:700;}
+.blog-spot-ta{width:100%;border:1.5px solid rgba(217,119,6,.3);border-radius:9px;
+ padding:8px 10px;resize:vertical;min-height:56px;font-size:.78rem;font-family:inherit;
+ color:#1a2540;outline:none;background:#fff;line-height:1.55;}
+.blog-spot-ta:focus{border-color:#d97706;box-shadow:0 0 0 3px rgba(217,119,6,.12);}
+.blog-spot-row{display:flex;gap:6px;align-items:center;margin-top:7px;}
+.blog-spot-name{flex:1;min-width:0;border:1.5px solid rgba(217,119,6,.25);border-radius:8px;
+ padding:6px 9px;font-size:.72rem;font-family:inherit;outline:none;}
+.blog-spot-post{background:#d97706;color:#fff;border:none;border-radius:8px;
+ padding:7px 11px;font-size:.73rem;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.blog-spot-post:hover{background:#b45309;}
+.blog-spot-feed{margin-top:9px;display:flex;flex-direction:column;gap:6px;max-height:200px;overflow-y:auto;}
+.blog-comment{background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:9px;padding:8px 10px;}
+.blog-comment-meta{font-size:.62rem;font-weight:800;color:#92400e;margin-bottom:3px;}
+.blog-comment-text{font-size:.74rem;color:#374060;line-height:1.55;white-space:pre-wrap;}
+.blog-spot-empty{font-size:.68rem;color:#7c2d12;font-style:italic;padding:6px 9px;
+ background:rgba(255,255,255,.65);border-radius:7px;}
+.blog-spot-clear{background:none;border:none;color:#9a3412;font-size:.63rem;cursor:pointer;
+ padding:4px 0 0;font-family:inherit;text-decoration:underline;display:block;}
+.blog-spot-standalone{max-width:860px;margin:0 auto 16px;}
 </style>
+<script id="jhs-blog-js">
+(function(){
+'use strict';
+var D={"hs": {"topic": "What is History?", "question": "Can a source ever be both biased and genuinely useful as historical evidence?", "chips": ["Apply WACA", "Think about Aim", "Compare source types"]}, "1066": {"topic": "The Norman Conquest 1066", "question": "Were Harold Godwinson's own mistakes the MAIN reason William won at Hastings?", "chips": ["Harold's march", "William's tactics", "Role of luck"]}, "med": {"topic": "Medieval Entertainment", "question": "What does medieval entertainment reveal about inequality and social control?", "chips": ["Sumptuary laws", "Holy days", "Mob football"]}, "bd": {"topic": "The Black Death 1348", "question": "Did the Black Death ultimately strengthen or weaken ordinary people's position in society?", "chips": ["Labour shortage", "Peasants' Revolt", "Feudalism"]}, "cas": {"topic": "Castles", "question": "Were Norman castles more important as military fortifications or as symbols of power?", "chips": ["Motte and bailey", "Tower of London", "Norman control"]}, "sl": {"topic": "The Transatlantic Slave Trade", "question": "Was the abolition of the slave trade in 1807 primarily a moral or an economic victory?", "chips": ["Equiano", "Brookes diagram", "1807 vs 1833"]}, "fm": {"topic": "The Industrial Revolution", "question": "Did the Industrial Revolution improve or worsen life for ordinary British people?", "chips": ["Child labour", "Sadler Report", "Wages"]}, "lv": {"topic": "Victorian Living Conditions", "question": "Why did it take catastrophes like cholera and the Great Stink to trigger public health reform?", "chips": ["John Snow", "Miasma theory", "Political will"]}, "em": {"topic": "British Empire", "question": "Was the British Empire primarily a force for progress, control, or exploitation?", "chips": ["Indian Rebellion", "Two perspectives", "Imperial map"]}, "nel": {"topic": "Nelson and Trafalgar", "question": "Was the Battle of Trafalgar more significant for British security or British national identity?", "chips": ["Naval supremacy", "Napoleon", "31-year painting"]}, "ww1": {"topic": "World War One", "question": "Was World War One caused more by long-term underlying tensions than by the Sarajevo assassination?", "chips": ["M.A.I.N.", "Spark vs cause", "Alliance system"]}, "lon": {"topic": "League of Nations", "question": "Was the League of Nations structurally doomed to fail — or did poor political decisions determine its fate?", "chips": ["No USA", "No army", "Abyssinia crisis"]}, "cw": {"topic": "The Cold War", "question": "Was the USA or the USSR more responsible for the tensions that led to the Cold War?", "chips": ["Iron Curtain", "Truman Doctrine", "Cuba"]}, "st": {"topic": "Stalin's Russia", "question": "Was terror more important than propaganda in maintaining Stalin's power over the Soviet Union?", "chips": ["NKVD", "Gulag", "Cult of personality"]}, "vn": {"topic": "The Vietnam War", "question": "Was the Tet Offensive the turning point of the Vietnam War — or just the moment the truth became visible?", "chips": ["Military vs political", "US public opinion", "Media coverage"]}, "md": {"topic": "Changes in Medicine", "question": "Was World War Two the MAIN reason the NHS was created in 1948, or just an accelerator of existing change?", "chips": ["Penicillin 1928", "Beveridge", "BMA opposition"]}, "rv": {"topic": "Revision Hub", "question": "Which single historical argument from your revision topic is the most convincing — and why?", "chips": ["Use evidence", "Challenge a view", "Reach a judgement"]}, "src": {"topic": "Source Studies", "question": "What makes a historical source genuinely useful even when it is biased or limited?", "chips": ["WACA", "Provenance", "Own knowledge"]}};
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
+function sk(k){return 'jhs_blog_'+k;}
+function load(k){try{return JSON.parse(localStorage.getItem(sk(k))||'[]');}catch(e){return[];}}
+function save(k,a){localStorage.setItem(sk(k),JSON.stringify(a));}
 
-<script id="socrates-home-button-fix-js">
-(function () {
-  var LABEL = 'Socrates, your historical AI tutor';
+function render(panel,key){
+  var el=panel.querySelector('.blog-spot-feed');
+  var cs=load(key);
+  if(!cs.length){el.innerHTML='<div class="blog-spot-empty">No comments yet. Be the first to make a historical argument!</div>';return;}
+  el.innerHTML=cs.map(function(c){return '<div class="blog-comment"><div class="blog-comment-meta">'+esc(c.name)+' &middot; '+esc(c.date)+'</div><div class="blog-comment-text">'+esc(c.text)+'</div></div>';}).join('');
+}
 
-  function all(selector) {
-    return Array.prototype.slice.call(document.querySelectorAll(selector));
-  }
-
-  function renameTutor() {
-    all('.tutor-inline-title, .tp-head-title, .tutor-standalone-title').forEach(function (element) {
-      element.textContent = LABEL;
-    });
-
-    all('.tutor-inline-sub, .tp-head-sub, .tutor-standalone-desc').forEach(function (element) {
-      element.textContent = 'Guides students with Socratic questioning, essay structure and source analysis';
-    });
-
-    all('.tutor-m.ai').forEach(function (element) {
-      element.innerHTML = element.innerHTML
-        .replace(/Socratic History Tutor FREE/g, LABEL)
-        .replace(/Socratic History Tutor/g, LABEL)
-        .replace(/free Socratic history tutor/g, LABEL)
-        .replace(/FREE/g, '')
-        .replace(/free/g, '');
-    });
-  }
-
-  function showPage(id) {
-    var page = document.getElementById(id);
-    if (!page) return false;
-
-    all('.pg').forEach(function (section) {
-      section.classList.remove('active');
-      section.style.display = 'none';
-    });
-
-    page.classList.add('active');
-    page.style.display = 'block';
-
-    all('.nb').forEach(function (button) {
-      button.classList.remove('active');
-    });
-
-    all('.nb[data-t="' + id + '"]').forEach(function (button) {
-      button.classList.add('active');
-    });
-
-    if (history && history.replaceState) {
-      history.replaceState(null, '', '#' + id);
-    }
-
-    renameTutor();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    return true;
-  }
-
-  function getCardTarget(card) {
-    var text = (card.textContent || '').toLowerCase();
-
-    if (text.indexOf('year 7') !== -1) return 'y7';
-    if (text.indexOf('year 8') !== -1) return 'y8';
-    if (text.indexOf('year 9') !== -1) return 'y9';
-    if (text.indexOf('igcse') !== -1 || text.indexOf('gcse') !== -1) return 'ig';
-    if (text.indexOf('revision') !== -1) return 'rv';
-    if (text.indexOf('source') !== -1) return 'src';
-
-    return null;
-  }
-
-  window.nav = function (id) {
-    return showPage(id);
-  };
-
-  window.go = function (id) {
-    return showPage(id);
-  };
-
-  document.addEventListener('click', function (event) {
-    var card = event.target.closest && event.target.closest('.hcard');
-
-    if (card) {
-      var target = getCardTarget(card);
-
-      if (target) {
-        event.preventDefault();
-        event.stopPropagation();
-        showPage(target);
-        return;
-      }
-    }
-
-    var navButton = event.target.closest && event.target.closest('.nb[data-t]');
-
-    if (navButton) {
-      event.preventDefault();
-      event.stopPropagation();
-      showPage(navButton.getAttribute('data-t'));
-    }
-  }, true);
-
-  document.addEventListener('DOMContentLoaded', function () {
-    renameTutor();
+function build(key){
+  var data=D[key]||D['rv'];
+  var p=document.createElement('div');
+  p.className='blog-spot';p.setAttribute('data-blog-key',key);
+  p.innerHTML='<div class="blog-spot-head"><div class="blog-spot-ico">&#x1F4AC;</div><div><div class="blog-spot-title">Blog Spot &mdash; '+esc(data.topic)+'</div><div class="blog-spot-sub">Make a claim &middot; Support it with evidence &middot; Respond like a historian</div></div></div>'
+    +'<div class="blog-spot-q">'+esc(data.question)+'</div>'
+    +'<div class="blog-spot-chips">'+data.chips.map(function(c){return '<span class="blog-spot-chip">'+esc(c)+'</span>';}).join('')+'</div>'
+    +'<textarea class="blog-spot-ta" placeholder="I would argue… because… The evidence shows…"></textarea>'
+    +'<div class="blog-spot-row"><input class="blog-spot-name" placeholder="Name or initials (optional)"><button class="blog-spot-post" type="button">Post</button></div>'
+    +'<div class="blog-spot-feed"></div><button class="blog-spot-clear" type="button">Clear comments on this device</button>';
+  p.querySelector('.blog-spot-post').addEventListener('click',function(){
+    var ta=p.querySelector('.blog-spot-ta'),nm=p.querySelector('.blog-spot-name'),txt=ta.value.trim();
+    if(!txt){ta.focus();return;}
+    var cs=load(key);cs.unshift({name:nm.value.trim()||'Student historian',text:txt,date:new Date().toLocaleString()});
+    save(key,cs.slice(0,30));ta.value='';render(p,key);
   });
+  p.querySelector('.blog-spot-clear').addEventListener('click',function(){localStorage.removeItem(sk(key));render(p,key);});
+  render(p,key);return p;
+}
 
-  renameTutor();
+function topicFromSide(side){
+  var hl=side.querySelector('.hl[data-key]');
+  if(hl)return hl.getAttribute('data-key').replace('f_','');
+  var qw=side.querySelector('.qw[id]');
+  if(qw){var id=qw.id.replace(/^[qr]+/,'');return id||null;}
+  return null;
+}
+
+function insertAll(){
+  document.querySelectorAll('.side').forEach(function(side){
+    if(side.querySelector('.blog-spot'))return;
+    var key=topicFromSide(side);if(!key)return;
+    var panel=build(key);
+    var quiz=side.querySelector('.qw');
+    if(quiz)quiz.parentNode.insertBefore(panel,quiz.nextSibling);
+    else side.appendChild(panel);
+  });
+  ['rv','src'].forEach(function(id){
+    var pg=document.getElementById(id);
+    if(!pg||pg.querySelector('.blog-spot[data-blog-key="'+id+'"]'))return;
+    var sp=build(id);sp.classList.add('blog-spot-standalone');
+    var banner=pg.querySelector('.rv-banner,.src-banner');
+    if(banner)banner.insertAdjacentElement('afterend',sp);
+    else pg.insertBefore(sp,pg.firstChild);
+  });
+}
+
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',insertAll);}
+else{insertAll();}
+window.addEventListener('hashchange',function(){setTimeout(insertAll,200);});
+document.addEventListener('click',function(e){var nb=e.target.closest&&e.target.closest('.nb[data-t]');if(nb)setTimeout(insertAll,350);},true);
 })();
 </script>
+<script id="jhs-socrates-js">
+(function(){
+'use strict';
 
-<!-- BLOG SPOT TOPIC PANELS -->
-<style id="blog-spot-topic-panels-css">
-  .blog-spot-panel {
-    background: linear-gradient(135deg, #fff7ed, #fffbeb);
-    border: 2px solid rgba(217, 119, 6, 0.38);
-    border-radius: 13px;
-    padding: 12px 13px;
-    margin: 0 0 12px;
-    box-shadow: 0 3px 14px rgba(120, 53, 15, 0.12);
+/* ── Comprehensive knowledge base ── */
+var KB={
+  hs:{
+    facts:["WACA = Who created it? For what Audience? In what Context? With what Aim?","PRIMARY source: created AT the time. SECONDARY: created later using primary sources.","BC counts BACKWARDS — 100 BC is 500 years BEFORE 400 BC.","The Bayeux Tapestry (c.1077) was commissioned by Bishop Odo — William's half-brother.","The Domesday Book (1086) was commissioned by William to maximise tax collection."],
+    qs:{general:["What does each letter of WACA stand for? Tell me all four.","For the Bayeux Tapestry: applying W — WHO created it, and why does that matter for how we use it?","Think about A for Audience. Who was the Bayeux Tapestry made FOR — and how does that shape what it shows?","Can a biased source still be USEFUL? Explain your thinking with a specific example.","Here is the key question: is a biased source useless — or can bias itself be evidence? What is your view?"],essay:["State your main argument in ONE sentence. What is your answer to the question?","Good. Now give me ONE specific piece of evidence — a date, a named source, a specific quote.","Now the COUNTERARGUMENT. What would a historian who disagrees say?","You need a JUDGEMENT. Write your verdict: 'On balance, I would argue... because...'","Check your conclusion. Does it directly answer the question, or does it drift into description?"],source:["Which source are we analysing? Tell me first.","W — Who created this source? Tell me everything relevant about their identity and position.","A — Audience. Who was this made FOR? How does knowing the audience affect how we use it?","C — Context. When was this made and what was happening at the time?","Final A — Aim. What was the creator trying to ACHIEVE? Does their aim limit its usefulness?","Write your JUDGEMENT: 'This source is useful for understanding [X] because... however it is limited because...'"]},
+    files:["What is History — Master Presentation","How Do Historians Work? — Student Notes","WACA Source Analysis — Guided Practice"],
+    links:[{name:"Britannica: Historical Sources",url:"https://www.britannica.com/topic/primary-source"}]
+  },
+  "1066":{
+    facts:["Harold marched 250 miles from Stamford Bridge to Hastings in just 13 days — arriving exhausted.","The Bayeux Tapestry: 70 metres long, 623 human figures — commissioned by Bishop Odo, made by Anglo-Saxon embroiderers.","The Domesday Book (1086): recorded 13,418 places in 7 months — an administrative revolution.","Three battles in 1066: Gate Fulford (20 Sep), Stamford Bridge (25 Sep), Hastings (14 Oct).","Anglo-Saxon Chronicle (c.1100) was written 34 YEARS after the events."],
+    sources:[{who:"Anglo-Saxon Chronicle, c.1100",quote:"Harold was informed that William the Bastard had landed at Pevensey. Harold at once marched from the north. Many men fell ill on the march and many remained behind. William came by surprise against him before his army was set in order.",waca:"W: monks — educated, Anglo-Saxon. A: educated English readers. C: 34 years after events. A: record English history. LIMITATION: 34-year gap; written after Norman victory."}],
+    qs:{general:["Three claimants in 1066: Harold, Hardrada, William. Which had the strongest LEGAL claim? Which had the strongest MILITARY claim?","Harold won at Stamford Bridge on 25 September and fought at Hastings on 14 October — just 19 days later. What does that tell us about the condition of his army?","The Anglo-Saxon Chronicle was written approximately 34 YEARS after the events of 1066. How does that gap affect how we use it as evidence?","The Norman feigned retreat drew Harold's housecarls down from the ridge. Why was this tactic so effective — and so hard to counter?","Was the Norman Conquest inevitable once Harold was killed — or could Anglo-Saxon resistance have continued?"],essay:["What is your thesis — were Harold's mistakes or William's strengths MORE important? ONE sentence.","Give me ONE specific piece of evidence with a precise date or name.","Counterargument: if Harold had NOT made those mistakes, would William still have won?","How do we know Harold's army 'fell ill on the march'? What does the source's provenance tell us about that claim?","Write your justified conclusion: 'On balance, I would argue... because...'"],source:["The Anglo-Saxon Chronicle, c.1100 — start with W. Who wrote it, and what does their identity mean for how we use it?","It was written approximately 34 YEARS after the events of 1066. How does that gap affect its reliability?","The Bayeux Tapestry was commissioned by Bishop Odo. Apply WACA fully — especially the AIM.","Compare the Chronicle (written) and Tapestry (visual). What can each tell us that the other CANNOT?","Write your 8-mark judgement: 'This source is useful for understanding [X] because... however it is limited because...'"]},
+    files:["1066 — Master Presentation","History Detectives — Lesson Resource File"],
+    links:[{name:"Britannica: Battle of Hastings",url:"https://www.britannica.com/event/Battle-of-Hastings"},{name:"Britannica: Norman Conquest",url:"https://www.britannica.com/topic/Norman-Conquest-of-England"}]
+  },
+  ww1:{
+    facts:["M.A.I.N. = Militarism, Alliances, Imperialism, Nationalism — UNDERLYING causes, not the spark.","The Sarajevo assassination (28 June 1914) was the spark — not the main cause.","Day one of the Battle of the Somme (1 July 1916): 57,470 British casualties including 19,240 killed.","The Treaty of Versailles imposed £6.6 billion in reparations — not fully paid until October 2010.","The soldier's letter (Nov 1916, IWM) was CENSORED — soldiers knew officers would read their post."],
+    sources:[{who:"Anonymous British soldier, IWM Archives, November 1916",quote:"We are now in the third week at the front. The mud is indescribable. Men have been pulled under by it entirely. Last night we lost two men who disappeared into shell holes. The noise never stops. I have not slept properly in eleven days.",waca:"W: unnamed private — but CENSORED by military officers. A: family at home. C: Battle of the Somme, November 1916. A: personal communication, likely self-censored. LIMITATION: censorship means it may understate reality."}],
+    qs:{general:["Name all four M.A.I.N. causes and give ONE specific dated example for each.","The Sarajevo assassination is often called the 'spark.' What does calling it a spark — rather than a cause — tell us about how historians understand causation?","WACA the IWM trench photograph — it is an official military photograph. What was its purpose, and how does that limit its usefulness?","The soldier's letter was censored. What topics might he have deliberately NOT mentioned — and why does that matter?","The Treaty of Versailles: was it too harsh, too lenient, or about right? Give me evidence for your view."],essay:["Your thesis in ONE sentence: which M.A.I.N. cause was most important?","Give me ONE specific dated example that proves your main cause was decisive.","Counter: if that cause had not existed, would WW1 still have started? What evidence supports the counterargument?","Connect to the Somme: 57,470 casualties on one day. How does this affect your judgement?","Write your justified conclusion about the main cause of WW1."],source:["We are using the soldier's letter (IWM, 1916). Start with W — who wrote it?","The letter was censored. How does that change the A (Audience) and the C (Context) in your WACA?","What does this source tell us that the trench photograph CANNOT — and vice versa?","Write your 8-mark judgement on the soldier's letter.","Own knowledge: what do you know about trench conditions that confirms OR challenges what the letter suggests?"]},
+    files:["WW1 — Cornell Notes and Revision Sheet","WW1 — Source Investigation File","WW1 — Master Lesson Presentation"],
+    links:[{name:"Britannica: World War One",url:"https://www.britannica.com/event/World-War-I"},{name:"Imperial War Museum: WW1",url:"https://www.iwm.org.uk/history/first-world-war"}]
+  },
+  cw:{
+    facts:["Churchill's Iron Curtain speech (5 March 1946): Truman sat on the platform — giving it semi-official US endorsement.","The CIA aerial photograph of Cuba (1 November 1962): analysts' labels are essential — without them, the structures are unidentifiable.","Kennedy's four options during Cuba: blockade, air strike, invasion, diplomacy.","LOOK-CHECK-INFER-JUDGE: the four-step method for iGCSE source questions.","At the peak of the Berlin Airlift (1948-49), an Allied plane landed in West Berlin every 45 seconds."],
+    sources:[{who:"Winston Churchill, Fulton Missouri, 5 March 1946",quote:"From Stettin in the Baltic to Trieste in the Adriatic, an iron curtain has descended across the Continent.",waca:"W: Churchill — no longer PM (lost 1945 election). A: US academic audience — Truman sat on platform. C: March 1946, growing Soviet control of Eastern Europe. A: warn the USA about Soviet expansion. LIMITATION: Churchill had personal political interests; some claims exaggerated."},{who:"CIA U-2 aerial photograph, Cuba, 1 November 1962",quote:"[VISUAL SOURCE] Analysts' annotations label LAUNCH POSITION, ERECTOR, MISSILE READY TENT, MISSILE TRANSPORTERS. Without these labels, the structures are almost unidentifiable.",waca:"W: CIA — US intelligence in direct confrontation with USSR. A: Kennedy and ExComm. C: 13-day Cuban Missile Crisis. A: intelligence evidence to justify US response. LIMITATION: interpretation of 'missile sites' reflects US interests."}],
+    qs:{general:["LOOK at the CIA Cuba aerial photograph. Without the analysts' labels, what can you actually see? What does this tell us about photographic evidence?","Churchill was no longer Prime Minister when he gave the Iron Curtain speech. Yet Truman sat beside him. What does that tell us about the speech's significance?","Kennedy had four options during Cuba. Walk me through each one — what were the specific risks of an air strike?","Apply LOOK-CHECK-INFER-JUDGE systematically to the Iron Curtain speech. Start with LOOK.","Was the USA or the USSR more responsible for Cold War tensions? Give me your strongest piece of evidence."],essay:["State your thesis: USA or USSR more responsible? ONE sentence with your verdict.","Give me your strongest piece of evidence — specific event, specific date.","The counterargument: what is the best evidence for the OTHER side?","For a 16-mark answer: Para 1 (main argument), Para 2 (alternative), Para 3 (comparison). What goes in each?","Write your conclusion: on balance, which superpower bears more responsibility — and why?"],source:["We are using LOOK-CHECK-INFER-JUDGE for the CIA photograph. Start with LOOK — describe precisely what you can see.","CHECK: apply WACA. Who took this (CIA)? For whom (Kennedy/ExComm)? What was their specific AIM?","INFER: what does this photograph IMPLY about Soviet intentions that it doesn't directly state?","JUDGE: 'This source is useful for understanding [X] because... however it is limited because...'","Own knowledge: what do you know about the Cuban Missile Crisis that this photograph cannot show?"]},
+    files:["Cold War Week 1 — Grand Alliance PPT","Cold War — Source Investigation File"],
+    links:[{name:"Britannica: The Cold War",url:"https://www.britannica.com/event/Cold-War"},{name:"Britannica: Cuban Missile Crisis",url:"https://www.britannica.com/event/Cuban-missile-crisis"},{name:"Imperial War Museum: Cold War",url:"https://www.iwm.org.uk/history/cold-war"}]
+  },
+  st:{
+    facts:["Stalin's official portrait (c.1930s): calm, authoritative, plain military uniform — no weapons, no other people, no signs of terror.","The Great Terror (1936-38): approximately 1.5 million arrested, at least 750,000 executed by the NKVD.","The Holodomor (1932-33): deliberately engineered famine — grain quotas maintained as millions starved.","The Gulag at its peak (1953): 1.8 million people in 476 camp complexes across Siberia.","Show trial defendants confessed due to: torture, threats to family, genuine belief, psychological manipulation."],
+    sources:[{who:"Official Soviet portrait of Stalin, c.1930s (state commission)",quote:"[VISUAL SOURCE] Stalin shown in plain military uniform, calm and authoritative. Gaze directed slightly upward. No weapons, no other people, no signs of violence or terror. Produced during the height of the Great Terror.",waca:"W: Soviet state artists under Communist Party commission. A: all Soviet citizens. C: 1930s — same period as Great Terror and Holodomor. A: project image of benevolent father figure. LIMITATION: the GAP between this image and documented reality of Gulag/Holodomor is itself historical evidence about totalitarian propaganda."}],
+    qs:{general:["Apply LOOK-CHECK-INFER-JUDGE to Stalin's official portrait. LOOK first — list five specific visual choices and what each communicates.","This portrait was made during the same period as the Holodomor and Great Terror. What does the GAP between the image and reality tell us?","Why did Stalin need BOTH terror AND propaganda? Why was terror alone not sufficient for complete control?","Show trial defendants confessed to crimes they did not commit. Give me at least TWO different reasons why.","Was Stalin's terror evidence of his power — or evidence of his insecurity? What would each argument say?"],essay:["Your thesis: was terror MORE important than propaganda? State it in ONE sentence.","Give me ONE specific example of TERROR with dates and numbers.","Give me ONE specific example of PROPAGANDA — including the official portrait.","Why did Stalin need both? Can you explain why each method alone would be insufficient?","Write your 16-mark conclusion: on balance, which method was more important — and why?"],source:["We are using Stalin's official portrait. Start with LOOK — be very specific about the visual choices.","CHECK: Who commissioned it? For whom? What was the Communist Party's specific AIM?","INFER: what does this portrait imply about how Stalin wanted to be seen that it does not directly state?","The GAP: this was made during the Great Terror and Holodomor. How does that gap affect its usefulness?","Write your 8-mark judgement on this portrait as a source for understanding Stalin's methods of control."]},
+    files:["Stalin's Russia — 5-Unit Master PPT","Stalin Unit 3: Great Terror","Stalin Unit 4: Propaganda"],
+    links:[{name:"Britannica: Joseph Stalin",url:"https://www.britannica.com/biography/Joseph-Stalin"},{name:"Britannica: The Gulag",url:"https://www.britannica.com/topic/Gulag"}]
+  },
+  vn:{
+    facts:["TET OFFENSIVE KEY DISTINCTION: US/South Vietnam won MILITARILY — but it was a devastating POLITICAL defeat.","Walter Cronkite declared the war 'a stalemate' on 27 February 1968 — trusted by 73% of Americans.","The USA dropped more bombs on Vietnam than were dropped by all sides combined in all of WW2.","The Cu Chi tunnel network stretched 250km — included hospitals, command centres and schools.","LBJ's approval rating fell below 36% after Tet — he declined to seek re-election."],
+    qs:{general:["THE KEY DISTINCTION for Tet: US forces won militarily. Yet it is called a turning point. Explain that paradox clearly.","Walter Cronkite called the war 'a stalemate' after Tet. He was trusted by 73% of Americans. Why does that statistic matter historically?","Apply LOOK-CHECK-INFER-JUDGE to the Vietnam composite image. Start with LOOK.","The composite is made of US government photographs. Whose perspective does that represent — and who is absent?","Was US failure primarily about what happened on the BATTLEFIELD or about what happened at HOME? Evidence for both."],essay:["Your thesis: was Tet the turning point, or just the moment existing trends became visible? ONE sentence.","Tet military outcome: give me specific details — how many cities attacked? What happened within weeks?","Tet political outcome: give me specific evidence of the political and public opinion impact.","Alternative factor: one other reason for US failure that could challenge 'Tet was THE turning point.'","Write your 16-mark conclusion: how far was the Tet Offensive THE turning point of the Vietnam War?"],source:["The Vietnam composite image — LOOK first. Identify every specific element you can see.","CHECK: this composite was assembled later from US government photographs. How does that affect A and C?","INFER: which element of this composite best explains WHY the USA failed to win? Justify your choice.","JUDGE: write your sentence about the composite's usefulness for understanding US failure in Vietnam.","Own knowledge: what do you know about the Tet Offensive that this composite cannot show?"]},
+    files:["Vietnam — Tet Offensive PPT","Vietnam — Strategic Hamlets PPT","Vietnam — Exam Practice PPT"],
+    links:[{name:"Britannica: Vietnam War",url:"https://www.britannica.com/event/Vietnam-War"},{name:"Britannica: Tet Offensive",url:"https://www.britannica.com/event/Tet-Offensive"}]
+  },
+  md:{
+    facts:["Fleming discovered penicillin in 1928 — BEFORE WW2. Florey and Chain made it usable in 1940. The 12-year gap is KEY.","Beveridge's Five Giants (exact terms): Want, Disease, Ignorance, Squalor, Idleness.","The NHS launched 5 July 1948. On day one, some GPs had 2,000 new patients by lunchtime.","BMA opposition: Bevan overcame it by giving hospital consultants the right to treat private patients in NHS hospitals.","The Beveridge Report (1942) sold 635,000 copies within weeks — highest ever for a government document."],
+    sources:[{who:"Aneurin Bevan, NHS Launch Speech, Park Hospital Manchester, 5 July 1948",quote:"The NHS will last as long as there are folk left with faith to fight for it. It has not had an easy passage. There have been enormous difficulties. It was my job to overcome these difficulties. We now have the moral leadership of the world.",waca:"W: Bevan — the NHS's architect. A: launch ceremony audience. C: NHS launch day, just after defeating BMA opposition. A: celebratory — claim credit, inspire supporters. LIMITATION: celebratory speech by its creator — presents only positive view."}],
+    qs:{general:["Fleming discovered penicillin in 1928 — BEFORE WW2. Florey and Chain made it usable in 1940. What does that 12-year gap tell us about WW2's actual role?","Name ALL FIVE of Beveridge's Giants exactly — the precise terms matter in the exam.","Apply LOOK-CHECK-INFER-JUDGE to the penicillin image. What does the journey from petri dish to factory tell us?","The BMA opposed the NHS fiercely. Bevan overcame them. What does the SCALE of BMA opposition tell us about what a radical change the NHS represented?","Bevan's launch speech says 'enormous difficulties.' What were these difficulties — and why does he understate them?"],essay:["Your thesis: was WW2 the MAIN reason the NHS was created? Or just an accelerator? ONE sentence.","WW2 evidence: ONE specific advance with dates and the name of the person responsible.","But: Fleming discovered penicillin in 1928 — before WW2. How does this complicate the WW2 argument?","Alternative: the Labour election victory (1945) and Bevan's role. How important was this compared to WW2?","Write your 16-mark conclusion: how far did WW2 cause the creation of the NHS in 1948?"],source:["We are using Bevan's NHS launch speech (1948). Start with W — who is Bevan, and what is his personal relationship to the NHS?","CHECK: the speech was given on LAUNCH DAY by the NHS's creator. How does that context limit its usefulness?","He says 'We now have the moral leadership of the world.' Is this justified? What own knowledge would you use to challenge it?","JUDGE: write your 8-mark sentence on the usefulness of this speech for understanding the creation of the NHS.","What does Bevan deliberately NOT mention in this celebratory speech — and why does that absence matter?"]},
+    files:["Changes in Medicine — Main Overview PPT","Changes in Medicine W2: Penicillin","Changes in Medicine W4: Beveridge Report","Changes in Medicine W5: Nye Bevan and NHS"],
+    links:[{name:"Britannica: Penicillin",url:"https://www.britannica.com/science/penicillin"},{name:"Britannica: National Health Service",url:"https://www.britannica.com/topic/National-Health-Service"}]
   }
+};
 
-  .blog-spot-head {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
+var DEFAULTS={
+  general:["What is your main argument? Give it to me in ONE sentence.","Good start. Now give me ONE specific piece of evidence — a date, a name, an event.","You've made a claim. What would someone who DISAGREES say? What's the strongest counterargument?","Evaluate: is your evidence from a reliable source? Apply WACA to it.","Write your final verdict: 'On balance, I would argue... because...'"],
+  essay:["State your thesis in ONE sentence — your direct answer to the question.","Evidence: one specific fact with a precise date or name.","Counterargument: what is the best challenge to your position?","Why is your argument more convincing than the counterargument?","Write your conclusion: 'On balance, I would argue... because...'"],
+  source:["Which source are we analysing? Tell me first.","W — Who created this source? Everything relevant about them.","A — Audience. Who was this made FOR? How does that shape what it shows?","C — Context. When was it made? What was happening at the time?","Final A — Aim. What was the creator trying to ACHIEVE?","Write your JUDGEMENT: 'This source is useful for understanding [X] because... however it is limited because...'"]
+};
 
-  .blog-spot-icon {
-    font-size: 1.35rem;
-    line-height: 1;
-  }
+var PATTERNS=[
+  {r:/don.?t know|not sure|no idea|haven.?t studied/i,a:["That is absolutely fine. Let's start with what you DO know. Tell me the very first thing that comes to mind about this topic.","No problem at all. Give me your best guess — even a guess is the right starting point for historical thinking.","Let's approach it differently. What have you covered in class? Even one fact is enough to start."]},
+  {r:/give me (the )?answer|just tell me|what.?s the answer/i,a:["I can't give you the answer directly — that's how Socratic learning works. But here's a clue: start with what you're most confident about.","The answer will mean more when you find it yourself. Tell me: what part of this question confuses you most? We'll start there.","I know it's tempting! But your instinct is probably already on the right track. What's your best guess?"]},
+  {r:/waca|who.*audience|context.*aim/i,a:["Good — you're applying WACA. Now the most important part: the final A — Aim. How does knowing the creator's AIM affect the source's usefulness AND its limitations?","WACA needs a JUDGEMENT to be complete. Write: 'This source is useful for understanding [X] because... however it is limited because...'","You're applying WACA well. Now: can a source with a clear AIM (like propaganda) still be useful as historical evidence?"]},
+  {r:/look.check.infer|lcij/i,a:["Good — you're using LOOK-CHECK-INFER-JUDGE. Which step are you on? Tell me what you've found so far.","For LOOK: be very specific. What exactly can you see — not what you think it means, just what is literally there?","INFER is the step most students skip. It asks: what does this source IMPLY beyond what it directly states?"]},
+  {r:/bias|biased|propaganda|one.?sided/i,a:["Careful — biased doesn't automatically mean useless. A biased source can be very valuable. Can you explain WHAT it is still useful for, even given the bias?","Good instinct. But be more precise: HOW exactly does the bias show itself? What specifically does it exaggerate, omit or distort?","Here's the key question: is the bias a LIMITATION — or is the bias itself useful historical evidence about the creator's purpose?"]},
+  {r:/tet offensive|tet 1968/i,a:["THE KEY DISTINCTION you must nail: the Tet Offensive was a MILITARY VICTORY for the USA — but a POLITICAL DEFEAT. Can you explain that paradox clearly?","Walter Cronkite called the war 'a stalemate' after Tet. He was trusted by 73% of Americans. Why does that statistic matter historically?"]},
+  {r:/five giants|want.*disease|beveridge/i,a:["Can you name ALL FIVE Giants exactly? Want, Disease, Ignorance, Squalor, Idleness — the precise terms matter in the exam.","Good knowledge of the Five Giants. Now: which Giant was penicillin most directly addressing — and why does that connection matter for your essay?"]},
+  {r:/penicillin|fleming|florey|chain/i,a:["KEY FACT: Fleming discovered penicillin in 1928 — BEFORE WW2. Florey and Chain made it usable in 1940. What does that 12-year gap tell us about WW2's ACTUAL role in the creation of the NHS?"]},
+  {r:/m\.?a\.?i\.?n|main causes/i,a:["M.A.I.N. — four underlying causes. For each one: (1) a clear definition, (2) ONE specific dated example, (3) an explanation of HOW it contributed to war. Which cause are you most confident about?"]},
+  {r:/because|therefore|this (led|means|shows)|as a result|however|although|despite/i,a:["Strong analytical language! Now push deeper: what is the MOST IMPORTANT point you've just made, and what's the single strongest piece of evidence?","Good causation in your answer. Now test it: what would a historian who DISAGREES say?","You've identified a cause-and-effect relationship. Now ask: is this always true, or are there exceptions that would make for a more sophisticated argument?"]},
+  {r:/\b(1066|1348|1807|1833|1914|1916|1918|1919|1920|1931|1936|1939|1945|1946|1947|1948|1954|1956|1961|1962|1968|1973|1975)\b/,a:["Good — specific date! Now explain: WHY is this date significant? What changed because of what happened then?","Excellent precision. Now connect it to your argument: how does this specific event support your main claim?"]}
+];
 
-  .blog-spot-title {
-    font-size: 0.86rem;
-    font-weight: 800;
-    color: #92400e;
-    line-height: 1.25;
-  }
+function matchPat(text){for(var i=0;i<PATTERNS.length;i++){if(PATTERNS[i].r.test(text)){var a=PATTERNS[i].a;return a[Math.floor(Math.random()*a.length)];}}return null;}
 
-  .blog-spot-sub {
-    font-size: 0.64rem;
-    color: #7c2d12;
-    line-height: 1.45;
-    margin-top: 1px;
-  }
+/* ── UI state ── */
+var STATE={};
+var CTR={};
 
-  .blog-spot-question {
-    background: #ffffff;
-    border-left: 4px solid #d97706;
-    border-radius: 0 9px 9px 0;
-    padding: 9px 11px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #1a2540;
-    line-height: 1.55;
-    margin-bottom: 8px;
-  }
+function getQs(topic,mode){
+  var kb=KB[topic];
+  if(kb&&kb.qs&&kb.qs[mode])return kb.qs[mode];
+  if(kb&&kb.qs&&kb.qs.general)return kb.qs.general;
+  return DEFAULTS[mode]||DEFAULTS.general;
+}
 
-  .blog-spot-prompts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin-bottom: 8px;
-  }
+function getTopicLabel(t){
+  var m={home:'History',y7:'Year 7 Medieval England',y8:'Year 8',y9:'Year 9',ig:'iGCSE History',rv:'Revision Hub',src:'Source Studies',hs:'What is History?','1066':'Norman Conquest 1066',med:'Medieval Entertainment',bd:'The Black Death',cas:'Castles',sl:'Transatlantic Slave Trade',fm:'Industrial Revolution',lv:'Victorian Conditions',em:'British Empire',nel:'Battle of Trafalgar',ww1:'World War One',lon:'League of Nations',cw:'Cold War',st:"Stalin's Russia",vn:'Vietnam War',md:'Changes in Medicine'};
+  return m[t]||'History';
+}
 
-  .blog-spot-prompt {
-    background: #fff;
-    border: 1px solid rgba(217, 119, 6, 0.28);
-    color: #92400e;
-    border-radius: 999px;
-    padding: 3px 7px;
-    font-size: 0.61rem;
-    font-weight: 700;
-  }
+function buildResourceHint(topic){
+  var kb=KB[topic];if(!kb)return '';
+  var parts=[];
+  if(kb.files&&kb.files.length)parts.push('\n\n\uD83D\uDCC2 Lesson files: '+kb.files.slice(0,3).join(' \u00b7 '));
+  if(kb.links&&kb.links.length)parts.push('\n\uD83D\uDD17 Research: '+kb.links.map(function(l){return l.name;}).join(' \u00b7 '));
+  return parts.join('');
+}
 
-  .blog-spot-input {
-    width: 100%;
-    border: 1.5px solid rgba(217, 119, 6, 0.32);
-    border-radius: 9px;
-    padding: 8px 10px;
-    resize: vertical;
-    min-height: 58px;
-    font-size: 0.78rem;
-    font-family: inherit;
-    color: #1a2540;
-    outline: none;
-    background: #fff;
-  }
+function generateReply(uid,text){
+  var st=STATE[uid];if(!st)return 'What are you working on? Tell me your topic or question.';
+  var pat=matchPat(text);
+  if(pat)return pat+(CTR[uid]===1?buildResourceHint(st.topic):'');
+  var qs=getQs(st.topic,st.mode);
+  var k=uid+'_'+st.mode;
+  CTR[k]=(CTR[k]||0);
+  var q=qs[CTR[k]%qs.length];
+  CTR[k]++;
+  var acks=['','Good start. ','Interesting point. ','You\'re on the right track. ','Strong instinct. '];
+  var pref=text.length>50?acks[Math.floor(Math.random()*acks.length)]:'';
+  var hint=CTR[k]===2?buildResourceHint(st.topic):'';
+  return pref+q+hint;
+}
 
-  .blog-spot-input:focus {
-    border-color: #d97706;
-    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.12);
-  }
+function addMsg(uid,role,text){
+  var c=document.getElementById(uid+'_msgs');if(!c)return;
+  var d=document.createElement('div');
+  d.className='tutor-m '+role;
+  d.innerHTML=String(text).replace(/\n/g,'<br>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  c.appendChild(d);c.scrollTop=c.scrollHeight;
+}
 
-  .blog-spot-row {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    margin-top: 7px;
-  }
+function initState(uid,topic){
+  STATE[uid]={mode:'general',topic:topic};
+  var label=getTopicLabel(topic);
+  var kb=KB[topic];
+  var fact=kb&&kb.facts?'\n\n\uD83D\uDCA1 '+kb.facts[0]:'';
+  addMsg(uid,'ai','Hello! I am **Socrates**, your historical AI tutor.\n\nI am here to help you think through **'+label+'** — I will guide you to answers through questions, not just give them to you. That is how you build real historical thinking.\n\nWhat are you working on? Tell me your essay question, which source you are analysing, or what you want to understand.'+fact);
+}
 
-  .blog-spot-name {
-    flex: 1;
-    min-width: 0;
-    border: 1.5px solid rgba(217, 119, 6, 0.24);
-    border-radius: 8px;
-    padding: 7px 9px;
-    font-size: 0.72rem;
-    font-family: inherit;
-    outline: none;
-  }
+window.tiMode=function(uid,mode){
+  if(!STATE[uid])return;
+  STATE[uid].mode=mode;
+  STATE[uid].topic=STATE[uid].topic;
+  document.querySelectorAll('#'+uid+' .tutor-inline-mode').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-mode')===mode);});
+  var ml={general:'**General history help**',essay:'**Essay structure and writing**',source:'**Source analysis (WACA / LOOK-CHECK-INFER-JUDGE)**'};
+  addMsg(uid,'ai','Mode switched to '+ml[mode]+'. What would you like to work on?');
+};
 
-  .blog-spot-post {
-    background: #d97706;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 7px 10px;
-    font-size: 0.72rem;
-    font-weight: 800;
-    cursor: pointer;
-    font-family: inherit;
-    white-space: nowrap;
-  }
+window.tiSend=function(uid){
+  var inp=document.getElementById(uid+'_in');if(!inp)return;
+  var text=inp.value.trim();if(!text)return;
+  inp.value='';
+  if(!STATE[uid]){var pg=document.getElementById(uid)&&document.getElementById(uid).closest&&document.getElementById(uid).closest('.pg');STATE[uid]={mode:'general',topic:pg?pg.id:'home'};}
+  addMsg(uid,'user',text);
+  setTimeout(function(){addMsg(uid,'ai',generateReply(uid,text));},400+Math.random()*300);
+};
 
-  .blog-spot-post:hover {
-    background: #b45309;
-  }
+/* ── Remove old inline tutors; insert new ones ── */
+function makeTutor(uid,topic){
+  var p=document.createElement('div');
+  p.className='tutor-inline';p.id=uid;
+  p.innerHTML='<div class="tutor-inline-head"><span class="tutor-inline-ico">\uD83E\uDDE0</span><div><div class="tutor-inline-title">Socrates, your historical AI tutor</div><div class="tutor-inline-sub">Guides you \u00b7 Socratic questioning \u00b7 Essay &amp; source skills</div></div></div>'
+    +'<div class="tutor-inline-modes"><button class="tutor-inline-mode active" data-mode="general" onclick="tiMode(\''+uid+'\',\'general\')">\uD83D\uDCAC General</button><button class="tutor-inline-mode" data-mode="essay" onclick="tiMode(\''+uid+'\',\'essay\')">&#9997;&#65039; Essay</button><button class="tutor-inline-mode" data-mode="source" onclick="tiMode(\''+uid+'\',\'source\')">&#128220; Source</button></div>'
+    +'<div class="tutor-inline-msgs" id="'+uid+'_msgs"></div>'
+    +'<div class="tutor-inline-input-row"><textarea class="tutor-inline-input" id="'+uid+'_in" placeholder="Type your answer or question here..." rows="2" onkeydown="if(event.key===\'Enter\'&&!event.shiftKey){event.preventDefault();tiSend(\''+uid+'\');}"></textarea><button class="tutor-inline-send" onclick="tiSend(\''+uid+'\')">&#8593;</button></div>';
+  return p;
+}
 
-  .blog-spot-comments {
-    margin-top: 9px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    max-height: 190px;
-    overflow-y: auto;
-  }
+function topicFromSide(side){
+  var hl=side.querySelector('.hl[data-key]');
+  if(hl)return hl.getAttribute('data-key').replace('f_','');
+  var qw=side.querySelector('.qw[id]');
+  if(qw){var id=qw.id.replace(/^[qr]+/,'');if(id)return id;}
+  return null;
+}
 
-  .blog-comment {
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 9px;
-    padding: 8px 9px;
-  }
+function insertTutors(){
+  /* Remove old inline tutors that say "Socratic History Tutor FREE" */
+  document.querySelectorAll('.tutor-inline').forEach(function(old){
+    if(old.id&&old.id.startsWith('jhs_ti_'))return; /* already ours */
+    old.remove();
+  });
+  document.querySelectorAll('.side').forEach(function(side){
+    if(side.querySelector('.tutor-inline'))return;
+    var topic=topicFromSide(side);if(!topic)return;
+    var uid='jhs_ti_'+topic+'_'+Math.random().toString(36).slice(2,6);
+    var panel=makeTutor(uid,topic);
+    var quiz=side.querySelector('.qw');
+    if(quiz)quiz.parentNode.insertBefore(panel,quiz);
+    else side.insertBefore(panel,side.firstChild);
+    initState(uid,topic);
+  });
+}
 
-  .blog-comment-meta {
-    font-size: 0.62rem;
-    font-weight: 800;
-    color: #92400e;
-    margin-bottom: 3px;
-  }
+/* ── Home-page navigation (bulletproof) ── */
+function showPage(id){
+  var page=document.getElementById(id);if(!page)return false;
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('active');p.style.display='none';});
+  page.classList.add('active');page.style.display='block';
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('.nb[data-t="'+id+'"]').forEach(function(b){b.classList.add('active');});
+  if(history&&history.replaceState)history.replaceState(null,'','#'+id);
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(insertTutors,200);
+  return true;
+}
+function cardTarget(c){
+  var t=(c.textContent||'').toLowerCase();
+  if(t.indexOf('year 7')!==-1)return 'y7';if(t.indexOf('year 8')!==-1)return 'y8';
+  if(t.indexOf('year 9')!==-1)return 'y9';if(t.indexOf('igcse')!==-1||t.indexOf('gcse')!==-1)return 'ig';
+  if(t.indexOf('revision')!==-1)return 'rv';if(t.indexOf('source')!==-1)return 'src';
+  return null;
+}
+window.nav=showPage;window.go=function(id){return showPage(id);};
+document.addEventListener('click',function(e){
+  var c=e.target.closest&&e.target.closest('.hcard');
+  if(c){var t=cardTarget(c);if(t){e.preventDefault();e.stopPropagation();showPage(t);return;}}
+  var nb=e.target.closest&&e.target.closest('.nb[data-t]');
+  if(nb){e.preventDefault();e.stopPropagation();showPage(nb.getAttribute('data-t'));}
+},true);
 
-  .blog-comment-text {
-    font-size: 0.74rem;
-    color: #374060;
-    line-height: 1.55;
-    white-space: pre-wrap;
-  }
-
-  .blog-spot-empty {
-    font-size: 0.68rem;
-    color: #7c2d12;
-    font-style: italic;
-    background: rgba(255, 255, 255, 0.66);
-    border-radius: 8px;
-    padding: 7px 9px;
-  }
-
-  .blog-spot-clear {
-    background: none;
-    border: none;
-    color: #9a3412;
-    font-size: 0.63rem;
-    cursor: pointer;
-    padding: 4px 0 0;
-    font-family: inherit;
-    text-decoration: underline;
-  }
-</style>
-
-<script id="blog-spot-topic-panels-js">
-(function () {
-  'use strict';
-
-  var BLOG_DATA = {
-    hs: {
-      topic: 'What is History?',
-      question: 'How far can historians trust a source if its creator had a clear purpose?',
-      prompts: ['Use WACA', 'Consider bias', 'Use a source example']
-    },
-    '1066': {
-      topic: 'The Norman Conquest',
-      question: 'Was William’s victory at Hastings mainly caused by Harold’s mistakes?',
-      prompts: ['Harold’s march', 'William’s tactics', 'Bayeux Tapestry']
-    },
-    med: {
-      topic: 'Medieval Entertainment',
-      question: 'What does medieval entertainment reveal about power and social class?',
-      prompts: ['Holy days', 'Mob football', 'Sumptuary laws']
-    },
-    bd: {
-      topic: 'The Black Death',
-      question: 'Did the Black Death ultimately weaken or strengthen ordinary people?',
-      prompts: ['Labour shortage', 'Peasants', 'Feudalism']
-    },
-    cas: {
-      topic: 'Castles',
-      question: 'Were castles more important as military defences or symbols of Norman power?',
-      prompts: ['Motte and bailey', 'Stone keep', 'Control']
-    },
-    sl: {
-      topic: 'The Slave Trade',
-      question: 'Was moral campaigning or economic change more important in ending the slave trade?',
-      prompts: ['Equiano', 'Brookes diagram', '1807 and 1833']
-    },
-    fm: {
-      topic: 'Industrial Revolution',
-      question: 'Did the Industrial Revolution improve life for ordinary people?',
-      prompts: ['Factories', 'Child labour', 'Urbanisation']
-    },
-    lv: {
-      topic: 'Victorian Living Conditions',
-      question: 'Why did it take crises like cholera and the Great Stink to force public health reform?',
-      prompts: ['John Snow', 'Cholera', 'Great Stink']
-    },
-    em: {
-      topic: 'British Empire',
-      question: 'Was the British Empire mainly about progress, control, or exploitation?',
-      prompts: ['Indian Rebellion', 'Empire map', 'Two perspectives']
-    },
-    nel: {
-      topic: 'Nelson and Trafalgar',
-      question: 'Was Trafalgar more important for British security or British identity?',
-      prompts: ['Naval power', 'Napoleon', 'Nelson']
-    },
-    ww1: {
-      topic: 'World War One',
-      question: 'Was World War One caused more by long-term tensions than by the assassination at Sarajevo?',
-      prompts: ['M.A.I.N.', 'Sarajevo', 'Alliances']
-    },
-    lon: {
-      topic: 'League of Nations',
-      question: 'Was the League of Nations doomed to fail from the start?',
-      prompts: ['No USA', 'No army', 'Abyssinia']
-    },
-    cw: {
-      topic: 'The Cold War',
-      question: 'Was the USA or the USSR more responsible for Cold War tensions?',
-      prompts: ['Iron Curtain', 'Truman Doctrine', 'Cuba']
-    },
-    st: {
-      topic: 'Stalin’s Russia',
-      question: 'Was terror more important than propaganda in maintaining Stalin’s power?',
-      prompts: ['NKVD', 'Gulag', 'Cult of personality']
-    },
-    vn: {
-      topic: 'Vietnam War',
-      question: 'Was the Tet Offensive the turning point of the Vietnam War?',
-      prompts: ['Military outcome', 'Political impact', 'US public opinion']
-    },
-    md: {
-      topic: 'Changes in Medicine',
-      question: 'Was World War Two the main reason the NHS was created in 1948?',
-      prompts: ['Penicillin', 'Beveridge', 'Bevan']
-    },
-    rv: {
-      topic: 'Revision Hub',
-      question: 'Which historical argument from your revision topic is the most convincing, and why?',
-      prompts: ['Use evidence', 'Challenge a view', 'Reach a judgement']
-    },
-    src: {
-      topic: 'Source Studies',
-      question: 'What makes a source useful even if it is biased or limited?',
-      prompts: ['WACA', 'Own knowledge', 'Usefulness judgement']
-    }
-  };
-
-  function all(selector, root) {
-    return Array.prototype.slice.call((root || document).querySelectorAll(selector));
-  }
-
-  function escapeHtml(value) {
-    return String(value || '')
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
-  }
-
-  function storageKey(topicKey) {
-    return 'john_history_blog_spot_' + topicKey;
-  }
-
-  function getComments(topicKey) {
-    try {
-      return JSON.parse(localStorage.getItem(storageKey(topicKey)) || '[]');
-    } catch (error) {
-      return [];
-    }
-  }
-
-  function saveComments(topicKey, comments) {
-    localStorage.setItem(storageKey(topicKey), JSON.stringify(comments));
-  }
-
-  function detectTopicKeyFromSide(side) {
-    var tutor = side.querySelector('.tutor-inline[id^="ti_"]');
-
-    if (tutor && tutor.id) {
-      return tutor.id.replace(/^ti_/, '').split('')[0];
-    }
-
-    var text = (side.parentElement ? side.parentElement.textContent : side.textContent || '').toLowerCase();
-
-    if (text.indexOf('what is history') !== -1) return 'hs';
-    if (text.indexOf('norman conquest') !== -1 || text.indexOf('1066') !== -1) return '1066';
-    if (text.indexOf('medieval entertainment') !== -1) return 'med';
-    if (text.indexOf('black death') !== -1) return 'bd';
-    if (text.indexOf('castle') !== -1) return 'cas';
-    if (text.indexOf('slave') !== -1) return 'sl';
-    if (text.indexOf('industrial') !== -1) return 'fm';
-    if (text.indexOf('victorian') !== -1 || text.indexOf('cholera') !== -1) return 'lv';
-    if (text.indexOf('empire') !== -1) return 'em';
-    if (text.indexOf('trafalgar') !== -1 || text.indexOf('nelson') !== -1) return 'nel';
-    if (text.indexOf('world war one') !== -1 || text.indexOf('ww1') !== -1) return 'ww1';
-    if (text.indexOf('league of nations') !== -1) return 'lon';
-    if (text.indexOf('cold war') !== -1) return 'cw';
-    if (text.indexOf('stalin') !== -1) return 'st';
-    if (text.indexOf('vietnam') !== -1) return 'vn';
-    if (text.indexOf('medicine') !== -1 || text.indexOf('nhs') !== -1) return 'md';
-
-    return 'rv';
-  }
-
-  function renderComments(panel, topicKey) {
-    var holder = panel.querySelector('.blog-spot-comments');
-    var comments = getComments(topicKey);
-
-    if (!comments.length) {
-      holder.innerHTML = '<div class="blog-spot-empty">No comments yet. Be the first to make a historical argument.</div>';
-      return;
-    }
-
-    holder.innerHTML = comments.map(function (comment) {
-      return ''
-        + '<div class="blog-comment">'
-        + '<div class="blog-comment-meta">'
-        + escapeHtml(comment.name || 'Student historian')
-        + ' · '
-        + escapeHtml(comment.date || '')
-        + '</div>'
-        + '<div class="blog-comment-text">'
-        + escapeHtml(comment.text)
-        + '</div>'
-        + '</div>';
-    }).join('');
-  }
-
-  function createPanel(topicKey) {
-    var data = BLOG_DATA[topicKey] || BLOG_DATA.rv;
-    var panel = document.createElement('div');
-
-    panel.className = 'blog-spot-panel';
-    panel.setAttribute('data-blog-topic', topicKey);
-
-    panel.innerHTML = ''
-      + '<div class="blog-spot-head">'
-      + '<div class="blog-spot-icon">💬</div>'
-      + '<div>'
-      + '<div class="blog-spot-title">Blog Spot: ' + escapeHtml(data.topic) + '</div>'
-      + '<div class="blog-spot-sub">Make a claim, support it with evidence, and respond like a historian.</div>'
-      + '</div>'
-      + '</div>'
-      + '<div class="blog-spot-question">' + escapeHtml(data.question) + '</div>'
-      + '<div class="blog-spot-prompts">'
-      + data.prompts.map(function (prompt) {
-        return '<span class="blog-spot-prompt">' + escapeHtml(prompt) + '</span>';
-      }).join('')
-      + '</div>'
-      + '<textarea class="blog-spot-input" placeholder="Write your comment here. Try: I would argue... because..."></textarea>'
-      + '<div class="blog-spot-row">'
-      + '<input class="blog-spot-name" placeholder="Name or initials optional">'
-      + '<button class="blog-spot-post" type="button">Post</button>'
-      + '</div>'
-      + '<div class="blog-spot-comments"></div>'
-      + '<button class="blog-spot-clear" type="button">Clear comments on this device</button>';
-
-    panel.querySelector('.blog-spot-post').addEventListener('click', function () {
-      var input = panel.querySelector('.blog-spot-input');
-      var name = panel.querySelector('.blog-spot-name');
-      var text = input.value.trim();
-
-      if (!text) {
-        input.focus();
-        return;
-      }
-
-      var comments = getComments(topicKey);
-      comments.unshift({
-        name: name.value.trim() || 'Student historian',
-        text: text,
-        date: new Date().toLocaleString()
-      });
-
-      saveComments(topicKey, comments.slice(0, 20));
-      input.value = '';
-      renderComments(panel, topicKey);
-    });
-
-    panel.querySelector('.blog-spot-clear').addEventListener('click', function () {
-      localStorage.removeItem(storageKey(topicKey));
-      renderComments(panel, topicKey);
-    });
-
-    renderComments(panel, topicKey);
-    return panel;
-  }
-
-  function insertBlogPanels() {
-    all('.side').forEach(function (side, index) {
-      if (side.querySelector('.blog-spot-panel')) return;
-
-      var topicKey = detectTopicKeyFromSide(side);
-      var panel = createPanel(topicKey || ('topic' + index));
-      var tutor = side.querySelector('.tutor-inline');
-
-      if (tutor && tutor.parentNode === side) {
-        tutor.insertAdjacentElement('afterend', panel);
-      } else {
-        side.insertBefore(panel, side.firstChild);
-      }
-    });
-
-    var revisionPage = document.getElementById('rv');
-    if (revisionPage && !revisionPage.querySelector('.blog-spot-panel[data-blog-topic="rv"]')) {
-      var revisionPanel = createPanel('rv');
-      var revisionBanner = revisionPage.querySelector('.rv-banner');
-      if (revisionBanner) {
-        revisionBanner.insertAdjacentElement('afterend', revisionPanel);
-      }
-    }
-
-    var sourcePage = document.getElementById('src');
-    if (sourcePage && !sourcePage.querySelector('.blog-spot-panel[data-blog-topic="src"]')) {
-      var sourcePanel = createPanel('src');
-      var sourceBanner = sourcePage.querySelector('.src-banner');
-      if (sourceBanner) {
-        sourceBanner.insertAdjacentElement('afterend', sourcePanel);
-      } else {
-        sourcePage.insertBefore(sourcePanel, sourcePage.firstChild);
-      }
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', insertBlogPanels);
-  } else {
-    insertBlogPanels();
-  }
-
-  window.addEventListener('hashchange', insertBlogPanels);
-})();
-</script>
-<script id="blog-spot-test-force-visible">
-(function () {
-  function addTestBlogSpot() {
-    if (document.getElementById('blog-spot-home-test')) return;
-
-    var home = document.getElementById('home');
-    if (!home) return;
-
-    var panel = document.createElement('div');
-    panel.id = 'blog-spot-home-test';
-    panel.className = 'blog-spot-panel';
-    panel.style.maxWidth = '900px';
-    panel.style.margin = '20px auto';
-    panel.innerHTML = ''
-      + '<div class="blog-spot-head">'
-      + '<div class="blog-spot-icon">💬</div>'
-      + '<div>'
-      + '<div class="blog-spot-title">Blog Spot: Home Test</div>'
-      + '<div class="blog-spot-sub">If this appears, the Blog Spot styling is working.</div>'
-      + '</div>'
-      + '</div>'
-      + '<div class="blog-spot-question">Which historical topic are you most interested in debating, and why?</div>'
-      + '<textarea class="blog-spot-input" placeholder="Write your comment here..."></textarea>'
-      + '<div class="blog-spot-row">'
-      + '<input class="blog-spot-name" placeholder="Name or initials optional">'
-      + '<button class="blog-spot-post" type="button">Post</button>'
-      + '</div>'
-      + '<div class="blog-spot-comments">'
-      + '<div class="blog-spot-empty">No comments yet. This is a visibility test.</div>'
-      + '</div>';
-
-    home.appendChild(panel);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', addTestBlogSpot);
-  } else {
-    addTestBlogSpot();
-  }
+/* ── Init ── */
+function init(){
+  insertTutors();
+  var hash=(location.hash||'').replace('#','').trim();
+  if(hash&&document.getElementById(hash))showPage(hash);
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+else{init();}
+window.addEventListener('hashchange',function(){var hash=(location.hash||'').replace('#','').trim();if(hash&&document.getElementById(hash))showPage(hash);});
 })();
 </script>
 
