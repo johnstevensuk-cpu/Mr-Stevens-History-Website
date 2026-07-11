@@ -2706,284 +2706,121 @@ function msOpen(){
   }
 }
 
-
-(function () {
-  'use strict';
-
-  var LEVELS_16 = {
-    4: { marks: '13-16', label: 'Level 4 - High Level Analysis', colour: '#059669',
-      criteria: ['An ANALYTICAL explanation directed CONSISTENTLY at the conceptual focus of the question','A line of reasoning that is COHERENT, SUSTAINED and LOGICALLY STRUCTURED throughout','Accurate and relevant information PRECISELY SELECTED to address the question directly','Criteria for the required judgement JUSTIFIED and APPLIED in reaching the overall conclusion','NO ACCESS to Level 4 if fewer than THREE aspects addressed (two bullet points + own information)']},
-    3: { marks: '9-12', label: 'Level 3 - Some Analysis', colour: '#2563eb',
-      criteria: ['An explanation showing SOME ANALYSIS mainly directed at the conceptual focus','A line of reasoning that is GENERALLY SUSTAINED (some passages may lack coherence)','Accurate and relevant information included, showing GOOD knowledge and understanding','The overall judgement is given WITH SOME JUSTIFICATION, but criteria may be implicit','Maximum 10 marks if fewer than THREE aspects addressed']},
-    2: { marks: '5-8', label: 'Level 2 - Limited Analysis', colour: '#d97706',
-      criteria: ['An explanation showing LIMITED ANALYSIS with implicit links to the conceptual focus','Some development and organisation but reasoning is NOT SUSTAINED','Accurate and relevant information added, showing SOME knowledge and understanding','The overall judgement is given but its JUSTIFICATION IS ASSERTED OR INSECURE','Maximum 6 marks if fewer than THREE aspects addressed']},
-    1: { marks: '1-4', label: 'Level 1 - Simple/Generalised', colour: '#dc2626',
-      criteria: ['A SIMPLE or GENERALISED answer, lacking development and organisation','LIMITED KNOWLEDGE of the topic shown','The overall judgement is MISSING or ASSERTED without justification']}
-  };
-
-  var TOPIC_DATA = {
-    cold_war: {
-      name: 'Superpower Relations & the Cold War (Paper 1)',
-      key_terms: ['containment','Truman Doctrine','Marshall Plan','Berlin Blockade','Berlin Airlift','NATO','Warsaw Pact','Iron Curtain','MAD','Hungarian Uprising','U-2 incident','Cuban Missile Crisis','blockade','quarantine','Détente','SALT I','de-Stalinisation','Khrushchev','Kennedy','Eisenhower'],
-      for_terms: ['truman doctrine','marshall plan','berlin blockade','berlin airlift','hungarian uprising','cuban missile crisis','détente','salt','iron curtain','containment'],
-      against_terms: ['warsaw pact','satellite states','berlin wall','sputnik','kim il-sung','korean war','arms race','nuclear','brezhnev'],
-      three_aspects: ['bullet point 1 (e.g. Berlin Blockade / Truman Doctrine / Marshall Plan)','bullet point 2 (e.g. Hungarian Uprising / Cuba / Berlin Wall)','your own information (a factor NOT mentioned in the bullet points)']
-    },
-    stalins_russia: {
-      name: "Stalin's Russia 1924-53 (Paper 1)",
-      key_terms: ['Five-Year Plan','collectivisation','kulaks','dekulakisation','Holodomor','Great Terror','Show Trials','NKVD','Gulag','cult of personality','Stakhanovism','Socialist Realism','censorship','purges','Trotsky','Kirov','Politburo'],
-      for_terms: ['five year plan','collectivisation','gulag','show trial','nkvd','purge','cult of personality','propaganda','stakhanov','censorship'],
-      against_terms: ['trotsky','kirov','bukharin','holodomor','kulak','terror','execution','fear'],
-      three_aspects: ['bullet point 1 (e.g. Show Trials / NKVD / Gulag)','bullet point 2 (e.g. Cult of personality / Five-Year Plans / collectivisation)','your own information (a factor NOT mentioned in the bullet points)']
-    },
-    vietnam: {
-      name: 'The Vietnam Conflict 1945-75 (Paper 2)',
-      key_terms: ['Domino Theory','Vietcong','guerrilla warfare','Ho Chi Minh Trail','Search and Destroy','Agent Orange','napalm','Strategic Hamlets','Gulf of Tonkin','Tet Offensive','Vietnamisation','ARVN','My Lai','anti-war','draft','media coverage','dien bien phu'],
-      for_terms: ['vietcong','guerrilla','tet offensive','napalm','agent orange','search and destroy','gulf of tonkin','vietnamisation','dien bien phu','ho chi minh'],
-      against_terms: ['media','anti-war','protest','draft','congress','my lai','public opinion','credibility gap'],
-      three_aspects: ['bullet point 1 (e.g. Tet Offensive / guerrilla tactics / Gulf of Tonkin)','bullet point 2 (e.g. Vietnamisation / home front opposition / media coverage)','your own information (a factor NOT mentioned in the bullet points)']
-    },
-    medicine: {
-      name: 'Changes in Medicine c.1848-c.1945 (Paper 2)',
-      key_terms: ['anaesthetics','chloroform','antiseptics','carbolic acid','Lister','germ theory','Pasteur','Koch','X-rays','blood transfusion','penicillin','Fleming','Florey','Chain','NHS','Beveridge','Five Giants','Bevan','BMA','public health','sanitation'],
-      for_terms: ['penicillin','fleming','florey','chain','nhs','beveridge','bevan','blood plasma','x-ray','anaesthetic','antiseptic','germ theory','pasteur'],
-      against_terms: ['bma','opposition','private','voluntary','1848','public health act','chadwick','cholera','miasma'],
-      three_aspects: ['bullet point 1 (e.g. penicillin / surgery / antiseptics)','bullet point 2 (e.g. public health acts / war / government funding)','your own information (a factor NOT mentioned in the bullet points)']
-    }
-  };
-
-  function analyseEssay(answerText, topicKey) {
-    var t = answerText.toLowerCase();
-    var wc = answerText.trim().split(/\s+/).filter(function(w){return w.length > 0;}).length;
-    var td = TOPIC_DATA[topicKey];
-    if (!td) return null;
-
-    var res = { wc: wc, level: 0, mark: 0, strengths: [], improvements: [], termsFound: [], termsMissing: [], threeAspects: false };
-
-    td.key_terms.forEach(function(term) {
-      if (t.includes(term.toLowerCase())) res.termsFound.push(term);
-      else res.termsMissing.push(term);
-    });
-
-    var hasFor = td.for_terms.filter(function(t2){return t.includes(t2);}).length >= 1;
-    var hasAgainst = td.against_terms.filter(function(t2){return t.includes(t2);}).length >= 1;
-    var hasOwnInfo = res.termsFound.length >= 5 || wc >= 400;
-    res.threeAspects = hasFor && hasAgainst && hasOwnInfo;
-
-    var hasIntro = /i would argue|i believe|on balance|to a large extent|mainly|primarily|overall/.test(t);
-    var hasConclusion = false;
-    var lastThird = t.slice(t.length * 0.6);
-    hasConclusion = /therefore|in conclusion|on balance|to conclude|overall|ultimately/.test(lastThird);
-    var hasCounter = /however|on the other hand|although|nevertheless|despite|whilst|whereas/.test(t);
-    var hasDates = /(19[0-9]{2}|20[0-2][0-9])/.test(answerText);
-
-    if (hasIntro) res.strengths.push('You have a clear thesis/argument in your introduction — essential for Level 3+');
-    if (hasConclusion) res.strengths.push('Your answer includes a conclusion with a judgement — essential for Level 3+');
-    if (hasCounter) res.strengths.push('You have included a counterargument — essential for reaching Level 4');
-    if (hasDates) res.strengths.push('You have used specific dates — examiners reward precision');
-    if (res.termsFound.length >= 4) res.strengths.push('You have used ' + res.termsFound.length + ' relevant key terms from the mark scheme');
-    if (res.threeAspects) res.strengths.push('THREE ASPECTS: You appear to have addressed both bullet points AND used your own information');
-    if (wc >= 400) res.strengths.push('Good length: ' + wc + ' words — this shows sufficient development');
-
-    if (!hasIntro) res.improvements.push('CRITICAL: Add a clear thesis in your introduction. State directly: "I would argue that [X] was the main factor because..." — without this you cannot reach Level 3+');
-    if (!hasConclusion) res.improvements.push('CRITICAL: Add a conclusion that makes and justifies a sustained judgement. Use: "On balance, I would argue... because... This outweighs [counter-factor] because..."');
-    if (!hasCounter) res.improvements.push('IMPORTANT: Add a counter-argument paragraph. Start with "However..." — this is required for Level 3+');
-    if (!hasDates) res.improvements.push('Add specific dates to your evidence — e.g. "In 1962, Kennedy chose a naval blockade rather than an air strike because..."');
-    if (!res.threeAspects) res.improvements.push('THREE ASPECTS RULE: Edexcel requires you to address BOTH bullet points from the question AND add your own information. Failure to do this caps marks at Level 2 (max 6) or Level 3 (max 10)');
-    if (wc < 300) res.improvements.push('Your answer is only ' + wc + ' words. A 16-mark answer should be 450-600 words to demonstrate the range of knowledge required for Level 3-4');
-
-    var topMissing = res.termsMissing.slice(0, 6);
-    if (topMissing.length > 0) res.improvements.push('Consider adding these key terms from the mark scheme: ' + topMissing.join(', '));
-
-    if (hasIntro && hasConclusion && hasCounter && res.threeAspects && res.termsFound.length >= 5 && wc >= 350) {
-      res.level = 4; res.mark = Math.min(16, 13 + Math.floor(res.termsFound.length / 4));
-    } else if ((hasIntro || hasConclusion) && res.termsFound.length >= 3 && wc >= 200) {
-      res.level = 3; res.mark = res.threeAspects ? Math.min(12, 9 + Math.floor(res.termsFound.length / 3)) : Math.min(10, 7 + Math.floor(res.termsFound.length / 3));
-    } else if (res.termsFound.length >= 2 || wc >= 100) {
-      res.level = 2; res.mark = res.threeAspects ? Math.min(8, 5 + res.termsFound.length) : Math.min(6, 4 + res.termsFound.length);
-    } else {
-      res.level = 1; res.mark = Math.min(4, 1 + res.termsFound.length);
-    }
-    return res;
+(function(){
+  "use strict";
+  var L={4:{m:"13-16",l:"Level 4 - High Level Analysis",c:"#059669",d:["Analytical explanation directed CONSISTENTLY at the conceptual focus","Reasoning that is COHERENT, SUSTAINED and LOGICALLY STRUCTURED","Accurate and relevant information PRECISELY SELECTED","Criteria for judgement JUSTIFIED and APPLIED","NO access to Level 4 if fewer than THREE aspects addressed"]},3:{m:"9-12",l:"Level 3 - Some Analysis",c:"#2563eb",d:["Explanation showing SOME ANALYSIS directed at the conceptual focus","Reasoning is GENERALLY SUSTAINED (some passages may lack coherence)","Good knowledge and understanding","Judgement given WITH SOME JUSTIFICATION","Maximum 10 marks if fewer than THREE aspects addressed"]},2:{m:"5-8",l:"Level 2 - Limited Analysis",c:"#d97706",d:["Explanation showing LIMITED ANALYSIS","Some development but reasoning NOT SUSTAINED","SOME knowledge and understanding","Judgement ASSERTED OR INSECURE","Maximum 6 marks if fewer than THREE aspects addressed"]},1:{m:"1-4",l:"Level 1 - Simple/Generalised",c:"#dc2626",d:["SIMPLE or GENERALISED answer","LIMITED KNOWLEDGE","Judgement MISSING or ASSERTED"]}};
+  var TD={cold_war:{n:"Superpower Relations & the Cold War (Paper 1)",k:["containment","Truman Doctrine","Marshall Plan","Berlin Blockade","Berlin Airlift","NATO","Warsaw Pact","Iron Curtain","MAD","Hungarian Uprising","Cuban Missile Crisis","blockade","Détente","SALT I","Khrushchev","Kennedy"],f:["truman doctrine","marshall plan","berlin blockade","berlin airlift","cuban missile crisis","detente","salt","iron curtain","containment","hungarian"],a:["warsaw pact","satellite","berlin wall","sputnik","arms race","nuclear","brezhnev"],ta:["bullet point 1 (e.g. Berlin Blockade / Truman Doctrine / Marshall Plan)","bullet point 2 (e.g. Hungarian Uprising / Cuba / Berlin Wall)","your own information (a factor NOT in the bullet points)"]},stalins_russia:{n:"Stalin's Russia 1924-53 (Paper 1)",k:["Five-Year Plan","collectivisation","kulaks","Holodomor","Great Terror","Show Trials","NKVD","Gulag","cult of personality","Stakhanovism","censorship","purges","Trotsky","Kirov"],f:["five year plan","collectivisation","gulag","show trial","nkvd","purge","cult of personality","propaganda","stakhanov","censorship"],a:["trotsky","kirov","bukharin","holodomor","kulak","terror","execution","fear"],ta:["bullet point 1 (e.g. Show Trials / NKVD / Gulag)","bullet point 2 (e.g. Cult of personality / Five-Year Plans)","your own information (a factor NOT in the bullet points)"]},vietnam:{n:"The Vietnam Conflict 1945-75 (Paper 2)",k:["Domino Theory","Vietcong","guerrilla warfare","Ho Chi Minh Trail","Search and Destroy","Agent Orange","napalm","Strategic Hamlets","Gulf of Tonkin","Tet Offensive","Vietnamisation","ARVN","My Lai","anti-war","draft","media coverage"],f:["vietcong","guerrilla","tet offensive","napalm","agent orange","search and destroy","gulf of tonkin","vietnamisation","ho chi minh"],a:["media","anti-war","protest","draft","congress","my lai","public opinion","credibility gap"],ta:["bullet point 1 (e.g. Tet Offensive / guerrilla tactics / Gulf of Tonkin)","bullet point 2 (e.g. Vietnamisation / home front / media coverage)","your own information (a factor NOT in the bullet points)"]},medicine:{n:"Changes in Medicine c.1848-c.1945 (Paper 2)",k:["anaesthetics","chloroform","antiseptics","carbolic acid","Lister","germ theory","Pasteur","Koch","X-rays","blood transfusion","penicillin","Fleming","Florey","Chain","NHS","Beveridge","Five Giants","Bevan","BMA","public health"],f:["penicillin","fleming","florey","chain","nhs","beveridge","bevan","blood plasma","x-ray","anaesthetic","antiseptic","germ theory","pasteur"],a:["bma","opposition","private","voluntary","public health act","chadwick","cholera"],ta:["bullet point 1 (e.g. penicillin / surgery / antiseptics)","bullet point 2 (e.g. public health acts / war / government funding)","your own information (a factor NOT in the bullet points)"]}};
+  function analyse(ans,topicKey){
+    var t=ans.toLowerCase(),wc=ans.trim().split(" ").filter(function(w){return w.trim().length>0;}).length,td=TD[topicKey];
+    if(!td)return null;
+    var r={wc:wc,level:0,mark:0,strengths:[],improvements:[],found:[],missing:[],three:false};
+    td.k.forEach(function(k){if(t.includes(k.toLowerCase()))r.found.push(k);else r.missing.push(k);});
+    var hasFor=td.f.filter(function(x){return t.includes(x);}).length>=1;
+    var hasAg=td.a.filter(function(x){return t.includes(x);}).length>=1;
+    r.three=hasFor&&hasAg&&(r.found.length>=5||wc>=400);
+    var hi=/i would argue|i believe|on balance|to a large extent|mainly|primarily|overall/.test(t);
+    var last=t.slice(t.length*0.6);
+    var hc=/therefore|in conclusion|on balance|to conclude|overall|ultimately/.test(last);
+    var hco=/however|on the other hand|although|nevertheless|despite|whilst|whereas/.test(t);
+    var hd=/191[0-9]|192[0-9]|193[0-9]|194[0-9]|195[0-9]|196[0-9]|197[0-9]/.test(ans);
+    if(hi)r.strengths.push("You have a clear thesis in your introduction");
+    if(hc)r.strengths.push("Your answer includes a conclusion with a judgement");
+    if(hco)r.strengths.push("You have included a counterargument");
+    if(hd)r.strengths.push("You have used specific dates");
+    if(r.found.length>=4)r.strengths.push("You have used "+r.found.length+" key terms from the mark scheme");
+    if(r.three)r.strengths.push("THREE ASPECTS: Both bullet points AND own information appear addressed");
+    if(!hi)r.improvements.push("CRITICAL: Add a clear thesis in your introduction — without this you cannot reach Level 3+");
+    if(!hc)r.improvements.push("CRITICAL: Add a conclusion that makes and justifies a sustained judgement");
+    if(!hco)r.improvements.push("IMPORTANT: Add a counter-argument paragraph starting with However...");
+    if(!hd)r.improvements.push("Add specific dates to your evidence");
+    if(!r.three)r.improvements.push("THREE ASPECTS RULE: Edexcel requires BOTH bullet points AND your own information — failure caps marks significantly");
+    if(wc<300)r.improvements.push("Your answer is only "+wc+" words. A 16-mark answer should be 450-600 words");
+    if(r.missing.slice(0,5).length>0)r.improvements.push("Consider adding these key terms: "+r.missing.slice(0,5).join(", "));
+    if(hi&&hc&&hco&&r.three&&r.found.length>=5&&wc>=350){r.level=4;r.mark=Math.min(16,13+Math.floor(r.found.length/4));}
+    else if((hi||hc)&&r.found.length>=3&&wc>=200){r.level=3;r.mark=r.three?Math.min(12,9+Math.floor(r.found.length/3)):Math.min(10,7+Math.floor(r.found.length/3));}
+    else if(r.found.length>=2||wc>=100){r.level=2;r.mark=r.three?Math.min(8,5+r.found.length):Math.min(6,4+r.found.length);}
+    else{r.level=1;r.mark=Math.min(4,1+r.found.length);}
+    return r;
   }
-
-  function renderFeedback(fb, topicKey, attempt) {
-    var fbDiv = document.getElementById('marker-feedback');
-    var td = TOPIC_DATA[topicKey];
-    var ld = LEVELS_16[fb.level];
-    var headCol = attempt === 1 ? '#93c5fd' : '#34d399';
-    var boxBg = attempt === 1 ? 'rgba(37,99,235,.12)' : 'rgba(5,150,105,.12)';
-    var boxBorder = attempt === 1 ? 'rgba(37,99,235,.4)' : 'rgba(5,150,105,.4)';
-    var heading = attempt === 1 ? 'First Submission - Examiner Feedback' : 'Second Submission - Revised Answer Feedback';
-
-    var html = '<div style="background:' + boxBg + ';border:1.5px solid ' + boxBorder + ';border-radius:14px;padding:18px;">';
-    html += '<div style="font-family:Alegreya,serif;font-size:1.05rem;font-weight:800;color:' + headCol + ';margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid ' + boxBorder + ';">📋 ' + heading + '</div>';
-    html += '<div style="font-size:.82rem;color:#bfdbfe;margin-bottom:12px;">📚 Topic: <strong>' + td.name + '</strong> · 📝 Word count: <strong>' + fb.wc + ' words</strong></div>';
-
-    if (fb.level && ld) {
-      var lc = ld.colour;
-      html += '<div style="background:' + lc + '22;border:2px solid ' + lc + '88;border-radius:12px;padding:14px 16px;margin-bottom:14px;">';
-      html += '<div style="font-size:.72rem;text-transform:uppercase;font-weight:800;color:' + lc + ';margin-bottom:6px;">Provisional Assessment</div>';
-      html += '<div style="font-size:1.05rem;font-weight:800;color:#fff7ed;">' + ld.label + '</div>';
-      html += '<div style="font-size:.88rem;color:#fed7aa;margin-top:3px;">Provisional mark: <strong>' + fb.mark + '/16</strong> (' + ld.marks + ')</div>';
-      html += '<div style="margin-top:10px;font-size:.82rem;color:#e7e3dd;"><strong>To reach this level, Edexcel requires:</strong><ul style="padding-left:1rem;margin-top:5px;">';
-      ld.criteria.forEach(function(c) { html += '<li style="margin-bottom:4px;">' + c + '</li>'; });
-      html += '</ul></div></div>';
-    }
-
-    if (!fb.threeAspects) {
-      html += '<div style="background:rgba(220,38,38,.18);border:2px solid rgba(220,38,38,.5);border-radius:10px;padding:12px 14px;margin-bottom:12px;">';
-      html += '<div style="font-size:.82rem;font-weight:800;color:#fca5a5;">⚠️ THREE ASPECTS RULE - CRITICAL</div>';
-      html += '<div style="font-size:.85rem;color:#fee2e2;margin-top:5px;">Edexcel requires you to address <strong>BOTH bullet points</strong> from the question AND use <strong>your own information</strong>. Failure caps marks significantly.</div>';
-      if (td) {
-        html += '<div style="font-size:.82rem;color:#fecaca;margin-top:6px;"><strong>For this topic, the three aspects are:</strong><ol style="padding-left:1rem;margin-top:4px;">';
-        td.three_aspects.forEach(function(a) { html += '<li style="margin-bottom:3px;">' + a + '</li>'; });
-        html += '</ol></div>';
-      }
-      html += '</div>';
-    }
-
-    if (fb.strengths.length > 0) {
-      html += '<div style="margin-bottom:12px;"><div style="font-size:.72rem;text-transform:uppercase;font-weight:800;color:#34d399;margin-bottom:7px;">✅ What You Did Well</div><ul style="padding-left:1rem;font-size:.88rem;color:#d1fae5;line-height:1.7;">';
-      fb.strengths.forEach(function(s) { html += '<li style="margin-bottom:4px;">✅ ' + s + '</li>'; });
-      html += '</ul></div>';
-    }
-
-    if (fb.improvements.length > 0) {
-      html += '<div style="margin-bottom:12px;"><div style="font-size:.72rem;text-transform:uppercase;font-weight:800;color:#fbbf24;margin-bottom:7px;">📝 How to Improve</div><ul style="padding-left:1rem;font-size:.88rem;color:#fef3c7;line-height:1.7;">';
-      fb.improvements.forEach(function(i) { html += '<li style="margin-bottom:6px;">' + i + '</li>'; });
-      html += '</ul></div>';
-    }
-
-    if (fb.termsFound.length > 0) {
-      html += '<div style="margin-bottom:10px;"><div style="font-size:.72rem;text-transform:uppercase;font-weight:800;color:#60a5fa;margin-bottom:7px;">Mark Scheme Terms in Your Answer</div><div style="display:flex;flex-wrap:wrap;gap:4px;">';
-      fb.termsFound.forEach(function(t) { html += '<span style="background:rgba(37,99,235,.2);border:1px solid rgba(37,99,235,.4);color:#93c5fd;border-radius:5px;padding:2px 8px;font-size:.76rem;font-weight:700;">' + t + '</span>'; });
-      html += '</div></div>';
-    }
-
-    if (fb.termsMissing.slice(0,8).length > 0) {
-      html += '<div style="margin-bottom:10px;"><div style="font-size:.72rem;text-transform:uppercase;font-weight:800;color:#f87171;margin-bottom:7px;">Key Terms Not Yet Used</div><div style="display:flex;flex-wrap:wrap;gap:4px;">';
-      fb.termsMissing.slice(0,8).forEach(function(t) { html += '<span style="background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);color:#fca5a5;border-radius:5px;padding:2px 8px;font-size:.76rem;font-weight:700;">' + t + '</span>'; });
-      html += '</div></div>';
-    }
-
-    html += attempt === 1
-      ? '<div style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.35);border-radius:9px;padding:10px 13px;font-size:.85rem;color:#a7f3d0;margin-top:10px;">📝 Apply this feedback and write your improved answer in the resubmission box below. Once you submit, you will unlock the model answer structure.</div>'
-      : '<div style="background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.35);border-radius:9px;padding:10px 13px;font-size:.85rem;color:#bfdbfe;margin-top:10px;">📚 Your model answer structure has been unlocked — see below.</div>';
-
-    html += '</div>';
-    fbDiv.innerHTML = html;
-    fbDiv.style.display = 'block';
+  function renderFb(fb,tk,attempt){
+    var el=document.getElementById("marker-feedback");
+    if(!el)return;
+    var td=TD[tk],ld=L[fb.level];
+    var hc=attempt===1?"#93c5fd":"#34d399",bg=attempt===1?"rgba(37,99,235,.12)":"rgba(5,150,105,.12)",bd=attempt===1?"rgba(37,99,235,.4)":"rgba(5,150,105,.4)";
+    var h="<div style=\"background:"+bg+";border:1.5px solid "+bd+";border-radius:14px;padding:18px;\">";
+    h+="<div style=\"font-family:Alegreya,serif;font-size:1.05rem;font-weight:800;color:"+hc+";margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid "+bd+";\">"+(attempt===1?"First Submission — Examiner Feedback":"Second Submission — Revised Answer Feedback")+"</div>";
+    h+="<div style=\"font-size:.82rem;color:#bfdbfe;margin-bottom:12px;\">Topic: <strong>"+td.n+"</strong> · Word count: <strong>"+fb.wc+" words</strong></div>";
+    if(fb.level&&ld){var lc=ld.c;h+="<div style=\"background:"+lc+"22;border:2px solid "+lc+"88;border-radius:12px;padding:14px 16px;margin-bottom:14px;\">";h+="<div style=\"font-size:.72rem;text-transform:uppercase;font-weight:800;color:"+lc+";margin-bottom:6px;\">Provisional Assessment</div>";h+="<div style=\"font-size:1.05rem;font-weight:800;color:#fff7ed;\">"+ld.l+"</div>";h+="<div style=\"font-size:.88rem;color:#fed7aa;margin-top:3px;\">Provisional mark: <strong>"+fb.mark+"/16</strong> ("+ld.m+")</div>";h+="<div style=\"margin-top:10px;font-size:.82rem;color:#e7e3dd;\"><strong>To reach this level, Edexcel requires:</strong><ul style=\"padding-left:1rem;margin-top:5px;\">";ld.d.forEach(function(d){h+="<li style=\"margin-bottom:4px;\">"+d+"</li>";});h+="</ul></div></div>";}
+    if(!fb.three){h+="<div style=\"background:rgba(220,38,38,.18);border:2px solid rgba(220,38,38,.5);border-radius:10px;padding:12px 14px;margin-bottom:12px;\">";h+="<div style=\"font-size:.82rem;font-weight:800;color:#fca5a5;\">⚠️ THREE ASPECTS RULE — CRITICAL</div>";h+="<div style=\"font-size:.85rem;color:#fee2e2;margin-top:5px;\">Edexcel requires you to address <strong>BOTH bullet points</strong> AND use <strong>your own information</strong>. Failure caps marks significantly.</div>";h+="<div style=\"font-size:.82rem;color:#fecaca;margin-top:6px;\"><strong>The three aspects for this topic are:</strong><ol style=\"padding-left:1rem;margin-top:4px;\">";td.ta.forEach(function(a){h+="<li style=\"margin-bottom:3px;\">"+a+"</li>";});h+="</ol></div></div>";}
+    if(fb.strengths.length>0){h+="<div style=\"margin-bottom:12px;\"><div style=\"font-size:.72rem;text-transform:uppercase;font-weight:800;color:#34d399;margin-bottom:7px;\">✅ What You Did Well</div><ul style=\"padding-left:1rem;font-size:.88rem;color:#d1fae5;line-height:1.7;\">";fb.strengths.forEach(function(s){h+="<li style=\"margin-bottom:4px;\">"+s+"</li>";});h+="</ul></div>";}
+    if(fb.improvements.length>0){h+="<div style=\"margin-bottom:12px;\"><div style=\"font-size:.72rem;text-transform:uppercase;font-weight:800;color:#fbbf24;margin-bottom:7px;\">📝 How to Improve</div><ul style=\"padding-left:1rem;font-size:.88rem;color:#fef3c7;line-height:1.7;\">";fb.improvements.forEach(function(i){h+="<li style=\"margin-bottom:6px;\">"+i+"</li>";});h+="</ul></div>";}
+    if(fb.found.length>0){h+="<div style=\"margin-bottom:10px;\"><div style=\"font-size:.72rem;text-transform:uppercase;font-weight:800;color:#60a5fa;margin-bottom:7px;\">Mark Scheme Terms Found</div><div style=\"display:flex;flex-wrap:wrap;gap:4px;\">";fb.found.forEach(function(t2){h+="<span style=\"background:rgba(37,99,235,.2);border:1px solid rgba(37,99,235,.4);color:#93c5fd;border-radius:5px;padding:2px 8px;font-size:.76rem;font-weight:700;\">"+t2+"</span>";});h+="</div></div>";}
+    if(fb.missing.slice(0,8).length>0){h+="<div style=\"margin-bottom:10px;\"><div style=\"font-size:.72rem;text-transform:uppercase;font-weight:800;color:#f87171;margin-bottom:7px;\">Key Terms Not Yet Used</div><div style=\"display:flex;flex-wrap:wrap;gap:4px;\">";fb.missing.slice(0,8).forEach(function(t2){h+="<span style=\"background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);color:#fca5a5;border-radius:5px;padding:2px 8px;font-size:.76rem;font-weight:700;\">"+t2+"</span>";});h+="</div></div>";}
+    h+=attempt===1?"<div style=\"background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.35);border-radius:9px;padding:10px 13px;font-size:.85rem;color:#a7f3d0;margin-top:10px;\">📝 Apply this feedback and write your improved answer in the resubmission box below. Once you submit, you will unlock the model answer structure.</div>":"<div style=\"background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.35);border-radius:9px;padding:10px 13px;font-size:.85rem;color:#bfdbfe;margin-top:10px;\">📚 Your model answer structure has been unlocked below.</div>";
+    h+="</div>";el.innerHTML=h;el.style.display="block";
   }
-
-  function renderModel(topicKey) {
-    var mdDiv = document.getElementById('marker-model');
-    var td = TOPIC_DATA[topicKey];
-    if (!td) { mdDiv.innerHTML = '<p style="color:#a8a29e;">Model answer unavailable.</p>'; return; }
-
-    var html = '<div style="background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(20,16,12,.96));border:2px solid rgba(124,58,237,.5);border-radius:14px;padding:18px;">';
-    html += '<div style="font-family:Alegreya,serif;font-size:1.05rem;font-weight:800;color:#c4b5fd;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(124,58,237,.3);">📚 Model Answer Structure — ' + td.name + '</div>';
-    html += '<div style="background:rgba(220,38,38,.12);border:1.5px solid rgba(220,38,38,.4);border-radius:9px;padding:10px 13px;margin-bottom:14px;font-size:.85rem;color:#fecaca;">⚠️ This is a STRUCTURE and KEY CONTENT guide — not a full model answer to copy.</div>';
-
-    var paras = [
-      ['INTRODUCTION — Thesis (required for Level 3+)','#059669','State your direct answer to the question in ONE sentence. e.g.: "I would argue that [FACTOR X] was the most significant because [reason], although [FACTOR Y] also played an important role." Do NOT describe — ARGUE from sentence one.'],
-      ['PARAGRAPH 2 — Main Argument (Bullet Point 1)','#2563eb','Address the first bullet point from the question. Structure: <strong>Point → Evidence (specific date/name) → Explanation of significance → Link back to question</strong>. Use specific dates and named people/events.'],
-      ['PARAGRAPH 3 — Counter-Argument (Bullet Point 2)','#d97706','Start with "However..." or "On the other hand..." Address the SECOND bullet point OR an alternative factor. Challenge your main argument with specific evidence.'],
-      ['PARAGRAPH 4 — Own Information (Third Aspect)','#7c3aed','Add a factor NOT mentioned in the bullet points. This is the "own information" requirement. Use specific dates, names and statistics from your topic knowledge.'],
-      ['CONCLUSION — Sustained Judgement (required for Level 4)','#f59e0b','Use: "On balance, I would argue that [MAIN FACTOR] was the most significant because [SPECIFIC EVIDENCE]. This outweighs [COUNTER-FACTOR] because [COMPARISON]. Therefore, [DIRECT ANSWER TO QUESTION]."'],
-    ];
-    paras.forEach(function(p) {
-      html += '<div style="background:' + p[1] + '18;border-left:4px solid ' + p[1] + ';border-radius:0 9px 9px 0;padding:10px 13px;margin-bottom:8px;">';
-      html += '<div style="font-size:.76rem;font-weight:800;color:' + p[1] + ';margin-bottom:4px;">' + p[0] + '</div>';
-      html += '<div style="font-size:.88rem;color:#e7e3dd;line-height:1.65;">' + p[2] + '</div></div>';
-    });
-
-    html += '<div style="margin-top:14px;background:rgba(251,191,36,.1);border:1.5px solid rgba(251,191,36,.4);border-radius:10px;padding:12px 14px;">';
-    html += '<div style="font-size:.8rem;font-weight:800;color:#fbbf24;margin-bottom:6px;">🏆 Level 4 Checklist (13-16 marks)</div>';
-    html += '<div style="font-size:.85rem;color:#fef3c7;line-height:1.65;">✅ Three aspects addressed (bullet 1 + bullet 2 + own information)<br>✅ Thesis/argument stated in introduction<br>✅ Analysis directed consistently at the question throughout<br>✅ Counterargument with specific evidence<br>✅ Sustained reasoning — not just description<br>✅ Conclusion with JUSTIFIED verdict (WHY is X more important than Y?)</div>';
-    html += '</div></div>';
-    mdDiv.innerHTML = html;
-    mdDiv.style.display = 'block';
+  function renderModel(tk){
+    var el=document.getElementById("marker-model"),td=TD[tk];
+    if(!td){el.innerHTML="<p style=\"color:#a8a29e;\">Not available.</p>";return;}
+    var h="<div style=\"background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(20,16,12,.96));border:2px solid rgba(124,58,237,.5);border-radius:14px;padding:18px;\">";
+    h+="<div style=\"font-family:Alegreya,serif;font-size:1.05rem;font-weight:800;color:#c4b5fd;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(124,58,237,.3);\">📚 Model Answer Structure — "+td.n+"</div>";
+    h+="<div style=\"background:rgba(220,38,38,.12);border:1.5px solid rgba(220,38,38,.4);border-radius:9px;padding:10px 13px;margin-bottom:14px;font-size:.85rem;color:#fecaca;\">⚠️ This is a STRUCTURE and KEY CONTENT guide — not a full model answer to copy.</div>";
+    [["INTRODUCTION — Thesis","#059669","State your direct answer in ONE sentence. e.g.: I would argue that [X] was the most significant because [reason], although [Y] also played an important role. Do NOT describe — ARGUE from sentence one."],["PARAGRAPH 2 — Main Argument (Bullet Point 1)","#2563eb","Address the first bullet point. Structure: Point → Evidence (specific date/name) → Explanation → Link back to question."],["PARAGRAPH 3 — Counter-Argument (Bullet Point 2)","#d97706","Start with However... Address the SECOND bullet point OR an alternative factor. Challenge your main argument with specific evidence."],["PARAGRAPH 4 — Own Information","#7c3aed","Add a factor NOT mentioned in the bullet points. Use specific dates, names and statistics from your topic knowledge."],["CONCLUSION — Sustained Judgement","#f59e0b","On balance, I would argue that [MAIN FACTOR] was the most significant because [EVIDENCE]. This outweighs [COUNTER-FACTOR] because [COMPARISON]. Therefore, [DIRECT ANSWER]."]]
+    .forEach(function(p){h+="<div style=\"background:"+p[1]+"18;border-left:4px solid "+p[1]+";border-radius:0 9px 9px 0;padding:10px 13px;margin-bottom:8px;\">";h+="<div style=\"font-size:.76rem;font-weight:800;color:"+p[1]+";margin-bottom:4px;\">"+p[0]+"</div>";h+="<div style=\"font-size:.88rem;color:#e7e3dd;line-height:1.65;\">"+p[2]+"</div></div>";});
+    h+="<div style=\"margin-top:14px;background:rgba(251,191,36,.1);border:1.5px solid rgba(251,191,36,.4);border-radius:10px;padding:12px 14px;\">";
+    h+="<div style=\"font-size:.8rem;font-weight:800;color:#fbbf24;margin-bottom:6px;\">🏆 Level 4 Checklist (13-16 marks)</div>";
+    h+="<div style=\"font-size:.85rem;color:#fef3c7;line-height:1.65;\">✅ Three aspects addressed<br>✅ Thesis stated in introduction<br>✅ Analysis directed consistently at the question<br>✅ Counterargument with specific evidence<br>✅ Conclusion with JUSTIFIED verdict (WHY is X more important than Y?)</div></div>";
+    h+="</div>";el.innerHTML=h;el.style.display="block";
   }
-
-  function buildMarker() {
-    var cont = document.getElementById('igcse-marker-container');
-    if (!cont || cont.querySelector('#igcse-marker')) return;
-    cont.innerHTML = '<div id="igcse-marker" style="background:linear-gradient(135deg,rgba(37,99,235,.2),rgba(12,10,9,.96));border:2px solid rgba(37,99,235,.55);border-radius:18px;padding:22px;margin-bottom:20px;">'
-      + '<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;"><span style="font-size:2rem;">📝</span>'
-      + '<div><div style="font-family:Alegreya,Georgia,serif;font-size:1.15rem;font-weight:800;color:#93c5fd;">Edexcel iGCSE Practice Answer Marker</div>'
-      + '<div style="font-size:.82rem;color:#bfdbfe;margin-top:2px;">Mark your answers against official Edexcel level descriptors · Guided improvement · Model answer unlocked only after resubmission</div>'
-      + '</div></div>'
-      + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">'
-      + '<div><label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Topic</label>'
-      + '<select id="mk-topic" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">'
-      + '<option value="">Select topic...</option>'
-      + '<option value="cold_war">Cold War: Superpower Relations 1943-72</option>'
-      + '<option value="stalins_russia">Stalin's Russia 1924-53</option>'
-      + '<option value="vietnam">The Vietnam Conflict 1945-75</option>'
-      + '<option value="medicine">Changes in Medicine c.1848-c.1945</option>'
-      + '</select></div>'
-      + '<div><label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Question (paste here)</label>'
-      + '<input type="text" id="mk-question" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;" placeholder="e.g. How far do you agree that the Berlin Blockade was the main cause of Cold War tensions?"></div>'
-      + '</div>'
-      + '<div style="margin-bottom:8px;"><label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Your Answer <span id="mk-wc" style="color:#60a5fa;font-weight:800;"></span></label>'
-      + '<textarea id="mk-answer" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:9px;padding:10px 12px;font-size:.9rem;font-family:inherit;color:#fff;outline:none;resize:vertical;min-height:180px;" placeholder="Paste or type your practice answer here..."></textarea></div>'
-      + '<div style="display:flex;gap:8px;align-items:center;margin-bottom:14px;">'
-      + '<label style="display:inline-flex;align-items:center;gap:6px;background:rgba(37,99,235,.2);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:7px 12px;font-size:.82rem;font-weight:700;color:#93c5fd;cursor:pointer;">📎 Upload .txt file<input type="file" id="mk-file" accept=".txt" style="display:none;"></label>'
-      + '</div>'
-      + '<button id="mk-submit-btn" style="background:#2563eb;color:#fff;border:none;border-radius:10px;padding:11px 22px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;width:100%;transition:all .16px;">🎯 Mark this answer against the Edexcel criteria</button>'
-      + '<div id="marker-feedback" style="display:none;margin-top:18px;"></div>'
-      + '<div id="marker-resubmit" style="display:none;margin-top:16px;">'
-      + '<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#34d399;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(5,150,105,.3);">Resubmit — Improved Answer</div>'
-      + '<div style="background:rgba(5,150,105,.12);border:1.5px solid rgba(5,150,105,.35);border-radius:10px;padding:12px;margin-bottom:12px;font-size:.88rem;color:#d1fae5;line-height:1.65;">📋 <strong>Now apply the feedback above</strong> and write an improved version. Once you submit, you will receive the model answer structure.</div>'
-      + '<textarea id="mk-answer-2" style="width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(5,150,105,.4);border-radius:9px;padding:10px 12px;font-size:.9rem;font-family:inherit;color:#fff;outline:none;resize:vertical;min-height:180px;" placeholder="Write your improved answer here..."></textarea>'
-      + '<button id="mk-resubmit-btn" style="background:#059669;color:#fff;border:none;border-radius:10px;padding:11px 22px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;width:100%;margin-top:10px;">📤 Submit improved answer — unlock model answer structure</button>'
-      + '</div>'
-      + '<div id="marker-model" style="display:none;margin-top:16px;"></div>'
-      + '</div>';
-
-    var ansTA = document.getElementById('mk-answer');
-    var wcSpan = document.getElementById('mk-wc');
-    ansTA.addEventListener('input', function() {
-      var wc = ansTA.value.trim().split(/\s+/).filter(function(w){return w.length>0;}).length;
-      wcSpan.textContent = wc > 0 ? '(' + wc + ' words)' : '';
-    });
-    document.getElementById('mk-file').addEventListener('change', function(e) {
-      var file = e.target.files[0]; if (!file) return;
-      var reader = new FileReader();
-      reader.onload = function(ev) { ansTA.value = ev.target.result; ansTA.dispatchEvent(new Event('input')); };
-      reader.readAsText(file);
-    });
-    document.getElementById('mk-submit-btn').addEventListener('click', function() {
-      var answer = ansTA.value.trim();
-      var topic = document.getElementById('mk-topic').value;
-      if (!answer) { alert('Please paste or type your answer first.'); return; }
-      if (!topic) { alert('Please select a topic before submitting.'); return; }
-      var fb = analyseEssay(answer, topic);
-      if (fb) renderFeedback(fb, topic, 1);
-      document.getElementById('marker-resubmit').style.display = 'block';
-      document.getElementById('marker-feedback').scrollIntoView({behavior:'smooth',block:'start'});
-    });
-    document.getElementById('mk-resubmit-btn').addEventListener('click', function() {
-      var answer2 = document.getElementById('mk-answer-2').value.trim();
-      var topic = document.getElementById('mk-topic').value;
-      if (!answer2) { alert('Please write your improved answer before submitting.'); return; }
-      var fb2 = analyseEssay(answer2, topic);
-      if (fb2) renderFeedback(fb2, topic, 2);
-      renderModel(topic);
-      document.getElementById('marker-model').scrollIntoView({behavior:'smooth',block:'start'});
-    });
+  function buildMarker(){
+    var cont=document.getElementById("igcse-marker-container");
+    if(!cont||cont.querySelector("#igcse-marker"))return;
+    cont.innerHTML="<div id=\"igcse-marker\" style=\"background:linear-gradient(135deg,rgba(37,99,235,.2),rgba(12,10,9,.96));border:2px solid rgba(37,99,235,.55);border-radius:18px;padding:22px;margin-bottom:20px;\">"
+      +"<div style=\"display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;\"><span style=\"font-size:2rem;\">📝</span>"
+      +"<div><div style=\"font-family:Alegreya,Georgia,serif;font-size:1.15rem;font-weight:800;color:#93c5fd;\">Edexcel iGCSE Practice Answer Marker</div>"
+      +"<div style=\"font-size:.82rem;color:#bfdbfe;margin-top:2px;\">Mark answers against official Edexcel level descriptors · Model answer unlocked after resubmission</div>"
+      +"</div></div>"
+      +"<div style=\"display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;\">"
+      +"<div><label style=\"display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;\">Topic</label>"
+      +"<select id=\"mk-topic\" style=\"width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;\">"
+      +"<option value=\"\">Select topic...</option>"
+      +"<option value=\"cold_war\">Cold War: Superpower Relations 1943-72</option>"
+      +"<option value=\"stalins_russia\">Stalin's Russia 1924-53</option>"
+      +"<option value=\"vietnam\">The Vietnam Conflict 1945-75</option>"
+      +"<option value=\"medicine\">Changes in Medicine c.1848-c.1945</option>"
+      +"</select></div>"
+      +"<div><label style=\"display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;\">Question (paste here)</label>"
+      +"<input type=\"text\" id=\"mk-question\" style=\"width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;\" placeholder=\"e.g. How far do you agree that the Berlin Blockade was the main cause of Cold War tensions?\"></div>"
+      +"</div>"
+      +"<div style=\"margin-bottom:8px;\"><label style=\"display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;\">Your Answer <span id=\"mk-wc\" style=\"color:#60a5fa;font-weight:800;\"></span></label>"
+      +"<textarea id=\"mk-answer\" style=\"width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:9px;padding:10px 12px;font-size:.9rem;font-family:inherit;color:#fff;outline:none;resize:vertical;min-height:180px;\" placeholder=\"Paste or type your practice answer here...\"></textarea></div>"
+      +"<div style=\"display:flex;gap:8px;align-items:center;margin-bottom:14px;\">"
+      +"<label style=\"display:inline-flex;align-items:center;gap:6px;background:rgba(37,99,235,.2);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:7px 12px;font-size:.82rem;font-weight:700;color:#93c5fd;cursor:pointer;\">📎 Upload .txt file<input type=\"file\" id=\"mk-file\" accept=\".txt\" style=\"display:none;\"></label>"
+      +"</div>"
+      +"<button id=\"mk-submit-btn\" style=\"background:#2563eb;color:#fff;border:none;border-radius:10px;padding:11px 22px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;width:100%;\">"
+      +"🎯 Mark this answer against the Edexcel criteria</button>"
+      +"<div id=\"marker-feedback\" style=\"display:none;margin-top:18px;\"></div>"
+      +"<div id=\"marker-resubmit\" style=\"display:none;margin-top:16px;\">"
+      +"<div style=\"font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#34d399;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(5,150,105,.3);\">"
+      +"Resubmit — Improved Answer</div>"
+      +"<div style=\"background:rgba(5,150,105,.12);border:1.5px solid rgba(5,150,105,.35);border-radius:10px;padding:12px;margin-bottom:12px;font-size:.88rem;color:#d1fae5;line-height:1.65;\">"
+      +"📋 Apply the feedback above and write your improved version. Once you submit, the model answer structure will be unlocked.</div>"
+      +"<textarea id=\"mk-answer-2\" style=\"width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(5,150,105,.4);border-radius:9px;padding:10px 12px;font-size:.9rem;font-family:inherit;color:#fff;outline:none;resize:vertical;min-height:180px;\" placeholder=\"Write your improved answer here...\"></textarea>"
+      +"<button id=\"mk-resubmit-btn\" style=\"background:#059669;color:#fff;border:none;border-radius:10px;padding:11px 22px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;width:100%;margin-top:10px;\">"
+      +"📤 Submit improved answer — unlock model answer structure</button>"
+      +"</div>"
+      +"<div id=\"marker-model\" style=\"display:none;margin-top:16px;\"></div>"
+      +"</div>";
+    var ta=document.getElementById("mk-answer"),wc=document.getElementById("mk-wc");
+    ta.addEventListener("input",function(){var n=ta.value.trim().split(" ").filter(function(w){return w.trim().length>0;}).length;wc.textContent=n>0?"("+n+" words)":"";});
+    document.getElementById("mk-file").addEventListener("change",function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){ta.value=ev.target.result;ta.dispatchEvent(new Event("input"));};r.readAsText(f);});
+    document.getElementById("mk-submit-btn").addEventListener("click",function(){var ans=ta.value.trim(),tk=document.getElementById("mk-topic").value;if(!ans){alert("Please paste or type your answer first.");return;}if(!tk){alert("Please select a topic before submitting.");return;}var fb=analyse(ans,tk);if(fb)renderFb(fb,tk,1);document.getElementById("marker-resubmit").style.display="block";document.getElementById("marker-feedback").scrollIntoView({behavior:"smooth",block:"start"});});
+    document.getElementById("mk-resubmit-btn").addEventListener("click",function(){var ans2=document.getElementById("mk-answer-2").value.trim(),tk=document.getElementById("mk-topic").value;if(!ans2){alert("Please write your improved answer before submitting.");return;}var fb2=analyse(ans2,tk);if(fb2)renderFb(fb2,tk,2);renderModel(tk);document.getElementById("marker-model").scrollIntoView({behavior:"smooth",block:"start"});});
   }
-
-  function tryBuild() {
-    var ig = document.getElementById('pg-ig');
-    if (ig && ig.classList.contains('active')) buildMarker();
-  }
-
-  document.addEventListener('DOMContentLoaded', tryBuild);
-  document.addEventListener('click', function() { setTimeout(tryBuild, 250); }, true);
+  function tryBuild(){var ig=document.getElementById("pg-ig");if(ig&&ig.classList.contains("active"))buildMarker();}
+  document.addEventListener("DOMContentLoaded",tryBuild);
+  document.addEventListener("click",function(){setTimeout(tryBuild,250);},true);
 })();
-
 // Fix toggleRv to add rv-detail-item class for proper toggle behaviour
 document.querySelectorAll('[id^="rvs-"]').forEach(function(el){el.classList.add('rv-detail-item');});
 </script>
