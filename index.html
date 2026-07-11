@@ -321,12 +321,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_hs',(_dykI['f_hs']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_hs-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_hs',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_hs',1)" class="dyk-dot"></button><button onclick="dykGo('f_hs',2)" class="dyk-dot"></button><button onclick="dykGo('f_hs',3)" class="dyk-dot"></button><button onclick="dykGo('f_hs',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_hs',(_dykI['f_hs']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qhs">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What does the 'C' in WACA stand for?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! Context helps us understand WHY the source was created.','qhs')">A. Context — when the source was created and what was happening at the time</button><button class="quiz-opt" onclick="qAns(this,false,'❌ W=Who, A=Audience, C=Context, A=Aim.','qhs')">B. Content — what the source actually shows</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Credibility is your JUDGEMENT after WACA. C = Context.','qhs')">C. Credibility — whether the source is reliable</button>
-<div class="quiz-fb" id="qhs-fb"></div>
-</div><div class="tutor-box" data-tk="hs">
+</div></div><div id="qhs-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="hs">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -388,12 +383,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_1066',(_dykI['f_1066']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_1066-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_1066',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_1066',1)" class="dyk-dot"></button><button onclick="dykGo('f_1066',2)" class="dyk-dot"></button><button onclick="dykGo('f_1066',3)" class="dyk-dot"></button><button onclick="dykGo('f_1066',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_1066',(_dykI['f_1066']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="q1066">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">Which battle did Harold win just 19 days BEFORE Hastings?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! Harold defeated Harald Hardrada at Stamford Bridge on 25 September 1066.','q1066')">A. Battle of Stamford Bridge</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Gate Fulford was won by Hardrada. Open your lesson presentation.','q1066')">B. Battle of Gate Fulford</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Maldon was in 991. Open your lesson presentation.','q1066')">C. Battle of Maldon</button>
-<div class="quiz-fb" id="q1066-fb"></div>
-</div><div class="tutor-box" data-tk="1066">
+</div></div><div id="q1066-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="1066">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -444,12 +434,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_med',(_dykI['f_med']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_med-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_med',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_med',1)" class="dyk-dot"></button><button onclick="dykGo('f_med',2)" class="dyk-dot"></button><button onclick="dykGo('f_med',3)" class="dyk-dot"></button><button onclick="dykGo('f_med',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_med',(_dykI['f_med']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qmed">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What is the origin of the modern English word 'holiday'?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! Holy days were the only breaks from work.','qmed')">A. From 'holy day' — medieval religious feast days</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Review your lesson presentation.','qmed')">B. From Old Norse 'heilagr'</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Review your lesson presentation.','qmed')">C. From Norman French 'haut jour'</button>
-<div class="quiz-fb" id="qmed-fb"></div>
-</div><div class="tutor-box" data-tk="med">
+</div></div><div id="qmed-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="med">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -511,12 +496,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_bd',(_dykI['f_bd']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_bd-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_bd',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_bd',1)" class="dyk-dot"></button><button onclick="dykGo('f_bd',2)" class="dyk-dot"></button><button onclick="dykGo('f_bd',3)" class="dyk-dot"></button><button onclick="dykGo('f_bd',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_bd',(_dykI['f_bd']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qbd">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What was 'miasma theory'?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! Miasma theory held that foul air caused disease.','qbd')">A. The belief that disease was caused by bad or poisonous air</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Medieval people did NOT know about rats spreading disease.','qbd')">B. The belief that rats spread disease through their bites</button><button class="quiz-opt" onclick="qAns(this,false,'❌ This was a different medieval explanation.','qbd')">C. The belief that God caused all illness as punishment</button>
-<div class="quiz-fb" id="qbd-fb"></div>
-</div><div class="tutor-box" data-tk="bd">
+</div></div><div id="qbd-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="bd">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -567,12 +547,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_cas',(_dykI['f_cas']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_cas-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_cas',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_cas',1)" class="dyk-dot"></button><button onclick="dykGo('f_cas',2)" class="dyk-dot"></button><button onclick="dykGo('f_cas',3)" class="dyk-dot"></button><button onclick="dykGo('f_cas',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_cas',(_dykI['f_cas']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qcas">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What was the 'motte' in a motte-and-bailey castle?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! The motte was the raised mound; the bailey was the enclosed courtyard beside it.','qcas')">A. A raised earthen mound with a wooden tower on top</button><button class="quiz-opt" onclick="qAns(this,false,'❌ That is the moat.','qcas')">B. A deep water-filled ditch around the castle</button><button class="quiz-opt" onclick="qAns(this,false,'❌ That is the bailey.','qcas')">C. The enclosed courtyard at the base of the tower</button>
-<div class="quiz-fb" id="qcas-fb"></div>
-</div><div class="tutor-box" data-tk="cas">
+</div></div><div id="qcas-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="cas">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -675,12 +650,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_sl',(_dykI['f_sl']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_sl-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_sl',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_sl',1)" class="dyk-dot"></button><button onclick="dykGo('f_sl',2)" class="dyk-dot"></button><button onclick="dykGo('f_sl',3)" class="dyk-dot"></button><button onclick="dykGo('f_sl',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_sl',(_dykI['f_sl']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qsl">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">In what year did Britain abolish the slave TRADE?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! 1807 banned the slave trade; slavery itself ended in 1833 — 26 years later.','qsl')">A. 1807</button><button class="quiz-opt" onclick="qAns(this,false,'❌ 1833 abolished slavery — the TRADE was banned 26 years earlier in 1807.','qsl')">B. 1833</button><button class="quiz-opt" onclick="qAns(this,false,'❌ 1791 was the Haitian Revolution.','qsl')">C. 1791</button>
-<div class="quiz-fb" id="qsl-fb"></div>
-</div><div class="tutor-box" data-tk="sl">
+</div></div><div id="qsl-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="sl">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -731,12 +701,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_fm',(_dykI['f_fm']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_fm-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_fm',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_fm',1)" class="dyk-dot"></button><button onclick="dykGo('f_fm',2)" class="dyk-dot"></button><button onclick="dykGo('f_fm',3)" class="dyk-dot"></button><button onclick="dykGo('f_fm',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_fm',(_dykI['f_fm']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qfm">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What did the 1833 Sadler Report expose?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! The Sadler Report\'s testimony drove the Factory Acts.','qfm')">A. Shocking working conditions and child labour in British factories</button><button class="quiz-opt" onclick="qAns(this,false,'❌ John Snow investigated cholera in 1854.','qfm')">B. The causes of cholera outbreaks in Victorian cities</button><button class="quiz-opt" onclick="qAns(this,false,'❌ The Sadler Report was about British factory conditions.','qfm')">C. The extent of British slavery in the colonies</button>
-<div class="quiz-fb" id="qfm-fb"></div>
-</div><div class="tutor-box" data-tk="fm">
+</div></div><div id="qfm-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="fm">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -787,12 +752,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_lv',(_dykI['f_lv']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_lv-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_lv',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_lv',1)" class="dyk-dot"></button><button onclick="dykGo('f_lv',2)" class="dyk-dot"></button><button onclick="dykGo('f_lv',3)" class="dyk-dot"></button><button onclick="dykGo('f_lv',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_lv',(_dykI['f_lv']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qlv">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">Which doctor proved cholera was caused by contaminated water?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! Snow traced all deaths to a contaminated pump on Broad Street.','qlv')">A. Dr John Snow, mapping the 1854 Soho outbreak</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Jenner developed the smallpox vaccine — a different achievement.','qlv')">B. Edward Jenner, who developed the smallpox vaccine</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Pasteur developed germ theory. Snow proved the specific water link.','qlv')">C. Louis Pasteur, who developed germ theory</button>
-<div class="quiz-fb" id="qlv-fb"></div>
-</div><div class="tutor-box" data-tk="lv">
+</div></div><div id="qlv-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="lv">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -843,12 +803,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_em',(_dykI['f_em']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_em-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_em',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_em',1)" class="dyk-dot"></button><button onclick="dykGo('f_em',2)" class="dyk-dot"></button><button onclick="dykGo('f_em',3)" class="dyk-dot"></button><button onclick="dykGo('f_em',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_em',(_dykI['f_em']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qem">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What did the Indian Rebellion of 1857 directly cause?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! Victoria became Empress of India in 1876.','qem')">A. The end of East India Company rule and start of British Crown (Raj) rule</button><button class="quiz-opt" onclick="qAns(this,false,'❌ India gained independence in 1947 — 90 years later.','qem')">B. Indian independence from Britain</button><button class="quiz-opt" onclick="qAns(this,false,'❌ The East India Company was founded in 1600.','qem')">C. The founding of the East India Company</button>
-<div class="quiz-fb" id="qem-fb"></div>
-</div><div class="tutor-box" data-tk="em">
+</div></div><div id="qem-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="em">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -930,12 +885,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_nel',(_dykI['f_nel']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_nel-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_nel',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_nel',1)" class="dyk-dot"></button><button onclick="dykGo('f_nel',2)" class="dyk-dot"></button><button onclick="dykGo('f_nel',3)" class="dyk-dot"></button><button onclick="dykGo('f_nel',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_nel',(_dykI['f_nel']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qnel">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What tactical innovation did Nelson use at Trafalgar?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! Nelson\'s two-column attack broke the Franco-Spanish formation.','qnel')">A. Two columns attacking perpendicular to break the enemy line</button><button class="quiz-opt" onclick="qAns(this,false,'❌ The battle was fought in daylight on 21 October 1805.','qnel')">B. Attacking at night to gain tactical surprise</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Check your Nelson and Trafalgar resources.','qnel')">C. Using fireships to scatter the enemy fleet</button>
-<div class="quiz-fb" id="qnel-fb"></div>
-</div><div class="tutor-box" data-tk="nel">
+</div></div><div id="qnel-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="nel">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -997,12 +947,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_ww1',(_dykI['f_ww1']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_ww1-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_ww1',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_ww1',1)" class="dyk-dot"></button><button onclick="dykGo('f_ww1',2)" class="dyk-dot"></button><button onclick="dykGo('f_ww1',3)" class="dyk-dot"></button><button onclick="dykGo('f_ww1',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_ww1',(_dykI['f_ww1']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qww1">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What does the 'A' in M.A.I.N. stand for?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! The alliance system meant that once the conflict started, more nations were automatically drawn in.','qww1')">A. Alliances — the rival military blocs that dragged nations into the conflict</button><button class="quiz-opt" onclick="qAns(this,false,'❌ The assassination was the SPARK, not an underlying M.A.I.N. cause.','qww1')">B. Assassination — the killing of Franz Ferdinand</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Appeasement was a 1930s policy. M.A.I.N. = Militarism, Alliances, Imperialism, Nationalism.','qww1')">C. Appeasement — giving concessions to aggressors</button>
-<div class="quiz-fb" id="qww1-fb"></div>
-</div><div class="tutor-box" data-tk="ww1">
+</div></div><div id="qww1-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="ww1">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -1064,12 +1009,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_lon',(_dykI['f_lon']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_lon-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_lon',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_lon',1)" class="dyk-dot"></button><button onclick="dykGo('f_lon',2)" class="dyk-dot"></button><button onclick="dykGo('f_lon',3)" class="dyk-dot"></button><button onclick="dykGo('f_lon',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_lon',(_dykI['f_lon']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qlon">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What was the MOST IMPORTANT structural weakness of the League?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! Without US membership, the League lacked the authority and resources to confront aggressors.','qlon')">A. The USA never joined — the Senate refused to ratify the Treaty of Versailles</button><button class="quiz-opt" onclick="qAns(this,false,'❌ The problem was too FEW powerful members.','qlon')">B. The League had too many members and couldn't agree</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Germany was EXCLUDED until 1926.','qlon')">C. Germany was allowed to join and sabotaged it from within</button>
-<div class="quiz-fb" id="qlon-fb"></div>
-</div><div class="tutor-box" data-tk="lon">
+</div></div><div id="qlon-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="lon">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -1222,12 +1162,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_cw',(_dykI['f_cw']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_cw-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_cw',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_cw',1)" class="dyk-dot"></button><button onclick="dykGo('f_cw',2)" class="dyk-dot"></button><button onclick="dykGo('f_cw',3)" class="dyk-dot"></button><button onclick="dykGo('f_cw',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_cw',(_dykI['f_cw']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qcw">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">During the Cuban Missile Crisis, Kennedy chose which response?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! A blockade gave Khrushchev room to back down without losing face.','qcw')">A. A naval blockade (quarantine) of Cuba</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Rejected as too likely to trigger nuclear war.','qcw')">B. An immediate air strike on the Soviet missile sites</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Review your Cold War resources.','qcw')">C. A ground invasion of Cuba</button>
-<div class="quiz-fb" id="qcw-fb"></div>
-</div><div class="tutor-box" data-tk="cw">
+</div></div><div id="qcw-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="cw">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -1278,12 +1213,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_st',(_dykI['f_st']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_st-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_st',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_st',1)" class="dyk-dot"></button><button onclick="dykGo('f_st',2)" class="dyk-dot"></button><button onclick="dykGo('f_st',3)" class="dyk-dot"></button><button onclick="dykGo('f_st',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_st',(_dykI['f_st']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qst">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What was Stalin's network of forced labour camps called?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! Compare the Gulag reality with the official portrait — this gap IS the essence of totalitarian propaganda.','qst')">A. The Gulag</button><button class="quiz-opt" onclick="qAns(this,false,'❌ The NKVD was the secret police. The Gulag was the camp system.','qst')">B. The NKVD</button><button class="quiz-opt" onclick="qAns(this,false,'❌ The Politburo was the ruling committee.','qst')">C. The Politburo</button>
-<div class="quiz-fb" id="qst-fb"></div>
-</div><div class="tutor-box" data-tk="st">
+</div></div><div id="qst-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="st">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -1334,12 +1264,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_vn',(_dykI['f_vn']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_vn-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_vn',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_vn',1)" class="dyk-dot"></button><button onclick="dykGo('f_vn',2)" class="dyk-dot"></button><button onclick="dykGo('f_vn',3)" class="dyk-dot"></button><button onclick="dykGo('f_vn',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_vn',(_dykI['f_vn']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qvn">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What was the KEY outcome of the Tet Offensive (January 1968)?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! US forces repelled all attacks, but the scale destroyed American confidence the war was winnable.','qvn')">A. Military victory for USA — but a devastating political and psychological defeat</button><button class="quiz-opt" onclick="qAns(this,false,'❌ The Tet Offensive was MILITARILY DEFEATED. The political impact was entirely different.','qvn')">B. A decisive military victory for the Vietcong</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Formal US withdrawal came in 1973.','qvn')">C. Nixon was forced to immediately withdraw all US troops</button>
-<div class="quiz-fb" id="qvn-fb"></div>
-</div><div class="tutor-box" data-tk="vn">
+</div></div><div id="qvn-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="vn">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -1390,12 +1315,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="dykGo('f_md',(_dykI['f_md']||0)-1)" class="dyk-btn">&larr; Prev</button>
 <div id="f_md-dots" style="display:flex;gap:5px;"><button onclick="dykGo('f_md',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_md',1)" class="dyk-dot"></button><button onclick="dykGo('f_md',2)" class="dyk-dot"></button><button onclick="dykGo('f_md',3)" class="dyk-dot"></button><button onclick="dykGo('f_md',4)" class="dyk-dot"></button></div>
 <button onclick="dykGo('f_md',(_dykI['f_md']||0)+1)" class="dyk-btn">Next &rarr;</button>
-</div></div><div class="quiz-box" id="qmd">
-<div class="quiz-hdr">⚡ Quick Quiz</div>
-<div class="quiz-q">What were Beveridge's 'Five Giants'?</div>
-<button class="quiz-opt" onclick="qAns(this,true,'✅ Correct! These exact terms matter in the exam.','qmd')">A. Want, Disease, Ignorance, Squalor and Idleness</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Close but not exact. The Five Giants: Want, Disease, Ignorance, Squalor, Idleness.','qmd')">B. Poverty, Illness, Crime, Unemployment and Housing</button><button class="quiz-opt" onclick="qAns(this,false,'❌ Open your Beveridge Report PPT — exact terms matter.','qmd')">C. Hunger, Disease, Illiteracy, Overcrowding and War</button>
-<div class="quiz-fb" id="qmd-fb"></div>
-</div><div class="tutor-box" data-tk="md">
+</div></div><div id="qmd-mount" class="quiz-mount"></div><div class="tutor-box" data-tk="md">
 <div class="tutor-hdr"><span class="tutor-ico">🧠</span>
 <div><div class="tutor-name">Socrates, your historical AI tutor</div>
 <div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div>
@@ -2972,6 +2892,119 @@ function initIG(){var ig=document.getElementById('pg-ig');if(ig&&ig.classList.co
 document.addEventListener('DOMContentLoaded',initIG);
 document.addEventListener('click',function(){setTimeout(initIG,250);},true);
 })();
+</script>
+
+<script id="quiz-engine-js">
+
+/* ── DYNAMIC QUIZ ENGINE ── */
+(function(){
+  'use strict';
+  var QB = {"hs": [{"q": "What does the 'C' in WACA stand for?", "opts": [{"text": "Context — when the source was created and what was happening at the time", "ok": true, "fb": "✅ Correct! Context helps us understand WHY the source was created."}, {"text": "Content — what the source actually shows", "ok": false, "fb": "❌ W=Who, A=Audience, C=Context, A=Aim."}, {"text": "Credibility — whether the source is reliable", "ok": false, "fb": "❌ Credibility is your JUDGEMENT after WACA. C = Context."}]}, {"q": "What does WACA stand for?", "opts": [{"text": "Who, Audience, Context, Aim", "ok": true, "fb": "✅ Correct! Apply WACA to every source."}, {"text": "When, Analysis, Chronology, Argument", "ok": false, "fb": "❌ WACA = Who, Audience, Context, Aim."}, {"text": "Who, Assessment, Content, Approach", "ok": false, "fb": "❌ WACA = Who, Audience, Context, Aim."}]}, {"q": "What is a SECONDARY source?", "opts": [{"text": "A source created AFTER the event using other evidence", "ok": true, "fb": "✅ Correct! Secondary sources are created later — textbooks, documentaries, biographies."}, {"text": "A less important source", "ok": false, "fb": "❌ Secondary means created AFTER the event — not that it is less important."}, {"text": "A source that copies another source", "ok": false, "fb": "❌ Secondary sources are created after the event, using primary sources."}]}, {"q": "BC dates count in which direction?", "opts": [{"text": "Backwards — 200 BC is EARLIER than 100 BC", "ok": true, "fb": "✅ Correct! BC counts backwards — 200 BC is 100 years before 100 BC."}, {"text": "Forwards — the same as AD dates", "ok": false, "fb": "❌ BC counts BACKWARDS. 200 BC is earlier than 100 BC."}, {"text": "It depends on the historian", "ok": false, "fb": "❌ BC always counts backwards — 200 BC is always earlier than 100 BC."}]}], "1066": [{"q": "Which battle did Harold win just 19 days BEFORE Hastings?", "opts": [{"text": "Battle of Stamford Bridge", "ok": true, "fb": "✅ Correct! Harold defeated Harald Hardrada at Stamford Bridge on 25 September 1066."}, {"text": "Battle of Gate Fulford", "ok": false, "fb": "❌ Gate Fulford was won by Hardrada. Open your lesson presentation."}, {"text": "Battle of Maldon", "ok": false, "fb": "❌ Maldon was in 991. Open your lesson presentation."}]}, {"q": "When was the Battle of Hastings?", "opts": [{"text": "14 October 1066", "ok": true, "fb": "✅ Correct! The Battle of Hastings was fought on 14 October 1066."}, {"text": "25 September 1066", "ok": false, "fb": "❌ 25 September was the Battle of Stamford Bridge. Hastings was 14 October."}, {"text": "5 January 1066", "ok": false, "fb": "❌ 5 January was when Edward the Confessor died. Hastings was 14 October."}]}, {"q": "Who commissioned the Bayeux Tapestry?", "opts": [{"text": "Bishop Odo of Bayeux — William's half-brother", "ok": true, "fb": "✅ Correct! Bishop Odo commissioned it — making it a Norman propaganda source."}, {"text": "King Harold Godwinson", "ok": false, "fb": "❌ Harold was killed at Hastings before the tapestry was made. It was commissioned by Bishop Odo."}, {"text": "Pope Alexander II", "ok": false, "fb": "❌ The tapestry was commissioned by Bishop Odo of Bayeux — William's half-brother."}]}, {"q": "What was the Domesday Book?", "opts": [{"text": "A 1086 survey of land and resources ordered by William to maximise taxation", "ok": true, "fb": "✅ Correct! The Domesday Book recorded 13,418 places in just 7 months."}, {"text": "A medieval religious text", "ok": false, "fb": "❌ The Domesday Book was an administrative survey ordered by William in 1086."}, {"text": "A chronicle of the Battle of Hastings", "ok": false, "fb": "❌ The Domesday Book was a land survey, not a battle chronicle."}]}], "med": [{"q": "What is the origin of the modern English word 'holiday'?", "opts": [{"text": "From 'holy day' — medieval religious feast days", "ok": true, "fb": "✅ Correct! Holy days were the only breaks from work."}, {"text": "From Old Norse 'heilagr'", "ok": false, "fb": "❌ Review your lesson presentation."}, {"text": "From Norman French 'haut jour'", "ok": false, "fb": "❌ Review your lesson presentation."}]}, {"q": "Which king banned mob football in 1363?", "opts": [{"text": "Edward III — it distracted men from archery practice", "ok": true, "fb": "✅ Correct! Edward III banned mob football in 1363."}, {"text": "Henry VIII — he considered it undignified", "ok": false, "fb": "❌ It was Edward III who banned mob football in 1363."}, {"text": "Richard II — he feared public gatherings", "ok": false, "fb": "❌ It was Edward III who banned mob football in 1363 because it distracted men from archery."}]}, {"q": "What were sumptuary laws?", "opts": [{"text": "Laws prohibiting lower classes from wearing expensive fabrics like silk", "ok": true, "fb": "✅ Correct! Sumptuary laws controlled dress based on social class."}, {"text": "Laws regulating how much food could be eaten", "ok": false, "fb": "❌ Sumptuary laws controlled clothing by social class, not food."}, {"text": "Laws about church attendance on holy days", "ok": false, "fb": "❌ Sumptuary laws controlled clothing and dress according to social class."}]}], "bd": [{"q": "What was 'miasma theory'?", "opts": [{"text": "The belief that disease was caused by bad or poisonous air", "ok": true, "fb": "✅ Correct! Miasma theory held that foul air caused disease."}, {"text": "The belief that rats spread disease through their bites", "ok": false, "fb": "❌ Medieval people did NOT know about rats spreading disease."}, {"text": "The belief that God caused all illness as punishment", "ok": false, "fb": "❌ This was a different medieval explanation."}]}, {"q": "When did the Black Death arrive in England?", "opts": [{"text": "June 1348, at Weymouth, Dorset", "ok": true, "fb": "✅ Correct! The Black Death arrived in England in June 1348 at Weymouth."}, {"text": "1340, in London", "ok": false, "fb": "❌ The Black Death arrived in England in June 1348 at Weymouth, Dorset."}, {"text": "1360, in York", "ok": false, "fb": "❌ The Black Death arrived in England in June 1348 at Weymouth, Dorset."}]}, {"q": "What happened to wages after the Black Death?", "opts": [{"text": "Wages DOUBLED for surviving workers because of labour shortages", "ok": true, "fb": "✅ Correct! The Black Death killed so many workers that surviving peasants could demand higher wages."}, {"text": "Wages fell because fewer goods were produced", "ok": false, "fb": "❌ Wages actually DOUBLED — with fewer workers, peasants could demand higher pay."}, {"text": "Wages stayed the same — lords kept control", "ok": false, "fb": "❌ Wages DOUBLED — the Black Death created a labour shortage that gave peasants more bargaining power."}]}], "cas": [{"q": "What was the 'motte' in a motte-and-bailey castle?", "opts": [{"text": "A raised earthen mound with a wooden tower on top", "ok": true, "fb": "✅ Correct! The motte was the raised mound; the bailey was the enclosed courtyard beside it."}, {"text": "A deep water-filled ditch around the castle", "ok": false, "fb": "❌ That is the moat."}, {"text": "The enclosed courtyard at the base of the tower", "ok": false, "fb": "❌ That is the bailey."}]}, {"q": "How long did it take to build a motte-and-bailey castle?", "opts": [{"text": "As little as 8 days — they were quick wooden structures", "ok": true, "fb": "✅ Correct! Motte-and-bailey castles were quick to build — a key advantage for rapid conquest."}, {"text": "Several years of skilled construction", "ok": false, "fb": "❌ Motte-and-bailey castles were quick wooden structures that could be built in as little as 8 days."}, {"text": "About 6 months with a full workforce", "ok": false, "fb": "❌ Motte-and-bailey castles could be built in as little as 8 days. Stone keeps took much longer."}]}, {"q": "How thick are the walls of the Tower of London?", "opts": [{"text": "Up to 4.5 metres thick", "ok": true, "fb": "✅ Correct! The Tower of London's walls are up to 4.5 metres thick."}, {"text": "About 1 metre thick", "ok": false, "fb": "❌ The Tower of London's walls are up to 4.5 metres thick."}, {"text": "About 2 metres thick", "ok": false, "fb": "❌ The Tower of London's walls are up to 4.5 metres thick — much thicker than most castle walls."}]}], "sl": [{"q": "In what year did Britain abolish the slave TRADE?", "opts": [{"text": "1807", "ok": true, "fb": "✅ Correct! 1807 banned the slave trade; slavery itself ended in 1833 — 26 years later."}, {"text": "1833", "ok": false, "fb": "❌ 1833 abolished slavery — the TRADE was banned 26 years earlier in 1807."}, {"text": "1791", "ok": false, "fb": "❌ 1791 was the Haitian Revolution."}]}, {"q": "When did Britain abolish slavery ITSELF (not just the trade)?", "opts": [{"text": "1833 — the Slavery Abolition Act, 26 years after banning the trade", "ok": true, "fb": "✅ Correct! The slave TRADE was banned in 1807. Slavery itself was abolished in 1833."}, {"text": "1807 — the same year as the slave trade", "ok": false, "fb": "❌ 1807 banned the slave TRADE. Slavery itself wasn't abolished until 1833 — 26 years later."}, {"text": "1865 — following the American Civil War", "ok": false, "fb": "❌ 1865 was US abolition. Britain abolished slavery in 1833 — 26 years after banning the trade in 1807."}]}, {"q": "How wide was each enslaved person's space on the Brookes slave ship?", "opts": [{"text": "Just 16 inches — less than the width of a modern chair", "ok": true, "fb": "✅ Correct! Each enslaved person was allocated just 16 inches on the Brookes."}, {"text": "About 1 metre", "ok": false, "fb": "❌ Each enslaved person was allocated just 16 inches — far less than a metre."}, {"text": "About half a metre", "ok": false, "fb": "❌ Each enslaved person was allocated just 16 inches on the Brookes."}]}], "fm": [{"q": "What did the 1833 Sadler Report expose?", "opts": [{"text": "The causes of cholera outbreaks in Victorian cities", "ok": false, "fb": "❌ John Snow investigated cholera in 1854."}, {"text": "The extent of British slavery in the colonies", "ok": false, "fb": "❌ The Sadler Report was about British factory conditions."}]}, {"q": "By how much did Manchester's population grow between 1772 and 1851?", "opts": [{"text": "12-fold — from 25,000 to 316,000", "ok": true, "fb": "✅ Correct! Manchester grew 12-fold during the Industrial Revolution."}, {"text": "Doubled — from 50,000 to 100,000", "ok": false, "fb": "❌ Manchester grew 12-fold — from 25,000 in 1772 to 316,000 in 1851."}, {"text": "Tripled — from 100,000 to 300,000", "ok": false, "fb": "❌ Manchester grew 12-fold — from 25,000 in 1772 to 316,000 in 1851."}]}, {"q": "What did the 1833 Factory Act introduce?", "opts": [{"text": "Minimum age of 9 for factory work and maximum 8-hour day for under-13s", "ok": true, "fb": "✅ Correct! The 1833 Factory Act was driven by the findings of the Sadler Report."}, {"text": "A ban on all child labour", "ok": false, "fb": "❌ The 1833 Factory Act set minimum ages and maximum hours — it did not ban all child labour."}, {"text": "A 40-hour working week for all workers", "ok": false, "fb": "❌ The 40-hour week came much later. The 1833 Factory Act set minimum ages and limited hours for children."}]}], "lv": [{"q": "Which doctor proved cholera was caused by contaminated water?", "opts": [{"text": "Dr John Snow, mapping the 1854 Soho outbreak", "ok": true, "fb": "✅ Correct! Snow traced all deaths to a contaminated pump on Broad Street."}, {"text": "Edward Jenner, who developed the smallpox vaccine", "ok": false, "fb": "❌ Jenner developed the smallpox vaccine — a different achievement."}, {"text": "Louis Pasteur, who developed germ theory", "ok": false, "fb": "❌ Pasteur developed germ theory. Snow proved the specific water link."}]}, {"q": "What caused the Great Stink of 1858?", "opts": [{"text": "The River Thames became so polluted with sewage that it drove MPs out of Parliament", "ok": true, "fb": "✅ Correct! The Great Stink finally forced the government to fund Bazalgette's sewage system."}, {"text": "A factory fire in London", "ok": false, "fb": "❌ The Great Stink was caused by the polluted Thames — so bad it drove MPs out of Parliament in 1858."}, {"text": "A cholera epidemic affecting the docks", "ok": false, "fb": "❌ The Great Stink was the smell of the polluted Thames that drove MPs out of Parliament in 1858."}]}, {"q": "How did John Snow prove cholera was waterborne?", "opts": [{"text": "He mapped deaths in Soho and traced them all to one contaminated pump on Broad Street", "ok": true, "fb": "✅ Correct! Snow removed the pump handle and deaths stopped — proving the water link."}, {"text": "He tested the water under a microscope", "ok": false, "fb": "❌ Snow used detective work — mapping deaths and tracing them to the Broad Street pump in 1854."}, {"text": "He published a medical paper about bacteria", "ok": false, "fb": "❌ Snow mapped deaths and traced them to the Broad Street pump — the bacteria causing cholera wasn't identified until later."}]}], "em": [{"q": "What did the Indian Rebellion of 1857 directly cause?", "opts": [{"text": "The end of East India Company rule and start of British Crown (Raj) rule", "ok": true, "fb": "✅ Correct! Victoria became Empress of India in 1876."}, {"text": "Indian independence from Britain", "ok": false, "fb": "❌ India gained independence in 1947 — 90 years later."}, {"text": "The founding of the East India Company", "ok": false, "fb": "❌ The East India Company was founded in 1600."}]}, {"q": "What percentage of the world's land did the British Empire control at its height?", "opts": [{"text": "About 24% — approximately one quarter of the world", "ok": true, "fb": "✅ Correct! At its height, the British Empire covered 24% of the world's land surface."}, {"text": "About 10%", "ok": false, "fb": "❌ The British Empire covered about 24% of the world's land at its height."}, {"text": "About 50%", "ok": false, "fb": "❌ The British Empire covered about 24% of the world's land — not half."}]}, {"q": "When did Victoria become Empress of India?", "opts": [{"text": "1876", "ok": true, "fb": "✅ Correct! Victoria became Empress of India in 1876, following the Indian Rebellion of 1857."}, {"text": "1857", "ok": false, "fb": "❌ 1857 was the Indian Rebellion. Victoria became Empress of India in 1876."}, {"text": "1900", "ok": false, "fb": "❌ Victoria became Empress of India in 1876 — she died in 1901."}]}], "nel": [{"q": "What tactical innovation did Nelson use at Trafalgar?", "opts": [{"text": "Attacking at night to gain tactical surprise", "ok": false, "fb": "❌ The battle was fought in daylight on 21 October 1805."}, {"text": "Using fireships to scatter the enemy fleet", "ok": false, "fb": "❌ Check your Nelson and Trafalgar resources."}]}, {"q": "How long did the Battle of Trafalgar last?", "opts": [{"text": "Approximately 5 hours", "ok": true, "fb": "✅ Correct! The Battle of Trafalgar lasted approximately 5 hours on 21 October 1805."}, {"text": "Three days", "ok": false, "fb": "❌ Trafalgar lasted approximately 5 hours on 21 October 1805."}, {"text": "One hour", "ok": false, "fb": "❌ Trafalgar lasted approximately 5 hours — intense but decisive."}]}, {"q": "What time was Nelson fatally shot?", "opts": [{"text": "1:15pm — he died at 4:30pm", "ok": true, "fb": "✅ Correct! Nelson was struck at 1:15pm by a musket ball fired from the Redoutable and died at 4:30pm."}, {"text": "At the start of the battle, 11am", "ok": false, "fb": "❌ Nelson was struck at 1:15pm and died at 4:30pm."}, {"text": "Just as the battle ended", "ok": false, "fb": "❌ Nelson was struck at 1:15pm and died at 4:30pm — before the battle was fully won."}]}], "ww1": [{"q": "What does the 'A' in M.A.I.N. stand for?", "opts": [{"text": "Alliances — the rival military blocs that dragged nations into the conflict", "ok": true, "fb": "✅ Correct! The alliance system meant that once the conflict started, more nations were automatically drawn in."}, {"text": "Assassination — the killing of Franz Ferdinand", "ok": false, "fb": "❌ The assassination was the SPARK, not an underlying M.A.I.N. cause."}, {"text": "Appeasement — giving concessions to aggressors", "ok": false, "fb": "❌ Appeasement was a 1930s policy. M.A.I.N. = Militarism, Alliances, Imperialism, Nationalism."}]}, {"q": "How many British casualties occurred on the first day of the Battle of the Somme?", "opts": [{"text": "57,470 — including 19,240 killed", "ok": true, "fb": "✅ Correct! 1 July 1916 remains the bloodiest day in British military history."}, {"text": "About 5,000", "ok": false, "fb": "❌ There were 57,470 British casualties on 1 July 1916 — the bloodiest day in British military history."}, {"text": "About 20,000", "ok": false, "fb": "❌ There were 57,470 British casualties on 1 July 1916 — including 19,240 killed."}]}, {"q": "When were reparations from the Treaty of Versailles finally fully paid?", "opts": [{"text": "October 2010 — 91 years after the treaty was signed", "ok": true, "fb": "✅ Correct! Germany finally paid off the last of its WW1 reparations in October 2010."}, {"text": "1933 — when Hitler came to power and cancelled them", "ok": false, "fb": "❌ Germany's WW1 reparations were not fully paid until October 2010."}, {"text": "1945 — after WW2", "ok": false, "fb": "❌ The WW1 reparations were not fully paid until October 2010 — 91 years after Versailles."}]}], "lon": [{"q": "What was the MOST IMPORTANT structural weakness of the League?", "opts": [{"text": "The USA never joined — the Senate refused to ratify the Treaty of Versailles", "ok": true, "fb": "✅ Correct! Without US membership, the League lacked the authority and resources to confront aggressors."}, {"text": "The League had too many members and couldn't agree", "ok": false, "fb": "❌ The problem was too FEW powerful members."}, {"text": "Germany was allowed to join and sabotaged it from within", "ok": false, "fb": "❌ Germany was EXCLUDED until 1926."}]}, {"q": "How did the US Senate vote on joining the League of Nations?", "opts": [{"text": "49 votes to 35 against ratifying the Treaty of Versailles", "ok": true, "fb": "✅ Correct! The US Senate refused to ratify the Treaty of Versailles by 49 votes to 35."}, {"text": "Unanimously in favour of joining", "ok": false, "fb": "❌ The US Senate voted 49 to 35 AGAINST ratifying the Treaty of Versailles — keeping the USA out of the League."}, {"text": "It was never voted on — Woodrow Wilson withdrew it", "ok": false, "fb": "❌ The Senate voted 49 to 35 against ratifying the Treaty of Versailles."}]}, {"q": "What happened when Japan invaded Manchuria in 1931?", "opts": [{"text": "The League debated for a year before taking ineffective action", "ok": true, "fb": "✅ Correct! The League's response to Japan's invasion of Manchuria exposed its critical weaknesses."}, {"text": "The League immediately expelled Japan", "ok": false, "fb": "❌ The League debated for a year and then only issued a report condemning Japan — who simply left the League."}, {"text": "Britain and France declared war on Japan", "ok": false, "fb": "❌ The League debated for a year before taking ineffective action — Japan simply left the League."}]}], "cw": [{"q": "During the Cuban Missile Crisis, Kennedy chose which response?", "opts": [{"text": "A naval blockade (quarantine) of Cuba", "ok": true, "fb": "✅ Correct! A blockade gave Khrushchev room to back down without losing face."}, {"text": "An immediate air strike on the Soviet missile sites", "ok": false, "fb": "❌ Rejected as too likely to trigger nuclear war."}, {"text": "A ground invasion of Cuba", "ok": false, "fb": "❌ Review your Cold War resources."}]}, {"q": "Which year did the Berlin Wall fall?", "opts": [{"text": "1989", "ok": true, "fb": "✅ Correct! The Berlin Wall fell on 9 November 1989."}, {"text": "1991", "ok": false, "fb": "❌ The Berlin Wall fell in 1989. The USSR itself collapsed in 1991."}, {"text": "1961", "ok": false, "fb": "❌ The Berlin Wall was BUILT in 1961. It fell in 1989."}]}, {"q": "What was the Marshall Plan?", "opts": [{"text": "$13 billion in US aid to rebuild Western Europe 1948–52", "ok": true, "fb": "✅ Correct! The Marshall Plan provided $13 billion to rebuild Western European economies."}, {"text": "A plan to rebuild Germany's military", "ok": false, "fb": "❌ The Marshall Plan was $13 billion in economic aid to rebuild Western Europe — not military."}, {"text": "A Soviet plan to control Eastern Europe", "ok": false, "fb": "❌ The Marshall Plan was a US economic aid programme providing $13 billion to rebuild Western Europe."}]}, {"q": "How many days did the Cuban Missile Crisis last?", "opts": [{"text": "13 days — 16–28 October 1962", "ok": true, "fb": "✅ Correct! The Cuban Missile Crisis lasted 13 days and brought the world closest to nuclear war."}, {"text": "3 days", "ok": false, "fb": "❌ The Cuban Missile Crisis lasted 13 days — 16 to 28 October 1962."}, {"text": "6 months", "ok": false, "fb": "❌ The Cuban Missile Crisis lasted 13 days — 16 to 28 October 1962."}]}], "st": [{"q": "What was Stalin's network of forced labour camps called?", "opts": [{"text": "The Gulag", "ok": true, "fb": "✅ Correct! Compare the Gulag reality with the official portrait — this gap IS the essence of totalitarian propaganda."}, {"text": "The NKVD", "ok": false, "fb": "❌ The NKVD was the secret police. The Gulag was the camp system."}, {"text": "The Politburo", "ok": false, "fb": "❌ The Politburo was the ruling committee."}]}, {"q": "What was the Gulag?", "opts": [{"text": "Stalin's system of forced labour camps — holding 1.8 million at its peak", "ok": true, "fb": "✅ Correct! The Gulag held 1.8 million people in 476 camp complexes at its peak."}, {"text": "The Soviet secret police", "ok": false, "fb": "❌ The secret police was the NKVD. The Gulag was Stalin's network of forced labour camps."}, {"text": "Soviet propaganda posters", "ok": false, "fb": "❌ The Gulag was Stalin's network of forced labour camps — holding 1.8 million people at its peak."}]}, {"q": "What was the Holodomor?", "opts": [{"text": "A deliberately engineered famine in Ukraine 1932–33 that killed millions", "ok": true, "fb": "✅ Correct! The Holodomor was a deliberate policy — grain quotas were maintained even as millions starved."}, {"text": "A Ukrainian celebration", "ok": false, "fb": "❌ The Holodomor was a deliberately engineered famine — grain quotas were maintained even as millions died."}, {"text": "A Soviet military campaign against kulaks", "ok": false, "fb": "❌ The Holodomor was a deliberately engineered famine in Ukraine — grain quotas were maintained as millions starved."}]}, {"q": "How much did Soviet steel production increase under the Five-Year Plans?", "opts": [{"text": "From 4 to 18 million tonnes between 1928 and 1940", "ok": true, "fb": "✅ Correct! The Five-Year Plans dramatically increased Soviet industrial output."}, {"text": "It doubled from 10 to 20 million tonnes", "ok": false, "fb": "❌ Steel increased from 4 to 18 million tonnes 1928-1940 — a 4.5-fold increase."}, {"text": "It stayed roughly the same", "ok": false, "fb": "❌ Steel production increased from 4 to 18 million tonnes — a dramatic increase driven by the Five-Year Plans."}]}], "vn": [{"q": "What was the KEY outcome of the Tet Offensive (January 1968)?", "opts": [{"text": "Military victory for USA — but a devastating political and psychological defeat", "ok": true, "fb": "✅ Correct! US forces repelled all attacks, but the scale destroyed American confidence the war was winnable."}, {"text": "A decisive military victory for the Vietcong", "ok": false, "fb": "❌ The Tet Offensive was MILITARILY DEFEATED. The political impact was entirely different."}, {"text": "Nixon was forced to immediately withdraw all US troops", "ok": false, "fb": "❌ Formal US withdrawal came in 1973."}]}, {"q": "How long was the Cu Chi tunnel network?", "opts": [{"text": "250 kilometres — including hospitals, schools and command centres", "ok": true, "fb": "✅ Correct! The Cu Chi tunnels stretched 250km and contained an entire underground city."}, {"text": "About 10 kilometres", "ok": false, "fb": "❌ The Cu Chi tunnel network stretched 250 kilometres — far longer than most people realise."}, {"text": "About 50 kilometres", "ok": false, "fb": "❌ The Cu Chi tunnel network stretched 250 kilometres and contained hospitals, schools and command centres."}]}, {"q": "What was Walter Cronkite's significance after the Tet Offensive?", "opts": [{"text": "He declared the war 'a stalemate' — trusted by 73% of Americans, this devastated public support", "ok": true, "fb": "✅ Correct! When Cronkite turned against the war, President Johnson said: 'If I've lost Cronkite, I've lost Middle America.'"}, {"text": "He reported a US military victory, boosting support for the war", "ok": false, "fb": "❌ Cronkite declared the war 'a stalemate' — his opposition devastated public support for the war."}, {"text": "He revealed the My Lai massacre to the public", "ok": false, "fb": "❌ It was Seymour Hersh who broke the My Lai story. Cronkite declared the war 'a stalemate' after Tet."}]}, {"q": "What was the average age of a US soldier in Vietnam?", "opts": [{"text": "19 — compared to 26 in WW2", "ok": true, "fb": "✅ Correct! The average US soldier in Vietnam was just 19 years old."}, {"text": "25", "ok": false, "fb": "❌ The average age was 19 — far younger than in WW2, where it was 26."}, {"text": "22", "ok": false, "fb": "❌ The average age of a US soldier in Vietnam was just 19 — compared to 26 in WW2."}]}], "md": [{"q": "What were Beveridge's 'Five Giants'?", "opts": [{"text": "Want, Disease, Ignorance, Squalor and Idleness", "ok": true, "fb": "✅ Correct! These exact terms matter in the exam."}, {"text": "Poverty, Illness, Crime, Unemployment and Housing", "ok": false, "fb": "❌ Close but not exact. The Five Giants: Want, Disease, Ignorance, Squalor, Idleness."}, {"text": "Hunger, Disease, Illiteracy, Overcrowding and War", "ok": false, "fb": "❌ Open your Beveridge Report PPT — exact terms matter."}]}, {"q": "In what year did Fleming discover penicillin?", "opts": [{"text": "1928 — BEFORE WW2 (Florey made it usable in 1940)", "ok": true, "fb": "✅ Correct! The 12-year gap between discovery (1928) and usable antibiotic (1940) is key for your essay on WW2's role."}, {"text": "1940 — during WW2", "ok": false, "fb": "❌ Fleming discovered penicillin in 1928 — BEFORE WW2. Florey and Chain made it usable in 1940."}, {"text": "1945 — at the end of WW2", "ok": false, "fb": "❌ Fleming discovered penicillin in 1928 — BEFORE WW2 even started."}]}, {"q": "What was the date of the NHS launch?", "opts": [{"text": "5 July 1948", "ok": true, "fb": "✅ Correct! The NHS launched on 5 July 1948 — free healthcare for all from the cradle to the grave."}, {"text": "1 January 1945", "ok": false, "fb": "❌ The NHS launched on 5 July 1948, following the Labour election victory and the Beveridge Report."}, {"text": "1 May 1951", "ok": false, "fb": "❌ The NHS launched on 5 July 1948 — Aneurin Bevan's proudest achievement."}]}, {"q": "Who wrote the Beveridge Report?", "opts": [{"text": "William Beveridge — in 1942, identifying the Five Giants", "ok": true, "fb": "✅ Correct! The Beveridge Report (1942) sold 635,000 copies — a record for a government document."}, {"text": "Aneurin Bevan", "ok": false, "fb": "❌ Bevan created the NHS. The Beveridge Report was written by William Beveridge in 1942."}, {"text": "Winston Churchill", "ok": false, "fb": "❌ The Beveridge Report was written by William Beveridge in 1942 — Churchill's coalition government actually delayed acting on it."}]}]};
+  var _shown = {};  // qid -> index of current question
+
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  function renderQuiz(mountId) {
+    var mount = document.getElementById(mountId);
+    if (!mount) return;
+
+    // Derive topic key from mountId: "qhs-mount" -> "hs"
+    var tk = mountId.replace('q','').replace('-mount','');
+    var bank = QB[tk];
+    if (!bank || !bank.length) return;
+
+    // Pick next question (cycle through randomly, avoiding repeat)
+    if (!_shown[mountId]) _shown[mountId] = { idx: -1, order: shuffle(bank.map(function(_,i){return i;})) };
+    var st = _shown[mountId];
+    st.idx = (st.idx + 1) % st.order.length;
+    // Reshuffle when we complete a cycle
+    if (st.idx === 0) st.order = shuffle(st.order);
+    var qi = st.order[st.idx];
+    var q = bank[qi];
+
+    // Shuffle answer options
+    var opts = shuffle(q.opts.slice());
+    var letters = ['A','B','C','D'];
+
+    var btns = opts.map(function(opt, i) {
+      var fb_safe = opt.fb.replace(/'/g, "&#39;");
+      var ok_str  = opt.ok ? 'true' : 'false';
+      return '<button class="quiz-opt" onclick="qAns(this,'
+        + ok_str + ',\'' + fb_safe + '\',\'' + mountId + '\')">'
+        + letters[i] + '. ' + opt.text + '</button>';
+    }).join('');
+
+    mount.innerHTML =
+      '<div class="quiz-box" id="' + mountId + '">'
+      + '<div class="quiz-hdr">⚡ Quick Quiz</div>'
+      + '<div class="quiz-q">' + q.q + '</div>'
+      + btns
+      + '<div class="quiz-fb" id="' + mountId + '-fb"></div>'
+      + '</div>';
+  }
+
+  // Override qAns to use mount id
+  var _origQAns = window.qAns;
+  window.qAns = function(btn, isOk, fb, mountId) {
+    var box = document.getElementById(mountId);
+    if (!box) { if (_origQAns) _origQAns(btn, isOk, fb, mountId); return; }
+    box.querySelectorAll('.quiz-opt').forEach(function(b) { b.disabled = true; });
+    btn.classList.add(isOk ? 'correct' : 'wrong');
+    var fbEl = document.getElementById(mountId + '-fb');
+    if (fbEl) { fbEl.textContent = fb; fbEl.style.color = isOk ? '#86efac' : '#fca5a5'; }
+  };
+
+  // Render all quiz mounts visible in the DOM
+  function renderAllVisible() {
+    document.querySelectorAll('.quiz-mount').forEach(function(mount) {
+      // Only render if not already rendered (has no children)
+      if (!mount.children.length) renderQuiz(mount.id);
+    });
+  }
+
+  // Re-randomise quizzes whenever a topic detail panel is opened
+  var _origToggle = window.toggleTopic;
+  window.toggleTopic = function(id) {
+    if (_origToggle) _origToggle(id);
+    // After the panel opens, re-roll any quiz inside it
+    setTimeout(function() {
+      var panel = document.getElementById(id);
+      if (!panel || panel.style.display === 'none') return;
+      panel.querySelectorAll('.quiz-mount').forEach(function(mount) {
+        renderQuiz(mount.id);
+      });
+    }, 80);
+  };
+
+  // Also re-roll when revision hub or source studies sub-panels open
+  var _origToggleRv = window.toggleRv;
+  window.toggleRv = function(id) {
+    if (_origToggleRv) _origToggleRv(id);
+    setTimeout(function() {
+      var panel = document.getElementById(id);
+      if (panel && panel.style.display !== 'none') {
+        panel.querySelectorAll('.quiz-mount').forEach(function(mount) {
+          renderQuiz(mount.id);
+        });
+      }
+    }, 80);
+  };
+
+  // Initial render on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderAllVisible);
+  } else {
+    renderAllVisible();
+  }
+
+})();
+
 </script>
 </body>
 </html>
