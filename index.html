@@ -1882,5 +1882,460 @@ document.addEventListener('DOMContentLoaded', function() {
 <script id="socrates-home-button-fix-js">
   ...
 </script>
+<!-- BLOG SPOT TOPIC PANELS -->
+<style id="blog-spot-topic-panels-css">
+  .blog-spot-panel {
+    background: linear-gradient(135deg, #fff7ed, #fffbeb);
+    border: 2px solid rgba(217, 119, 6, 0.38);
+    border-radius: 13px;
+    padding: 12px 13px;
+    margin: 0 0 12px;
+    box-shadow: 0 3px 14px rgba(120, 53, 15, 0.12);
+  }
+
+  .blog-spot-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .blog-spot-icon {
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
+  .blog-spot-title {
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: #92400e;
+    line-height: 1.25;
+  }
+
+  .blog-spot-sub {
+    font-size: 0.64rem;
+    color: #7c2d12;
+    line-height: 1.45;
+    margin-top: 1px;
+  }
+
+  .blog-spot-question {
+    background: #ffffff;
+    border-left: 4px solid #d97706;
+    border-radius: 0 9px 9px 0;
+    padding: 9px 11px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #1a2540;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+
+  .blog-spot-prompts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .blog-spot-prompt {
+    background: #fff;
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    color: #92400e;
+    border-radius: 999px;
+    padding: 3px 7px;
+    font-size: 0.61rem;
+    font-weight: 700;
+  }
+
+  .blog-spot-input {
+    width: 100%;
+    border: 1.5px solid rgba(217, 119, 6, 0.32);
+    border-radius: 9px;
+    padding: 8px 10px;
+    resize: vertical;
+    min-height: 58px;
+    font-size: 0.78rem;
+    font-family: inherit;
+    color: #1a2540;
+    outline: none;
+    background: #fff;
+  }
+
+  .blog-spot-input:focus {
+    border-color: #d97706;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.12);
+  }
+
+  .blog-spot-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 7px;
+  }
+
+  .blog-spot-name {
+    flex: 1;
+    min-width: 0;
+    border: 1.5px solid rgba(217, 119, 6, 0.24);
+    border-radius: 8px;
+    padding: 7px 9px;
+    font-size: 0.72rem;
+    font-family: inherit;
+    outline: none;
+  }
+
+  .blog-spot-post {
+    background: #d97706;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .blog-spot-post:hover {
+    background: #b45309;
+  }
+
+  .blog-spot-comments {
+    margin-top: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 190px;
+    overflow-y: auto;
+  }
+
+  .blog-comment {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 9px;
+    padding: 8px 9px;
+  }
+
+  .blog-comment-meta {
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 3px;
+  }
+
+  .blog-comment-text {
+    font-size: 0.74rem;
+    color: #374060;
+    line-height: 1.55;
+    white-space: pre-wrap;
+  }
+
+  .blog-spot-empty {
+    font-size: 0.68rem;
+    color: #7c2d12;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.66);
+    border-radius: 8px;
+    padding: 7px 9px;
+  }
+
+  .blog-spot-clear {
+    background: none;
+    border: none;
+    color: #9a3412;
+    font-size: 0.63rem;
+    cursor: pointer;
+    padding: 4px 0 0;
+    font-family: inherit;
+    text-decoration: underline;
+  }
+</style>
+
+<script id="blog-spot-topic-panels-js">
+(function () {
+  'use strict';
+
+  var BLOG_DATA = {
+    hs: {
+      topic: 'What is History?',
+      question: 'How far can historians trust a source if its creator had a clear purpose?',
+      prompts: ['Use WACA', 'Consider bias', 'Use a source example']
+    },
+    '1066': {
+      topic: 'The Norman Conquest',
+      question: 'Was William’s victory at Hastings mainly caused by Harold’s mistakes?',
+      prompts: ['Harold’s march', 'William’s tactics', 'Bayeux Tapestry']
+    },
+    med: {
+      topic: 'Medieval Entertainment',
+      question: 'What does medieval entertainment reveal about power and social class?',
+      prompts: ['Holy days', 'Mob football', 'Sumptuary laws']
+    },
+    bd: {
+      topic: 'The Black Death',
+      question: 'Did the Black Death ultimately weaken or strengthen ordinary people?',
+      prompts: ['Labour shortage', 'Peasants', 'Feudalism']
+    },
+    cas: {
+      topic: 'Castles',
+      question: 'Were castles more important as military defences or symbols of Norman power?',
+      prompts: ['Motte and bailey', 'Stone keep', 'Control']
+    },
+    sl: {
+      topic: 'The Slave Trade',
+      question: 'Was moral campaigning or economic change more important in ending the slave trade?',
+      prompts: ['Equiano', 'Brookes diagram', '1807 and 1833']
+    },
+    fm: {
+      topic: 'Industrial Revolution',
+      question: 'Did the Industrial Revolution improve life for ordinary people?',
+      prompts: ['Factories', 'Child labour', 'Urbanisation']
+    },
+    lv: {
+      topic: 'Victorian Living Conditions',
+      question: 'Why did it take crises like cholera and the Great Stink to force public health reform?',
+      prompts: ['John Snow', 'Cholera', 'Great Stink']
+    },
+    em: {
+      topic: 'British Empire',
+      question: 'Was the British Empire mainly about progress, control, or exploitation?',
+      prompts: ['Indian Rebellion', 'Empire map', 'Two perspectives']
+    },
+    nel: {
+      topic: 'Nelson and Trafalgar',
+      question: 'Was Trafalgar more important for British security or British identity?',
+      prompts: ['Naval power', 'Napoleon', 'Nelson']
+    },
+    ww1: {
+      topic: 'World War One',
+      question: 'Was World War One caused more by long-term tensions than by the assassination at Sarajevo?',
+      prompts: ['M.A.I.N.', 'Sarajevo', 'Alliances']
+    },
+    lon: {
+      topic: 'League of Nations',
+      question: 'Was the League of Nations doomed to fail from the start?',
+      prompts: ['No USA', 'No army', 'Abyssinia']
+    },
+    cw: {
+      topic: 'The Cold War',
+      question: 'Was the USA or the USSR more responsible for Cold War tensions?',
+      prompts: ['Iron Curtain', 'Truman Doctrine', 'Cuba']
+    },
+    st: {
+      topic: 'Stalin’s Russia',
+      question: 'Was terror more important than propaganda in maintaining Stalin’s power?',
+      prompts: ['NKVD', 'Gulag', 'Cult of personality']
+    },
+    vn: {
+      topic: 'Vietnam War',
+      question: 'Was the Tet Offensive the turning point of the Vietnam War?',
+      prompts: ['Military outcome', 'Political impact', 'US public opinion']
+    },
+    md: {
+      topic: 'Changes in Medicine',
+      question: 'Was World War Two the main reason the NHS was created in 1948?',
+      prompts: ['Penicillin', 'Beveridge', 'Bevan']
+    },
+    rv: {
+      topic: 'Revision Hub',
+      question: 'Which historical argument from your revision topic is the most convincing, and why?',
+      prompts: ['Use evidence', 'Challenge a view', 'Reach a judgement']
+    },
+    src: {
+      topic: 'Source Studies',
+      question: 'What makes a source useful even if it is biased or limited?',
+      prompts: ['WACA', 'Own knowledge', 'Usefulness judgement']
+    }
+  };
+
+  function all(selector, root) {
+    return Array.prototype.slice.call((root || document).querySelectorAll(selector));
+  }
+
+  function escapeHtml(value) {
+    return String(value || '')
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
+  }
+
+  function storageKey(topicKey) {
+    return 'john_history_blog_spot_' + topicKey;
+  }
+
+  function getComments(topicKey) {
+    try {
+      return JSON.parse(localStorage.getItem(storageKey(topicKey)) || '[]');
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveComments(topicKey, comments) {
+    localStorage.setItem(storageKey(topicKey), JSON.stringify(comments));
+  }
+
+  function detectTopicKeyFromSide(side) {
+    var tutor = side.querySelector('.tutor-inline[id^="ti_"]');
+
+    if (tutor && tutor.id) {
+      return tutor.id.replace(/^ti_/, '').split('')[0];
+    }
+
+    var text = (side.parentElement ? side.parentElement.textContent : side.textContent || '').toLowerCase();
+
+    if (text.indexOf('what is history') !== -1) return 'hs';
+    if (text.indexOf('norman conquest') !== -1 || text.indexOf('1066') !== -1) return '1066';
+    if (text.indexOf('medieval entertainment') !== -1) return 'med';
+    if (text.indexOf('black death') !== -1) return 'bd';
+    if (text.indexOf('castle') !== -1) return 'cas';
+    if (text.indexOf('slave') !== -1) return 'sl';
+    if (text.indexOf('industrial') !== -1) return 'fm';
+    if (text.indexOf('victorian') !== -1 || text.indexOf('cholera') !== -1) return 'lv';
+    if (text.indexOf('empire') !== -1) return 'em';
+    if (text.indexOf('trafalgar') !== -1 || text.indexOf('nelson') !== -1) return 'nel';
+    if (text.indexOf('world war one') !== -1 || text.indexOf('ww1') !== -1) return 'ww1';
+    if (text.indexOf('league of nations') !== -1) return 'lon';
+    if (text.indexOf('cold war') !== -1) return 'cw';
+    if (text.indexOf('stalin') !== -1) return 'st';
+    if (text.indexOf('vietnam') !== -1) return 'vn';
+    if (text.indexOf('medicine') !== -1 || text.indexOf('nhs') !== -1) return 'md';
+
+    return 'rv';
+  }
+
+  function renderComments(panel, topicKey) {
+    var holder = panel.querySelector('.blog-spot-comments');
+    var comments = getComments(topicKey);
+
+    if (!comments.length) {
+      holder.innerHTML = '<div class="blog-spot-empty">No comments yet. Be the first to make a historical argument.</div>';
+      return;
+    }
+
+    holder.innerHTML = comments.map(function (comment) {
+      return ''
+        + '<div class="blog-comment">'
+        + '<div class="blog-comment-meta">'
+        + escapeHtml(comment.name || 'Student historian')
+        + ' · '
+        + escapeHtml(comment.date || '')
+        + '</div>'
+        + '<div class="blog-comment-text">'
+        + escapeHtml(comment.text)
+        + '</div>'
+        + '</div>';
+    }).join('');
+  }
+
+  function createPanel(topicKey) {
+    var data = BLOG_DATA[topicKey] || BLOG_DATA.rv;
+    var panel = document.createElement('div');
+
+    panel.className = 'blog-spot-panel';
+    panel.setAttribute('data-blog-topic', topicKey);
+
+    panel.innerHTML = ''
+      + '<div class="blog-spot-head">'
+      + '<div class="blog-spot-icon">💬</div>'
+      + '<div>'
+      + '<div class="blog-spot-title">Blog Spot: ' + escapeHtml(data.topic) + '</div>'
+      + '<div class="blog-spot-sub">Make a claim, support it with evidence, and respond like a historian.</div>'
+      + '</div>'
+      + '</div>'
+      + '<div class="blog-spot-question">' + escapeHtml(data.question) + '</div>'
+      + '<div class="blog-spot-prompts">'
+      + data.prompts.map(function (prompt) {
+        return '<span class="blog-spot-prompt">' + escapeHtml(prompt) + '</span>';
+      }).join('')
+      + '</div>'
+      + '<textarea class="blog-spot-input" placeholder="Write your comment here. Try: I would argue... because..."></textarea>'
+      + '<div class="blog-spot-row">'
+      + '<input class="blog-spot-name" placeholder="Name or initials optional">'
+      + '<button class="blog-spot-post" type="button">Post</button>'
+      + '</div>'
+      + '<div class="blog-spot-comments"></div>'
+      + '<button class="blog-spot-clear" type="button">Clear comments on this device</button>';
+
+    panel.querySelector('.blog-spot-post').addEventListener('click', function () {
+      var input = panel.querySelector('.blog-spot-input');
+      var name = panel.querySelector('.blog-spot-name');
+      var text = input.value.trim();
+
+      if (!text) {
+        input.focus();
+        return;
+      }
+
+      var comments = getComments(topicKey);
+      comments.unshift({
+        name: name.value.trim() || 'Student historian',
+        text: text,
+        date: new Date().toLocaleString()
+      });
+
+      saveComments(topicKey, comments.slice(0, 20));
+      input.value = '';
+      renderComments(panel, topicKey);
+    });
+
+    panel.querySelector('.blog-spot-clear').addEventListener('click', function () {
+      localStorage.removeItem(storageKey(topicKey));
+      renderComments(panel, topicKey);
+    });
+
+    renderComments(panel, topicKey);
+    return panel;
+  }
+
+  function insertBlogPanels() {
+    all('.side').forEach(function (side, index) {
+      if (side.querySelector('.blog-spot-panel')) return;
+
+      var topicKey = detectTopicKeyFromSide(side);
+      var panel = createPanel(topicKey || ('topic' + index));
+      var tutor = side.querySelector('.tutor-inline');
+
+      if (tutor && tutor.parentNode === side) {
+        tutor.insertAdjacentElement('afterend', panel);
+      } else {
+        side.insertBefore(panel, side.firstChild);
+      }
+    });
+
+    var revisionPage = document.getElementById('rv');
+    if (revisionPage && !revisionPage.querySelector('.blog-spot-panel[data-blog-topic="rv"]')) {
+      var revisionPanel = createPanel('rv');
+      var revisionBanner = revisionPage.querySelector('.rv-banner');
+      if (revisionBanner) {
+        revisionBanner.insertAdjacentElement('afterend', revisionPanel);
+      }
+    }
+
+    var sourcePage = document.getElementById('src');
+    if (sourcePage && !sourcePage.querySelector('.blog-spot-panel[data-blog-topic="src"]')) {
+      var sourcePanel = createPanel('src');
+      var sourceBanner = sourcePage.querySelector('.src-banner');
+      if (sourceBanner) {
+        sourceBanner.insertAdjacentElement('afterend', sourcePanel);
+      } else {
+        sourcePage.insertBefore(sourcePanel, sourcePage.firstChild);
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', insertBlogPanels);
+  } else {
+    insertBlogPanels();
+  }
+
+  window.addEventListener('hashchange', insertBlogPanels);
+})();
+</script>
 
 </body></html>
