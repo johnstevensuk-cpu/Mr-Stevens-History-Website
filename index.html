@@ -183,13 +183,6 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button class="sb-btn" data-p="ig" onclick="showPg('ig')">🌐 Year 10 &amp; 11 — iGCSE</button>
 <span class="sb-lbl sb-lbl-res">📂 Resources</span>
 <button class="sb-btn" data-p="rv" onclick="showPg('rv')">✏️ Revision Hub</button>
-<button type="button" class="y-card" onclick="showPg('mk')" style="background:linear-gradient(135deg,rgba(37,99,235,.85),rgba(124,58,237,.7));background-color:#1a0a3a;">
-<div class="y-card-ov" style="background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.1));"></div>
-<div class="y-card-txt">
-<span class="y-card-label">✍️ iGCSE Tool</span>
-<span class="y-card-title">Answer Marker</span>
-<span class="y-card-sub">Mark essays against official Edexcel criteria · All spec topics · Model answers</span>
-</div></button>
 <button class="sb-btn" data-p="src" onclick="showPg('src')">🔍 Source Studies</button>
     <button class="sb-btn" data-p="mk" onclick="showPg('mk')">✍️ iGCSE Answer Marker</button>
 <button class="sb-btn" data-p="parents" onclick="showPg('parents')">👨‍👩‍👧 Parents</button>
@@ -1094,7 +1087,16 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <a href="https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses-and-edexcel-certificates/history-2017.html#tab=Documents" target="_blank" rel="noopener" style="color:#60a5fa;font-weight:700;text-decoration:underline;margin-left:4px;">Browse all available mark schemes on Pearson ↗</a>
 </div>
 </div>
-<div id="igcse-marker-container"></div>
+<div style="background:linear-gradient(135deg,rgba(37,99,235,.22),rgba(20,16,12,.96));border:2px solid rgba(37,99,235,.55);border-radius:14px;padding:18px 20px;margin:0 0 20px;">
+<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+<span style="font-size:2rem;">✍️</span>
+<div style="flex:1;min-width:200px;">
+<div style="font-family:'Alegreya',serif;font-size:1.08rem;font-weight:800;color:#93c5fd;margin-bottom:4px;">iGCSE Answer Marker</div>
+<div style="font-size:.85rem;color:#bfdbfe;line-height:1.6;">Mark your practice essays against official Edexcel level descriptors. Covers every topic on the 4HI1 specification. Model answer unlocked only after resubmission.</div>
+</div>
+<button onclick="showPg('mk')" style="background:#2563eb;color:#fff;border:none;border-radius:10px;padding:12px 20px;font-size:.92rem;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0;">Open Answer Marker →</button>
+</div>
+</div>
 <div class="topics-grid" style="grid-template-columns:repeat(2,1fr);"><button type="button" onclick="toggleTopic('td-cw')"
   style="position:relative;border-radius:16px;overflow:hidden;min-height:175px;cursor:pointer;
   border:1.5px solid var(--border);background:url(https://upload.wikimedia.org/wikipedia/commons/f/f3/EXCOMM_meeting%2C_Cuban_Missile_Crisis%2C_29_October_1962.jpg) center/cover no-repeat #3a0808;
@@ -3289,60 +3291,267 @@ document.addEventListener('click',function(){setTimeout(initIG,250);},true);
 (function(){
   'use strict';
 
-  function buildMkPage(){
-    var pg = document.getElementById('pg-mk');
-    if (!pg || !pg.classList.contains('active')) return;
+  var _mkBuilt = false;
+  var _msBuilt = false;
 
-    // Build marker in the mk-page container
-    var mc = document.getElementById('mk-page-marker-container');
-    if (mc && !mc.querySelector('#igcse-marker') && typeof buildMarker === 'function') {
-      // Temporarily swap the container ID so buildMarker targets it
-      var orig = document.getElementById('igcse-marker-container');
-      if (orig) orig.id = 'igcse-marker-container-ig-backup';
-      mc.id = 'igcse-marker-container';
-      buildMarker();
-      // Restore
-      mc.id = 'mk-page-marker-container';
-      if (orig) orig.id = 'igcse-marker-container';
+  function buildMkPageMarker() {
+    if (_mkBuilt) return;
+    var c = document.getElementById('mk-page-marker-container');
+    if (!c) return;
+
+    // Build the marker HTML directly here (same as buildMarker but targets mk-page-marker-container)
+    if (c.querySelector('#igcse-marker')) return;
+    _mkBuilt = true;
+
+    var m = document.createElement('div');
+    m.id = 'igcse-marker';
+    m.innerHTML = '<div style="background:linear-gradient(135deg,rgba(37,99,235,.2),rgba(12,10,9,.96));border:2px solid rgba(37,99,235,.55);border-radius:18px;padding:22px;margin-bottom:20px;">'
+      +'<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;"><span style="font-size:2rem;">📝</span>'
+      +'<div><div style="font-family:\'Alegreya\',serif;font-size:1.15rem;font-weight:800;color:#93c5fd;">Edexcel iGCSE Practice Answer Marker</div>'
+      +'<div style="font-size:.82rem;color:#bfdbfe;margin-top:2px;">Mark answers against official Edexcel level descriptors · Model answer locked until resubmission</div>'
+      +'</div></div>'
+      +'<div style="margin-bottom:12px;">'
+      +'<label style="display:block;font-size:.8rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Topic</label>'
+      +'<select id="mk-topic" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">'
+      +'<option value="">Select topic...</option>'
+      +'<optgroup label="── Paper 1: Depth Studies ──">'
+      +'<option value="french_revolution">D1: The French Revolution and Napoleon, 1789–1815</option>'
+      +'<option value="italian_unification">D2: Italian Unification, 1845–1871</option>'
+      +'<option value="germany">D3: Germany, 1918–1945 (Weimar + Nazi)</option>'
+      +'<option value="cold_war">D4: Superpower Relations and the Cold War, 1943–1972</option>'
+      +'<option value="stalins_russia">D5: Russia and the Soviet Union (Stalin), 1924–1953</option>'
+      +'<option value="apartheid_sa">D6: Apartheid South Africa, c.1940–1994</option>'
+      +'<option value="usa">USA, 1919–1941</option>'
+      +'<option value="ww1_depth">The First World War and its Aftermath, 1914–1929</option>'
+      +'</optgroup>'
+      +'<optgroup label="── Paper 2: Investigation Studies (Section A) ──">'
+      +'<option value="ww2_investigation">A: The Second World War and its Consequences</option>'
+      +'<option value="holocaust">A2: The Holocaust, 1933–1945</option>'
+      +'<option value="international_orgs">A3: International Organisations: League and UN</option>'
+      +'<option value="vietnam">A4: The Vietnam Conflict, 1945–1975</option>'
+      +'<option value="crime_punishment">A: Crime, Punishment and Justice</option>'
+      +'</optgroup>'
+      +'<optgroup label="── Paper 2: Breadth Studies (Section B) ──">'
+      +'<option value="warfare">B1: Warfare and British Society, c.1250–present</option>'
+      +'<option value="medicine">B2: Changes in Medicine, c.1848–c.1948</option>'
+      +'<option value="agriculture">B3: Changes in Agriculture, c.1845–c.1945</option>'
+      +'<option value="china">B4: China: conflict, crisis and change, 1900–1989</option>'
+      +'<option value="british_society">B: Changes in British Society, c.1900–present</option>'
+      +'</optgroup>'
+      +'<optgroup label="── Other ──">'
+      +'<option value="generic">My topic is not listed — use generic Edexcel criteria</option>'
+      +'</optgroup>'
+      +'</select></div>'
+      +'<div id="custom-topic-row-mk" style="display:none;margin-bottom:12px;">'
+      +'<label style="display:block;font-size:.8rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Describe your topic (e.g. "Weimar Republic" or "The Great War causes")</label>'
+      +'<input type="text" id="mk-custom-topic" style="width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;" placeholder="Enter your topic name here...">'
+      +'</div>'
+      +'<div style="margin-bottom:12px;">'
+      +'<label style="display:block;font-size:.8rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Your Question (paste here)</label>'
+      +'<textarea id="mk-q" style="width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(37,99,235,.4);border-radius:9px;padding:9px 11px;font-size:.88rem;font-family:inherit;color:#fff;outline:none;resize:vertical;min-height:58px;" placeholder="e.g. \'The main reason the USA failed to win the Vietnam War was the Tet Offensive.\' How far do you agree? Explain your answer."></textarea>'
+      +'</div>'
+      +'<div style="margin-bottom:8px;">'
+      +'<label style="display:block;font-size:.8rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Your Answer <span id="mk-wc" style="color:#60a5fa;font-weight:800;"></span></label>'
+      +'<textarea id="mk-answer" style="width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(37,99,235,.4);border-radius:9px;padding:10px 12px;font-size:.9rem;font-family:inherit;color:#fff;outline:none;resize:vertical;min-height:220px;" placeholder="Paste or type your practice answer here..."></textarea>'
+      +'</div>'
+      +'<div style="display:flex;gap:8px;align-items:center;margin-bottom:14px;">'
+      +'<label style="display:inline-flex;align-items:center;gap:6px;background:rgba(37,99,235,.2);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:7px 12px;font-size:.82rem;font-weight:700;color:#93c5fd;cursor:pointer;">📎 Upload .txt file<input type="file" id="mk-file" accept=".txt" style="display:none;"></label>'
+      +'</div>'
+      +'<button id="mk-submit" style="background:#2563eb;color:#fff;border:none;border-radius:10px;padding:12px 22px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;width:100%;margin-bottom:4px;">🎯 Mark this answer against the Edexcel criteria</button>'
+      +'<div id="marker-feedback" style="display:none;margin-top:18px;"></div>'
+      +'<div id="marker-resubmit" style="display:none;margin-top:16px;">'
+      +'<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#34d399;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(5,150,105,.3);">Resubmit — Improved Answer</div>'
+      +'<div style="background:rgba(5,150,105,.12);border:1.5px solid rgba(5,150,105,.35);border-radius:10px;padding:12px;margin-bottom:12px;font-size:.88rem;color:#d1fae5;line-height:1.65;">📋 <strong>Apply the feedback above</strong> and write your improved answer here. Once you submit, the model answer structure will be unlocked.</div>'
+      +'<textarea id="mk-answer-2" style="width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(5,150,105,.4);border-radius:9px;padding:10px 12px;font-size:.9rem;font-family:inherit;color:#fff;outline:none;resize:vertical;min-height:220px;" placeholder="Write your improved answer here..."></textarea>'
+      +'<button id="mk-resubmit-btn" style="background:#059669;color:#fff;border:none;border-radius:10px;padding:12px 22px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;width:100%;margin-top:10px;">📤 Submit improved answer — unlock model answer structure</button>'
+      +'</div>'
+      +'<div id="marker-model" style="display:none;margin-top:16px;"></div>'
+      +'</div>';
+    c.appendChild(m);
+
+    // Wire topic select → show/hide custom input
+    var sel = document.getElementById('mk-topic');
+    var customRow = document.getElementById('custom-topic-row-mk');
+    if (sel && customRow) {
+      sel.addEventListener('change', function(){
+        customRow.style.display = sel.value === 'generic' ? 'block' : 'none';
+      });
     }
 
-    // Build MS panel in the mk-page ms container
-    var msc = document.getElementById('mk-page-ms-container');
-    if (msc && !msc.querySelector('#ms-panel') && typeof buildMsPanel === 'function') {
-      var origMs = document.getElementById('igcse-marker-container');
-      // Create a temp container so buildMsPanel works (it targets igcse-marker-container)
-      var tmp = document.createElement('div');
-      tmp.id = 'igcse-marker-container';
-      tmp.style.display = 'none';
-      document.body.appendChild(tmp);
-      buildMsPanel();
-      // Move the ms-panel from tmp to msc
-      var msPanel = tmp.querySelector('#ms-panel');
-      if (msPanel) msc.appendChild(msPanel);
-      tmp.remove();
+    // Wire file upload
+    var ta = document.getElementById('mk-answer');
+    var wcSpan = document.getElementById('mk-wc');
+    if (ta && wcSpan) {
+      ta.addEventListener('input', function(){
+        var wc = ta.value.trim().split(/\s+/).filter(function(w){return w.length>0;}).length;
+        wcSpan.textContent = wc > 0 ? '(' + wc + ' words)' : '';
+      });
+    }
+    var fileIn = document.getElementById('mk-file');
+    if (fileIn) {
+      fileIn.addEventListener('change', function(e){
+        var f = e.target.files[0]; if (!f) return;
+        var r = new FileReader();
+        r.onload = function(ev){ ta.value = ev.target.result; ta.dispatchEvent(new Event('input')); };
+        r.readAsText(f);
+      });
+    }
+
+    // Wire submit button
+    var submitBtn = document.getElementById('mk-submit');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', function(){
+        var ans = ta.value.trim();
+        var tk  = sel.value;
+        if (!ans) { alert('Please paste or type your answer first.'); return; }
+        if (!tk)  { alert('Please select a topic before submitting.'); return; }
+        if (tk === 'generic') {
+          var ct = document.getElementById('mk-custom-topic');
+          if (ct && ct.value.trim() && window.TOPICS && window.TOPICS.generic) {
+            window.TOPICS.generic.name = ct.value.trim() + ' (using generic Edexcel criteria)';
+          }
+        }
+        if (typeof analyse === 'function') {
+          var fb = analyse(ans, tk);
+          if (fb) renderFb(fb, tk, 1);
+        } else {
+          console.warn('analyse() not found');
+        }
+        document.getElementById('marker-resubmit').style.display = 'block';
+        document.getElementById('marker-feedback').scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    }
+
+    // Wire resubmit button
+    var resubBtn = document.getElementById('mk-resubmit-btn');
+    if (resubBtn) {
+      resubBtn.addEventListener('click', function(){
+        var ans2 = document.getElementById('mk-answer-2').value.trim();
+        var tk   = sel.value;
+        if (!ans2) { alert('Please write your improved answer before submitting.'); return; }
+        if (typeof analyse === 'function') {
+          var fb2 = analyse(ans2, tk);
+          if (fb2) renderFb(fb2, tk, 2);
+        }
+        if (typeof renderModel === 'function') renderModel(tk);
+        document.getElementById('marker-model').scrollIntoView({behavior:'smooth',block:'start'});
+      });
     }
   }
 
-  // Wire showPg to trigger buildMkPage
-  var origShowPg = window.showPg;
-  window.showPg = function(id) {
-    if (origShowPg) origShowPg(id);
-    if (id === 'mk') setTimeout(buildMkPage, 150);
-  };
+  function buildMkPageMsPanel() {
+    if (_msBuilt) return;
+    var c = document.getElementById('mk-page-ms-container');
+    if (!c || c.querySelector('#ms-panel')) return;
+    _msBuilt = true;
 
-  // Also check on DOMContentLoaded in case the page loads on #mk
+    var BASE = "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes";
+    var HUB  = "https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses-and-edexcel-certificates/history-2017.html#tab=Documents";
+    var MS = {
+      "2026_Jan":{1:"4hi1-01-rms-20260122.pdf",2:"4hi1-02-rms-20260122.pdf"},
+      "2025_Aug":{1:"4hi1-01-rms-20250821.pdf",2:"4hi1-02-rms-20250821.pdf"},
+      "2025_Jan":{1:"4hi1-01-rms-20250123.pdf",2:"4hi1-02-rms-20250123.pdf"},
+      "2024_Aug":{1:"4hi1-01-rms-20240822.pdf",2:"4hi1-02-rms-20240822.pdf"},
+      "2024_Jan":{1:"4hi1-01-rms-20240125.pdf",2:"4hi1-02-rms-20240125.pdf"},
+      "2023_Aug":{1:"4hi1-01-rms-20230824.pdf",2:"4hi1-02-rms-20230824.pdf"},
+      "2023_Jan":{1:"4hi1-01-rms-20230126.pdf",2:"4hi1-02-rms-20230126.pdf"},
+      "2022_Aug":{1:"4hi1-01-rms-20220825.pdf",2:"4hi1-02-rms-20220825.pdf"},
+      "2022_Jan":{1:"4hi1-01-rms-20220127.pdf",2:"4hi1-02-rms-20220127.pdf"},
+      "2021_Aug":{1:"4HI1_01_msc_20211124.pdf",2:"4HI1_02_msc_20211124.pdf"}
+    };
+
+    var p = document.createElement('div'); p.id = 'ms-panel';
+    p.innerHTML = '<div style="background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(12,10,9,.95));border:2px solid rgba(37,99,235,.45);border-radius:16px;padding:18px 20px;margin-bottom:16px;">'
+      +'<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;"><span style="font-size:1.8rem;">📋</span>'
+      +'<div><div style="font-family:\'Alegreya\',serif;font-size:1.08rem;font-weight:800;color:#93c5fd;">Official Edexcel 4HI1 Mark Schemes</div>'
+      +'<div style="font-size:.82rem;color:#bfdbfe;margin-top:3px;">Find the official mark scheme PDF for any past paper. If the direct PDF is blocked by your network, use the green Search button.</div>'
+      +'</div></div>'
+      +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;">'
+      +'<div><label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Year</label>'
+      +'<select id="ms-yr" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">'
+      +'<option value="2026">2026</option><option value="2025" selected>2025</option><option value="2024">2024</option>'
+      +'<option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option>'
+      +'</select></div>'
+      +'<div><label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Series</label>'
+      +'<select id="ms-ser" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">'
+      +'<option value="Aug" selected>Summer (Aug)</option><option value="Jan">January</option>'
+      +'</select></div>'
+      +'<div><label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Paper</label>'
+      +'<select id="ms-pap" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">'
+      +'<option value="1">Paper 1 — Depth Studies</option><option value="2">Paper 2 — Investigation &amp; Breadth</option>'
+      +'</select></div>'
+      +'</div>'
+      +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">'
+      +'<button id="ms-direct-btn" style="background:#2563eb;color:#fff;border:none;border-radius:9px;padding:11px 14px;font-size:.88rem;font-weight:800;cursor:pointer;font-family:inherit;">📄 Open PDF directly</button>'
+      +'<button id="ms-search-btn" style="background:#059669;color:#fff;border:none;border-radius:9px;padding:11px 14px;font-size:.88rem;font-weight:800;cursor:pointer;font-family:inherit;">🔍 Search Pearson website</button>'
+      +'</div>'
+      +'<div id="ms-result" style="display:none;margin-bottom:10px;"></div>'
+      +'<div style="background:rgba(255,255,255,.06);border-radius:9px;padding:10px 13px;font-size:.82rem;color:#bfdbfe;line-height:1.65;">'
+      +'💡 If the PDF button is blocked by your school network, use the green Search button — it opens Pearson\'s mark scheme library where you can download any paper.<br>'
+      +'<a href="' + HUB + '" target="_blank" rel="noopener" style="color:#60a5fa;font-weight:700;text-decoration:underline;display:inline-block;margin-top:4px;">Browse all 4HI1 mark schemes on Pearson ↗</a>'
+      +'</div></div>';
+    c.appendChild(p);
+
+    document.getElementById('ms-direct-btn').addEventListener('click', function(){
+      var yr=document.getElementById('ms-yr').value, ser=document.getElementById('ms-ser').value;
+      var pap=parseInt(document.getElementById('ms-pap').value);
+      var key=yr+'_'+ser, entry=MS[key], res=document.getElementById('ms-result');
+      res.style.display='block';
+      if(entry&&entry[pap]){
+        var url=BASE+'/'+entry[pap];
+        res.innerHTML='<div style="background:rgba(5,150,105,.15);border:1.5px solid rgba(5,150,105,.4);border-radius:9px;padding:11px 14px;">'
+          +'<div style="font-size:.82rem;font-weight:800;color:#34d399;margin-bottom:7px;">📄 Opening — '+key.replace('_',' ')+' Paper '+pap+'</div>'
+          +'<a href="'+url+'" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#059669;color:#fff;border-radius:8px;text-decoration:none;font-weight:800;font-size:.9rem;margin-bottom:6px;">📄 Click here if PDF did not open automatically ↗</a>'
+          +'<div style="font-size:.78rem;color:#a7f3d0;margin-top:5px;">If nothing opens, your network may block direct PDF links — use the green Search button instead.</div>'
+          +'</div>';
+        window.open(url,'_blank','noopener,noreferrer');
+      } else {
+        res.innerHTML='<div style="background:rgba(217,119,6,.15);border:1.5px solid rgba(217,119,6,.4);border-radius:9px;padding:11px 14px;">'
+          +'<div style="font-size:.82rem;font-weight:800;color:#fbbf24;margin-bottom:5px;">⚠️ No direct link stored for '+key.replace('_',' ')+' Paper '+pap+'</div>'
+          +'<div style="font-size:.85rem;color:#fef3c7;">This paper may not yet be published. Try the Search button.</div>'
+          +'</div>';
+      }
+    });
+
+    document.getElementById('ms-search-btn').addEventListener('click', function(){
+      var yr=document.getElementById('ms-yr').value;
+      var url='https://qualifications.pearson.com/en/support/support-topics/exams/past-papers.html?unitCode=4HI1&startDate=01%2F01%2F'+yr+'&bookletType=7';
+      window.open(url,'_blank','noopener,noreferrer');
+      var res=document.getElementById('ms-result');
+      res.style.display='block';
+      res.innerHTML='<div style="background:rgba(37,99,235,.15);border:1.5px solid rgba(37,99,235,.4);border-radius:9px;padding:11px 14px;">'
+        +'<div style="font-size:.82rem;font-weight:800;color:#93c5fd;margin-bottom:5px;">🔍 Pearson search opened for '+yr+'</div>'
+        +'<div style="font-size:.85rem;color:#bfdbfe;line-height:1.65;">The Pearson past papers page has opened in a new tab, filtered to 4HI1 mark schemes for '+yr+'. Look for <strong>Mark Scheme (Results)</strong> and click the PDF icon to download.</div>'
+        +'</div>';
+    });
+  }
+
+  // Trigger when pg-mk becomes active
+  function checkAndBuild() {
+    var pg = document.getElementById('pg-mk');
+    if (pg && pg.classList.contains('active')) {
+      buildMkPageMarker();
+      buildMkPageMsPanel();
+    }
+  }
+
+  // Override showPg to hook into 'mk'
+  var _orig = window.showPg;
+  window.showPg = function(id) {
+    if (_orig) _orig(id);
+    if (id === 'mk') setTimeout(checkAndBuild, 100);
+  };
+  window.nav = window.showPg;
+  window.go  = window.showPg;
+
+  // Check on load (hash navigation)
   document.addEventListener('DOMContentLoaded', function(){
-    if (window.location.hash === '#mk') buildMkPage();
+    checkAndBuild();
+    if (window.location.hash === '#mk') { showPg('mk'); }
   });
 
-  // Run if already on mk page
-  setTimeout(function(){
-    var pg = document.getElementById('pg-mk');
-    if (pg && pg.classList.contains('active')) buildMkPage();
-  }, 300);
-
+  setTimeout(checkAndBuild, 400);
 })();
 </script>
-
 </body>
 </html>
