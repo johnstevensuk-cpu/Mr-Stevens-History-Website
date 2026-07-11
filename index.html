@@ -1396,5 +1396,123 @@ Use: <em>"On balance, I would argue that [MAIN FACTOR] was the most significant 
 })();
 
 </script>
+
+/* ── OFFICIAL MARK SCHEME LINKS ────────────────────────────── */
+(function(){
+  'use strict';
+  var MS_LINKS = {"2026_Jan": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20260123.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20260123.pdf"}, "2025_Aug": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20250821.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20250821.pdf"}, "2025_Jan": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20250123.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20250123.pdf"}, "2024_Aug": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20240822.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20240822.pdf"}, "2024_Jan": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20240125.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20240125.pdf"}, "2023_Aug": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20230824.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20230824.pdf"}, "2023_Jan": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20230126.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20230126.pdf"}, "2022_Aug": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20220825.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20220825.pdf"}, "2022_Jan": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20220127.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20220127.pdf"}, "2021_Aug": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20211124.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20211124.pdf"}, "2021_Jan": {"1": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-01-rms-20210325.pdf", "2": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/History/2017/mark-schemes/4hi1-02-rms-20210325.pdf"}};
+  var PEARSON_HUB = "https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses-and-edexcel-certificates/history-2017.html#tab=Documents";
+
+  function getLink(year, series, paper){
+    var key = year + "_" + series;
+    var entry = MS_LINKS[key];
+    return entry ? (entry[paper] || null) : null;
+  }
+
+  function buildMSPanel(){
+    var container = document.getElementById('igcse-marker-container');
+    if(!container || container.querySelector('#ms-links-panel')) return;
+
+    var panel = document.createElement('div');
+    panel.id = 'ms-links-panel';
+    panel.innerHTML = `
+<div style="background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(12,10,9,.95));border:2px solid rgba(37,99,235,.45);border-radius:16px;padding:18px 20px;margin-bottom:20px;">
+  <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;">
+    <span style="font-size:1.8rem;">🔗</span>
+    <div>
+      <div style="font-family:'Alegreya',Georgia,serif;font-size:1.08rem;font-weight:800;color:#93c5fd;">Official Edexcel Mark Schemes — Direct Links</div>
+      <div style="font-size:.82rem;color:#bfdbfe;margin-top:3px;">Select a year and paper to open the official PDF on the Pearson website. All mark schemes are publicly available — no login required.</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end;margin-bottom:12px;">
+    <div>
+      <label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Year</label>
+      <select id="ms-year" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">
+        <option value="2026">2026</option>
+        <option value="2025" selected>2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+      </select>
+    </div>
+    <div>
+      <label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Series</label>
+      <select id="ms-series" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">
+        <option value="Aug" selected>Summer (Aug)</option>
+        <option value="Jan">January (Jan)</option>
+      </select>
+    </div>
+    <div>
+      <label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Paper</label>
+      <select id="ms-paper" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">
+        <option value="1">Paper 1 (Cold War / Stalin)</option>
+        <option value="2">Paper 2 (Vietnam / Medicine)</option>
+      </select>
+    </div>
+    <div>
+      <button id="ms-go-btn" style="background:#2563eb;color:#fff;border:none;border-radius:9px;padding:9px 16px;font-size:.88rem;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap;height:38px;">Open PDF ↗</button>
+    </div>
+  </div>
+
+  <div id="ms-result" style="display:none;margin-bottom:10px;"></div>
+
+  <div style="background:rgba(37,99,235,.12);border-radius:9px;padding:10px 13px;font-size:.82rem;color:#bfdbfe;line-height:1.65;">
+    <strong style="color:#93c5fd;">📌 Can't find the PDF?</strong> All 4HI1 mark schemes are published on the Pearson website.
+    <a href="${PEARSON_HUB}" target="_blank" rel="noopener noreferrer" style="color:#60a5fa;font-weight:700;text-decoration:underline;margin-left:4px;">Browse all available mark schemes on Pearson ↗</a>
+  </div>
+</div>`;
+
+    // Insert at the TOP of the marker container (before the marking tool)
+    container.insertBefore(panel, container.firstChild);
+
+    document.getElementById('ms-go-btn').addEventListener('click', function(){
+      var year = document.getElementById('ms-year').value;
+      var series = document.getElementById('ms-series').value;
+      var paper = parseInt(document.getElementById('ms-paper').value);
+      var url = getLink(year, series, paper);
+      var result = document.getElementById('ms-result');
+
+      if(url){
+        result.style.display = 'block';
+        result.innerHTML =
+          '<div style="background:rgba(5,150,105,.15);border:1.5px solid rgba(5,150,105,.4);border-radius:9px;padding:10px 14px;">' +
+          '<div style="font-size:.82rem;font-weight:800;color:#34d399;margin-bottom:6px;">✅ Mark scheme found</div>' +
+          '<div style="font-size:.88rem;color:#d1fae5;margin-bottom:8px;">Edexcel 4HI1 Paper ' + paper + ' — ' + series + ' ' + year + '</div>' +
+          '<a href="' + url + '" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#059669;color:#fff;border:none;border-radius:9px;padding:9px 16px;font-size:.9rem;font-weight:800;text-decoration:none;transition:.15s;">' +
+          '📄 Open Official Mark Scheme PDF ↗' +
+          '</a>' +
+          '<div style="font-size:.76rem;color:#a7f3d0;margin-top:7px;">Opens in a new tab on the official Pearson website. If the link does not work, the mark scheme may not yet be published — try the hub link below.</div>' +
+          '</div>';
+        window.open(url, '_blank', 'noopener,noreferrer');
+      } else {
+        result.style.display = 'block';
+        result.innerHTML =
+          '<div style="background:rgba(217,119,6,.15);border:1.5px solid rgba(217,119,6,.4);border-radius:9px;padding:10px 14px;">' +
+          '<div style="font-size:.82rem;font-weight:800;color:#fbbf24;margin-bottom:5px;">⚠️ Direct link not confirmed for this series</div>' +
+          '<div style="font-size:.85rem;color:#fef3c7;margin-bottom:8px;">This paper may not yet be published, or the URL may differ. Try the official Pearson hub:</div>' +
+          '<a href="' + PEARSON_HUB + '" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#d97706;color:#1c1917;border:none;border-radius:9px;padding:9px 16px;font-size:.9rem;font-weight:800;text-decoration:none;">' +
+          '🔗 Browse all Edexcel 4HI1 mark schemes ↗' +
+          '</a>' +
+          '</div>';
+      }
+    });
+  }
+
+  // Build the panel when the iGCSE page is shown
+  function tryBuild(){
+    var ig = document.getElementById('pg-ig');
+    if(ig && ig.classList.contains('active')){
+      buildMSPanel();
+    }
+  }
+
+  // Run on load and on navigation clicks
+  document.addEventListener('DOMContentLoaded', tryBuild);
+  document.addEventListener('click', function(){ setTimeout(tryBuild, 250); }, true);
+
+})();
+
 </body>
 </html>
