@@ -183,7 +183,15 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button class="sb-btn" data-p="ig" onclick="showPg('ig')">🌐 Year 10 &amp; 11 — iGCSE</button>
 <span class="sb-lbl sb-lbl-res">📂 Resources</span>
 <button class="sb-btn" data-p="rv" onclick="showPg('rv')">✏️ Revision Hub</button>
+<button type="button" class="y-card" onclick="showPg('mk')" style="background:linear-gradient(135deg,rgba(37,99,235,.85),rgba(124,58,237,.7));background-color:#1a0a3a;">
+<div class="y-card-ov" style="background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.1));"></div>
+<div class="y-card-txt">
+<span class="y-card-label">✍️ iGCSE Tool</span>
+<span class="y-card-title">Answer Marker</span>
+<span class="y-card-sub">Mark essays against official Edexcel criteria · All spec topics · Model answers</span>
+</div></button>
 <button class="sb-btn" data-p="src" onclick="showPg('src')">🔍 Source Studies</button>
+    <button class="sb-btn" data-p="mk" onclick="showPg('mk')">✍️ iGCSE Answer Marker</button>
 <button class="sb-btn" data-p="parents" onclick="showPg('parents')">👨‍👩‍👧 Parents</button>
 </div>
 <div class="sb-links">
@@ -2553,6 +2561,94 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div style="background:rgba(28,25,23,.88);border:1px solid var(--border);border-radius:16px;padding:18px;"><div style="font-size:1.8rem;margin-bottom:8px;">📝</div><h3 style="font-family:'Alegreya',serif;color:#fff7ed;margin-bottom:6px;">Use the iGCSE Marking Tool</h3><p style="font-size:.92rem;color:#a8a29e;line-height:1.68;">The iGCSE page has a marking tool that assesses practice answers against official Edexcel level descriptors — plus direct links to official Pearson mark scheme PDFs.</p></div>
 <div style="background:rgba(28,25,23,.88);border:1px solid var(--border);border-radius:16px;padding:18px;"><div style="font-size:1.8rem;margin-bottom:8px;">📅</div><h3 style="font-family:'Alegreya',serif;color:#fff7ed;margin-bottom:6px;">iGCSE Key Dates</h3><p style="font-size:.92rem;color:#a8a29e;line-height:1.68;"><strong style="color:#fff7ed;">Paper 1 (Cold War &amp; Stalin):</strong> Friday 16 May.<br><strong style="color:#fff7ed;">Paper 2 (Vietnam &amp; Medicine):</strong> Thursday 5 June.</p></div>
 </div></div></div>
+<div id="pg-mk" class="jhs-pg">
+<div class="pg-inner">
+
+  <!-- PAGE HEADER BANNER -->
+  <div style="position:relative;border-radius:22px;overflow:hidden;padding:38px 30px;margin-bottom:24px;
+    background:linear-gradient(135deg,rgba(37,99,235,.82),rgba(124,58,237,.68)),
+    url(https://upload.wikimedia.org/wikipedia/commons/f/f3/EXCOMM_meeting%2C_Cuban_Missile_Crisis%2C_29_October_1962.jpg) center/cover no-repeat;
+    border:1px solid rgba(124,58,237,.42);box-shadow:0 16px 50px rgba(0,0,0,.45);">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.72),rgba(0,0,0,.38) 55%,rgba(0,0,0,.16));"></div>
+    <div style="position:relative;z-index:1;">
+      <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:#c7d2fe;margin-bottom:8px;">Edexcel 4HI1 · All Specification Topics</div>
+      <h2 style="font-family:'Alegreya',serif;color:#fff;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin-bottom:10px;">
+        ✍️ Mr Stevens' iGCSE History<br>Answer Marker
+      </h2>
+      <p style="color:#c7d2fe;font-size:calc(1rem * var(--fs));max-width:620px;line-height:1.72;">
+        Paste or upload your practice essay and receive instant feedback against official Edexcel level descriptors.
+        The model answer structure is only unlocked after you submit a second, improved version.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;">
+        <span style="background:rgba(37,99,235,.3);border:1px solid rgba(37,99,235,.5);border-radius:999px;padding:4px 12px;font-size:.76rem;font-weight:700;color:#bfdbfe;">📋 Official Edexcel Level 1–4 Descriptors</span>
+        <span style="background:rgba(37,99,235,.3);border:1px solid rgba(37,99,235,.5);border-radius:999px;padding:4px 12px;font-size:.76rem;font-weight:700;color:#bfdbfe;">📚 Full 4HI1 Spec Coverage</span>
+        <span style="background:rgba(37,99,235,.3);border:1px solid rgba(37,99,235,.5);border-radius:999px;padding:4px 12px;font-size:.76rem;font-weight:700;color:#bfdbfe;">🔒 Model Answer Locked Until Resubmission</span>
+        <span style="background:rgba(37,99,235,.3);border:1px solid rgba(37,99,235,.5);border-radius:999px;padding:4px 12px;font-size:.76rem;font-weight:700;color:#bfdbfe;">📎 Upload .txt File Supported</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px;">
+    <div style="background:rgba(28,25,23,.88);border:1px solid rgba(37,99,235,.25);border-radius:13px;padding:14px;text-align:center;">
+      <div style="font-size:1.6rem;margin-bottom:6px;">1️⃣</div>
+      <div style="font-size:.82rem;font-weight:800;color:#93c5fd;margin-bottom:4px;">Select Topic</div>
+      <div style="font-size:.76rem;color:#a8a29e;line-height:1.5;">Choose from every topic on the full Edexcel 4HI1 spec</div>
+    </div>
+    <div style="background:rgba(28,25,23,.88);border:1px solid rgba(37,99,235,.25);border-radius:13px;padding:14px;text-align:center;">
+      <div style="font-size:1.6rem;margin-bottom:6px;">2️⃣</div>
+      <div style="font-size:.82rem;font-weight:800;color:#93c5fd;margin-bottom:4px;">Paste Your Answer</div>
+      <div style="font-size:.76rem;color:#a8a29e;line-height:1.5;">Type, paste or upload a .txt file of your essay</div>
+    </div>
+    <div style="background:rgba(28,25,23,.88);border:1px solid rgba(37,99,235,.25);border-radius:13px;padding:14px;text-align:center;">
+      <div style="font-size:1.6rem;margin-bottom:6px;">3️⃣</div>
+      <div style="font-size:.82rem;font-weight:800;color:#93c5fd;margin-bottom:4px;">Get Feedback</div>
+      <div style="font-size:.76rem;color:#a8a29e;line-height:1.5;">Receive Level 1–4 assessment against official Edexcel criteria</div>
+    </div>
+    <div style="background:rgba(28,25,23,.88);border:1px solid rgba(37,99,235,.25);border-radius:13px;padding:14px;text-align:center;">
+      <div style="font-size:1.6rem;margin-bottom:6px;">4️⃣</div>
+      <div style="font-size:.82rem;font-weight:800;color:#93c5fd;margin-bottom:4px;">Resubmit to Unlock</div>
+      <div style="font-size:.76rem;color:#a8a29e;line-height:1.5;">Submit an improved answer to unlock the model answer structure</div>
+    </div>
+  </div>
+
+  <!-- THE MARKING TOOL (injected here by JS) -->
+  <div id="mk-page-marker-container"></div>
+
+  <!-- OFFICIAL MARK SCHEME LINKS (injected here by JS) -->
+  <div id="mk-page-ms-container" style="margin-top:14px;"></div>
+
+  <!-- LEVEL DESCRIPTORS REFERENCE CARD -->
+  <div style="background:rgba(28,25,23,.88);border:1px solid rgba(217,119,6,.22);border-radius:16px;padding:18px;margin-top:22px;">
+    <h3 style="font-family:'Alegreya',serif;color:#fbbf24;font-size:1.1rem;margin-bottom:14px;border-bottom:1px solid rgba(217,119,6,.2);padding-bottom:8px;">
+      📐 Official Edexcel Level Descriptors — 16-Mark Question
+    </h3>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+      <div style="border-radius:10px;padding:13px;border-left:4px solid #059669;background:rgba(5,150,105,.09);">
+        <div style="font-size:.72rem;text-transform:uppercase;font-weight:800;color:#34d399;margin-bottom:4px;">Level 4 — 13–16 marks</div>
+        <div style="font-size:.85rem;color:#e7e3dd;line-height:1.6;">Analytical explanation directed CONSISTENTLY at the conceptual focus. Coherent, sustained, logically structured line of reasoning. Criteria for judgement justified and applied. <strong style="color:#fbbf24;">NO access if fewer than THREE aspects addressed.</strong></div>
+      </div>
+      <div style="border-radius:10px;padding:13px;border-left:4px solid #2563eb;background:rgba(37,99,235,.09);">
+        <div style="font-size:.72rem;text-transform:uppercase;font-weight:800;color:#60a5fa;margin-bottom:4px;">Level 3 — 9–12 marks</div>
+        <div style="font-size:.85rem;color:#e7e3dd;line-height:1.6;">Explanation showing SOME ANALYSIS directed at the conceptual focus. Generally sustained reasoning. Judgement given with some justification. <strong style="color:#fbbf24;">Maximum 10 if fewer than THREE aspects addressed.</strong></div>
+      </div>
+      <div style="border-radius:10px;padding:13px;border-left:4px solid #d97706;background:rgba(217,119,6,.09);">
+        <div style="font-size:.72rem;text-transform:uppercase;font-weight:800;color:#fbbf24;margin-bottom:4px;">Level 2 — 5–8 marks</div>
+        <div style="font-size:.85rem;color:#e7e3dd;line-height:1.6;">Explanation showing LIMITED ANALYSIS with implicit links. Some development but reasoning not sustained. Judgement asserted or insecure. <strong style="color:#fbbf24;">Maximum 6 if fewer than THREE aspects addressed.</strong></div>
+      </div>
+      <div style="border-radius:10px;padding:13px;border-left:4px solid #dc2626;background:rgba(220,38,38,.09);">
+        <div style="font-size:.72rem;text-transform:uppercase;font-weight:800;color:#f87171;margin-bottom:4px;">Level 1 — 1–4 marks</div>
+        <div style="font-size:.85rem;color:#e7e3dd;line-height:1.6;">Simple or generalised answer, lacking development and organisation. Limited knowledge of the period. Judgement missing or asserted without justification.</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);border-radius:9px;padding:10px 13px;font-size:.85rem;color:#fef3c7;line-height:1.65;">
+      <strong style="color:#fbbf24;">⚠️ The THREE ASPECTS RULE (critical for all students):</strong>
+      Every 16-mark question gives you two bullet points plus "your own information." You MUST address all three. Failing to do so caps you at Level 2 max 6 marks or Level 3 max 10 marks, even if your writing quality is excellent.
+    </div>
+  </div>
+
+</div>
+</div>
 <footer><h3>Mr Stevens' History Hub</h3><p>Where Evidence Meets Imagination &nbsp;&middot;&nbsp; &copy; 2026</p></footer>
 <button id="a11y-btn" onclick="a11yToggle()" title="Accessibility Settings">⚙️</button>
 <div id="a11y-panel">
@@ -3185,6 +3281,66 @@ document.addEventListener('click',function(){setTimeout(initIG,250);},true);
       }, 300);
     }, true);
   });
+})();
+</script>
+
+
+<script id="mk-page-init">
+(function(){
+  'use strict';
+
+  function buildMkPage(){
+    var pg = document.getElementById('pg-mk');
+    if (!pg || !pg.classList.contains('active')) return;
+
+    // Build marker in the mk-page container
+    var mc = document.getElementById('mk-page-marker-container');
+    if (mc && !mc.querySelector('#igcse-marker') && typeof buildMarker === 'function') {
+      // Temporarily swap the container ID so buildMarker targets it
+      var orig = document.getElementById('igcse-marker-container');
+      if (orig) orig.id = 'igcse-marker-container-ig-backup';
+      mc.id = 'igcse-marker-container';
+      buildMarker();
+      // Restore
+      mc.id = 'mk-page-marker-container';
+      if (orig) orig.id = 'igcse-marker-container';
+    }
+
+    // Build MS panel in the mk-page ms container
+    var msc = document.getElementById('mk-page-ms-container');
+    if (msc && !msc.querySelector('#ms-panel') && typeof buildMsPanel === 'function') {
+      var origMs = document.getElementById('igcse-marker-container');
+      // Create a temp container so buildMsPanel works (it targets igcse-marker-container)
+      var tmp = document.createElement('div');
+      tmp.id = 'igcse-marker-container';
+      tmp.style.display = 'none';
+      document.body.appendChild(tmp);
+      buildMsPanel();
+      // Move the ms-panel from tmp to msc
+      var msPanel = tmp.querySelector('#ms-panel');
+      if (msPanel) msc.appendChild(msPanel);
+      tmp.remove();
+    }
+  }
+
+  // Wire showPg to trigger buildMkPage
+  var origShowPg = window.showPg;
+  window.showPg = function(id) {
+    if (origShowPg) origShowPg(id);
+    if (id === 'mk') setTimeout(buildMkPage, 150);
+  };
+
+  // Also check on DOMContentLoaded in case the page loads on #mk
+  document.addEventListener('DOMContentLoaded', function(){
+    if (window.location.hash === '#mk') buildMkPage();
+  });
+
+  // Run if already on mk page
+  setTimeout(function(){
+    var pg = document.getElementById('pg-mk');
+    if (pg && pg.classList.contains('active')) buildMkPage();
+  }, 300);
+
 })();
 </script>
 
