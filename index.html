@@ -3,801 +3,925 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Mr Stevens' History Hub | Where Evidence Meets Imagination</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Medieval Entertainment & Life — Mr Stevens' History Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;0,900;1,400&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--fs:1;--bg:#0c0a09;--s900:#1c1917;--s800:#292524;--a500:#d97706;--a400:#f59e0b;--a300:#fbbf24;--border:rgba(217,119,6,.22);--sh:0 4px 20px rgba(0,0,0,.3);--sh2:0 12px 40px rgba(0,0,0,.45);}
+:root{--gold:#d97706;--amber:#f59e0b;--purple:#7c3aed;--green:#059669;--red:#dc2626;--blue:#2563eb;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:#d6d3d1;font-family:'Alegreya Sans',sans-serif;font-size:calc(17px * var(--fs));line-height:1.68;padding-bottom:60px;}
-h1,h2,h3,h4{font-family:'Alegreya',serif;}
-a{color:inherit;}
+body{background:#0c0a09;color:#d6d3d1;font-family:'Alegreya Sans',sans-serif;font-size:17px;line-height:1.68;}
+a{color:inherit;text-decoration:none;}
 
-/* SIDEBAR */
-#sb{position:fixed;left:0;top:0;width:260px;height:100vh;z-index:200;background:rgba(9,7,6,.97);border-right:2px solid var(--border);overflow-y:auto;display:flex;flex-direction:column;transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);}
-#sb.open{transform:none;}
-@media(min-width:769px){#sb{transform:none!important;}body{padding-left:260px!important;}#hbtn{display:none!important;}}
-#sb-head{padding:22px 18px 14px;border-bottom:1px solid rgba(217,119,6,.2);}
-#sb-head h2{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.22rem;line-height:1.2;margin-bottom:4px;}
-#sb-head p{color:#78716c;font-size:.74rem;}
-.sb-section{padding:10px 12px 0;}
-.sb-lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;padding:8px 8px 3px;display:block;color:#a8a29e;}
-.sb-lbl-ks3{color:#a78bfa;}.sb-lbl-ig{color:#f87171;}.sb-lbl-res{color:#60a5fa;}
-.sb-btn{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:9px 10px;border-radius:9px;border:none;cursor:pointer;font-family:'Alegreya Sans',sans-serif;font-size:.88rem;font-weight:700;color:#d6d3d1;background:transparent;transition:all .16s;margin-bottom:2px;}
-.sb-btn:hover{background:rgba(217,119,6,.16);color:#fbbf24;}
-.sb-btn.active{background:rgba(217,119,6,.22);color:#fbbf24;border-left:3px solid #d97706;padding-left:7px;}
-.sb-links{padding:12px;border-top:1px solid rgba(217,119,6,.14);margin-top:auto;}
-.sb-links a{display:block;padding:5px 8px;font-size:.78rem;color:#a8a29e;text-decoration:none;border-radius:6px;transition:.14s;}
-.sb-links a:hover{color:#fbbf24;}
-#sb-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:190;}
-#sb-ov.show{display:block;}
-#hbtn{position:fixed;top:10px;right:10px;z-index:300;background:rgba(20,18,17,.92);border:1.5px solid rgba(217,119,6,.4);border-radius:9px;padding:9px 12px;cursor:pointer;color:#fbbf24;font-size:1.15rem;box-shadow:0 4px 16px rgba(0,0,0,.3);}
-
-/* PAGE SYSTEM */
-.jhs-pg{display:none;}.jhs-pg.active{display:block;}
-.pg-inner{max-width:1160px;margin:0 auto;padding:22px 18px 40px;}
+/* BACK NAV */
+.top-nav{background:rgba(9,7,6,.96);border-bottom:1px solid rgba(217,119,6,.25);padding:10px 22px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(217,119,6,.18);border:1px solid rgba(217,119,6,.42);color:#fbbf24;border-radius:8px;padding:6px 13px;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:800;transition:.16s;}
+.back-btn:hover{background:rgba(217,119,6,.32);}
+.nav-crumb{font-size:.78rem;color:#78716c;}
+.nav-crumb a{color:#a78bfa;font-weight:700;cursor:pointer;}
 
 /* HERO */
-.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;}.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,7,6,.48),rgba(9,7,6,.85));}
-.hero-inner{position:relative;z-index:2;text-align:center;max-width:860px;width:100%;padding:2rem 1rem;}
-.hero-ey{display:inline-flex;align-items:center;gap:6px;background:rgba(217,119,6,.18);border:1px solid rgba(217,119,6,.45);border-radius:999px;padding:5px 14px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#fbbf24;margin-bottom:18px;}
-.hero-h1{font-family:'Alegreya',serif;font-size:clamp(3rem,8vw,6.5rem);line-height:.92;color:#fff7ed;text-shadow:0 6px 32px rgba(0,0,0,.5);margin-bottom:14px;}
-.hero-sub{font-family:'Alegreya',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.5rem);color:#fed7aa;margin-bottom:14px;}
-.hero-desc{font-size:clamp(.9rem,1.5vw,1.08rem);color:rgba(214,211,209,.86);max-width:620px;margin:0 auto 32px;line-height:1.78;}
+.hero{position:relative;min-height:70vh;display:flex;align-items:flex-end;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url(https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg) center/cover no-repeat;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.12) 100%);}
+.hero-content{position:relative;z-index:2;padding:36px 32px;width:100%;max-width:1160px;margin:0 auto;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(124,58,237,.22);border:1px solid rgba(124,58,237,.5);border-radius:999px;padding:4px 12px;font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:#c4b5fd;margin-bottom:12px;}
+.hero-title{font-family:'Alegreya',serif;font-size:clamp(2.8rem,7vw,5.5rem);color:#fff7ed;line-height:.95;font-weight:900;text-shadow:0 4px 24px rgba(0,0,0,.5);margin-bottom:14px;}
+.hero-intro{font-size:clamp(1rem,1.8vw,1.18rem);color:rgba(214,211,209,.88);max-width:660px;line-height:1.78;margin-bottom:20px;}
+.hero-source-note{font-size:.78rem;color:rgba(255,255,255,.55);font-style:italic;}
 
-/* SECTION BANNER */
-.sec-banner{position:relative;border-radius:22px;overflow:hidden;padding:36px 28px;margin-bottom:24px;border:1px solid var(--border);box-shadow:var(--sh2);background:var(--s900) center/cover no-repeat;}
-.sec-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.8),rgba(0,0,0,.42) 55%,rgba(0,0,0,.18));}
-.sec-banner>*{position:relative;z-index:1;}
-.sec-banner h2{font-family:'Alegreya',serif;font-size:clamp(2rem,4vw,3.2rem);color:#fff7ed;}
-.sec-banner p{color:#fed7aa;font-size:calc(1rem * var(--fs));margin-top:5px;}
+/* PAGE WRAPPER */
+.page{max-width:1160px;margin:0 auto;padding:30px 22px 60px;}
 
-/* YEAR GRID (home) */
-.year-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-@media(max-width:860px){.year-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:520px){.year-grid{grid-template-columns:1fr;}}
-.y-card{position:relative;border-radius:20px;overflow:hidden;min-height:205px;cursor:pointer;border:1.5px solid var(--border);background:var(--s900) center/cover no-repeat;transition:transform .25s,border-color .25s,box-shadow .25s;display:block;width:100%;}
-.y-card:hover{transform:translateY(-8px) scale(1.014);border-color:rgba(245,158,11,.65);box-shadow:0 28px 70px rgba(0,0,0,.5);}
-.y-card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.3) 58%,rgba(0,0,0,.08));}
-.y-card-txt{position:absolute;bottom:0;left:0;right:0;padding:20px 18px;z-index:2;}
-.y-card-label{display:block;font-size:.64rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#f59e0b;margin-bottom:5px;}
-.y-card-title{font-family:'Alegreya',serif;font-size:1.28rem;color:#fff7ed;line-height:1.2;font-weight:700;display:block;}
-.y-card-sub{font-size:.8rem;color:rgba(255,255,255,.72);margin-top:5px;display:block;}
+/* CHAPTER SECTIONS */
+.chapter{margin-bottom:40px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:rgba(20,16,12,.7);}
+.chapter-header{padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:flex-start;gap:14px;}
+.chapter-num{font-family:'Alegreya',serif;font-size:2.8rem;font-weight:900;line-height:1;min-width:56px;}
+.chapter-htext h2{font-family:'Alegreya',serif;font-size:clamp(1.5rem,3.5vw,2.2rem);color:#fff7ed;line-height:1.1;margin-bottom:6px;}
+.chapter-htext p{font-size:.9rem;color:#a8a29e;line-height:1.6;}
+.chapter-body{padding:22px 24px;}
 
-/* TOPIC TILE GRID (year overview) */
-.topic-tile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:0 0 24px;}
-@media(max-width:680px){.topic-tile-grid{grid-template-columns:1fr;}}
-.topic-tile{position:relative;border-radius:20px;overflow:hidden;min-height:230px;cursor:pointer;border:1.5px solid rgba(255,255,255,.1);background:#1c1917 center/cover no-repeat;transition:transform .28s,border-color .28s,box-shadow .28s;text-align:left;display:block;width:100%;}
-.topic-tile:hover{transform:translateY(-10px) scale(1.016);border-color:rgba(245,158,11,.7);box-shadow:0 32px 80px rgba(0,0,0,.55);}
-.topic-tile-featured{grid-column:1 / -1;min-height:280px;}
-.topic-tile-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.45) 45%,rgba(0,0,0,.08) 100%);}
-.topic-tile-content{position:absolute;bottom:0;left:0;right:0;padding:22px 20px;z-index:2;}
-.topic-tile-tag{display:inline-block;font-size:.62rem;text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:var(--a400);background:rgba(217,119,6,.2);border:1px solid rgba(217,119,6,.45);border-radius:999px;padding:3px 11px;margin-bottom:9px;}
-.topic-tile-title{font-family:'Alegreya',Georgia,serif;font-size:clamp(1.1rem,2.5vw,1.65rem);color:#fff7ed;line-height:1.18;font-weight:700;margin-bottom:7px;display:block;}
-.topic-tile-desc{font-size:.84rem;color:rgba(255,255,255,.75);line-height:1.55;margin-bottom:12px;max-width:520px;}
-.topic-tile-cta{display:inline-flex;align-items:center;gap:7px;background:rgba(217,119,6,.88);color:#1c1917;font-weight:800;font-size:.82rem;border:none;border-radius:10px;padding:8px 16px;cursor:pointer;font-family:inherit;transition:background .16s;}
-.topic-tile:hover .topic-tile-cta{background:var(--a400);}
+/* GAME CARDS GRID */
+.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0;}
+.game-card{background:rgba(28,25,23,.9);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 14px 12px;transition:all .22s;cursor:default;}
+.game-card:hover{border-color:rgba(217,119,6,.5);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.35);}
+.game-ico{font-size:1.6rem;margin-bottom:6px;}
+.game-name{font-family:'Alegreya',serif;font-size:1rem;font-weight:700;color:#fff7ed;margin-bottom:5px;}
+.game-desc{font-size:.78rem;color:#a8a29e;line-height:1.5;}
+.game-tag{display:inline-block;font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;border-radius:4px;padding:1px 6px;margin-top:7px;}
+.tag-still{background:rgba(5,150,105,.22);color:#34d399;border:1px solid rgba(5,150,105,.35);}
+.tag-gone{background:rgba(220,38,38,.18);color:#f87171;border:1px solid rgba(220,38,38,.3);}
 
-/* SUB-PAGE HERO */
-.sub-page-hero{position:relative;border-radius:22px;overflow:hidden;min-height:320px;display:flex;align-items:flex-end;margin-bottom:24px;background:#1c1917 center/cover no-repeat;border:1px solid var(--border);box-shadow:var(--sh2);}
-.sub-page-hero-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.42) 50%,rgba(0,0,0,.12) 100%);}
-.sub-page-hero-content{position:relative;z-index:2;padding:28px 30px;width:100%;}
-.sub-page-back{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font-family:inherit;font-size:.78rem;font-weight:800;margin-bottom:12px;transition:background .16s;}
-.sub-page-back:hover{background:rgba(255,255,255,.26);}
-.sub-page-tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:var(--a400);margin-bottom:8px;display:block;}
-.sub-page-title{font-family:'Alegreya',serif;font-size:clamp(2rem,5vw,3.8rem);color:#fff7ed;line-height:1.05;font-weight:900;text-shadow:0 4px 24px rgba(0,0,0,.5);margin-bottom:10px;}
-.sub-page-intro{font-size:clamp(.9rem,1.5vw,1.08rem);color:rgba(214,211,209,.9);max-width:680px;line-height:1.75;}
+/* RICH VS POOR SPLIT */
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0;}
+@media(max-width:640px){.split-grid{grid-template-columns:1fr;}}
+.split-card{border-radius:13px;padding:18px;border:1.5px solid;}
+.rich-card{background:linear-gradient(135deg,rgba(180,100,20,.22),rgba(20,16,12,.9));border-color:rgba(251,191,36,.4);}
+.poor-card{background:linear-gradient(135deg,rgba(55,65,81,.25),rgba(20,16,12,.9));border-color:rgba(107,114,128,.35);}
+.split-label{font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin-bottom:8px;display:block;}
+.split-card h3{font-family:'Alegreya',serif;font-size:1.2rem;color:#fff7ed;margin-bottom:10px;}
+.split-list{list-style:none;padding:0;}
+.split-list li{font-size:.88rem;color:#e7e3dd;line-height:1.65;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:flex-start;gap:7px;}
+.split-list li:last-child{border-bottom:none;}
 
-/* KEY FACTS ROW */
-.key-facts-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;}
-.key-fact{background:rgba(28,25,23,.88);border:1px solid rgba(217,119,6,.22);border-radius:12px;padding:12px 15px;flex:1;min-width:140px;}
-.kf-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--a400);margin-bottom:4px;display:block;}
-.kf-value{font-family:'Alegreya',serif;font-size:1.05rem;color:#fff7ed;font-weight:700;line-height:1.2;}
+/* PRIMARY SOURCE BOX */
+.source-box{border-radius:14px;padding:18px 20px;margin:14px 0;}
+.source-a{background:rgba(37,99,235,.12);border:1.5px solid rgba(37,99,235,.35);}
+.source-b{background:rgba(124,58,237,.12);border:1.5px solid rgba(124,58,237,.35);}
+.source-c{background:rgba(15,118,110,.12);border:1.5px solid rgba(15,118,110,.35);}
+.source-label{font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin-bottom:8px;display:block;}
+.source-text{font-style:italic;font-size:.97rem;color:#fff7ed;line-height:1.8;border-left:4px solid;padding-left:13px;}
+.source-credit{font-size:.72rem;color:#a8a29e;margin-top:8px;font-style:normal;}
 
-/* SECTION HEADER INSIDE SUB-PAGE */
-.sp-section-hdr{font-family:'Alegreya',serif;font-size:1.22rem;color:#fff7ed;margin:24px 0 12px;padding-bottom:8px;border-bottom:2px solid rgba(217,119,6,.25);display:flex;align-items:center;gap:8px;}
+/* FOOTBALL BAN TIMELINE */
+.ban-timeline{display:flex;flex-direction:column;gap:0;margin:14px 0;position:relative;}
+.ban-timeline::before{content:'';position:absolute;left:52px;top:0;bottom:0;width:2px;background:rgba(220,38,38,.3);}
+.ban-item{display:flex;align-items:flex-start;gap:14px;padding:10px 0;position:relative;}
+.ban-year{font-family:'Alegreya',serif;font-size:1.05rem;font-weight:800;color:#f87171;min-width:52px;text-align:right;padding-right:14px;position:relative;z-index:1;}
+.ban-year::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:#dc2626;border:2px solid rgba(220,38,38,.4);}
+.ban-text{font-size:.88rem;color:#e7e3dd;line-height:1.6;flex:1;}
 
-/* INTERACTIVE IMAGE ZOOM */
-.img-zoom-wrap{position:relative;border-radius:14px;overflow:hidden;border:1.5px solid rgba(217,119,6,.22);margin:0;box-shadow:var(--sh2);cursor:zoom-in;}
-.img-zoom-wrap img{width:100%;display:block;transition:transform .38s ease;}
-.img-zoom-wrap:hover img{transform:scale(1.07);}
-.img-zoom-caption{position:absolute;bottom:0;left:0;right:0;padding:7px 11px;background:linear-gradient(transparent,rgba(0,0,0,.82));font-size:.68rem;color:rgba(255,255,255,.9);font-style:italic;}
-.img-zoom-badge{position:absolute;top:8px;right:8px;background:rgba(217,119,6,.88);color:#1c1917;font-size:.6rem;font-weight:800;border-radius:5px;padding:2px 7px;}
+/* MUSIC INSTRUMENTS */
+.instruments-grid{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+.instrument{background:rgba(28,25,23,.9);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:8px 12px;font-size:.82rem;color:#d6d3d1;display:flex;align-items:center;gap:6px;}
+.instrument::before{content:'🎵';font-size:.9rem;}
 
-/* LESSON CARD GRID */
-.lesson-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px;}
-@media(max-width:800px){.lesson-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:500px){.lesson-grid{grid-template-columns:1fr;}}
-.lesson-card{background:rgba(28,25,23,.9);border:1.5px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;transition:all .2s;text-decoration:none;display:block;}
-.lesson-card:hover{border-color:rgba(217,119,6,.5);transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.4);}
-.lesson-card-thumb{height:90px;display:flex;align-items:center;justify-content:center;font-size:2rem;}
-.lesson-card-body{padding:10px 12px 13px;}
-.lesson-card-num{font-size:.58rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:var(--a400);margin-bottom:3px;display:block;}
-.lesson-card-title{font-size:.88rem;font-weight:800;color:#fff7ed;line-height:1.3;margin-bottom:4px;}
-.lesson-card-desc{font-size:.74rem;color:#a8a29e;line-height:1.5;}
+/* SONG BOX */
+.song-box{background:linear-gradient(135deg,rgba(5,150,105,.18),rgba(20,16,12,.95));border:2px solid rgba(5,150,105,.4);border-radius:14px;padding:18px 22px;margin:14px 0;text-align:center;}
+.song-title{font-family:'Alegreya',serif;font-size:1.2rem;font-weight:800;color:#a7f3d0;margin-bottom:10px;}
+.song-lines{font-style:italic;font-size:.92rem;color:#d1fae5;line-height:1.9;}
 
-/* RESOURCE LINKS */
-.rlink{display:flex;align-items:center;gap:7px;padding:8px 10px;background:rgba(12,10,9,.55);border:1px solid rgba(68,64,60,.4);border-radius:9px;text-decoration:none;color:#d6d3d1;font-weight:700;font-size:calc(.9rem * var(--fs));margin-bottom:4px;transition:all .15s;}
-.rlink:hover{color:#fbbf24;border-color:rgba(245,158,11,.5);background:rgba(120,53,15,.22);}
+/* COLOUR MEANING CHIPS */
+.colour-grid{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+.colour-chip{border-radius:8px;padding:8px 14px;font-size:.82rem;font-weight:700;}
 
-/* ACTIVITIES */
-.act-box{border-left:5px solid;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);}
-.act-title{font-size:calc(.72rem * var(--fs));text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;}
-.act-body{font-size:calc(.97rem * var(--fs));color:#f0ece6;line-height:1.78;}
-.act-body ul,.act-body ol{padding-left:.9rem;margin-top:.3rem;}
-.act-body li{margin-bottom:.3rem;}
+/* LANGUAGE WORDS */
+.word-cloud{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0;}
+.word-tag{background:rgba(28,25,23,.9);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 10px;font-size:.8rem;color:#d6d3d1;}
+.word-tag.french{border-color:rgba(37,99,235,.4);color:#93c5fd;background:rgba(37,99,235,.12);}
+.word-tag.norse{border-color:rgba(220,38,38,.4);color:#f87171;background:rgba(220,38,38,.12);}
+.word-tag.latin{border-color:rgba(5,150,105,.4);color:#34d399;background:rgba(5,150,105,.12);}
+.word-tag.saxon{border-color:rgba(217,119,6,.4);color:#fbbf24;background:rgba(217,119,6,.12);}
 
-/* YOUTUBE */
-.yt-block{background:rgba(220,38,38,.1);border:1.5px solid rgba(220,38,38,.35);border-radius:13px;padding:13px 15px;margin:14px 0;}
-.yt-hdr{font-size:calc(.76rem * var(--fs));font-weight:800;color:#fca5a5;text-transform:uppercase;letter-spacing:.1em;margin-bottom:9px;padding-bottom:7px;border-bottom:1px solid rgba(220,38,38,.28);}
-.yt-link{display:block;padding:9px 12px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;text-decoration:none;color:#fca5a5;font-weight:700;font-size:calc(.9rem * var(--fs));margin-bottom:6px;transition:all .15s;}
-.yt-link:hover{background:rgba(220,38,38,.28);color:#fff;transform:translateX(3px);}
+/* FOOD TABLE */
+.meal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0;}
+@media(max-width:640px){.meal-grid{grid-template-columns:1fr;}}
+.meal-card{background:rgba(28,25,23,.9);border:1px solid rgba(217,119,6,.2);border-radius:12px;padding:14px;text-align:center;}
+.meal-time{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#f59e0b;margin-bottom:6px;display:block;}
+.meal-clock{font-family:'Alegreya',serif;font-size:1.4rem;font-weight:900;color:#fbbf24;margin-bottom:8px;}
+.meal-items{font-size:.84rem;color:#e7e3dd;line-height:1.7;}
 
-/* DID YOU KNOW */
-.dyk-btn{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.38);color:#fff;border-radius:8px;padding:6px 14px;font-size:calc(.82rem * var(--fs));cursor:pointer;font-family:inherit;font-weight:800;}
-.dyk-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;border:none;padding:0;transition:.25s;}
-.dyk-dot-on{background:#fff!important;width:18px!important;border-radius:4px!important;}
+/* ACTIVITIES / WORK SECTION */
+.work-section{background:rgba(37,99,235,.1);border:1.5px solid rgba(37,99,235,.32);border-radius:14px;padding:18px 20px;margin:14px 0;}
+.work-title{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#60a5fa;margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid rgba(37,99,235,.25);}
+.work-q{display:flex;gap:8px;align-items:flex-start;font-size:.88rem;color:#e7e3dd;line-height:1.65;margin-bottom:8px;}
+.work-num{font-weight:800;color:#93c5fd;min-width:22px;flex-shrink:0;}
 
-/* TUTOR */
-.tutor-box{background:linear-gradient(135deg,rgba(5,150,105,.22),rgba(20,16,12,.96));border:2px solid rgba(5,150,105,.58);border-radius:14px;padding:14px;margin:14px 0;}
-.tutor-hdr{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;}
-.tutor-ico{font-size:1.4rem;line-height:1;}
-.tutor-name{font-size:calc(.92rem * var(--fs));font-weight:800;color:#a7f3d0;}
-.tutor-sub{font-size:calc(.72rem * var(--fs));color:#ccfbf1;margin-top:1px;}
-.tutor-modes{display:flex;gap:4px;margin-bottom:9px;}
-.tutor-mode{flex:1;background:rgba(5,150,105,.2);border:1.5px solid rgba(5,150,105,.35);border-radius:8px;padding:6px;font-size:calc(.72rem * var(--fs));font-weight:800;cursor:pointer;text-align:center;transition:.15s;font-family:inherit;color:#a7f3d0;}
-.tutor-mode-active{background:#059669!important;color:#fff!important;border-color:#059669!important;}
-.tutor-msgs{min-height:56px;max-height:210px;overflow-y:auto;margin-bottom:8px;display:flex;flex-direction:column;gap:6px;}
-.t-ai{background:rgba(5,150,105,.18);border:1px solid rgba(5,150,105,.32);border-radius:4px 10px 10px 10px;padding:9px 12px;font-size:calc(.92rem * var(--fs));color:#d1fae5;line-height:1.65;}
-.t-user{background:#059669;border-radius:10px 4px 10px 10px;padding:9px 12px;font-size:calc(.92rem * var(--fs));color:#fff;line-height:1.65;align-self:flex-end;max-width:88%;}
-.tutor-sugs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;}
-.t-sug{background:rgba(5,150,105,.18);border:1px solid rgba(5,150,105,.32);color:#6ee7b7;border-radius:7px;padding:4px 9px;font-size:calc(.74rem * var(--fs));font-weight:700;cursor:pointer;font-family:inherit;}
-.tutor-input-row{display:flex;gap:6px;}
-.tutor-input{flex:1;background:rgba(255,255,255,.08);border:1.5px solid rgba(5,150,105,.35);border-radius:9px;padding:9px 11px;font-size:calc(.92rem * var(--fs));font-family:inherit;color:#fff;outline:none;resize:none;}
-.tutor-input::placeholder{color:rgba(168,162,158,.6);}
-.tutor-input:focus{border-color:#059669;box-shadow:0 0 0 3px rgba(5,150,105,.12);}
-.tutor-send{background:#059669;color:#fff;border:none;border-radius:9px;width:36px;height:36px;cursor:pointer;font-size:.95rem;align-self:flex-end;flex-shrink:0;}
+/* BRONZE-PLATINUM TASKS */
+.task-grid{display:flex;flex-direction:column;gap:0;border-radius:12px;overflow:hidden;border:1px solid rgba(217,119,6,.2);margin:14px 0;}
+.task-row{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-bottom:1px solid rgba(217,119,6,.12);}
+.task-row:last-child{border-bottom:none;}
+.task-badge{border-radius:999px;padding:2px 9px;font-size:.62rem;font-weight:900;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.b-bronze{background:#CD8040;color:#fff;}
+.b-silver{background:#707070;color:#fff;}
+.b-gold{background:#C9A646;color:#1c1917;}
+.b-hungry{background:rgba(5,150,105,.85);color:#fff;}
+.task-text{font-size:.87rem;color:#e7e3dd;line-height:1.65;}
 
-/* BLOG */
+/* FACT BOX */
+.fact-box{background:rgba(251,191,36,.1);border:1.5px solid rgba(251,191,36,.38);border-radius:10px;padding:12px 15px;margin:10px 0;}
+.fact-label{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#fbbf24;margin-bottom:4px;display:block;}
+.fact-text{font-size:.87rem;color:#fef3c7;line-height:1.65;}
+
+/* BLOG + TUTOR SLOTS */
 .blog-box{background:linear-gradient(135deg,rgba(140,65,20,.38),rgba(35,28,20,.97));border:2px solid rgba(217,119,6,.5);border-radius:14px;padding:14px;margin:14px 0;}
 .blog-hdr{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;}
-.blog-title{font-size:calc(.92rem * var(--fs));font-weight:800;color:#fdba74;}
-.blog-sub{font-size:calc(.72rem * var(--fs));color:#fed7aa;margin-top:1px;}
-.blog-q{background:rgba(10,8,6,.72);border-left:4px solid #f59e0b;border-radius:0 9px 9px 0;padding:10px 13px;font-size:calc(.95rem * var(--fs));font-weight:700;color:#fff7ed;line-height:1.6;margin-bottom:10px;}
+.blog-title{font-size:.92rem;font-weight:800;color:#fdba74;}
+.blog-sub{font-size:.72rem;color:#fed7aa;margin-top:1px;}
+.blog-q{background:rgba(10,8,6,.72);border-left:4px solid #f59e0b;border-radius:0 9px 9px 0;padding:10px 13px;font-size:.95rem;font-weight:700;color:#fff7ed;line-height:1.6;margin-bottom:10px;}
 .blog-chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:9px;}
-.blog-chip{background:rgba(217,119,6,.2);border:1px solid rgba(217,119,6,.45);color:#fbbf24;border-radius:999px;padding:4px 10px;font-size:calc(.72rem * var(--fs));font-weight:700;cursor:pointer;font-family:inherit;transition:.14s;}
+.blog-chip{background:rgba(217,119,6,.2);border:1px solid rgba(217,119,6,.45);color:#fbbf24;border-radius:999px;padding:4px 10px;font-size:.72rem;font-weight:700;cursor:pointer;font-family:inherit;transition:.14s;}
 .blog-chip:hover{background:rgba(217,119,6,.35);}
-.blog-ta{width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(217,119,6,.4);border-radius:9px;padding:9px 11px;min-height:58px;font-size:calc(.92rem * var(--fs));font-family:inherit;color:#fff;outline:none;resize:vertical;}
+.blog-ta{width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(217,119,6,.4);border-radius:9px;padding:9px 11px;min-height:58px;font-size:.92rem;font-family:inherit;color:#fff;outline:none;resize:vertical;}
 .blog-ta::placeholder{color:rgba(168,162,158,.6);}
 .blog-row{display:flex;gap:6px;align-items:center;margin-top:7px;}
-.blog-name{flex:1;background:rgba(255,255,255,.1);border:1.5px solid rgba(217,119,6,.3);border-radius:8px;padding:7px 10px;font-size:calc(.82rem * var(--fs));font-family:inherit;color:#fff;outline:none;}
+.blog-name{flex:1;background:rgba(255,255,255,.1);border:1.5px solid rgba(217,119,6,.3);border-radius:8px;padding:7px 10px;font-size:.82rem;font-family:inherit;color:#fff;outline:none;}
 .blog-name::placeholder{color:rgba(168,162,158,.6);}
-.blog-post{background:#d97706;color:#1c1917;border:none;border-radius:8px;padding:8px 13px;font-size:calc(.82rem * var(--fs));font-weight:900;cursor:pointer;font-family:inherit;}
-.blog-feed{margin-top:9px;display:flex;flex-direction:column;gap:5px;max-height:185px;overflow-y:auto;}
+.blog-post{background:#d97706;color:#1c1917;border:none;border-radius:8px;padding:8px 13px;font-size:.82rem;font-weight:900;cursor:pointer;font-family:inherit;}
+.blog-feed{margin-top:9px;display:flex;flex-direction:column;gap:5px;max-height:180px;overflow-y:auto;}
 .blog-feed-item{background:rgba(12,10,9,.55);border:1px solid rgba(217,119,6,.18);border-radius:9px;padding:8px 10px;}
 .blog-feed-meta{font-size:.65rem;font-weight:800;color:#fdba74;margin-bottom:3px;}
-.blog-feed-text{font-size:calc(.88rem * var(--fs));color:#e7e5e4;line-height:1.55;white-space:pre-wrap;}
-.blog-clear{background:none;border:none;color:#92400e;font-size:calc(.66rem * var(--fs));cursor:pointer;padding:4px 0 0;font-family:inherit;text-decoration:underline;display:block;margin-top:4px;}
+.blog-feed-text{font-size:.88rem;color:#e7e5e4;line-height:1.55;white-space:pre-wrap;}
+.blog-clear{background:none;border:none;color:#92400e;font-size:.66rem;cursor:pointer;padding:4px 0 0;font-family:inherit;text-decoration:underline;display:block;margin-top:4px;}
 
-/* FEAT BAR */
-.feat-bar{background:rgba(28,25,23,.8);border:1px solid var(--border);border-radius:16px;padding:16px 20px;margin-bottom:24px;}
-.feat-lbl{font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#f59e0b;margin-bottom:10px;}
-.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-@media(max-width:680px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
-.feat-a{padding:9px 12px;background:rgba(12,10,9,.55);border:1px solid rgba(68,64,60,.45);border-radius:9px;font-size:calc(.88rem * var(--fs));color:#d6d3d1;text-decoration:none;transition:all .15s;display:block;}
-.feat-a:hover{color:#fbbf24;border-color:rgba(245,158,11,.5);}
+.tutor-box{background:linear-gradient(135deg,rgba(5,150,105,.22),rgba(20,16,12,.96));border:2px solid rgba(5,150,105,.58);border-radius:14px;padding:14px;margin:14px 0;}
+.tutor-hdr{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;}
+.tutor-name{font-size:.92rem;font-weight:800;color:#a7f3d0;}
+.tutor-sub{font-size:.72rem;color:#ccfbf1;margin-top:1px;}
+.tutor-msgs{min-height:56px;max-height:200px;overflow-y:auto;margin-bottom:8px;display:flex;flex-direction:column;gap:6px;}
+.t-ai{background:rgba(5,150,105,.18);border:1px solid rgba(5,150,105,.32);border-radius:4px 10px 10px 10px;padding:9px 12px;font-size:.92rem;color:#d1fae5;line-height:1.65;}
+.t-user{background:#059669;border-radius:10px 4px 10px 10px;padding:9px 12px;font-size:.92rem;color:#fff;line-height:1.65;align-self:flex-end;max-width:88%;}
+.tutor-sugs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;}
+.t-sug{background:rgba(5,150,105,.18);border:1px solid rgba(5,150,105,.32);color:#6ee7b7;border-radius:7px;padding:4px 9px;font-size:.74rem;font-weight:700;cursor:pointer;font-family:inherit;}
+.tutor-input-row{display:flex;gap:6px;}
+.tutor-input{flex:1;background:rgba(255,255,255,.08);border:1.5px solid rgba(5,150,105,.35);border-radius:9px;padding:9px 11px;font-size:.92rem;font-family:inherit;color:#fff;outline:none;resize:none;}
+.tutor-input::placeholder{color:rgba(168,162,158,.6);}
+.tutor-send{background:#059669;color:#fff;border:none;border-radius:9px;width:36px;height:36px;cursor:pointer;font-size:.95rem;align-self:flex-end;flex-shrink:0;}
 
-/* A11Y */
-#a11y-btn{position:fixed;bottom:24px;right:18px;z-index:190;width:46px;height:46px;border-radius:50%;background:rgba(28,25,23,.94);border:2px solid rgba(217,119,6,.5);color:#fbbf24;font-size:1.15rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh);}
-#a11y-panel{position:fixed;bottom:84px;right:18px;z-index:191;width:246px;background:rgba(16,14,12,.98);border:1.5px solid rgba(217,119,6,.4);border-radius:16px;padding:18px;box-shadow:0 14px 44px rgba(0,0,0,.6);display:none;}
-#a11y-panel.open{display:block;}
-#a11y-panel h4{font-family:'Alegreya',serif;color:#fbbf24;font-size:.98rem;margin-bottom:13px;border-bottom:1px solid rgba(217,119,6,.22);padding-bottom:8px;}
-.a11y-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-.a11y-lbl{font-size:calc(.88rem * var(--fs));color:#d6d3d1;font-weight:600;}
-.a11y-b{background:rgba(41,37,36,.85);border:1.5px solid rgba(168,162,158,.3);color:#d6d3d1;border-radius:7px;padding:4px 10px;font-size:.9rem;font-weight:800;cursor:pointer;font-family:inherit;}
-.a11y-v{font-size:.84rem;color:#fbbf24;font-weight:800;min-width:38px;text-align:center;}
-.tog{position:relative;width:42px;height:23px;background:rgba(41,37,36,.85);border:1.5px solid rgba(168,162,158,.3);border-radius:12px;cursor:pointer;transition:.2s;}
-.tog.on{background:#d97706;border-color:#d97706;}
-.tog::after{content:'';position:absolute;left:2px;top:2px;width:17px;height:17px;border-radius:50%;background:#fff;transition:.2s;}
-.tog.on::after{transform:translateX(19px);}
+/* DID YOU KNOW */
+.dyk-box{background:linear-gradient(135deg,#4c1d95,#1a003a);border-radius:16px;padding:18px;min-height:150px;margin:14px 0;}
+.dyk-label{font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:rgba(255,255,255,.85);margin-bottom:.8rem;}
+.dyk-text{font-size:1.05rem;color:#fff;line-height:1.75;font-weight:600;min-height:60px;}
+.dyk-nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
+.dyk-btn{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.38);color:#fff;border-radius:8px;padding:5px 13px;font-size:.8rem;cursor:pointer;font-family:inherit;font-weight:800;}
+.dyk-dots{display:flex;gap:5px;}
+.dyk-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;border:none;padding:0;transition:.25s;}
+.dyk-dot.on{background:#fff!important;width:18px!important;border-radius:4px!important;}
 
-/* FOOTER */
-footer{text-align:center;padding:32px 24px;border-top:2px solid rgba(217,119,6,.38);margin-top:30px;background:rgba(20,16,12,.75);}
-footer h3{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.2rem;margin-bottom:8px;}
-footer p{font-size:.88rem;color:#a8a29e;}
+/* SECTION DIVIDER */
+.section-hdr{font-family:'Alegreya',serif;font-size:1.18rem;color:#fff7ed;margin:22px 0 10px;padding-bottom:7px;border-bottom:2px solid rgba(217,119,6,.22);display:flex;align-items:center;gap:8px;}
 
-/* MISC */
-@media(max-width:768px){body{padding-left:0!important;}}
-select{color:#fff;}select option{background:#1c1917;color:#fff;}
-body.hc{background:#000!important;color:#fff!important;}
-body.nm *{animation-duration:.01ms!important;transition-duration:.01ms!important;}
+/* FOOTER NAV */
+.page-footer{text-align:center;padding:24px;border-top:1px solid rgba(255,255,255,.07);margin-top:20px;}
+@media(max-width:768px){.game-grid{grid-template-columns:repeat(2,1fr);}.hero-title{font-size:2.8rem;}.meal-grid{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
 
-<!-- SIDEBAR -->
-<div id="sb-ov" onclick="sbClose()"></div>
-<nav id="sb">
-<div id="sb-head"><h2>📜 Mr Stevens' History Hub</h2><p>Where Evidence Meets Imagination</p></div>
-<div class="sb-section">
-<span class="sb-lbl">Navigate</span>
-<button class="sb-btn active" data-p="home" onclick="showPg('home')">🏠 Home</button>
-<span class="sb-lbl sb-lbl-ks3">📚 Key Stage 3</span>
-<button class="sb-btn" data-p="y7" onclick="showPg('y7')">📅 Year 7 — Medieval England</button>
-<button class="sb-btn" data-p="y8" onclick="showPg('y8')">⚓ Year 8 — Slavery &amp; Industry</button>
-<button class="sb-btn" data-p="y9" onclick="showPg('y9')">🌍 Year 9 — World War One &amp; The League</button>
-<span class="sb-lbl sb-lbl-ig">🎯 iGCSE</span>
-<button class="sb-btn" data-p="ig" onclick="showPg('ig')">🌐 Year 10 &amp; 11 — iGCSE</button>
-<span class="sb-lbl sb-lbl-res">📂 Resources</span>
-<button class="sb-btn" data-p="rv" onclick="showPg('rv')">✏️ Revision Hub</button>
-<button class="sb-btn" data-p="src" onclick="showPg('src')">🔍 Source Studies</button>
-<button class="sb-btn" data-p="mk" onclick="showPg('mk')">✍️ iGCSE Answer Marker</button>
-<button class="sb-btn" data-p="parents" onclick="showPg('parents')">👨‍👩‍👧 Parents</button>
-</div>
-<div class="sb-links">
-<span class="sb-lbl">🔗 Related Sites</span>
-<a href="https://johnshistorysite.my.canva.site/victorian-public-health" target="_blank" rel="noopener">Victorian Public Health</a>
-<a href="https://johnshistorysite.my.canva.site/diesease-and-public-health" target="_blank" rel="noopener">Disease &amp; Public Health</a>
-<a href="https://johnshistorysite.my.canva.site/the-seven-years-war" target="_blank" rel="noopener">The Seven Years' War</a>
-<a href="https://johnshistorysite.my.canva.site/wilberforce-essay-assistant" target="_blank" rel="noopener">Wilberforce Essay Assistant</a>
-</div></nav>
-<button id="hbtn" onclick="sbToggle()">☰</button>
+<!-- TOP NAV -->
+<nav class="top-nav">
+<button class="back-btn" onclick="history.back()">← Back to Year 7</button>
+<span class="nav-crumb">
+<a href="#">Year 7</a> &rsaquo; <a href="#">Medieval England</a> &rsaquo; Medieval Entertainment &amp; Life
+</span>
+</nav>
 
-<!-- HOME PAGE -->
-<div id="pg-home" class="jhs-pg active">
-<div class="hero"><div class="hero-bg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Cheshire_Regiment_trench_Somme_1916.jpg" loading="eager" onerror="this.remove()"></div>
-<div class="hero-inner">
-<div class="hero-ey">📜 Where Evidence Meets Imagination</div>
-<h1 class="hero-h1"><em style="color:#fbbf24;font-style:normal;">Mr Stevens'</em> History Hub</h1>
-<p class="hero-sub">Discover · Investigate · Debate</p>
-<p class="hero-desc">A complete history resource from Norman castles to the Cuban Missile Crisis — real historical photographs, lesson files, primary source analysis, Socrates AI tutor, Blog Spot debates, iGCSE marking tool and full exam revision from Year 7 to iGCSE.</p>
-</div></div>
-<div class="pg-inner">
-<div class="feat-bar">
-<div class="feat-lbl">📌 Featured Related Sites</div>
-<div class="feat-grid">
-<a href="https://johnshistorysite.my.canva.site/victorian-public-health" target="_blank" rel="noopener" class="feat-a">Victorian Public Health</a>
-<a href="https://johnshistorysite.my.canva.site/diesease-and-public-health" target="_blank" rel="noopener" class="feat-a">Disease &amp; Public Health</a>
-<a href="https://johnshistorysite.my.canva.site/the-seven-years-war" target="_blank" rel="noopener" class="feat-a">The Seven Years' War</a>
-<a href="https://johnshistorysite.my.canva.site/wilberforce-essay-assistant" target="_blank" rel="noopener" class="feat-a">Wilberforce Essay Assistant</a>
-</div></div>
-<div class="year-grid">
-<button type="button" class="y-card" onclick="showPg('y7')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg);background-color:#3a1a6e;">
-<div class="y-card-ov"></div><div class="y-card-txt">
-<span class="y-card-label">📅 Year 7</span>
-<span class="y-card-title">Medieval England 1066–1500</span>
-<span class="y-card-sub">Norman Conquest · Black Death · Castles · Entertainment</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('y8')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/a/a4/Brookes_slave_ship%2C_British_Library.jpg);background-color:#065f46;">
-<div class="y-card-ov"></div><div class="y-card-txt">
-<span class="y-card-label">⚓ Year 8</span>
-<span class="y-card-title">Slavery, Industry & Empire</span>
-<span class="y-card-sub">Slave Trade · Industrial Revolution · Victorian Life · Empire</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('y9')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/f/fa/Cheshire_Regiment_trench_Somme_1916.jpg);background-color:#3a0a0a;">
-<div class="y-card-ov"></div><div class="y-card-txt">
-<span class="y-card-label">🌍 Year 9</span>
-<span class="y-card-title">World War One & The League</span>
-<span class="y-card-sub">Nelson · WW1 · League of Nations</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('ig')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/f/f3/EXCOMM_meeting%2C_Cuban_Missile_Crisis%2C_29_October_1962.jpg);background-color:#3a0808;">
-<div class="y-card-ov"></div><div class="y-card-txt">
-<span class="y-card-label">🎯 Year 10–11 · iGCSE</span>
-<span class="y-card-title">Stalin, Cold War, Vietnam & Medicine</span>
-<span class="y-card-sub">P1: 16 May · P2: 5 Jun · Includes Marking Tool</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('rv')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/2/2c/Domesday-book-1085-1086.jpg);background-color:#1a2a6e;">
-<div class="y-card-ov"></div><div class="y-card-txt">
-<span class="y-card-label">✏️ Revision Hub</span>
-<span class="y-card-title">Key Dates · Terms · Exam Technique</span>
-<span class="y-card-sub">Year 7–11 · 6/8/16-mark guides</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('src')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/4/4e/Cuban_missiles.jpg);background-color:#1a0a3a;">
-<div class="y-card-ov"></div><div class="y-card-txt">
-<span class="y-card-label">🔍 Source Studies</span>
-<span class="y-card-title">Primary Source Analysis</span>
-<span class="y-card-sub">WACA · LOOK-CHECK-INFER-JUDGE</span>
-</div></button>
-</div></div></div>
-
-<!-- YEAR 7 — TOPIC TILE OVERVIEW (NEW STRUCTURE) -->
-<div id="pg-y7" class="jhs-pg">
-<div class="pg-inner">
-<div class="sec-banner" style="background:linear-gradient(135deg,rgba(109,40,217,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg) center/cover no-repeat;">
-<h2>📅 Year 7 — Medieval England 1066–1500</h2>
-<p>Click any topic card below to dive into its lessons, activities, primary sources, Socrates tutor and Blog Spot.</p>
-</div>
-
-<div class="topic-tile-grid">
-
-<!-- FEATURED: What is History / 1066 -->
-<button class="topic-tile topic-tile-featured" onclick="showPg('y7-hs')"
-  style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg);">
-<div class="topic-tile-ov"></div>
-<div class="topic-tile-content">
-<span class="topic-tile-tag">🔍 Introduction · 8 Lessons</span>
-<span class="topic-tile-title">What is History?<br>&amp; The Norman Conquest 1066</span>
-<p class="topic-tile-desc">From learning to think like a historian to the dramatic year of three kings — chronology, provenance, WACA, and why 1066 permanently transformed England forever.</p>
-<button class="topic-tile-cta">Explore this topic →</button>
-</div></button>
-
-<!-- Medieval Entertainment -->
-<button class="topic-tile" onclick="showPg('y7-med')"
-  style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg);">
-<div class="topic-tile-ov"></div>
-<div class="topic-tile-content">
-<span class="topic-tile-tag">🎭 Topic 2 · 16 Lessons</span>
-<span class="topic-tile-title">Medieval Entertainment & Life</span>
-<p class="topic-tile-desc">Holy days, mob football, minstrels, sumptuary laws and the story of how English was born after 1066. With interactive images and six lesson PPTs.</p>
-<button class="topic-tile-cta">Explore this topic →</button>
-</div></button>
-
-<!-- Black Death -->
-<button class="topic-tile" onclick="showPg('y7-bd')"
-  style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/1/15/Danse_Macabre_by_Michael_Wolgemut.jpg);">
-<div class="topic-tile-ov"></div>
-<div class="topic-tile-content">
-<span class="topic-tile-tag">☠️ Topic 3 · 16 Lessons</span>
-<span class="topic-tile-title">Health, Medicine &amp; The Black Death</span>
-<p class="topic-tile-desc">30–50% of England's population dead in two years. Medieval medicine powerless. The feudal system begins to collapse. A story of catastrophe and consequence.</p>
-<button class="topic-tile-cta">Explore this topic →</button>
-</div></button>
-
-<!-- Castles — FEATURED -->
-<button class="topic-tile topic-tile-featured" onclick="showPg('y7-cas')"
-  style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/2/2d/Tower_of_London_viewed_from_the_River_Thames.jpg);">
-<div class="topic-tile-ov"></div>
-<div class="topic-tile-content">
-<span class="topic-tile-tag">🏰 Research Project · 10 Lessons</span>
-<span class="topic-tile-title">Castles — Motte &amp; Bailey to Stone Behemoths</span>
-<p class="topic-tile-desc">From timber fortresses built in 8 days to the Tower of London — investigate how castles helped William control a conquered kingdom. Bronze to Platinum differentiated project.</p>
-<button class="topic-tile-cta">Explore this topic →</button>
-</div></button>
-
-</div>
+<!-- HERO -->
+<div class="hero">
+<div class="hero-bg"></div>
+<div class="hero-content">
+<div class="hero-eyebrow">📅 Year 7 · Chapter 5 · Medieval England</div>
+<h1 class="hero-title">Medieval<br>Entertainment<br>&amp; Life</h1>
+<p class="hero-intro">In the Middle Ages, ordinary people didn't really have holidays. Instead, there were a number of feast days through the year — Easter Day, May Day, Midsummer's Eve, Christmas, and various Saints' days. After church, they would have some free time. In fact, our word <strong>'holiday'</strong> comes from the term <strong>'holy day'</strong>.</p>
+<p class="hero-source-note">Source: Pieter Bruegel the Elder, <em>Peasant Dance</em>, c.1568. Note: this was painted 200+ years after the medieval period — apply WACA before using as evidence.</p>
 </div></div>
 
-<!-- YEAR 7 → MEDIEVAL ENTERTAINMENT SUB-PAGE (FULL) -->
-<div id="pg-y7-med" class="jhs-pg">
-<div class="pg-inner">
+<!-- MAIN CONTENT -->
+<div class="page">
 
-<!-- HERO BANNER -->
-<div class="sub-page-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg);">
-<div class="sub-page-hero-ov"></div>
-<div class="sub-page-hero-content">
-<button class="sub-page-back" onclick="showPg('y7')">← Back to Year 7</button>
-<span class="sub-page-tag">📅 Year 7 · Medieval England · Topic 2 · 16 Lessons</span>
-<h1 class="sub-page-title">🎭 Medieval<br>Entertainment & Life</h1>
-<p class="sub-page-intro">For most medieval people, entertainment was tightly bound to the Church calendar. Holy days gave peasants rare free time for games, sport and feasting — while sumptuary laws enforced the class divide. After 1066, Old English and Norman French blended to create the language we speak today.</p>
+<!-- ═══════════ CHAPTER 1: COULD YOU HAVE FUN? ═══════════ -->
+<div class="chapter" id="ch1">
+<div class="chapter-header">
+<div class="chapter-num" style="color:#f59e0b;">5.4</div>
+<div class="chapter-htext">
+<h2>Could you have fun in the Middle Ages?</h2>
+<p>People generally made their own fun, creating home-made equipment with whatever they had to hand. Some of the sports and games were so popular that they are still enjoyed today.</p>
+</div></div>
+<div class="chapter-body">
+
+<div class="section-hdr">🎮 Games &amp; Pastimes — Who Could Play?</div>
+<div class="game-grid">
+
+<div class="game-card">
+<div class="game-ico">🎳</div>
+<div class="game-name">Bowling</div>
+<div class="game-desc">Players would take it in turns to knock down as many skittles as they could with three balls.</div>
+<span class="game-tag tag-still">✅ Still played today</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">⚽</div>
+<div class="game-name">Mob Football</div>
+<div class="game-desc">No rules, no referee and as many players as you can get. Whole villages would play each other, with the goals several miles apart.</div>
+<span class="game-tag tag-still">✅ Still played today</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">🌰</div>
+<div class="game-name">Conkers</div>
+<div class="game-desc">Became popular after 1066. Find a cobnut, drill a hole, thread onto a string. Taking turns, try to smash your opponent's cobnut to bits.</div>
+<span class="game-tag tag-still">✅ Still played today</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">⛸️</div>
+<div class="game-name">Ice Skating</div>
+<div class="game-desc">People would strap sharpened bones to their feet to use as skates. Archaeologists have found a young boy's skeleton with skates still strapped on his feet. Thin ice perhaps?</div>
+<span class="game-tag tag-still">✅ Still played today</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">⛳</div>
+<div class="game-name">Golf</div>
+<div class="game-desc">Using a few basic clubs, players would hit a leather ball stuffed with hair. Popular in Scotland and Holland by 1500.</div>
+<span class="game-tag tag-still">✅ Still played today</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">🙈</div>
+<div class="game-name">Cold Hand</div>
+<div class="game-desc">A player would be blindfolded in front of a crowd and slapped by one of them. He or she would have to guess who hit them. Also called 'blind man's buff' or 'hot cockles'.</div>
+<span class="game-tag tag-still">✅ Blind man's buff still exists</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">🐓</div>
+<div class="game-name">Cock Fighting</div>
+<div class="game-desc">Two birds were forced to attack each other, sometimes with metal tied to their claws. People would bet on the result.</div>
+<span class="game-tag tag-gone">❌ Now illegal — animal cruelty</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">🦵</div>
+<div class="game-name">Shin Hacking</div>
+<div class="game-desc">Two villagers would kick each other in the shins as hard as they could until one of them couldn't take the pain and gave up.</div>
+<span class="game-tag tag-gone">❌ No longer practised</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">🪑</div>
+<div class="game-name">Stoolball</div>
+<div class="game-desc">A young lady would sit on a stool and men would throw a ball at her. She would try to dodge, perhaps using a bat to hit it away. If they hit her — they got a kiss!</div>
+<span class="game-tag tag-still">✅ Ancestor of cricket</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">🐻</div>
+<div class="game-name">Bear Baiting</div>
+<div class="game-desc">A bear would be chained to a post while dogs attacked it. People would bet on the result — would the dogs or the bear win?</div>
+<span class="game-tag tag-gone">❌ Now illegal — animal cruelty</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">🤼</div>
+<div class="game-name">Wrestling</div>
+<div class="game-desc">People loved all sorts of fighting games — the more blood the better.</div>
+<span class="game-tag tag-still">✅ Still a sport today</span>
+</div>
+
+<div class="game-card">
+<div class="game-ico">🏹</div>
+<div class="game-name">Archery</div>
+<div class="game-desc">England's armies always needed archers. Boys had to practise from a very young age.</div>
+<span class="game-tag tag-still">✅ Still an Olympic sport</span>
+</div>
+
+</div><!-- end game-grid -->
+
+<div class="section-hdr">👑 What about the Rich?</div>
+<div class="split-grid">
+<div class="split-card rich-card">
+<span class="split-label" style="color:#fbbf24;">🏰 Rich Nobles</span>
+<h3>Exclusive Entertainment</h3>
+<ul class="split-list">
+<li>🗡️ <span>Tournaments — sword fighting, jousting, horse-riding with prizes for the best competitors</span></li>
+<li>🦌 <span>Hunting on horseback across their estates</span></li>
+<li>🍽️ <span>Elaborate feasting and dancing in the great hall</span></li>
+<li>🤹 <span>Acrobats and jugglers performing for guests</span></li>
+<li>♟️ <span>Chess, draughts, cards, dice games</span></li>
+<li>🎾 <span>Real tennis — hit a wooden ball over a rope; balls hit so hard they could kill on impact</span></li>
+</ul>
+</div>
+<div class="split-card poor-card">
+<span class="split-label" style="color:#9ca3af;">🌾 Ordinary Peasants</span>
+<h3>Make Your Own Fun</h3>
+<ul class="split-list">
+<li>🎉 <span>Holy days (feast days) were rare and precious — they made sure to enjoy every minute</span></li>
+<li>🎮 <span>Home-made equipment using whatever was to hand</span></li>
+<li>⛪ <span>Every holy day began with a church service</span></li>
+<li>🏘️ <span>Village-wide games like mob football — whole villages playing each other</span></li>
+<li>🎭 <span>No cinemas, no theatres, no organised professional sport</span></li>
+<li>🤲 <span>"Do it yourself" — whether rich or poor, you had to make your own fun</span></li>
+</ul>
+</div>
+</div>
+
+<!-- WORK TASKS 5.4 -->
+<div class="work-section">
+<div class="work-title">📝 Work — Section 5.4</div>
+<div class="work-q"><span class="work-num">1.</span><span>Explain where the modern word 'holiday' comes from.</span></div>
+<div class="work-q"><span class="work-num">2a.</span><span>Look closely at the illustration showing ordinary people enjoying their holy day. Make two lists — one headed 'Things we no longer enjoy today' and the other headed 'Things we still enjoy today.'</span></div>
+<div class="work-q"><span class="work-num">2b.</span><span>Choose one example from your list of things we no longer enjoy today. Explain why you think this pastime is no longer practised.</span></div>
+<div class="work-q"><span class="work-num">2c.</span><span>Choose one example from your list of things we still enjoy today. Explain in what ways, if any, it has changed since medieval times.</span></div>
+<div class="work-q"><span class="work-num">3.</span><span>Design a poster to advertise a medieval holy day in your town. Include the name of the holy day, a programme of events and fun activities. Remember, all holy days began with a church service.</span></div>
+</div>
+
+<div class="fact-box">
+<span class="fact-label">🔍 Be a Top Historian</span>
+<span class="fact-text">These sports and pastimes are great examples of how some things from long ago <strong>stay the same</strong> whilst others <strong>change</strong> a lot — and there are always lots of reasons why some things change. Bear-baiting is no longer acceptable as it is considered cruel, whereas the game of conkers is largely unchanged because it is fun and easy to set up.</span>
+</div>
+
+</div></div><!-- end chapter 1 -->
+
+<!-- ═══════════ CHAPTER 2: FOOTBALL ═══════════ -->
+<div class="chapter" id="ch2">
+<div class="chapter-header">
+<div class="chapter-num" style="color:#f87171;">5.5</div>
+<div class="chapter-htext">
+<h2>Has football changed much since the Middle Ages?</h2>
+<p>Over 1000 years ago, a small army from Denmark landed on the English coast. Their leader was captured and the angry English mob chopped off his head. The men split into two groups and kicked the severed head around — and this is how football in Britain began.</p>
+</div></div>
+<div class="chapter-body">
+
+<div class="section-hdr">⚽ Mob Football — The Facts</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;">
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(220,38,38,.25);border-radius:12px;padding:16px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#f87171;margin-bottom:10px;">📋 The Rules (what rules?)</div>
+<ul style="list-style:none;padding:0;font-size:.87rem;color:#e7e3dd;line-height:1.7;">
+<li>👥 Up to <strong>500 players</strong> (including women sometimes)</li>
+<li>⚖️ <strong>Few rules</strong>, no referee</li>
+<li>📏 Goals were <strong>several miles apart</strong></li>
+<li>💀 Players could use any method "except murder"</li>
+<li>🐷 The ball was a <strong>pig's bladder</strong>, stuffed with dried peas or sawdust</li>
+<li>📅 Usually played on <strong>Shrove Tuesday</strong> (Pancake Day)</li>
+<li>🎊 Sometimes played with <strong>several balls</strong> at once</li>
+</ul>
+</div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(220,38,38,.25);border-radius:12px;padding:16px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#f87171;margin-bottom:10px;">💥 The Consequences</div>
+<ul style="list-style:none;padding:0;font-size:.87rem;color:#e7e3dd;line-height:1.7;">
+<li>🩸 Players would "retire home as from battle"</li>
+<li>🦴 Bloody heads, bones broken and out of joint</li>
+<li>☠️ In 1321 the Pope issued a special letter of forgiveness to a player who had accidentally <strong>killed an opponent</strong></li>
+<li>🚫 By 1450 a new rule in some towns: the ball could only be <strong>kicked</strong>, not carried or thrown</li>
+</ul>
+</div>
+</div>
+
+<!-- PRIMARY SOURCES -->
+<div class="section-hdr">📜 Primary Sources</div>
+<div class="source-box source-a">
+<span class="source-label" style="color:#60a5fa;">SOURCE A — William Fitzstephen, 1174 (first description of mob football)</span>
+<div class="source-text" style="border-color:#3b82f6;">"After lunch all the youth of the city go out into the fields to take part in the ball game. The students of each school have their own ball. The workers from each city craft also carry balls. Older citizens, fathers and wealthy men come on horseback to watch the juniors competing, and to revive their own youth. You can see their inner passions aroused as they watch the action and get caught up in the fun."</div>
+<div class="source-credit">— Description of London, c.1174. The first written description of mob football played in London on Shrove Tuesday.</div>
+</div>
+
+<div class="source-box source-b">
+<span class="source-label" style="color:#c4b5fd;">SOURCE B — A monk's description of mob football</span>
+<div class="source-text" style="border-color:#7c3aed;">"a devilish pastime. More a bloody murdering practice than a sport."</div>
+<div class="source-credit">— A more modern view of football in the Middle Ages.</div>
+</div>
+
+<!-- BAN TIMELINE -->
+<div class="section-hdr">🚫 The Football Bans — A Timeline</div>
+<div class="ban-timeline">
+<div class="ban-item">
+<div class="ban-year">1314</div>
+<div class="ban-text"><strong>Lord Mayor of London banned football:</strong> "The hustling over large footballs causes great uproar in the city." Despite the threat of imprisonment — the ban was ignored!</div>
+</div>
+<div class="ban-item">
+<div class="ban-year">1321</div>
+<div class="ban-text">The <strong>Pope</strong> issued a special letter of forgiveness to a player who had accidentally killed an opponent.</div>
+</div>
+<div class="ban-item">
+<div class="ban-year">1331</div>
+<div class="ban-text"><strong>King Edward III</strong> became the first king to officially ban football by royal decree. He said people were forgetting to practise their archery skills — if a foreign army invaded, men would have forgotten how to use their bows and arrows.</div>
+</div>
+<div class="ban-item">
+<div class="ban-year">1450</div>
+<div class="ban-text">Players in some towns introduced a new rule to reduce accidents: the ball could only be <strong>kicked</strong>, not carried or thrown.</div>
+</div>
+<div class="ban-item">
+<div class="ban-year">1314–1667</div>
+<div class="ban-text">Football was officially banned by <strong>more than 30</strong> royal or local laws. Richard II, Henry IV and Henry V all tried to ban it — but people carried on regardless. In Scotland, King James I famously ruled that "na man play at the fute-ball" — but the Scots were playing in Edinburgh the very next week.</div>
+</div>
+</div>
+
+<!-- WORK TASKS 5.5 -->
+<div class="work-section">
+<div class="work-title">📝 Work — Section 5.5</div>
+<div class="work-q"><span class="work-num">1a.</span><span>Write these statements in the correct chronological order: (i) A new rule said the ball could only be kicked, not picked up. (ii) King Edward III was the first king to ban football by royal decree. (iii) A Danish prince's head was used as a ball. (iv) The Pope issued a special letter to forgive a player who had killed an opponent.</span></div>
+<div class="work-q"><span class="work-num">1b.</span><span>Which of the above events do you think had the biggest effect on the game of football? Explain your answer.</span></div>
+<div class="work-q"><span class="work-num">2a.</span><span>Make a list of all the differences you can find between football in the Middle Ages and football today.</span></div>
+<div class="work-q"><span class="work-num">2b.</span><span>What do you think the biggest difference is? Explain your answer.</span></div>
+<div class="work-q"><span class="work-num">3a.</span><span>Why do you think so many kings tried to ban football?</span></div>
+<div class="work-q"><span class="work-num">3b.</span><span>Why do you think the bans weren't very successful?</span></div>
+</div>
+
+<div class="fact-box">
+<span class="fact-label">🏟️ Hungry for More?</span>
+<span class="fact-text">Mob football is still played in some parts of Britain today. Try to find out more about this sport. Where is it played? Who plays it? How often? What are the rules? How do the players score?</span>
+</div>
+
+</div></div><!-- end chapter 2 -->
+
+<!-- ═══════════ CHAPTER 3: LET ME ENTERTAIN YOU ═══════════ -->
+<div class="chapter" id="ch3">
+<div class="chapter-header">
+<div class="chapter-num" style="color:#34d399;">5.6</div>
+<div class="chapter-htext">
+<h2>Let me entertain you</h2>
+<p>The Middle Ages had its own pop songs and dance music. There was no recorded music or pop charts, but listening to a live band — and dancing around — were still very, very popular in medieval times.</p>
+</div></div>
+<div class="chapter-body">
+
+<div class="section-hdr">🎵 Music and Dance</div>
+<div class="split-grid">
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(5,150,105,.25);border-radius:13px;padding:16px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#34d399;margin-bottom:8px;">⛪ Sacred Music (Church)</div>
+<p style="font-size:.88rem;color:#e7e3dd;line-height:1.65;">Played only in church. Had <strong>no harmonies</strong> — just a single singer singing a tune. Not one you'd spend the rest of the day humming!</p>
+</div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(251,191,36,.25);border-radius:13px;padding:16px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#fbbf24;margin-bottom:8px;">🏘️ House Music (Outside Church)</div>
+<p style="font-size:.88rem;color:#e7e3dd;line-height:1.65;">Much livelier! A band of up to <strong>a dozen people</strong> would play high tempo music. People danced in large circles — clapping, spinning and jumping. Singing over a mug of ale on the village green was very popular.</p>
+</div>
+</div>
+
+<div class="section-hdr">🎸 Medieval Instruments</div>
+<div class="instruments-grid">
+<div class="instrument">Organ</div>
+<div class="instrument">Tambourine</div>
+<div class="instrument">Flute</div>
+<div class="instrument">Hurdy Gurdy (stringed, played by turning a handle)</div>
+<div class="instrument">Drum</div>
+<div class="instrument">Viol (like a violin)</div>
+<div class="instrument">Clarinet</div>
+<div class="instrument">Lute</div>
+<div class="instrument">Cymbal</div>
+<div class="instrument">Harp</div>
+<div class="instrument">Trumpet</div>
+</div>
+<p style="font-size:.82rem;color:#a8a29e;margin-top:8px;">Source A: Most were either string or wind instruments and many are still played today. Since there was no way of recording, all music was performed live.</p>
+
+<!-- SONG -->
+<div class="section-hdr">🎶 A Medieval Pop Song — "Sumer Is Icumen In" (13th century)</div>
+<div class="song-box">
+<div class="song-title">Sumer Is Icumen In</div>
+<div class="song-lines">
+Summer has come in, Loudly sing, Cuckoo!<br>
+The seed grows and the meadow blooms<br>
+And the wood springs anew, Sing, Cuckoo!<br>
+The ewe bleats after the lamb<br>
+The cow lows after the calf.<br>
+The bullock stirs, the stag farts,<br>
+Merrily sing, Cuckoo!
+</div>
+<p style="font-size:.75rem;color:rgba(167,243,208,.7);margin-top:10px;font-style:italic;">Source B: A popular song from the thirteenth century — a bit like a pop song of today, often sung in summer when the crops were growing well.</p>
+</div>
+
+<div class="section-hdr">🎪 Wandering Minstrels</div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:16px;margin:10px 0;">
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;">Singers known as <strong>minstrels</strong> wandered from town to town entertaining crowds. They sometimes sang for the lord in his castle, but generally played on the streets so people could dance and sing along — expecting a few coins in return.</p>
+<br>
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;">But minstrels weren't just popular for their singing. <strong>Often the news they brought from other parts of the country was just as interesting as the show.</strong> Wandering around so much meant they knew all the gossip from local towns and villages!</p>
+</div>
+
+<div class="section-hdr">🎭 Miracle Plays</div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:16px;margin:10px 0;">
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;">Plays were another popular form of live entertainment and drew large crowds. Originally put on in church to teach peasants about the Bible or about saints. Over time, they became morality tales where good overcame evil — so popular they were moved outside.</p>
+<br>
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;">They were called <strong>miracle plays</strong> and were usually performed by groups of travelling actors who toured the country. Records show that plays were performed in <strong>127 different towns</strong> during the Middle Ages — enjoyed by thousands.</p>
+<p style="font-size:.78rem;color:#a8a29e;margin-top:8px;">Source C: Miracle plays were common in midland and northern towns such as Wakefield and Chester.</p>
+</div>
+
+<!-- WORK 5.6 -->
+<div class="work-section">
+<div class="work-title">📝 Work — Section 5.6</div>
+<div class="work-q"><span class="work-num">1a.</span><span>What is the difference between 'sacred' and 'house' music?</span></div>
+<div class="work-q"><span class="work-num">1b.</span><span>Which do you think was the more popular? Give reasons for your answer.</span></div>
+<div class="work-q"><span class="work-num">1c.</span><span>Why do you think music and plays were so important and popular in medieval Britain? Explain your answer carefully.</span></div>
+<div class="work-q"><span class="work-num">2a.</span><span>List which instruments from Source A you have heard of before. Have you played any of them?</span></div>
+<div class="work-q"><span class="work-num">2b.</span><span>Why was all music played live in the Middle Ages?</span></div>
+<div class="work-q"><span class="work-num">3a.</span><span>What was a 'wandering minstrel'?</span></div>
+<div class="work-q"><span class="work-num">3b.</span><span>Apart from entertaining crowds with music, what other role did wandering minstrels perform?</span></div>
+<div class="work-q"><span class="work-num">4a.</span><span>Why do you think people in the Middle Ages enjoyed singing 'Sumer Is Icumen In'?</span></div>
+<div class="work-q"><span class="work-num">4b.</span><span>Do you think songs about cuckoos and farm animals would be good topics for a pop song today? Explain your answer.</span></div>
+<div class="work-q"><span class="work-num">5.</span><span>What was a 'miracle play'?</span></div>
+</div>
+
+</div></div><!-- end chapter 3 -->
+
+<!-- ═══════════ CHAPTER 4: KEEPING IN FASHION ═══════════ -->
+<div class="chapter" id="ch4">
+<div class="chapter-header">
+<div class="chapter-num" style="color:#f59e0b;">5.7</div>
+<div class="chapter-htext">
+<h2>Keeping in fashion</h2>
+<p>Fashion was important in the Middle Ages too. The rich dressed in fancy clothes to impress each other. Clothes became a status symbol, with lords and ladies trying to outdo each other.</p>
+</div></div>
+<div class="chapter-body">
+
+<div class="section-hdr">👗 Dress to Impress — What the Rich Wore</div>
+<div style="background:rgba(180,100,20,.15);border:1.5px solid rgba(251,191,36,.3);border-radius:13px;padding:16px;margin:10px 0;">
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;">The rich wore the latest costumes made from <strong>fine wool, leather, linen, velvet, silk, or fur</strong>. They decorated these clothes with <strong>gold and silver thread, jewels, chains, and fancy buttons</strong>.</p>
+</div>
+
+<div class="section-hdr">🎨 The Meaning of Colours</div>
+<div class="colour-grid">
+<div class="colour-chip" style="background:rgba(220,38,38,.2);border:1.5px solid rgba(220,38,38,.4);color:#fca5a5;">❤️ Red = You are in love</div>
+<div class="colour-chip" style="background:rgba(234,179,8,.2);border:1.5px solid rgba(234,179,8,.4);color:#fde68a;">💛 Yellow = Anger</div>
+<div class="colour-chip" style="background:rgba(107,114,128,.2);border:1.5px solid rgba(107,114,128,.4);color:#d1d5db;">🩶 Grey = Sadness</div>
+</div>
+<p style="font-size:.82rem;color:#a8a29e;margin-top:8px;">Natural dyes — made from plants, berries, nuts, crushed insects, and even rust — were used to make the different coloured cloth.</p>
+
+<div class="section-hdr">🎩 Hats, Shoes &amp; How Fashion Changed</div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:16px;margin:10px 0;">
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;margin-bottom:10px;"><strong>Hats:</strong> Women often hid their hair beneath fancy hats — some shaped like animal horns or butterfly wings. The famous <strong>'steeple hat'</strong>, fashionable in the late 1480s, was nearly a metre tall!</p>
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;margin-bottom:10px;"><strong>Shoes:</strong> Pointed shoes called <strong>'poulaines'</strong> were very fashionable. Some were so pointed that the toes had to be tied back. Platform shoes called <strong>'pattens'</strong> were common too, for walking through the filthy, muddy streets.</p>
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;"><strong>Change over time:</strong> As the Middle Ages progressed — dresses got longer, hats got taller, cloth got brighter, and shoes got pointier. Just like today, fashions varied from year to year.</p>
+</div>
+
+<div class="section-hdr">👘 Did Peasants Follow Fashion?</div>
+<div class="split-grid">
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(251,191,36,.2);border-radius:12px;padding:15px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#fbbf24;margin-bottom:8px;">👑 Rich</div>
+<ul style="list-style:none;padding:0;font-size:.87rem;color:#e7e3dd;line-height:1.7;">
+<li>✨ Velvet, silk, fur, linen, fine wool</li>
+<li>💎 Gold/silver thread, jewels, chains</li>
+<li>🎨 Brightly dyed fabrics in meaningful colours</li>
+<li>👒 Elaborate, changing hats every decade</li>
+<li>👠 Pointed poulaines — sometimes tied back at the toe</li>
+</ul>
+</div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(107,114,128,.2);border-radius:12px;padding:15px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#9ca3af;margin-bottom:8px;">🌾 Peasants</div>
+<ul style="list-style:none;padding:0;font-size:.87rem;color:#e7e3dd;line-height:1.7;">
+<li>🧶 Plain tunics in coarse wool or linen</li>
+<li>🟫 Dull colours: grey, brown, dark green</li>
+<li>🧣 Woollen leggings, straw or woollen hats, hoods, capes</li>
+<li>👞 Some couldn't even afford shoes</li>
+<li>🏠 Clothes nearly always handmade — would last for years</li>
+</ul>
+</div>
+</div>
+
+<!-- WORK 5.7 -->
+<div class="work-section">
+<div class="work-title">📝 Work — Section 5.7</div>
+<div class="work-q"><span class="work-num">1a.</span><span>Why was fashion so important to rich people in the Middle Ages?</span></div>
+<div class="work-q"><span class="work-num">1b.</span><span>How could the clothes a person wore express how they might be feeling?</span></div>
+<div class="work-q"><span class="work-num">1c.</span><span>In your own words, explain how and why a poor person's clothes differed from a rich person's.</span></div>
+<div class="work-q"><span class="work-num">2.</span><span><strong>The Big Write!</strong> There were no fashion magazines in medieval England — but imagine there were! You are an editor for a medieval fashion magazine bought by the rich. Prepare a double-page spread including: latest fashions, fashion dos and don'ts, what the best-dressed people are wearing, how pointed your hat should be, a catchy headline, examples of fashion styles, and illustrations.</span></div>
+</div>
+
+</div></div><!-- end chapter 4 -->
+
+<!-- ═══════════ CHAPTER 5: STORY OF ENGLISH ═══════════ -->
+<div class="chapter" id="ch5">
+<div class="chapter-header">
+<div class="chapter-num" style="color:#60a5fa;">5.8</div>
+<div class="chapter-htext">
+<h2>The story of the English language</h2>
+<p>Did you know that for many years after 1066, English was the <em>third</em> most important language in England? So how did the English language survive?</p>
+</div></div>
+<div class="chapter-body">
+
+<div class="section-hdr">📖 Before 1066 — The Roots of Old English</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0;">
+<div style="background:rgba(217,119,6,.12);border:1px solid rgba(217,119,6,.3);border-radius:12px;padding:14px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#fbbf24;margin-bottom:7px;">⚔️ Anglo-Saxon</div>
+<p style="font-size:.82rem;color:#e7e3dd;line-height:1.6;margin-bottom:8px;">Angles, Saxons and Jutes from Germany and Denmark invaded c.1,500 years ago. Their words still survive today.</p>
+<div style="font-size:.74rem;color:#fef3c7;">drink · father · ground · love · name · silly · son · the · was · wife</div>
+</div>
+<div style="background:rgba(5,150,105,.12);border:1px solid rgba(5,150,105,.3);border-radius:12px;padding:14px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#34d399;margin-bottom:7px;">⛪ Latin</div>
+<p style="font-size:.82rem;color:#e7e3dd;line-height:1.6;margin-bottom:8px;">When Britain became Christian, Latin words (mainly connected with the Church) came into use.</p>
+<div style="font-size:.74rem;color:#a7f3d0;">bishop · church · monk · alter ego · factor · parent · etc.</div>
+</div>
+<div style="background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);border-radius:12px;padding:14px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#f87171;margin-bottom:7px;">🛡️ Norse (Viking)</div>
+<p style="font-size:.82rem;color:#e7e3dd;line-height:1.6;margin-bottom:8px;">From the 700s, Vikings added their words. Many connected to place names: 'by' (settlement) = Grimsby, Whitby.</p>
+<div style="font-size:.74rem;color:#fecaca;">anger · build · dregs · gate · glitter · oaf · neck · skin · ugly · you</div>
+</div>
+</div>
+
+<div class="section-hdr">🇫🇷 After 1066 — French Takes Over</div>
+<div style="background:rgba(37,99,235,.1);border:1.5px solid rgba(37,99,235,.3);border-radius:13px;padding:16px;margin:10px 0;">
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;margin-bottom:10px;">In 1066, William the Conqueror brought the French language to England. <strong>King Harold was the last Old English-speaking king!</strong></p>
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;margin-bottom:10px;">All important people spoke French — the queen, barons, their wives and children. They brought new words still used today:</p>
+<div class="word-cloud">
+<span class="word-tag french">archer</span><span class="word-tag french">army</span><span class="word-tag french">arrest</span><span class="word-tag french">baron</span><span class="word-tag french">battle</span><span class="word-tag french">castle</span><span class="word-tag french">city</span><span class="word-tag french">enemy</span><span class="word-tag french">grape</span><span class="word-tag french">guard</span><span class="word-tag french">judge</span><span class="word-tag french">market</span><span class="word-tag french">plate</span><span class="word-tag french">prison</span><span class="word-tag french">sausage</span><span class="word-tag french">sugar</span><span class="word-tag french">traitor</span>
+</div>
+<p style="font-size:.82rem;color:#a8a29e;margin-top:8px;">After 1066, Old English was officially the <strong>third</strong> most important language in England. Nobody wrote it down any more. Kings spoke French and Latin; ordinary peasants spoke Old English.</p>
+</div>
+
+<div class="section-hdr">🤝 English Survives — and Grows</div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:16px;margin:10px 0;">
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;margin-bottom:10px;">Old English didn't die because ordinary peasants and townspeople spoke it every day. They <strong>wouldn't and couldn't</strong> learn French or Latin.</p>
+<p style="font-size:.9rem;color:#e7e3dd;line-height:1.72;margin-bottom:10px;">As centuries passed, Old English and French began to mix. By the 1400s, something very similar to <strong>modern English</strong> had emerged.</p>
+</div>
+
+<div class="source-box source-c">
+<span class="source-label" style="color:#34d399;">SOURCE B — From a modern history book about Chaucer</span>
+<div class="source-text" style="border-color:#059669;">"Chaucer has often been referred to as the 'saviour of the English language'. As a writer of the famous Canterbury Tales, he wrote mainly in English — the language of ordinary people — but used French words when he didn't think an English one fitted. For example, instead of using the word 'hard' (Old English) he may choose the word 'difficult' (French). He thought his writing was improved by the richness of the English language. He had so many words to choose from — Old English, French, Latin, Norse and Anglo-Saxon."</div>
+</div>
+
+<div class="fact-box">
+<span class="fact-label">📌 Key Fact</span>
+<span class="fact-text">Many medieval kings spoke French, and couldn't read or write either! It was <strong>Edward III</strong> who realised that English, not French or Latin, was still spoken by millions of ordinary people — and allowed English to be used in Parliament and in law courts. Soon after, <strong>Henry IV</strong> became the first monarch in over 300 years to make his first speech as a king in English.</span>
+</div>
+
+<!-- WORK 5.8 -->
+<div class="work-section">
+<div class="work-title">📝 Work — Section 5.8</div>
+<div class="work-q"><span class="work-num">1a.</span><span>In your own words, explain what is meant by the term 'Old English'.</span></div>
+<div class="work-q"><span class="work-num">1b.</span><span>Why did French replace Old English as the dominant language in the Middle Ages?</span></div>
+<div class="work-q"><span class="work-num">2.</span><span>Why do you think English eventually replaced French and Latin?</span></div>
+<div class="work-q"><span class="work-num">3.</span><span>According to Source B, how was Chaucer helped by the variety of languages that had been used in England over the years?</span></div>
+<div class="work-q"><span class="work-num">4a.</span><span>The English language is always changing. Write down why you think the English language changes so much.</span></div>
+<div class="work-q"><span class="work-num">4b.</span><span>Make a list of words and phrases used today which your grandparents wouldn't understand. Try to explain why they wouldn't understand them.</span></div>
+</div>
+
+</div></div><!-- end chapter 5 -->
+
+<!-- ═══════════ CHAPTER 6: COME DINE WITH ME! ═══════════ -->
+<div class="chapter" id="ch6">
+<div class="chapter-header">
+<div class="chapter-num" style="color:#fb923c;">5.9</div>
+<div class="chapter-htext">
+<h2>Come dine with me!</h2>
+<p>Things have certainly changed a lot since the Middle Ages. So what was it like to eat in medieval Britain?</p>
+</div></div>
+<div class="chapter-body">
+
+<div class="section-hdr">🍽️ A Peasant's Daily Meals</div>
+<div class="meal-grid">
+<div class="meal-card">
+<span class="meal-time">Breakfast</span>
+<div class="meal-clock">4–6am</div>
+<div class="meal-items">🍞 Bread<br>🍺 Ale</div>
+</div>
+<div class="meal-card">
+<span class="meal-time">Dinner</span>
+<div class="meal-clock">10am</div>
+<div class="meal-items">🍞 Bread<br>🧀 Cheese<br>🧅 Onion<br>🥚 Eggs<br>🍺 Ale or cider</div>
+</div>
+<div class="meal-card">
+<span class="meal-time">Supper</span>
+<div class="meal-clock">4pm</div>
+<div class="meal-items">🍞 Bread<br>🐟 Fish<br>🥣 Thick vegetable soup</div>
+</div>
+</div>
+<p style="font-size:.82rem;color:#a8a29e;margin-top:6px;">Source A: A peasant's daily meals. There was no tea, coffee, orange juice or fizzy drinks — and the water wasn't usually fit to drink, so they drank a watery kind of beer called <strong>ale</strong>.</p>
+
+<div class="section-hdr">🥕 A Surprisingly Healthy Diet</div>
+<div class="split-grid">
+<div style="background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.25);border-radius:12px;padding:15px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#34d399;margin-bottom:8px;">🌿 Vegetables &amp; Fruit</div>
+<p style="font-size:.87rem;color:#e7e3dd;line-height:1.65;">Peasants grew strong-flavoured vegetables and herbs to make their dull food tastier:</p>
+<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:5px;">
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">onions</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">garlic</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">leeks</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">cabbage</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">carrots</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">parsley</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">mint</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">apples</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">cherries</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">pears</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">wild berries</span>
+<span style="background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:6px;padding:2px 8px;font-size:.8rem;color:#a7f3d0;">honey</span>
+</div>
+</div>
+<div style="background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.25);border-radius:12px;padding:15px;">
+<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#f87171;margin-bottom:8px;">🥩 Meat — When They Could Get It</div>
+<p style="font-size:.87rem;color:#e7e3dd;line-height:1.65;margin-bottom:8px;">The most common meat was <strong>bacon</strong> — pigs were easy to keep.</p>
+<p style="font-size:.87rem;color:#e7e3dd;line-height:1.65;margin-bottom:8px;">Unusual meats people today would find surprising: <strong>squirrel, hedgehog, pike, eel</strong>.</p>
+<p style="font-size:.87rem;color:#e7e3dd;line-height:1.65;">No refrigerators → meat was <strong>salted or smoked</strong> to keep it from going bad. Strips were hung from cottage roofs to dry out.</p>
+</div>
+</div>
+
+<div class="fact-box">
+<span class="fact-label">🥔 Key Fact</span>
+<span class="fact-text">Potatoes didn't reach England until the 1500s — so there were no chips or potato wedges for the peasants to enjoy! And a peasant's diet was probably <strong>much healthier than most people's today</strong> — they didn't eat food containing large amounts of sugar, and they worked all day so they got lots of exercise.</span>
+</div>
+
+</div></div><!-- end chapter 6 -->
+
+<!-- ═══════════ TUTOR + BLOG + DYK ═══════════ -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;">
+
+<!-- SOCRATES TUTOR -->
+<div class="tutor-box" data-tk="med">
+<div class="tutor-hdr">
+<span style="font-size:1.4rem;">🧠</span>
+<div>
+<div class="tutor-name">Socrates, your historical AI tutor</div>
+<div class="tutor-sub">Guides you · Socratic questioning · Never gives direct answers</div>
+</div></div>
+<div class="tutor-msgs" id="tutor-msgs">
+<div class="t-ai">Hello! I am Socrates, your historical AI tutor. I am here to guide you through Medieval Entertainment &amp; Life. What would you like to explore? Ask me about any of the six chapters above.</div>
+</div>
+<div class="tutor-sugs">
+<button class="t-sug" onclick="tSug('Why was 'holiday' a holy day?')">Why was 'holiday' a holy day?</button>
+<button class="t-sug" onclick="tSug('Why was football banned?')">Why was football banned?</button>
+<button class="t-sug" onclick="tSug('How did English survive 1066?')">How did English survive 1066?</button>
+</div>
+<div class="tutor-input-row">
+<textarea class="tutor-input" id="tutor-input" placeholder="Type your question or answer here..." rows="2"
+  onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend();}"></textarea>
+<button class="tutor-send" onclick="tSend()">↑</button>
 </div></div>
 
-<!-- KEY FACTS -->
-<div class="key-facts-row">
-<div class="key-fact"><span class="kf-label">📅 Key Date</span><span class="kf-value">1363 — Edward III bans mob football</span></div>
-<div class="key-fact"><span class="kf-label">🔑 Key Concept</span><span class="kf-value">Change &amp; continuity</span></div>
-<div class="key-fact"><span class="kf-label">📖 Key Term</span><span class="kf-value">Sumptuary laws</span></div>
-<div class="key-fact"><span class="kf-label">🎯 Key Skill</span><span class="kf-value">Source analysis · WACA</span></div>
-<div class="key-fact"><span class="kf-label">🧠 HPL Focus</span><span class="kf-value">Intellectual curiosity · Making connections</span></div>
-</div>
-
-<!-- INTERACTIVE IMAGE GALLERY -->
-<h2 class="sp-section-hdr">🖼️ Visual Sources — Click to Explore</h2>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px;">
-<div class="img-zoom-wrap">
-<span class="img-zoom-badge">🔍 Apply WACA</span>
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg" loading="lazy" onerror="this.remove()" alt="Bruegel Peasant Dance c.1568">
-<div class="img-zoom-caption">Pieter Bruegel the Elder: Peasant Dance (c.1568) — depicts communal village entertainment. <strong>Note: painted 1568 — 200+ years after the medieval period. Apply WACA before using as evidence.</strong></div>
-</div>
-<div class="img-zoom-wrap">
-<span class="img-zoom-badge">📜 Primary Source</span>
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg" loading="lazy" onerror="this.remove()" alt="Medieval entertainment scene">
-<div class="img-zoom-caption">The Bayeux Tapestry (c.1077) includes scenes of feasting and celebration — apply WACA: who made this? For whom? With what aim?</div>
-</div>
-</div>
-
-<!-- WACA CHALLENGE PANEL -->
-<div style="background:linear-gradient(135deg,rgba(124,58,237,.22),rgba(20,16,12,.95));border:2px solid rgba(124,58,237,.45);border-radius:16px;padding:18px 20px;margin-bottom:22px;">
-<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#c4b5fd;margin-bottom:10px;">📜 WACA Source Challenge — Bruegel's Peasant Dance (c.1568)</div>
-<div style="font-size:.95rem;color:#fff7ed;font-style:italic;border-left:4px solid #a78bfa;padding-left:13px;margin-bottom:12px;line-height:1.7;">"Peasant Dance" by Pieter Bruegel the Elder (c.1568) — communal village celebrations: dancing, feasting, music and games. Public domain.</div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;">
-<div style="text-align:center;background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.4);border-radius:8px;padding:8px 6px;"><div style="font-size:1.1rem;font-weight:900;color:#c4b5fd;">W</div><div style="font-size:.72rem;color:#ddd6fe;margin-top:3px;">Pieter Bruegel the Elder — Dutch painter. NOT English. NOT from the medieval period.</div></div>
-<div style="text-align:center;background:rgba(5,150,105,.12);border:1px solid rgba(5,150,105,.3);border-radius:8px;padding:8px 6px;"><div style="font-size:1.1rem;font-weight:900;color:#34d399;">A</div><div style="font-size:.72rem;color:#a7f3d0;margin-top:3px;">Wealthy Dutch art collectors and church patrons — not English peasants.</div></div>
-<div style="text-align:center;background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);border-radius:8px;padding:8px 6px;"><div style="font-size:1.1rem;font-weight:900;color:#f87171;">C</div><div style="font-size:.72rem;color:#fecaca;margin-top:3px;">c.1568 — Dutch Renaissance. 200 years AFTER the Black Death. NOT the medieval period itself.</div></div>
-<div style="text-align:center;background:rgba(217,119,6,.12);border:1px solid rgba(217,119,6,.3);border-radius:8px;padding:8px 6px;"><div style="font-size:1.1rem;font-weight:900;color:#fbbf24;">A</div><div style="font-size:.72rem;color:#fef3c7;margin-top:3px;">To romanticise peasant/village life — possibly nostalgic. NOT an objective record.</div></div>
-</div>
-<div style="font-size:.88rem;color:#e7e3dd;line-height:1.68;">
-<strong style="color:#c4b5fd;">Key question:</strong> Can we use a painting made in 1568 as evidence of medieval life from 1250–1400? What can it tell us? What can it NOT tell us?<br>Write your WACA judgement: <em>"This source is useful for understanding [X] because... however it is limited because..."</em>
+<!-- BLOG SPOT -->
+<div class="blog-box" id="blog-med">
+<div class="blog-hdr">
+<span style="font-size:1.4rem;">💬</span>
+<div>
+<div class="blog-title">Blog Spot — Medieval Entertainment</div>
+<div class="blog-sub">Make a claim · Support it with evidence from the text · Respond like a historian</div>
 </div></div>
-
-<!-- LESSON CARDS -->
-<h2 class="sp-section-hdr">📚 Lesson Topics — 16 Lessons</h2>
-<div class="lesson-grid">
-<a href="https://drive.google.com/file/d/1YlP-cm8KCqZ5JWcoeSgaUBr8Klm_ROEK/view" target="_blank" rel="noopener" class="lesson-card">
-<div class="lesson-card-thumb" style="font-size:2rem;display:flex;align-items:center;justify-content:center;">🎉</div>
-<div class="lesson-card-body">
-<span class="lesson-card-num">Lessons 1–2</span>
-<div class="lesson-card-title">Could You Have Fun?</div>
-<div class="lesson-card-desc">Holy days, peasant entertainment, the Church calendar and what 'holiday' actually means.</div>
-</div></a><a href="https://docs.google.com/presentation/d/1-6AfuojGNqC_51APfhmMPYxvAfzoM6mi/edit" target="_blank" rel="noopener" class="lesson-card">
-<div class="lesson-card-thumb" style="font-size:2rem;display:flex;align-items:center;justify-content:center;">⚽</div>
-<div class="lesson-card-body">
-<span class="lesson-card-num">Lessons 3–4</span>
-<div class="lesson-card-title">Football Through the Ages</div>
-<div class="lesson-card-desc">Mob football — violent, ruleless, banned by Edward III in 1363. The real origin of the beautiful game.</div>
-</div></a><a href="https://docs.google.com/presentation/d/1QzROpl68CeHYv0SbsvpHVNskUcILt57h/edit" target="_blank" rel="noopener" class="lesson-card">
-<div class="lesson-card-thumb" style="font-size:2rem;display:flex;align-items:center;justify-content:center;">🎵</div>
-<div class="lesson-card-body">
-<span class="lesson-card-num">Lessons 5–6</span>
-<div class="lesson-card-title">Let Me Entertain You</div>
-<div class="lesson-card-desc">Minstrels, miracle plays, sacred music and the Church's control over entertainment and public life.</div>
-</div></a><a href="https://docs.google.com/presentation/d/11C50iY5BW3Zdrhr0zsn9HEZmqrKQx_JF/edit" target="_blank" rel="noopener" class="lesson-card">
-<div class="lesson-card-thumb" style="font-size:2rem;display:flex;align-items:center;justify-content:center;">👗</div>
-<div class="lesson-card-body">
-<span class="lesson-card-num">Lessons 7–8</span>
-<div class="lesson-card-title">Fashion, Food and Status</div>
-<div class="lesson-card-desc">Sumptuary laws, the colour purple, exotic spices and why what you wore told everyone exactly who you were.</div>
-</div></a><a href="https://docs.google.com/presentation/d/18OwW4dvXU4Lr0E3lmmiaY3NppZz6Y6Zn/edit" target="_blank" rel="noopener" class="lesson-card">
-<div class="lesson-card-thumb" style="font-size:2rem;display:flex;align-items:center;justify-content:center;">🍗</div>
-<div class="lesson-card-body">
-<span class="lesson-card-num">Come Dine With Me!</span>
-<div class="lesson-card-title">Medieval Feast & Food</div>
-<div class="lesson-card-desc">A full medieval banquet investigation — what the rich ate, what the poor ate, and what that reveals about power.</div>
-</div></a><a href="https://docs.google.com/presentation/d/1YkQRLDu5TnwTiQ9hgQnySxZD39kLUzb5/edit" target="_blank" rel="noopener" class="lesson-card">
-<div class="lesson-card-thumb" style="font-size:2rem;display:flex;align-items:center;justify-content:center;">📊</div>
-<div class="lesson-card-body">
-<span class="lesson-card-num">Master PPT</span>
-<div class="lesson-card-title">Medieval Entertainment — Full 6-Lesson PPT</div>
-<div class="lesson-card-desc">All 6 lesson presentations in one complete file. Open in Google Slides.</div>
-</div></a>
+<div class="blog-q">"Medieval entertainment reveals that medieval society was deeply unequal." How far do you agree?</div>
+<div class="blog-chips">
+<button onclick="blogChip(this)" class="blog-chip">Holy days</button>
+<button onclick="blogChip(this)" class="blog-chip">Mob football</button>
+<button onclick="blogChip(this)" class="blog-chip">Rich vs poor</button>
+<button onclick="blogChip(this)" class="blog-chip">Real tennis</button>
+<button onclick="blogChip(this)" class="blog-chip">Sumptuary laws</button>
+</div>
+<textarea class="blog-ta" id="blog-ta" placeholder="I would argue… because the evidence from the text shows… For example…"></textarea>
+<div class="blog-row">
+<input type="text" class="blog-name" id="blog-name" placeholder="Name or initials (optional)">
+<button onclick="blogPost()" class="blog-post">Post</button>
+</div>
+<div class="blog-feed" id="blog-feed"></div>
+<button onclick="blogClear()" class="blog-clear">Clear my comments on this device</button>
 </div>
 
-<!-- WORKSHEET RESOURCES -->
-<h2 class="sp-section-hdr">📂 Worksheets & Student Resources</h2>
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:22px;">
-<a href="https://docs.google.com/document/d/1bM8oXKORKVmNiBXapOEsFBdOz9BpK3DP/edit" target="_blank" rel="noopener" class="rlink">📄 Student Worksheet Pack</a><a href="https://docs.google.com/document/d/1gsshL4rtP_2hqg8bS9i5JULo76199RzB/edit" target="_blank" rel="noopener" class="rlink">📄 Assessment Sheet</a><a href="https://docs.google.com/document/d/1EQUReLHpDb0cpAIg67amsK7VIRPhYbSa/edit" target="_blank" rel="noopener" class="rlink">📄 Homework Activity</a><a href="https://docs.google.com/document/d/1-h90cUBni2CSfGr3HLeTHEo8j8_vYwjO/edit" target="_blank" rel="noopener" class="rlink">📄 Story of English Worksheet</a>
-</div>
+</div><!-- end 2-col -->
 
-<!-- PRIMARY SOURCE -->
-<h2 class="sp-section-hdr">📜 Primary Source — King Edward III, Royal Proclamation, 1363</h2>
-<div style="background:rgba(12,10,9,.65);border:1.5px solid rgba(124,58,237,.4);border-radius:14px;padding:18px;margin-bottom:16px;">
-<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#c4b5fd;margin-bottom:6px;">📜 Banning Mob Football in London</div>
-<div style="font-style:italic;font-size:1rem;color:#fff7ed;line-height:1.78;background:rgba(124,58,237,.1);border-radius:8px;padding:13px 15px;margin-bottom:14px;">"Whereas there is great noise in the city caused by hustling over large balls, from which many evils might arise, we command and forbid, on behalf of the king, on pain of imprisonment, such game to be used in the city in future."</div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px;">
-<div style="text-align:center;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.35);border-radius:7px;padding:8px;"><div style="font-size:.95rem;font-weight:900;color:#c4b5fd;">W</div><div style="font-size:.68rem;color:#ddd6fe;margin-top:2px;">King Edward III — monarch. Issued as a royal proclamation.</div></div>
-<div style="text-align:center;background:rgba(5,150,105,.12);border:1px solid rgba(5,150,105,.3);border-radius:7px;padding:8px;"><div style="font-size:.95rem;font-weight:900;color:#34d399;">A</div><div style="font-size:.68rem;color:#a7f3d0;margin-top:2px;">Citizens of London, sheriffs — those responsible for enforcement.</div></div>
-<div style="text-align:center;background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);border-radius:7px;padding:8px;"><div style="font-size:.95rem;font-weight:900;color:#f87171;">C</div><div style="font-size:.68rem;color:#fecaca;margin-top:2px;">1363 — England at war with France. Archery practice was essential.</div></div>
-<div style="text-align:center;background:rgba(217,119,6,.12);border:1px solid rgba(217,119,6,.3);border-radius:7px;padding:8px;"><div style="font-size:.95rem;font-weight:900;color:#fbbf24;">A</div><div style="font-size:.68rem;color:#fef3c7;margin-top:2px;">To ban football AND ensure men practise archery for war instead.</div></div>
-</div>
-<div style="display:flex;flex-direction:column;gap:7px;">
-<div style="background:rgba(12,10,9,.5);border-radius:8px;padding:10px 13px;font-size:.88rem;color:#e7e3dd;"><strong style="color:#c4b5fd;">Q1.</strong> What does this source tell us about what authorities thought of mob football? Quote evidence directly.</div>
-<div style="background:rgba(12,10,9,.5);border-radius:8px;padding:10px 13px;font-size:.88rem;color:#e7e3dd;"><strong style="color:#c4b5fd;">Q2.</strong> WACA: Who issued this? When? Who was it aimed at? What was its purpose?</div>
-<div style="background:rgba(12,10,9,.5);border-radius:8px;padding:10px 13px;font-size:.88rem;color:#e7e3dd;"><strong style="color:#c4b5fd;">Q3.</strong> Why might this source be useful — and what does it NOT tell us about how ordinary people felt about football?</div>
+<!-- DID YOU KNOW -->
+<div class="dyk-box" id="dyk-box" style="margin-top:14px;">
+<div class="dyk-label">💡 Did You Know? — Medieval Entertainment</div>
+<div class="dyk-text" id="dyk-text">The word 'holiday' comes from 'holy day' — these feast days were the ONLY rest medieval peasants got from work all year.</div>
+<div class="dyk-nav">
+<button class="dyk-btn" onclick="dykNav(-1)">← Prev</button>
+<div class="dyk-dots" id="dyk-dots"></div>
+<button class="dyk-btn" onclick="dykNav(1)">Next →</button>
 </div></div>
-
-<!-- ACTIVITIES -->
-<h2 class="sp-section-hdr">🎯 Activities — Bronze to Platinum</h2>
-<div class="act-box" style="border-left-color:#c4b5fd;">
-<div class="act-title" style="color:#c4b5fd;">🎭 Activity 1: Medieval Entertainment Programme</div>
-<div class="act-body"><p>You are the royal entertainment organiser for a Norman castle feast in 1250. Plan a historically accurate full-day programme from dawn to midnight.</p>
-<ul>
-<li>Create a timed programme including at least <strong>SIX different activities</strong></li>
-<li>For each activity: who could participate — nobles only, peasants, or everyone — and WHY social class affected access</li>
-<li>Mark any activities banned or restricted by the Church and explain why</li>
-<li>Compare: which of these activities still exist today in some form?</li>
-</ul></div></div>
-<div class="act-box" style="border-left-color:#a78bfa;">
-<div class="act-title" style="color:#a78bfa;">⚖️ Activity 2: Sumptuary Laws Investigation</div>
-<div class="act-body"><ul>
-<li>What were sumptuary laws? Why did medieval rulers create them?</li>
-<li>Look at the Bruegel painting above — can you identify clues about social status from clothing and activities?</li>
-<li>What colours and fabrics were reserved for nobles only? Why did this matter?</li>
-<li><strong>Challenge:</strong> Write a sumptuary law proclamation in the style of a medieval king — what would you ban and why?</li>
-</ul></div></div>
-<div class="act-box" style="border-left-color:#818cf8;">
-<div class="act-title" style="color:#818cf8;">🗣️ Activity 3: The Story of English</div>
-<div class="act-body"><p>Using your <a href="https://docs.google.com/document/d/1-h90cUBni2CSfGr3HLeTHEo8j8_vYwjO/edit" target="_blank" rel="noopener" style="color:#818cf8;font-weight:700;">Story of English lesson resource</a>:</p>
-<ul>
-<li>What happened to the English language after 1066? Why did it change?</li>
-<li>Find FIVE modern English words that came from Norman French</li>
-<li>Find FIVE modern English words that kept their Old English roots</li>
-<li>Why do we have TWO words for the same thing (e.g. 'pig/pork', 'cow/beef')? What does this tell us about Norman society?</li>
-</ul></div></div>
-
-<!-- RESEARCH PROJECT -->
-<div style="background:linear-gradient(135deg,rgba(217,119,6,.18),rgba(120,53,15,.28));border:2px solid rgba(217,119,6,.45);border-radius:16px;overflow:hidden;margin:18px 0;">
-<div style="padding:18px 20px 14px;">
-<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#f59e0b;margin-bottom:5px;">🔬 Research Project</div>
-<div style="font-family:'Alegreya',serif;font-size:1.2rem;font-weight:800;color:#fff7ed;margin-bottom:8px;">🎭 Medieval Life: Design a Medieval Entertainment Programme</div>
-<div style="font-size:.9rem;color:#fef3c7;font-style:italic;line-height:1.65;">You are the royal entertainment organiser for a Norman castle feast in 1250. Plan a historically accurate full-day programme — from dawn to midnight. Every activity must have evidence from the resources above.</div>
-</div>
-<div style="display:flex;flex-direction:column;gap:0;">
-<div style="padding:12px 20px;border-top:1px solid rgba(217,119,6,.2);display:flex;gap:10px;align-items:flex-start;"><span style="background:#CD8040;color:#fff;border-radius:999px;padding:2px 9px;font-size:.62rem;font-weight:900;white-space:nowrap;flex-shrink:0;margin-top:2px;">🥉 Bronze</span><span style="font-size:.88rem;color:#e7e3dd;line-height:1.65;">List SIX forms of medieval entertainment from the Presentation. For each, write one sentence explaining what it is and who could participate.</span></div>
-<div style="padding:12px 20px;border-top:1px solid rgba(217,119,6,.2);display:flex;gap:10px;align-items:flex-start;"><span style="background:#707070;color:#fff;border-radius:999px;padding:2px 9px;font-size:.62rem;font-weight:900;white-space:nowrap;flex-shrink:0;margin-top:2px;">🥈 Silver</span><span style="font-size:.88rem;color:#e7e3dd;line-height:1.65;">Create a timed feast-day programme (dawn to midnight). Include FOUR different forms of entertainment. Explain who could participate and WHY social class affected access.</span></div>
-<div style="padding:12px 20px;border-top:1px solid rgba(217,119,6,.2);display:flex;gap:10px;align-items:flex-start;"><span style="background:#C9A646;color:#1c1917;border-radius:999px;padding:2px 9px;font-size:.62rem;font-weight:900;white-space:nowrap;flex-shrink:0;margin-top:2px;">🥇 Gold</span><span style="font-size:.88rem;color:#e7e3dd;line-height:1.65;">Write a journalist's report comparing medieval entertainment with entertainment today. What has stayed the same? What changed? Why did the Church control entertainment?</span></div>
-<div style="padding:12px 20px;border-top:1px solid rgba(217,119,6,.2);display:flex;gap:10px;align-items:flex-start;"><span style="background:#4E88C8;color:#fff;border-radius:999px;padding:2px 9px;font-size:.62rem;font-weight:900;white-space:nowrap;flex-shrink:0;margin-top:2px;">💎 Platinum</span><span style="font-size:.88rem;color:#e7e3dd;line-height:1.65;">Analyse: 'Medieval entertainment reveals that medieval society was deeply unequal.' Use ALL resources, the Bruegel WACA above, Britannica, and your own knowledge. Argue for or against.</span></div>
-</div>
-<div style="padding:12px 20px;border-top:1px solid rgba(217,119,6,.2);">
-<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#f59e0b;margin-bottom:8px;">Files to use</div>
-<div style="display:flex;flex-wrap:wrap;gap:6px;">
-<a href="https://docs.google.com/presentation/d/1YkQRLDu5TnwTiQ9hgQnySxZD39kLUzb5/edit" target="_blank" rel="noopener" style="background:rgba(12,10,9,.55);border:1px solid rgba(217,119,6,.3);border-radius:8px;padding:5px 10px;font-size:.78rem;color:#d6d3d1;text-decoration:none;font-weight:700;">📊 Medieval Entertainment Master PPT</a>
-<a href="https://docs.google.com/presentation/d/1-6AfuojGNqC_51APfhmMPYxvAfzoM6mi/edit" target="_blank" rel="noopener" style="background:rgba(12,10,9,.55);border:1px solid rgba(217,119,6,.3);border-radius:8px;padding:5px 10px;font-size:.78rem;color:#d6d3d1;text-decoration:none;font-weight:700;">📊 Football Through the Ages</a>
-<a href="https://docs.google.com/presentation/d/18OwW4dvXU4Lr0E3lmmiaY3NppZz6Y6Zn/edit" target="_blank" rel="noopener" style="background:rgba(12,10,9,.55);border:1px solid rgba(217,119,6,.3);border-radius:8px;padding:5px 10px;font-size:.78rem;color:#d6d3d1;text-decoration:none;font-weight:700;">📊 Come Dine With Me!</a>
-<a href="https://docs.google.com/document/d/1bM8oXKORKVmNiBXapOEsFBdOz9BpK3DP/edit" target="_blank" rel="noopener" style="background:rgba(12,10,9,.55);border:1px solid rgba(217,119,6,.3);border-radius:8px;padding:5px 10px;font-size:.78rem;color:#d6d3d1;text-decoration:none;font-weight:700;">📄 Student Worksheet Pack</a>
-<a href="https://www.britannica.com/topic/Middle-Ages" target="_blank" rel="noopener" style="background:rgba(12,10,9,.55);border:1px solid rgba(217,119,6,.3);border-radius:8px;padding:5px 10px;font-size:.78rem;color:#d6d3d1;text-decoration:none;font-weight:700;">🔗 Britannica: The Middle Ages</a>
-</div></div></div>
-
-<!-- VIDEO LINKS -->
-<div class="yt-block">
-<div class="yt-hdr">🎥 Dan Snow · The History Guy · Crash Course</div>
-<a href="https://www.youtube.com/results?search_query=dan+snow+medieval+England+life+entertainment" target="_blank" rel="noopener" class="yt-link">🎥 Dan Snow: Life in Medieval England</a>
-<a href="https://www.youtube.com/results?search_query=the+history+guy+medieval+life+entertainment+England" target="_blank" rel="noopener" class="yt-link">🎥 The History Guy: Medieval Entertainment</a>
-<a href="https://www.youtube.com/results?search_query=%22Crash+Course%22+medieval+life+society" target="_blank" rel="noopener" class="yt-link">🎥 Crash Course: Medieval Life &amp; Society</a>
-<a href="https://www.britannica.com/topic/Middle-Ages" target="_blank" rel="noopener" class="yt-link" style="color:#a7f3d0;background:rgba(5,150,105,.14);border-color:rgba(5,150,105,.3);">🔗 Britannica: The Middle Ages</a>
-</div>
-
-<!-- SOCRATES + BLOG + DYK (built by JS) -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;">
-<div id="med-tutor-slot"></div>
-<div id="med-blog-slot"></div>
-</div>
-<div id="med-dyk-slot" style="margin-top:14px;"></div>
 
 <!-- FRAMEWORK BADGES -->
-<div style="display:flex;flex-wrap:wrap;gap:4px;margin:16px 0 6px;padding:9px 11px;background:rgba(15,12,10,.55);border-radius:9px;border:1px solid rgba(217,119,6,.2);">
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:16px 0 6px;padding:10px 12px;background:rgba(15,12,10,.55);border-radius:9px;border:1px solid rgba(217,119,6,.2);">
 <span style="background:#E0F7FA;color:#006064;border:1.5px solid #00BCD4;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;">📘 Inquiry-Based Learning</span>
 <span style="background:#E0F7FA;color:#006064;border:1.5px solid #00BCD4;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;">🎨 Creative Thinking</span>
 <span style="background:#E8F5E9;color:#1B5E20;border:1.5px solid #4CAF50;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;">💡 Intellectual Curiosity</span>
 <span style="background:#E8F5E9;color:#1B5E20;border:1.5px solid #4CAF50;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;">🔗 Making Connections</span>
 <span style="background:#DD1367;color:#fff;border:1.5px solid #B30F56;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;">SDG 10 Reduced Inequalities</span>
-<span style="background:#ECEFF1;color:#37474F;border:1.5px solid #90A4AE;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;">🔍 AI Critical Thinking</span>
 </div>
 
-<!-- BACK BUTTON BOTTOM -->
-<div style="margin-top:22px;text-align:center;">
-<button onclick="showPg('y7')" class="sub-page-back" style="display:inline-flex;">← Back to Year 7 Overview</button>
-</div>
-</div></div>
-
-<!-- YEAR 7 STUB SUB-PAGES -->
-<div id="pg-y7-hs" class="jhs-pg"><div class="pg-inner">
-<div class="sub-page-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg);min-height:260px;">
-<div class="sub-page-hero-ov"></div>
-<div class="sub-page-hero-content">
-<button class="sub-page-back" onclick="showPg('y7')">← Back to Year 7</button>
-<span class="sub-page-tag">📅 Year 7 · Medieval England · Introduction</span>
-<h1 class="sub-page-title">🔍 What is History?<br>&amp; The Norman Conquest 1066</h1>
-<p class="sub-page-intro">In 1066, the death of King Edward the Confessor triggered a succession crisis. Three men claimed the throne. Harold won at Stamford Bridge — but had to march 250 miles south immediately. At Hastings on 14 October 1066, Harold was killed and William was victorious.</p>
-</div></div>
-<div style="background:rgba(28,25,23,.88);border:1.5px solid rgba(217,119,6,.25);border-radius:16px;padding:22px;text-align:center;margin:20px 0;"><div style="font-size:2.5rem;margin-bottom:12px;">🚧</div>
-<h3 style="font-family:'Alegreya',serif;color:#fbbf24;margin-bottom:8px;">Full sub-page coming soon</h3>
-<p style="color:#a8a29e;font-size:.95rem;line-height:1.7;max-width:500px;margin:0 auto;">This topic sub-page will follow the same rich format as the Medieval Entertainment page — with interactive images, lesson card grid, WACA source panels, Bronze–Platinum research project and Socrates tutor. All existing activities from the topic card are available in the meantime.</p>
-<div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
-<a href="https://docs.google.com/presentation/d/1r9VfdXL3DU9YxEXh9sapSdZvFwuJM6U8/edit" target="_blank" rel="noopener" class="rlink" style="display:inline-flex;">📊 What is History and 1066 — Master Presentation</a>
-<a href="https://drive.google.com/file/d/1bGTSeprSiBJ1ibgE3-MUyJeLCCJH-IvD/view" target="_blank" rel="noopener" class="rlink" style="display:inline-flex;">📁 History Detectives Resource File</a>
-</div></div>
-<div style="margin-top:16px;text-align:center;"><button onclick="showPg('y7')" class="sub-page-back" style="display:inline-flex;">← Back to Year 7 Overview</button></div>
-</div></div>
-
-<div id="pg-y7-bd" class="jhs-pg"><div class="pg-inner">
-<div class="sub-page-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/1/15/Danse_Macabre_by_Michael_Wolgemut.jpg);min-height:260px;">
-<div class="sub-page-hero-ov"></div>
-<div class="sub-page-hero-content">
-<button class="sub-page-back" onclick="showPg('y7')">← Back to Year 7</button>
-<span class="sub-page-tag">📅 Year 7 · Medieval England · Topic 3 · 16 Lessons</span>
-<h1 class="sub-page-title">☠️ Health, Medicine<br>&amp; The Black Death</h1>
-<p class="sub-page-intro">The Black Death arrived in England in 1348, killing 30–50% of the population within two years. Medieval medicine was completely powerless. Long-term: labour shortages gave surviving peasants extraordinary new bargaining power — and the feudal system began to collapse.</p>
-</div></div>
-<div style="background:rgba(28,25,23,.88);border:1.5px solid rgba(217,119,6,.25);border-radius:16px;padding:22px;text-align:center;margin:20px 0;"><div style="font-size:2.5rem;margin-bottom:12px;">🚧</div>
-<h3 style="font-family:'Alegreya',serif;color:#fbbf24;margin-bottom:8px;">Full sub-page coming soon</h3>
-<p style="color:#a8a29e;font-size:.95rem;line-height:1.7;max-width:500px;margin:0 auto;">This topic sub-page will be built with the same rich format as the Medieval Entertainment page — with all Black Death lesson PPTs, interactive images and full Bronze–Platinum research project.</p>
-<div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
-<a href="https://docs.google.com/presentation/d/1mtjmp1A6vZeUCGn1Y2363HaKkRC1ZjTW/edit" target="_blank" rel="noopener" class="rlink" style="display:inline-flex;">📊 Black Death — Lesson Presentation</a>
-<a href="https://drive.google.com/file/d/1q_XMCXa5TEwwP597e0s0dHXqX9WKVnqV/view" target="_blank" rel="noopener" class="rlink" style="display:inline-flex;">📁 Health and Medicine Resource</a>
-</div></div>
-<div style="margin-top:16px;text-align:center;"><button onclick="showPg('y7')" class="sub-page-back" style="display:inline-flex;">← Back to Year 7 Overview</button></div>
-</div></div>
-
-<div id="pg-y7-cas" class="jhs-pg"><div class="pg-inner">
-<div class="sub-page-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/2/2d/Tower_of_London_viewed_from_the_River_Thames.jpg);min-height:260px;">
-<div class="sub-page-hero-ov"></div>
-<div class="sub-page-hero-content">
-<button class="sub-page-back" onclick="showPg('y7')">← Back to Year 7</button>
-<span class="sub-page-tag">📅 Year 7 · Medieval England · Research Project · 10 Lessons</span>
-<h1 class="sub-page-title">🏰 Castles — Motte &amp; Bailey<br>to Stone Behemoths</h1>
-<p class="sub-page-intro">After 1066, William built castles at remarkable speed. The Tower of London (begun c.1078) is the most powerful symbol of Norman conquest. By 1100 there were over 500 castles in England. Bronze to Platinum differentiated research project.</p>
-</div></div>
-<div style="background:rgba(28,25,23,.88);border:1.5px solid rgba(217,119,6,.25);border-radius:16px;padding:22px;text-align:center;margin:20px 0;"><div style="font-size:2.5rem;margin-bottom:12px;">🚧</div>
-<h3 style="font-family:'Alegreya',serif;color:#fbbf24;margin-bottom:8px;">Full sub-page coming soon</h3>
-<p style="color:#a8a29e;font-size:.95rem;line-height:1.7;max-width:500px;margin:0 auto;">The Castles sub-page will include the full research project, castle evolution lesson cards, interactive castle diagram, and Bronze–Platinum tasks.</p>
-<div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
-<a href="https://docs.google.com/presentation/d/1gtDkAMHkauttMe6scsqoFueU_68zS-Up/edit" target="_blank" rel="noopener" class="rlink" style="display:inline-flex;">📊 Castles Project PPT</a>
-<a href="https://drive.google.com/file/d/12PJ3HciYDOrKnpPg-zRoorxvaqoQieX5/view" target="_blank" rel="noopener" class="rlink" style="display:inline-flex;">📁 Castles Activity Pack</a>
-</div></div>
-<div style="margin-top:16px;text-align:center;"><button onclick="showPg('y7')" class="sub-page-back" style="display:inline-flex;">← Back to Year 7 Overview</button></div>
-</div></div>
-
-<!-- STUB PAGES FOR OTHER YEAR GROUPS (will be built out later) -->
-<div id="pg-y8" class="jhs-pg"><div class="pg-inner">
-<div class="sec-banner" style="background:linear-gradient(135deg,rgba(180,83,9,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/a/a4/Brookes_slave_ship%2C_British_Library.jpg) center/cover no-repeat;">
-<h2>⚓ Year 8 — Slavery, Industry & Empire</h2><p>The transatlantic slave trade, Industrial Revolution, Victorian living conditions, and the British Empire. Sub-topic pages coming soon.</p>
-</div>
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;">
-<a href="https://docs.google.com/presentation/d/1QfY-a9Ax_RzZcoerpnr37jxx6b6-aGAg/edit" target="_blank" rel="noopener" class="rlink">📊 Slavery PPT</a>
-<a href="https://drive.google.com/file/d/1Oia11UQH2stmWHGxnOjFagWp6tGB5iH3/view" target="_blank" rel="noopener" class="rlink">📁 British Empire Resource</a>
-</div></div></div>
-
-<div id="pg-y9" class="jhs-pg"><div class="pg-inner">
-<div class="sec-banner" style="background:linear-gradient(135deg,rgba(4,120,87,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/f/fa/Cheshire_Regiment_trench_Somme_1916.jpg) center/cover no-repeat;">
-<h2>🌍 Year 9 — World War One & The League of Nations</h2><p>Nelson and Trafalgar, World War One and M.A.I.N. causes, and the League of Nations. Sub-topic pages coming soon.</p>
-</div></div></div>
-
-<div id="pg-ig" class="jhs-pg"><div class="pg-inner">
-<div class="sec-banner" style="background:linear-gradient(135deg,rgba(185,28,28,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/f/f3/EXCOMM_meeting%2C_Cuban_Missile_Crisis%2C_29_October_1962.jpg) center/cover no-repeat;">
-<h2>🎯 Year 10 & 11 — iGCSE History</h2><p>Cold War · Stalin's Russia · Vietnam War · Changes in Medicine · Edexcel Marking Tool</p>
-</div>
-<p style="color:#a8a29e;margin-top:16px;">Full iGCSE content available in the complete site. Use the Answer Marker for exam practice.</p>
-<button onclick="showPg('mk')" style="margin-top:12px;background:#2563eb;color:#fff;border:none;border-radius:10px;padding:12px 20px;font-size:.92rem;font-weight:800;cursor:pointer;font-family:inherit;">✍️ Open iGCSE Answer Marker →</button>
-</div></div>
-
-<div id="pg-rv" class="jhs-pg"><div class="pg-inner">
-<div style="background:linear-gradient(135deg,rgba(29,78,216,.82),rgba(124,58,237,.6)),url(https://upload.wikimedia.org/wikipedia/commons/2/2c/Domesday-book-1085-1086.jpg) center/cover no-repeat;border-radius:22px;padding:34px 28px;margin-bottom:22px;border:1px solid rgba(124,58,237,.38);box-shadow:0 16px 50px rgba(0,0,0,.45);">
-<h2 style="font-family:'Alegreya',serif;color:#fff;font-size:2.5rem;margin-bottom:8px;">✏️ Revision Hub — Year 7 to iGCSE</h2>
-<p style="color:#c7d2fe;">Full revision sub-pages with key dates, terms, exam tips and practice questions available in the complete site build.</p>
-</div></div></div>
-
-<div id="pg-src" class="jhs-pg"><div class="pg-inner">
-<div style="background:linear-gradient(135deg,rgba(15,118,110,.82),rgba(5,150,105,.5)),url(https://upload.wikimedia.org/wikipedia/commons/4/4e/Cuban_missiles.jpg) center/cover no-repeat;border-radius:22px;padding:34px 28px;margin-bottom:22px;">
-<h2 style="font-family:'Alegreya',serif;color:#fff;font-size:2.5rem;margin-bottom:8px;">🔍 Source Studies</h2>
-<p style="color:#99f6e4;">11 full WACA source analyses available in the complete site build.</p>
-</div></div></div>
-
-<div id="pg-mk" class="jhs-pg"><div class="pg-inner">
-<div style="background:linear-gradient(135deg,rgba(37,99,235,.82),rgba(124,58,237,.68)),url(https://upload.wikimedia.org/wikipedia/commons/f/f3/EXCOMM_meeting%2C_Cuban_Missile_Crisis%2C_29_October_1962.jpg) center/cover no-repeat;border-radius:22px;padding:38px 30px;margin-bottom:24px;border:1px solid rgba(124,58,237,.42);">
-<h2 style="font-family:'Alegreya',serif;color:#fff;font-size:clamp(2rem,4vw,3.2rem);margin-bottom:10px;">✍️ Mr Stevens' iGCSE History Answer Marker</h2>
-<p style="color:#c7d2fe;font-size:1rem;">Mark practice essays against official Edexcel level descriptors. All spec topics. Model answer locked until resubmission.</p>
-</div>
-<p style="color:#a8a29e;text-align:center;">The full iGCSE marking tool is available in the complete site build.</p>
-</div></div>
-
-<div id="pg-parents" class="jhs-pg"><div class="pg-inner">
-<div class="sec-banner" style="background:linear-gradient(135deg,rgba(120,53,15,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/a/ab/The_Battle_of_Trafalgar_by_William_Clarkson_Stanfield.jpg) center/cover no-repeat;">
-<h2>👨‍👩‍👧 For Parents & Carers</h2><p>How to support your child's history studies at home.</p>
-</div>
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:860px;margin:0 auto;">
-<div style="background:rgba(28,25,23,.88);border:1px solid rgba(217,119,6,.22);border-radius:16px;padding:18px;"><div style="font-size:1.8rem;margin-bottom:8px;">💬</div><h3 style="font-family:'Alegreya',serif;color:#fff7ed;margin-bottom:6px;font-size:1.05rem;">Ask Historical Questions</h3><p style="font-size:.92rem;color:#a8a29e;line-height:1.68;">Ask "What caused [X]? What changed? Who was affected?" Encourage your child to explain rather than just recall.</p></div>
-<div style="background:rgba(28,25,23,.88);border:1px solid rgba(217,119,6,.22);border-radius:16px;padding:18px;"><div style="font-size:1.8rem;margin-bottom:8px;">📅</div><h3 style="font-family:'Alegreya',serif;color:#fff7ed;margin-bottom:6px;font-size:1.05rem;">iGCSE Key Dates</h3><p style="font-size:.92rem;color:#a8a29e;line-height:1.68;"><strong style="color:#fff7ed;">Paper 1 (Cold War &amp; Stalin):</strong> Friday 16 May.<br><strong style="color:#fff7ed;">Paper 2 (Vietnam &amp; Medicine):</strong> Thursday 5 June.</p></div>
-</div></div></div>
-
-<footer><h3>Mr Stevens' History Hub</h3><p>Where Evidence Meets Imagination &nbsp;&middot;&nbsp; &copy; 2026</p></footer>
-
-<!-- ACCESSIBILITY PANEL -->
-<button id="a11y-btn" onclick="a11yToggle()" title="Accessibility Settings">⚙️</button>
-<div id="a11y-panel">
-<h4>♿ Accessibility Settings</h4>
-<div class="a11y-row"><span class="a11y-lbl">Text Size</span><div style="display:flex;gap:5px;align-items:center;"><button class="a11y-b" onclick="a11yFs(-.1)">A−</button><span class="a11y-v" id="a11y-fsv">100%</span><button class="a11y-b" onclick="a11yFs(.1)">A+</button></div></div>
-<div class="a11y-row"><span class="a11y-lbl">High Contrast</span><div class="tog" id="tog-hc" onclick="a11yHc()"></div></div>
-<div class="a11y-row"><span class="a11y-lbl">Dyslexia Font</span><div class="tog" id="tog-dx" onclick="a11yDx()"></div></div>
-<div class="a11y-row"><span class="a11y-lbl">Reduce Motion</span><div class="tog" id="tog-nm" onclick="a11yNm()"></div></div>
-<button class="a11y-b" style="width:100%;padding:7px;margin-top:8px;" onclick="a11yReset()">Reset to Default</button>
+<!-- PAGE FOOTER NAV -->
+<div class="page-footer">
+<button class="back-btn" onclick="history.back()">← Back to Year 7 Overview</button>
 </div>
 
-<script id="site-js">/* ── NAV ── */
-window._F={};var _dykI={};
-function showPg(id){
-  document.querySelectorAll('.jhs-pg').forEach(function(p){p.classList.remove('active');});
-  var pg=document.getElementById('pg-'+id);
-  if(pg)pg.classList.add('active');
-  document.querySelectorAll('.sb-btn').forEach(function(b){
-    b.classList.toggle('active',b.getAttribute('data-p')===id);
-  });
-  window.scrollTo({top:0,behavior:'smooth'});
-  if(window.innerWidth<769)sbClose();
-  // Build dynamic components for y7-med
-  if(id==='y7-med')setTimeout(buildMedComponents,100);
-}
-window.nav=showPg;window.go=showPg;
-function sbToggle(){var s=document.getElementById('sb'),o=document.getElementById('sb-ov');if(s)s.classList.toggle('open');if(o)o.classList.toggle('show');}
-function sbClose(){var s=document.getElementById('sb'),o=document.getElementById('sb-ov');if(s)s.classList.remove('open');if(o)o.classList.remove('show');}
+</div><!-- end .page -->
 
+<script>
 /* ── DID YOU KNOW ── */
-function dykGo(id,i){
-  var f=window._F[id]||[];if(!f.length)return;
-  i=((i%f.length)+f.length)%f.length;_dykI[id]=i;
-  var el=document.getElementById(id+'-t');if(el)el.textContent=f[i];
-  var dc=document.getElementById(id+'-dots');
-  if(dc)dc.querySelectorAll('.dyk-dot').forEach(function(d,j){d.classList.toggle('dyk-dot-on',j===i);});
+var dykFacts=[
+"The word 'holiday' comes from 'holy day' — these feast days were the ONLY rest medieval peasants got from work all year.",
+"Mob football in the Middle Ages could involve up to 500 players, goals several miles apart, and no rules — except no murder.",
+"Football was banned more than 30 times between 1314 and 1667 by royal or local law — yet people kept playing anyway.",
+"In 1321, the Pope issued a special letter of forgiveness to a player who had accidentally killed an opponent during a football match.",
+"The word 'holiday' comes from 'holy day' — feast days like Easter, May Day and Midsummer's Eve were the only breaks peasants got.",
+"The steeple hat, fashionable in the 1480s, was nearly a metre tall — and some shoes were so pointed their toes had to be tied back.",
+"After 1066, English became the THIRD most important language in England — below French (for nobles) and Latin (for the Church).",
+"Peasants couldn't buy potatoes — they didn't reach England until the 1500s. No chips for medieval people!",
+"Wandering minstrels were the medieval equivalent of social media — bringing news and gossip from other towns as they travelled.",
+"Miracle plays were performed in 127 different towns across medieval England, watched and enjoyed by thousands of people."
+];
+var dykIdx=0;
+function dykBuildDots(){
+var d=document.getElementById('dyk-dots');
+if(!d)return;
+d.innerHTML=dykFacts.map(function(_,i){return '<button class="dyk-dot'+(i===0?' on':'')+'" onclick="dykGo('+i+')"></button>';}).join('');
 }
-setInterval(function(){Object.keys(window._F).forEach(function(id){dykGo(id,(_dykI[id]||0)+1);});},9000);
-
-/* ── QUIZ ── */
-function qAns(btn,isOk,fb,qid){var b=document.getElementById(qid);if(!b)return;b.querySelectorAll('.quiz-opt').forEach(function(x){x.disabled=true;});btn.classList.add(isOk?'correct':'wrong');var f=document.getElementById(qid+'-fb');if(f){f.textContent=fb;f.style.color=isOk?'#86efac':'#fca5a5';}}
+function dykGo(i){
+dykIdx=((i%dykFacts.length)+dykFacts.length)%dykFacts.length;
+var t=document.getElementById('dyk-text');
+if(t)t.textContent=dykFacts[dykIdx];
+document.querySelectorAll('.dyk-dot').forEach(function(d,j){d.classList.toggle('on',j===dykIdx);});
+}
+function dykNav(dir){dykGo(dykIdx+dir);}
+setInterval(function(){dykGo(dykIdx+1);},9000);
+dykBuildDots();
 
 /* ── BLOG ── */
+var BLOG_KEY='blog_med_ent';
 function _bEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _bLoad(k){try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return[];}}
-function _bSave(k,a){localStorage.setItem(k,JSON.stringify(a));}
-function _bRender(box){
-  var k=box.getAttribute('data-bk'),feed=box.querySelector('.blog-feed'),cs=_bLoad(k);
-  if(!feed)return;
-  if(!cs.length){feed.innerHTML='<div style="font-size:.88rem;color:#a8a29e;font-style:italic;padding:5px;">No comments yet. Be the first to make a historical argument.</div>';return;}
-  feed.innerHTML=cs.map(function(c){return '<div class="blog-feed-item"><div class="blog-feed-meta">'+_bEsc(c.name)+' &middot; '+_bEsc(c.date)+'</div><div class="blog-feed-text">'+_bEsc(c.text)+'</div></div>';}).join('');
+function blogRender(){
+var feed=document.getElementById('blog-feed');
+if(!feed)return;
+var cs=[];try{cs=JSON.parse(localStorage.getItem(BLOG_KEY)||'[]');}catch(e){}
+if(!cs.length){feed.innerHTML='<div style="font-size:.86rem;color:#a8a29e;font-style:italic;padding:5px;">No comments yet — be the first to make a historical argument!</div>';return;}
+feed.innerHTML=cs.map(function(c){return '<div class="blog-feed-item"><div class="blog-feed-meta">'+_bEsc(c.name)+' &middot; '+_bEsc(c.date)+'</div><div class="blog-feed-text">'+_bEsc(c.text)+'</div></div>';}).join('');
 }
-function blogChip(btn){var box=btn.closest('.blog-box');if(!box)return;var ta=box.querySelector('.blog-ta');if(!ta)return;var text=btn.textContent.trim();if(ta.value&&ta.value.slice(-1)!=='\\n')ta.value+='\\n';ta.value+=text+': ';ta.focus();}
-function blogPost(btn){var box=btn.closest('.blog-box');if(!box)return;var k=box.getAttribute('data-bk'),ta=box.querySelector('.blog-ta'),nm=box.querySelector('.blog-name');var txt=ta?ta.value.trim():'';if(!txt){if(ta)ta.focus();return;}var cs=_bLoad(k);cs.unshift({name:(nm&&nm.value.trim())||'Student historian',text:txt,date:new Date().toLocaleString()});_bSave(k,cs.slice(0,25));if(ta)ta.value='';_bRender(box);}
-function blogClear(btn){var box=btn.closest('.blog-box');if(!box)return;localStorage.removeItem(box.getAttribute('data-bk'));_bRender(box);}
-document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.blog-box').forEach(function(box){_bRender(box);});});
+function blogChip(btn){
+var ta=document.getElementById('blog-ta');
+if(!ta)return;
+var text=btn.textContent.trim();
+if(ta.value&&ta.value.slice(-1)!=='\n')ta.value+='\n';
+ta.value+=text+': ';ta.focus();
+}
+function blogPost(){
+var ta=document.getElementById('blog-ta');
+var nm=document.getElementById('blog-name');
+var txt=ta?ta.value.trim():'';
+if(!txt){if(ta)ta.focus();return;}
+var cs=[];try{cs=JSON.parse(localStorage.getItem(BLOG_KEY)||'[]');}catch(e){}
+cs.unshift({name:(nm&&nm.value.trim())||'Student historian',text:txt,date:new Date().toLocaleString()});
+localStorage.setItem(BLOG_KEY,JSON.stringify(cs.slice(0,25)));
+if(ta)ta.value='';blogRender();
+}
+function blogClear(){localStorage.removeItem(BLOG_KEY);blogRender();}
+blogRender();
 
 /* ── TUTOR ── */
-var _TQS={gd:["What is your main argument? Give it to me in ONE sentence.","Good start. Now give me ONE specific piece of evidence — a date, a name, an event.","What would a historian who DISAGREES say? What's the strongest counterargument?","Write your final verdict in two sentences with your justified conclusion."],ed:["State your thesis — your main argument — in ONE sentence.","Give me ONE specific piece of evidence: a date, a named person or a specific event.","The counterargument: what would someone who DISAGREES say?","Write your conclusion: 'On balance, I would argue... because...'"],sd:["Which source are we analysing? Tell me the source first.","W — WHO created this source? Tell me everything relevant about them.","A — Audience. Who was this made FOR?","C — Context. When was this made?","Final A — Aim. What was the creator trying to ACHIEVE?","Write your JUDGEMENT: 'This source is useful for understanding [X] because... however it is limited because...'"],med:["What does 'holiday' mean? Where does the word come from?","Edward III banned mob football in 1363. Why? And what does this tell us about medieval society?","Apply WACA to the Bruegel painting (1568). Start with W — who made it?","The Bruegel painting was made in 1568 — about 200 years after the medieval period. Does this make it more or less useful as evidence?","'Medieval entertainment reveals that medieval society was deeply unequal.' Do you agree? Give me ONE piece of evidence."]};
-var _TPATS=[[/don.t know|not sure|no idea/i,["That is absolutely fine. Let's start with what you DO know. Tell me the very first thing that comes to mind about medieval entertainment."]],[/give me.*answer|just tell me/i,["I cannot give you the answer directly — that is how Socratic learning works! Tell me: what is your best instinct?"]],[/waca|who.*audience|context.*aim/i,["Good — you are applying WACA. Now the most important part: the final A — Aim. How does knowing the creator's AIM affect the source's usefulness AND its limitations?"]],[/sumptuary|law|clothes|fashion/i,["Interesting — sumptuary laws are fascinating. Why would a king need to LEGALLY forbid certain people from wearing certain clothes? What does that tell us about medieval society?"]],[/football|mob|ban/i,["Great topic! Edward III banned mob football in 1363. But here is the deeper question: WHY did banning football matter so much to the King? What does this reveal about the medieval world?"]],[/bruegel|painting|1568/i,["Good — you are looking at the Bruegel painting. Remember: it was painted in 1568 — about 200 years AFTER the medieval period. So when you apply WACA, what does the C (Context) tell us about its limitations?"]]];
-var _TIDX={};var _TMODE={};
-function _tMatch(text){for(var i=0;i<_TPATS.length;i++){if(_TPATS[i][0].test(text)){var a=_TPATS[i][1];return a[Math.floor(Math.random()*a.length)];}}return null;}
-function _tQ(tk,mode){var key=tk+'_'+mode;_TIDX[key]=_TIDX[key]||0;var bank=_TQS[tk]||_TQS[mode==='essay'?'ed':mode==='source'?'sd':'gd']||_TQS['gd'];var q=bank[_TIDX[key]%bank.length];_TIDX[key]++;return q;}
-function _tMsg(msgs,role,text){var d=document.createElement('div');d.className=role==='ai'?'t-ai':'t-user';d.innerHTML=String(text).replace(/\\*\\*([^*]+)\\*\\*/g,'<strong>$1</strong>');msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
-function tMode(btn,mode){var box=btn.closest('.tutor-box');if(!box)return;var id=box.getAttribute('data-tk')||'x';_TMODE[id]=mode;box.querySelectorAll('.tutor-mode').forEach(function(b){b.classList.toggle('tutor-mode-active',b.getAttribute('onclick').includes("'"+mode+"'"));});var msgs=box.querySelector('.tutor-msgs');if(!msgs)return;_tMsg(msgs,'ai','Mode: <strong>'+({'general':'💬 General history help','essay':'✍️ Essay structure and writing','source':'📜 Source analysis (WACA)'})[mode]+'</strong>. What would you like to work on?');}
-function tSug(btn){var box=btn.closest('.tutor-box');if(!box)return;var ta=box.querySelector('.tutor-input');if(ta){ta.value=btn.textContent.trim();ta.focus();}}
-function tSend(ta){var box=ta?ta.closest('.tutor-box'):null;if(!box||!ta)return;var text=ta.value.trim();if(!text)return;ta.value='';var msgs=box.querySelector('.tutor-msgs');if(!msgs)return;_tMsg(msgs,'user',text);var tk=ta.getAttribute('data-tk')||box.getAttribute('data-tk')||'med';var mode=_TMODE[tk]||'general';setTimeout(function(){var resp=_tMatch(text);if(!resp){var acks=['','Good start. ','Interesting point. '];var pre=text.length>50?acks[Math.floor(Math.random()*acks.length)]:'';resp=pre+_tQ(tk,mode);}_tMsg(msgs,'ai',resp);},400+Math.random()*300);}
-
-/* ── BUILD MED DYNAMIC COMPONENTS ── */
-var _medBuilt=false;
-function buildMedComponents(){
-  if(_medBuilt)return;_medBuilt=true;
-  // DYK
-  var dykC=document.getElementById('med-dyk-slot');
-  if(dykC&&!dykC.hasChildNodes()){
-    var facts=["The word holiday comes from 'holy day' — the only rest in medieval life.","Edward III banned mob football in 1363 — it distracted men from archery practice.","Sumptuary laws prohibited lower classes from wearing satin, silk or silver.","Minstrels were the medieval equivalent of social media — spreading news and stories.","By 1100, Old English and Norman French had begun to merge into modern English."];
-    window._F["f_med"]=facts;
-    var dots=facts.map(function(_,i){return '<button onclick="dykGo(\'f_med\','+i+')" class="dyk-dot'+(i===0?' dyk-dot-on':'')+'"></button>';}).join('');
-    dykC.innerHTML='<div style="background:linear-gradient(135deg,#4c1d95,#1a003a);border-radius:16px;padding:18px;min-height:160px;box-shadow:0 8px 28px rgba(0,0,0,.4);">'
-      +'<div style="font-size:.76rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:rgba(255,255,255,.85);margin-bottom:.8rem;">💡 Did You Know?</div>'
-      +'<div id="f_med-t" style="font-size:1.05rem;color:#fff;line-height:1.75;font-weight:600;min-height:72px;">'+facts[0]+'</div>'
-      +'<div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">'
-      +'<button onclick="dykGo(\'f_med\',(_dykI[\'f_med\']||0)-1)" class="dyk-btn">&larr; Prev</button>'
-      +'<div id="f_med-dots" style="display:flex;gap:5px;">'+dots+'</div>'
-      +'<button onclick="dykGo(\'f_med\',(_dykI[\'f_med\']||0)+1)" class="dyk-btn">Next &rarr;</button>'
-      +'</div></div>';
-  }
-  // TUTOR
-  var tutorC=document.getElementById('med-tutor-slot');
-  if(tutorC&&!tutorC.hasChildNodes()){
-    var welcome='Hello! I am Socrates, your historical AI tutor. I am here to guide you through Medieval Entertainment & Life. What are you working on today?';
-    tutorC.innerHTML='<div class="tutor-box" data-tk="med">'
-      +'<div class="tutor-hdr"><span class="tutor-ico">🧠</span><div><div class="tutor-name">Socrates, your historical AI tutor</div><div class="tutor-sub">Guides you · Socratic questioning · Essay &amp; source skills</div></div></div>'
-      +'<div class="tutor-modes"><button class="tutor-mode tutor-mode-active" onclick="tMode(this,\'general\')">💬 General</button><button class="tutor-mode" onclick="tMode(this,\'essay\')">✍️ Essay</button><button class="tutor-mode" onclick="tMode(this,\'source\')">📜 Source</button></div>'
-      +'<div class="tutor-msgs"><div class="t-ai">'+welcome+'</div></div>'
-      +'<div class="tutor-sugs"><button class="t-sug" onclick="tSug(this)">Help with an essay</button><button class="t-sug" onclick="tSug(this)">WACA the Bruegel painting</button><button class="t-sug" onclick="tSug(this)">Test my knowledge</button></div>'
-      +'<div class="tutor-input-row"><textarea class="tutor-input" data-tk="med" placeholder="Type your question or answer here..." rows="2" onkeydown="if(event.key===\'Enter\'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>'
-      +'<button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button></div></div>';
-  }
-  // BLOG
-  var blogC=document.getElementById('med-blog-slot');
-  if(blogC&&!blogC.hasChildNodes()){
-    blogC.innerHTML='<div class="blog-box" data-bk="blog_med">'
-      +'<div class="blog-hdr"><span style="font-size:1.4rem;">💬</span><div><div class="blog-title">Blog Spot — Medieval Entertainment</div><div class="blog-sub">Make a claim · Support it with evidence · Respond like a historian</div></div></div>'
-      +'<div class="blog-q">What does medieval entertainment reveal about inequality and social control?</div>'
-      +'<div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Holy days</button><button onclick="blogChip(this)" class="blog-chip">Sumptuary laws</button><button onclick="blogChip(this)" class="blog-chip">Church control</button></div>'
-      +'<textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>'
-      +'<div class="blog-row"><input type="text" class="blog-name" placeholder="Name or initials (optional)"><button onclick="blogPost(this)" class="blog-post">Post</button></div>'
-      +'<div class="blog-feed"></div>'
-      +'<button onclick="blogClear(this)" class="blog-clear">Clear my comments on this device</button></div>';
-    document.querySelectorAll('.blog-box').forEach(function(box){_bRender(box);});
-  }
+var _TQS=[
+"Interesting question! Let me ask you back: why do you think people in the Middle Ages looked forward to 'holy days' so much? What does this tell us about their everyday lives?",
+"Good thinking. Now: what's the difference between the entertainment available to a rich noble and a peasant? Which of the games in chapter 5.4 could ONLY rich people enjoy?",
+"Now apply the historian's skill of 'change and continuity'. Which of the medieval games and pastimes have completely disappeared today — and WHY? What does that tell us about how society has changed?",
+"Let's think about mob football. Edward III banned it because men were 'forgetting to practise their archery'. What does this tell us about what the King valued — and what ordinary people valued?",
+"Look at the two sources about mob football: Fitzstephen (1174) and the monk's description. They describe the SAME sport. Why do they give such different impressions? Apply WACA to both.",
+"Think about the English language after 1066. English became the third most important language — yet it survived. Why? What does this tell us about the relationship between ordinary people and those in power?",
+"Excellent point! Now push further: Chaucer is called the 'saviour of the English language'. What exactly did he do — and why did writing in English rather than French matter so much?",
+"The peasant's diet was probably healthier than most people's diet today. Do you agree with this claim? What evidence from chapter 5.9 supports it — and what evidence might challenge it?"
+];
+var _tidx=0;
+function _tMsg(role,text){
+var msgs=document.getElementById('tutor-msgs');
+if(!msgs)return;
+var d=document.createElement('div');
+d.className=role==='ai'?'t-ai':'t-user';
+d.innerHTML=String(text).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
 }
-
-/* ── A11Y ── */
-var _a={fs:+(localStorage.getItem('msh_fs')||1),hc:localStorage.getItem('msh_hc')==='1',dx:localStorage.getItem('msh_dx')==='1',nm:localStorage.getItem('msh_nm')==='1'};
-function _syncA(){document.documentElement.style.setProperty('--fs',_a.fs);var fv=document.getElementById('a11y-fsv');if(fv)fv.textContent=Math.round(_a.fs*100)+'%';document.body.classList.toggle('hc',_a.hc);document.body.classList.toggle('nm',_a.nm);if(_a.dx){if(!document.getElementById('dx-s')){var s=document.createElement('style');s.id='dx-s';var dxCss='body,body *';dxCss+=String.fromCharCode(123);dxCss+='font-family:Arial,sans-serif!important;letter-spacing:.06em!important;word-spacing:.14em!important;';dxCss+=String.fromCharCode(125);s.textContent=dxCss;document.head.appendChild(s);}}else{var ds=document.getElementById('dx-s');if(ds)ds.remove();}['hc','dx','nm'].forEach(function(k){var el=document.getElementById('tog-'+k);if(el)el.classList.toggle('on',_a[k]);});Object.keys(_a).forEach(function(k){localStorage.setItem('msh_'+k,typeof _a[k]==='number'?_a[k]:(_a[k]?'1':'0'));});}
-function a11yFs(d){_a.fs=Math.round(Math.max(.8,Math.min(1.65,_a.fs+d))*10)/10;_syncA();}
-function a11yHc(){_a.hc=!_a.hc;_syncA();}function a11yDx(){_a.dx=!_a.dx;_syncA();}function a11yNm(){_a.nm=!_a.nm;_syncA();}
-function a11yReset(){_a={fs:1,hc:false,dx:false,nm:false};_syncA();}
-function a11yToggle(){var p=document.getElementById('a11y-panel');if(p)p.classList.toggle('open');}
-_syncA();
-
-/* Click any y-card to navigate */
-document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('.y-card[onclick]');if(c){var m=(c.getAttribute('onclick')||'').match(/showPg\\(['"]([\\w-]+)['"]\\)/);if(m){e.preventDefault();e.stopPropagation();showPg(m[1]);}}var t=e.target.closest&&e.target.closest('.topic-tile[onclick]');if(t){var m2=(t.getAttribute('onclick')||'').match(/showPg\\(['"]([\\w-]+)['"]\\)/);if(m2){e.preventDefault();e.stopPropagation();showPg(m2[1]);}}},true);
+var _PATS=[
+[/holiday|holy day/i,"Interesting — so 'holiday' literally means 'holy day'. Now think more deeply: medieval peasants only got a few of these a year. What does that tell us about what their normal life was like? How does that compare with your life today?"],
+[/football|mob|ban/i,"Good topic! Here's a Socratic question: Edward III banned football because men were 'forgetting to practise archery'. This tells us a lot about what the King cared about. What did ORDINARY PEOPLE care about — and what does their refusal to stop playing football tell us?"],
+[/minstrel|music|song/i,"Great area! Wandering minstrels brought music AND news. Can you think of a modern equivalent — something that entertains AND informs? How does comparing them help us understand how communication has changed?"],
+[/fashion|clothes|dress/i,"Fashion as a status symbol — that's a great observation. Now think about sumptuary laws. WHY would a king need to make a law about what clothes people could wear? What does that tell us about medieval society's relationship between clothing and power?"],
+[/english|language|french|latin/i,"The English language survived after 1066 because ordinary people kept speaking it. Think about this: the rich spoke French, the Church spoke Latin, but the peasants spoke Old English. What does this tell us about WHERE power actually lay in medieval society?"],
+[/food|eat|peasant|medieval diet/i,"Interesting claim — that peasants had a healthier diet than us! Let's test it like a historian. What EVIDENCE from chapter 5.9 supports this claim? And what evidence might challenge it?"],
+[/don.t know|not sure/i,"That's perfectly fine! Let's start somewhere you DO know. Just from reading the pages above, name ONE thing that surprised you about medieval entertainment. Start with that."],
+[/agree|disagree|argument/i,"You're making a judgement — that's what historians do! Now support it: give me ONE specific piece of evidence from the chapters above that backs up your view."]
+];
+function _tMatch(text){
+for(var i=0;i<_PATS.length;i++){
+if(_PATS[i][0].test(text))return _PATS[i][1];
+}return null;
+}
+function tSug(text){
+var ta=document.getElementById('tutor-input');
+if(ta){ta.value=text;ta.focus();}
+}
+function tSend(){
+var ta=document.getElementById('tutor-input');
+if(!ta)return;
+var text=ta.value.trim();
+if(!text)return;
+ta.value='';
+_tMsg('user',text);
+setTimeout(function(){
+var resp=_tMatch(text);
+if(!resp){
+var acks=['','Good start. ','Interesting observation. '];
+var pre=text.length>50?acks[Math.floor(Math.random()*acks.length)]:'';
+resp=pre+_TQS[_tidx%_TQS.length];_tidx++;
+}
+_tMsg('ai',resp);
+},400+Math.random()*300);
+}
 </script>
 </body>
 </html>
