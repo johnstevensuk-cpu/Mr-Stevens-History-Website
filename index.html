@@ -419,31 +419,220 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-feed"></div>
 <button onclick="blogClear(this)" class="blog-clear">Clear my comments on this device</button>
 </div></div>
-</div></div><div id="td-med" style="display:none;background:rgba(48,40,30,.97);border:1.5px solid rgba(217,119,6,.38);border-radius:20px;padding:22px;margin:8px 0 22px;box-shadow:0 18px 55px rgba(0,0,0,.5);">
+</div></div><div <div id="td-med" style="display:none;background:rgba(48,40,30,.97);border:1.5px solid rgba(217,119,6,.38);border-radius:20px;padding:22px;margin:8px 0 22px;box-shadow:0 18px 55px rgba(0,0,0,.5);">
 <button onclick="closeTopic('td-med')" style="float:right;background:rgba(217,119,6,.2);border:1px solid rgba(217,119,6,.4);color:#fbbf24;border-radius:8px;padding:5px 13px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">✕ Close</button>
 <div style="clear:both;"></div>
 <div style="display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:14px;">
+<div>
 
-<!-- AI-generated images for Medieval Entertainment -->
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0;">
-<div style="border-radius:13px;overflow:hidden;border:1.5px solid rgba(124,58,237,.28);position:relative;min-height:160px;background:linear-gradient(135deg,rgba(60,30,10,.9),rgba(30,15,5,.95)) url('https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg') center/cover no-repeat;box-shadow:0 6px 22px rgba(0,0,0,.4);">
-<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 50%);"></div>
-<div style="position:absolute;bottom:0;left:0;right:0;padding:8px 10px;"><span style="font-size:.68rem;color:#fff;font-weight:700;display:block;">🖼️ AI Illustration: Mob Football in a medieval village square, c.1300</span></div>
-<div style="position:absolute;top:7px;right:7px;background:rgba(124,58,237,.85);color:#fff;font-size:.58rem;font-weight:800;border-radius:4px;padding:2px 6px;">AI Generated</div>
+<!-- AI IMAGES (save from conversation as med-mob-football.jpg, med-minstrel.jpg, med-feast.jpg) -->
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;">
+  <figure style="margin:0;border-radius:12px;overflow:hidden;border:1.5px solid rgba(124,58,237,.3);box-shadow:0 6px 20px rgba(0,0,0,.4);">
+    <img src="med-mob-football.jpg" loading="lazy" alt="Medieval mob football, c.1300 — AI illustration"
+         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg'"
+         style="width:100%;height:140px;object-fit:cover;display:block;">
+    <figcaption style="padding:4px 8px;background:rgba(0,0,0,.7);font-size:.64rem;color:rgba(255,255,255,.85);font-style:italic;">Mob football on a feast day, c.1300 — AI illustration</figcaption>
+  </figure>
+  <figure style="margin:0;border-radius:12px;overflow:hidden;border:1.5px solid rgba(124,58,237,.3);box-shadow:0 6px 20px rgba(0,0,0,.4);">
+    <img src="med-minstrel.jpg" loading="lazy" alt="Medieval minstrel performing — AI illustration"
+         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg'"
+         style="width:100%;height:140px;object-fit:cover;display:block;">
+    <figcaption style="padding:4px 8px;background:rgba(0,0,0,.7);font-size:.64rem;color:rgba(255,255,255,.85);font-style:italic;">A minstrel sings in a great hall, c.1250 — AI illustration</figcaption>
+  </figure>
+  <figure style="margin:0;border-radius:12px;overflow:hidden;border:1.5px solid rgba(124,58,237,.3);box-shadow:0 6px 20px rgba(0,0,0,.4);">
+    <img src="med-feast.jpg" loading="lazy" alt="Medieval feast in a great hall — AI illustration"
+         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg'"
+         style="width:100%;height:140px;object-fit:cover;display:block;">
+    <figcaption style="padding:4px 8px;background:rgba(0,0,0,.7);font-size:.64rem;color:rgba(255,255,255,.85);font-style:italic;">Feast in the great hall, c.1300 — AI illustration</figcaption>
+  </figure>
 </div>
-<div style="border-radius:13px;overflow:hidden;border:1.5px solid rgba(124,58,237,.28);position:relative;min-height:160px;background:linear-gradient(135deg,rgba(10,40,60,.9),rgba(5,20,30,.95)) url('https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg') center/cover no-repeat;box-shadow:0 6px 22px rgba(0,0,0,.4);">
-<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 50%);"></div>
-<div style="position:absolute;bottom:0;left:0;right:0;padding:8px 10px;"><span style="font-size:.68rem;color:#fff;font-weight:700;display:block;">🖼️ AI Illustration: A wandering minstrel performing outside a castle, c.1250</span></div>
-<div style="position:absolute;top:7px;right:7px;background:rgba(124,58,237,.85);color:#fff;font-size:.58rem;font-weight:800;border-radius:4px;padding:2px 6px;">AI Generated</div>
+<p style="font-size:.68rem;color:#a8a29e;font-style:italic;margin-bottom:14px;padding:4px 8px;background:rgba(12,10,9,.4);border-radius:6px;">ℹ️ Images above are AI-generated historical illustrations for educational use. They are artistic interpretations, not primary historical evidence — apply WACA before using any visual source.</p>
+
+<h3 style="color:#c4b5fd;font-size:1.25rem;margin-bottom:6px;font-family:'Alegreya',serif;">🎭 Medieval Entertainment &amp; Life</h3>
+
+<!-- FRAMEWORK BADGES -->
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin:10px 0 14px;padding:9px 11px;background:rgba(15,12,10,.55);border-radius:9px;border:1px solid rgba(217,119,6,.2);">
+<span style="background:#E0F7FA;color:#006064;border:1.5px solid #00BCD4;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">📘 Inquiry-Based Learning</span>
+<span style="background:#E0F7FA;color:#006064;border:1.5px solid #00BCD4;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">🎨 Creative Thinking</span>
+<span style="background:#E8F5E9;color:#1B5E20;border:1.5px solid #4CAF50;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">💡 Intellectual Curiosity</span>
+<span style="background:#E8F5E9;color:#1B5E20;border:1.5px solid #4CAF50;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">🔗 Making Connections</span>
+<span style="background:#DD1367;color:#fff;border:1.5px solid #B30F56;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">SDG 10 Reduced Inequalities</span>
+<span style="background:#ECEFF1;color:#37474F;border:1.5px solid #90A4AE;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">🔍 AI Critical Thinking</span>
 </div>
-<div style="border-radius:13px;overflow:hidden;border:1.5px solid rgba(124,58,237,.28);position:relative;min-height:160px;background:linear-gradient(135deg,rgba(60,20,10,.9),rgba(30,10,5,.95)) url('https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg') center/cover no-repeat;box-shadow:0 6px 22px rgba(0,0,0,.4);">
-<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 50%);"></div>
-<div style="position:absolute;bottom:0;left:0;right:0;padding:8px 10px;"><span style="font-size:.68rem;color:#fff;font-weight:700;display:block;">🖼️ AI Illustration: A medieval feast in the great hall of an English castle, c.1300</span></div>
-<div style="position:absolute;top:7px;right:7px;background:rgba(124,58,237,.85);color:#fff;font-size:.58rem;font-weight:800;border-radius:4px;padding:2px 6px;">AI Generated</div>
+
+<p class="ov">Leisure in medieval England was not a right — it was a rare gift. The Church structured the calendar around feast days (from which our word "holiday" derives), and only during these brief windows did ordinary peasants have time to play. What they chose to do with that time reveals an enormous amount about the social order, the power of the Church, and the stark divide between those who ruled and those who laboured.</p>
+
+<!-- COULD YOU HAVE FUN? -->
+<div style="border-left:5px solid #c4b5fd;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);">
+<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;color:#c4b5fd;">🎮 Could You Have Fun? — Pastimes &amp; Games</div>
+<div style="font-size:.97rem;color:#f0ece6;line-height:1.78;">
+<p style="margin-bottom:8px;">Medieval communities devised their own entertainment from whatever was at hand. Some of their games would be immediately familiar today — others were brutal enough to shock a modern audience.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:7px;margin:10px 0;">
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:10px 12px;"><div style="font-size:1.2rem;margin-bottom:4px;">🎳</div><div style="font-size:.82rem;font-weight:800;color:#fff7ed;margin-bottom:3px;">Bowling / Skittles</div><div style="font-size:.74rem;color:#a8a29e;">Knocking pins with a ball. Unchanged in 700 years.</div><span style="display:inline-block;font-size:.58rem;text-transform:uppercase;font-weight:800;border-radius:4px;padding:1px 6px;margin-top:5px;background:rgba(5,150,105,.22);color:#34d399;border:1px solid rgba(5,150,105,.35);">✅ Still played today</span></div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:10px 12px;"><div style="font-size:1.2rem;margin-bottom:4px;">⚽</div><div style="font-size:.82rem;font-weight:800;color:#fff7ed;margin-bottom:3px;">Mob Football</div><div style="font-size:.74rem;color:#a8a29e;">No rules, no referee — hundreds of players, goals miles apart, pig's bladder as the ball.</div><span style="display:inline-block;font-size:.58rem;text-transform:uppercase;font-weight:800;border-radius:4px;padding:1px 6px;margin-top:5px;background:rgba(5,150,105,.22);color:#34d399;border:1px solid rgba(5,150,105,.35);">✅ Evolved into modern football</span></div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:10px 12px;"><div style="font-size:1.2rem;margin-bottom:4px;">🌰</div><div style="font-size:.82rem;font-weight:800;color:#fff7ed;margin-bottom:3px;">Conkers</div><div style="font-size:.74rem;color:#a8a29e;">Became popular after 1066. Drill a cobnut, thread a string, smash your opponent's nut.</div><span style="display:inline-block;font-size:.58rem;text-transform:uppercase;font-weight:800;border-radius:4px;padding:1px 6px;margin-top:5px;background:rgba(5,150,105,.22);color:#34d399;border:1px solid rgba(5,150,105,.35);">✅ Still played today</span></div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:10px 12px;"><div style="font-size:1.2rem;margin-bottom:4px;">⛸️</div><div style="font-size:.82rem;font-weight:800;color:#fff7ed;margin-bottom:3px;">Ice Skating</div><div style="font-size:.74rem;color:#a8a29e;">Sharpened animal bones strapped to boots — archaeologists found a boy's skeleton with skates still attached.</div><span style="display:inline-block;font-size:.58rem;text-transform:uppercase;font-weight:800;border-radius:4px;padding:1px 6px;margin-top:5px;background:rgba(5,150,105,.22);color:#34d399;border:1px solid rgba(5,150,105,.35);">✅ Still played today</span></div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:10px 12px;"><div style="font-size:1.2rem;margin-bottom:4px;">🐓</div><div style="font-size:.82rem;font-weight:800;color:#fff7ed;margin-bottom:3px;">Cock Fighting</div><div style="font-size:.74rem;color:#a8a29e;">Birds fought with metal spurs attached. Crowds bet on the outcome.</div><span style="display:inline-block;font-size:.58rem;text-transform:uppercase;font-weight:800;border-radius:4px;padding:1px 6px;margin-top:5px;background:rgba(220,38,38,.18);color:#f87171;border:1px solid rgba(220,38,38,.3);">❌ Illegal — animal cruelty</span></div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:10px 12px;"><div style="font-size:1.2rem;margin-bottom:4px;">🎾</div><div style="font-size:.82rem;font-weight:800;color:#fff7ed;margin-bottom:3px;">Real Tennis (Rich Only)</div><div style="font-size:.74rem;color:#a8a29e;">For nobles only — balls struck hard enough to kill on impact. Tournaments with prizes.</div><span style="display:inline-block;font-size:.58rem;text-transform:uppercase;font-weight:800;border-radius:4px;padding:1px 6px;margin-top:5px;background:rgba(5,150,105,.22);color:#34d399;border:1px solid rgba(5,150,105,.35);">✅ Still played (rare)</span></div>
+</div>
+</div></div>
+
+<!-- FOOTBALL SECTION -->
+<div style="border-left:5px solid #f87171;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);">
+<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;color:#f87171;">⚽ Has Football Changed Much Since the Middle Ages?</div>
+<div style="font-size:.97rem;color:#f0ece6;line-height:1.78;">
+<p style="margin-bottom:10px;">According to one story, the game originated when an English mob kicked around the severed head of a defeated Danish invader. Whether true or not, by the 12th century mob football was firmly established — and deeply controversial.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;">
+<div style="background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.25);border-radius:10px;padding:12px;">
+<div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#f87171;margin-bottom:8px;">📋 The (Non-) Rules</div>
+<ul style="list-style:none;padding:0;font-size:.84rem;color:#e7e3dd;line-height:1.7;">
+<li>👥 Up to <strong>500 players</strong> at once</li>
+<li>🐷 Ball = pig's bladder stuffed with peas</li>
+<li>📏 Goals might be <strong>several miles apart</strong></li>
+<li>⚖️ Permitted methods: anything <em>"except murder"</em></li>
+<li>📅 Usually played on <strong>Shrove Tuesday</strong></li>
+</ul>
+</div>
+<div style="background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.25);border-radius:10px;padding:12px;">
+<div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#f87171;margin-bottom:8px;">🚫 The Bans</div>
+<div style="font-size:.84rem;color:#e7e3dd;line-height:1.65;">
+<div style="display:flex;gap:6px;margin-bottom:4px;"><span style="font-weight:800;color:#f87171;min-width:32px;">1314</span><span>Lord Mayor of London bans it — ignored</span></div>
+<div style="display:flex;gap:6px;margin-bottom:4px;"><span style="font-weight:800;color:#f87171;min-width:32px;">1321</span><span>Pope pardons player who killed his opponent</span></div>
+<div style="display:flex;gap:6px;margin-bottom:4px;"><span style="font-weight:800;color:#f87171;min-width:32px;">1331</span><span>Edward III bans it by royal decree</span></div>
+<div style="display:flex;gap:6px;"><span style="font-weight:800;color:#f87171;min-width:32px;">1667</span><span>30+ bans issued. Still played.</span></div>
+</div>
+</div></div>
+<!-- SOURCE A -->
+<div style="background:rgba(37,99,235,.12);border:1.5px solid rgba(37,99,235,.35);border-radius:12px;padding:14px 16px;margin:10px 0;">
+<div style="font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#60a5fa;margin-bottom:7px;">📜 Source A — William Fitzstephen, c.1174</div>
+<div style="font-style:italic;font-size:.9rem;color:#fff7ed;line-height:1.78;border-left:4px solid #3b82f6;padding-left:11px;">"After lunch all the youth of the city go out into the fields to take part in the ball game. The students of each school have their own ball. The workers from each city craft also carry balls. Older citizens, fathers and wealthy men come on horseback to watch the juniors competing, and to revive their own youth."</div>
+</div>
+<div style="background:rgba(124,58,237,.1);border:1.5px solid rgba(124,58,237,.3);border-radius:12px;padding:14px 16px;margin:10px 0;">
+<div style="font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#c4b5fd;margin-bottom:7px;">📜 Source B — A monk's account</div>
+<div style="font-style:italic;font-size:.9rem;color:#fff7ed;line-height:1.78;border-left:4px solid #7c3aed;padding-left:11px;">"a devilish pastime. More a bloody murdering practice than a sport."</div>
+</div>
+<p style="font-size:.84rem;color:#a8a29e;margin-top:8px;">Edward III's justification: men were neglecting their archery practice. In wartime, a shortage of skilled archers could cost England a campaign. Football was a threat to national security.</p>
+</div></div>
+
+<!-- MUSIC & ENTERTAINMENT -->
+<div style="border-left:5px solid #34d399;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);">
+<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;color:#34d399;">🎵 Music, Minstrels &amp; Miracle Plays</div>
+<div style="font-size:.97rem;color:#f0ece6;line-height:1.78;">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;">
+<div style="background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.25);border-radius:10px;padding:12px;">
+<div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#34d399;margin-bottom:6px;">⛪ Sacred Music</div>
+<p style="font-size:.84rem;color:#e7e3dd;line-height:1.65;">Restricted to church services — a single vocal line, no harmony. Deliberately austere, not designed for enjoyment outside worship.</p>
+</div>
+<div style="background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:12px;">
+<div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#fbbf24;margin-bottom:6px;">🏘️ Community Music</div>
+<p style="font-size:.84rem;color:#e7e3dd;line-height:1.65;">Groups of up to a dozen musicians played lively dance music. Villagers danced in circles on the green — clapping, spinning and singing together.</p>
+</div></div>
+<p style="margin-bottom:8px;"><strong style="color:#c4b5fd;">Instruments used:</strong> Organ, tambourine, flute, hurdy-gurdy, drum, viol, clarinet, lute, cymbal, harp, trumpet.</p>
+<!-- SUMER IS ICUMEN IN -->
+<div style="background:linear-gradient(135deg,rgba(5,150,105,.18),rgba(20,16,12,.95));border:2px solid rgba(5,150,105,.4);border-radius:12px;padding:16px 20px;margin:12px 0;text-align:center;">
+<div style="font-family:'Alegreya',serif;font-size:1.1rem;font-weight:800;color:#a7f3d0;margin-bottom:9px;">🎶 Sumer Is Icumen In (13th century)</div>
+<div style="font-style:italic;font-size:.9rem;color:#d1fae5;line-height:1.9;">Summer has come in, Loudly sing, Cuckoo!<br>The seed grows and the meadow blooms,<br>And the wood springs anew. Sing, Cuckoo!<br>The ewe bleats after the lamb,<br>The cow lows after the calf.<br>Merrily sing, Cuckoo!</div>
+<p style="font-size:.72rem;color:rgba(167,243,208,.7);margin-top:8px;font-style:italic;">One of the oldest surviving English songs — passed down without written notation, sung during the summer growing season.</p>
+</div>
+<p><strong style="color:#c4b5fd;">Wandering Minstrels</strong> — professional entertainers who roamed between towns and castles, performing in exchange for food, lodging and coin. Crucially, they also carried <em>news</em>. In a world without newspapers or postal systems, a minstrel arriving from another county was a living news broadcast. Their gossip was often as eagerly received as their music.</p>
+<p style="margin-top:8px;"><strong style="color:#c4b5fd;">Miracle Plays</strong> — theatrical performances originally staged inside churches to dramatise Bible stories for largely illiterate congregations. Over time they moved outdoors, became livelier, and drew enormous crowds. Records document performances in at least <strong>127 different towns</strong> across medieval England.</p>
+</div></div>
+
+<!-- FASHION -->
+<div style="border-left:5px solid #f59e0b;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);">
+<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;color:#f59e0b;">👗 Fashion, Status &amp; Sumptuary Laws</div>
+<div style="font-size:.97rem;color:#f0ece6;line-height:1.78;">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;">
+<div style="background:linear-gradient(135deg,rgba(180,100,20,.2),rgba(20,16,12,.9));border:1px solid rgba(251,191,36,.3);border-radius:10px;padding:14px;">
+<div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#fbbf24;margin-bottom:8px;">👑 Wealthy Nobles</div>
+<ul style="list-style:none;padding:0;font-size:.84rem;color:#e7e3dd;line-height:1.7;">
+<li>✨ Velvet, silk, fur, fine linen, leather</li>
+<li>💎 Decorated with gold thread, jewels, chains</li>
+<li>🎨 Vivid dyes: red (love), yellow (anger), grey (sadness)</li>
+<li>👒 Elaborate hats — steeple hats nearly a <strong>metre tall</strong> in the 1480s</li>
+<li>👠 Poulaines — shoes so pointed the toes were <strong>tied back to the ankle</strong></li>
+</ul></div>
+<div style="background:rgba(55,65,81,.2);border:1px solid rgba(107,114,128,.25);border-radius:10px;padding:14px;">
+<div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#9ca3af;margin-bottom:8px;">🌾 Ordinary Peasants</div>
+<ul style="list-style:none;padding:0;font-size:.84rem;color:#e7e3dd;line-height:1.7;">
+<li>🧶 Coarse wool or linen tunics</li>
+<li>🟫 Muted colours: grey, brown, dark green</li>
+<li>🧣 Woollen capes, straw hats, simple hoods</li>
+<li>👞 Some owned no shoes at all</li>
+<li>🏠 Clothing was handmade and repaired endlessly</li>
+</ul></div></div>
+<p><strong style="color:#f59e0b;">Sumptuary Laws</strong> were royal decrees that legally forbade lower social classes from wearing fabrics, colours or styles associated with the nobility. The very existence of these laws tells us something important: ordinary people <em>were</em> trying to imitate their social betters — and the ruling class found this threatening enough to require Parliament to stop it.</p>
+</div></div>
+
+<!-- ENGLISH LANGUAGE -->
+<div style="border-left:5px solid #60a5fa;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);">
+<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;color:#60a5fa;">📖 The English Language After 1066</div>
+<div style="font-size:.97rem;color:#f0ece6;line-height:1.78;">
+<p style="margin-bottom:10px;">After the Conquest, English became the <em>third</em> most important language in England — below French (spoken by the ruling class) and Latin (the language of the Church and law). King Harold was the last monarch whose first language was English.</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0;">
+<div style="background:rgba(217,119,6,.12);border:1px solid rgba(217,119,6,.3);border-radius:10px;padding:12px;">
+<div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#fbbf24;margin-bottom:6px;">⚔️ Anglo-Saxon</div>
+<p style="font-size:.8rem;color:#e7e3dd;margin-bottom:6px;">The language of the people — never fully displaced.</p>
+<div style="font-size:.72rem;color:#fef3c7;">drink · father · ground · love · name · son · wife</div>
+</div>
+<div style="background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.25);border-radius:10px;padding:12px;">
+<div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#f87171;margin-bottom:6px;">🛡️ Norse (Viking)</div>
+<p style="font-size:.8rem;color:#e7e3dd;margin-bottom:6px;">From earlier Viking settlement — many survive in place names ending in "-by" (settlement).</p>
+<div style="font-size:.72rem;color:#fecaca;">anger · gate · neck · ugly · you · oaf</div>
+</div>
+<div style="background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.25);border-radius:10px;padding:12px;">
+<div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#60a5fa;margin-bottom:6px;">🇫🇷 Norman French</div>
+<p style="font-size:.8rem;color:#e7e3dd;margin-bottom:6px;">Brought by the Conqueror — especially law, government and luxury.</p>
+<div style="font-size:.72rem;color:#bfdbfe;">archer · castle · city · judge · prison · sausage · sugar · traitor</div>
+</div></div>
+<p>Old English survived because millions of ordinary people had no choice but to use it daily. As the generations passed, French and English merged — by the 14th century Geoffrey Chaucer was writing <em>The Canterbury Tales</em> in something very close to modern English. Edward III made English the language of Parliament; Henry IV gave his coronation speech in English — the first monarch to do so in three centuries.</p>
+</div></div>
+
+<!-- FOOD -->
+<div style="border-left:5px solid #fb923c;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);">
+<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;color:#fb923c;">🍽️ Food &amp; Mealtimes</div>
+<div style="font-size:.97rem;color:#f0ece6;line-height:1.78;">
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0;">
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(217,119,6,.2);border-radius:10px;padding:12px;text-align:center;">
+<div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#f59e0b;margin-bottom:5px;">Breakfast</div>
+<div style="font-family:'Alegreya',serif;font-size:1.1rem;font-weight:900;color:#fbbf24;margin-bottom:7px;">4–6am</div>
+<div style="font-size:.84rem;color:#e7e3dd;">🍞 Bread · 🍺 Ale</div>
+</div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(217,119,6,.2);border-radius:10px;padding:12px;text-align:center;">
+<div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#f59e0b;margin-bottom:5px;">Dinner</div>
+<div style="font-family:'Alegreya',serif;font-size:1.1rem;font-weight:900;color:#fbbf24;margin-bottom:7px;">10am</div>
+<div style="font-size:.84rem;color:#e7e3dd;">🍞 Bread · 🧀 Cheese · 🧅 Onion · 🥚 Eggs · 🍺 Ale</div>
+</div>
+<div style="background:rgba(28,25,23,.9);border:1px solid rgba(217,119,6,.2);border-radius:10px;padding:12px;text-align:center;">
+<div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#f59e0b;margin-bottom:5px;">Supper</div>
+<div style="font-family:'Alegreya',serif;font-size:1.1rem;font-weight:900;color:#fbbf24;margin-bottom:7px;">4pm</div>
+<div style="font-size:.84rem;color:#e7e3dd;">🍞 Bread · 🐟 Fish · 🥣 Vegetable broth</div>
 </div>
 </div>
-<p style="font-size:.72rem;color:#a8a29e;font-style:italic;margin-bottom:12px;padding:5px 8px;background:rgba(12,10,9,.4);border-radius:6px;">Images above: AI-generated historical illustrations created for educational use. They are artistic interpretations, not primary historical sources — apply WACA before using any visual evidence.</p>
-<div><figure style="margin:12px 0;border-radius:13px;overflow:hidden;border:1.5px solid rgba(217,119,6,.22);"><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg" loading="lazy" onerror="this.parentElement.remove()" style="width:100%;max-height:220px;object-fit:cover;display:block;"></figure><h3 style="color:#c4b5fd;">🎭 Medieval Entertainment & Life</h3><div style="display:flex;flex-wrap:wrap;gap:4px;margin:10px 0 14px;padding:9px 11px;background:rgba(15,12,10,.55);border-radius:9px;border:1px solid rgba(217,119,6,.2);"><span style="background:#E0F7FA;color:#006064;border:1.5px solid #00BCD4;;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">🎨 Creative Thinking</span><span style="background:#E0F7FA;color:#006064;border:1.5px solid #00BCD4;;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">💬 Discussion</span><span style="background:#E8F5E9;color:#1B5E20;border:1.5px solid #4CAF50;;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">💡 Intellectual Curiosity</span><span style="background:#FFF8E1;color:#7C4A00;border:1.5px solid #F9A825;;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">👥 Collaboration</span><span style="background:#DD1367;color:#fff;border:1.5px solid #B30F56;;border-radius:6px;padding:3px 9px;font-size:.68rem;font-weight:700;display:inline-block;margin:2px;">SDG 10 Reduced Inequalities</span></div><p class="ov">Spare time was a luxury in medieval England — yet when feast days arrived, communities came alive with noise, laughter and sometimes alarming levels of violence. Far from being passive, medieval people created their own entertainment from scratch, using whatever was available. Their games, music and pastimes reveal just as much about power, inequality and the Church's grip on daily life as any written chronicle.</p><div class="act-box" style="border-left-color:#c4b5fd;"><div class="act-title" style="color:#c4b5fd;">🎭 Activity 1: WACA the Bruegel Painting</div><div class="act-body"><ul><li>Apply WACA: Who made it (1568 — 200+ years after the medieval period)? For whom? With what aim?</li><li>Can we use a 1568 painting as evidence of medieval life from 1350?</li></ul></div></div><div class="act-box" style="border-left-color:#c4b5fd;"><div class="act-title" style="color:#c4b5fd;">🎪 Activity 2: Medieval Entertainment Programme</div><div class="act-body"><ul><li>Design a full-day programme for a Norman lord's feast in 1250 — minimum SIX different activities</li><li>For each: who could participate — and WHY?</li></ul></div></div><div class="yt-block"><div class="yt-hdr">🎥 Dan Snow · The History Guy · Crash Course</div><a href="https://www.youtube.com/results?search_query=dan+snow+medieval+England+life" target="_blank" rel="noopener" class="yt-link">🎥 Dan Snow: Life in Medieval England</a><a href="https://www.youtube.com/results?search_query=the+history+guy+medieval+life+entertainment" target="_blank" rel="noopener" class="yt-link">🎥 The History Guy: Medieval Entertainment</a><a href="https://www.youtube.com/results?search_query=%22Crash+Course%22+medieval+life+society" target="_blank" rel="noopener" class="yt-link">🎥 Crash Course: Medieval Life &amp; Society</a></div><div class="res-sec"><div class="rv-sec-hdr">📂 Lesson Files</div><ul class="res-list"><li><a href="https://docs.google.com/presentation/d/1YkQRLDu5TnwTiQ9hgQnySxZD39kLUzb5/edit" target="_blank" rel="noopener" class="rlink">📊 Medieval Entertainment PPT</a></li><li><a href="https://drive.google.com/file/d/1YlP-cm8KCqZ5JWcoeSgaUBr8Klm_ROEK/view" target="_blank" rel="noopener" class="rlink">📁 Medieval Life Pack</a></li></ul></div><div class="res-sec"><div class="rv-sec-hdr">🔗 Research Links</div><ul class="res-list"><li><a href="https://www.britannica.com/topic/Middle-Ages" target="_blank" rel="noopener" class="rlink">🔗 Britannica: The Middle Ages</a></li></ul></div></div><div><div class="verdict-box">
+<p>The mainstay was <strong>bacon</strong> (pigs needed little care), supplemented by whatever could be caught or grown. Peasants ate hedgehog, squirrel, pike and eel without hesitation — the idea of "unusual" food was a luxury they could not afford. Meat was preserved by salting or smoking, hung from roof beams to dry. <strong>There were no potatoes</strong> — they reached England only in the 1500s. And there was no tea, coffee or orange juice: water was generally unsafe, so everyone from children to the elderly drank weak ale throughout the day.</p>
+<div style="background:rgba(251,191,36,.1);border:1.5px solid rgba(251,191,36,.35);border-radius:9px;padding:10px 14px;margin-top:10px;">
+<span style="font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#fbbf24;display:block;margin-bottom:4px;">🥔 Key Fact</span>
+<span style="font-size:.85rem;color:#fef3c7;line-height:1.65;">Despite appearances, a peasant's diet was probably <strong>healthier than many modern diets</strong>. No refined sugar, no processed food, and twelve hours of physical labour daily kept the average medieval peasant in surprisingly robust health — assuming they survived childhood, the Black Death, and any passing warfare.</span>
+</div>
+</div></div>
+
+<!-- ACTIVITIES (same as index42) -->
+<div style="border-left:5px solid #c4b5fd;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);">
+<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;color:#c4b5fd;">🎯 Activity 1: WACA the Bruegel Painting</div>
+<div style="font-size:.97rem;color:#f0ece6;line-height:1.78;"><ul><li><strong>Apply WACA:</strong> Who made it (1568 — 200+ years after the medieval period)? For whom? With what aim?</li><li>Can we use a painting from 1568 as evidence for medieval life in 1250–1400? Argue both sides.</li></ul></div></div>
+
+<div style="border-left:5px solid #a78bfa;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);">
+<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;color:#a78bfa;">⚽ Activity 2: Football Through the Ages</div>
+<div style="font-size:.97rem;color:#f0ece6;line-height:1.78;"><ul><li>List all the differences between mob football in the Middle Ages and football today.</li><li>Why did so many kings try to ban it — and why did people keep playing anyway?</li><li>What do the football bans tell us about what kings valued vs. what ordinary people valued?</li></ul></div></div>
+
+<div style="border-left:5px solid #818cf8;border-radius:0 12px 12px 0;padding:13px 16px;margin:10px 0;background:rgba(50,42,34,.88);">
+<div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:.5rem;color:#818cf8;">📖 Activity 3: The Story of English</div>
+<div style="font-size:.97rem;color:#f0ece6;line-height:1.78;"><ul><li>Find FIVE modern English words that came from Norman French — use the examples above as starting points.</li><li>Why do we often have two words for the same thing (e.g. 'pig/pork', 'cow/beef')? What does this tell us about Norman society?</li><li>Why did English survive when all the most powerful people in England were speaking French?</li></ul></div></div>
+
+</div><!-- end detail-main -->
+
+<!-- SIDE COLUMN (verdict, dyk, quiz, tutor, blog) -->
+<div><div class="verdict-box">
 <span class="verdict-label">🏛️ Historian's Verdict</span>
 <span class="verdict-quote">&ldquo;Medieval people had a sophisticated culture — but access depended entirely on what class you were born into.&rdquo;</span>
 <span class="verdict-attr">&mdash; Historian's perspective</span>
@@ -490,7 +679,9 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-feed"></div>
 <button onclick="blogClear(this)" class="blog-clear">Clear my comments on this device</button>
 </div></div>
-</div></div><div id="td-bd" style="display:none;background:rgba(48,40,30,.97);border:1.5px solid rgba(217,119,6,.38);border-radius:20px;padding:22px;margin:8px 0 22px;box-shadow:0 18px 55px rgba(0,0,0,.5);">
+</div
+</div></div></div>
+id="td-bd" style="display:none;background:rgba(48,40,30,.97);border:1.5px solid rgba(217,119,6,.38);border-radius:20px;padding:22px;margin:8px 0 22px;box-shadow:0 18px 55px rgba(0,0,0,.5);">
 <button onclick="closeTopic('td-bd')" style="float:right;background:rgba(217,119,6,.2);border:1px solid rgba(217,119,6,.4);color:#fbbf24;border-radius:8px;padding:5px 13px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">✕ Close</button>
 <div style="clear:both;"></div>
 <div style="display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:14px;">
@@ -1068,50 +1259,43 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 </div></div></div></div>
 <div id="pg-ig" class="jhs-pg">
 <div class="pg-inner">
-<div class="sec-banner" style="background:linear-gradient(135deg,rgba(185,28,28,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/f/f3/EXCOMM_meeting%2C_Cuban_Missile_Crisis%2C_29_October_1962.jpg) center/cover no-repeat;"><h2>🎯 Year 10 & 11 — iGCSE History</h2><p>Cold War · Stalin's Russia · Vietnam War · Changes in Medicine</p></div><div id="ms-panel" style="background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(12,10,9,.95));border:2px solid rgba(37,99,235,.45);border-radius:16px;padding:18px 20px;margin-bottom:20px;">
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;">
-<span style="font-size:1.8rem;">📋</span>
+<div class="sec-banner" style="background:linear-gradient(135deg,rgba(185,28,28,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/f/f3/EXCOMM_meeting%2C_Cuban_Missile_Crisis%2C_29_October_1962.jpg) center/cover no-repeat;"><h2>🎯 Year 10 & 11 — iGCSE History</h2><p>Cold War · Stalin's Russia · Vietnam War · Changes in Medicine</p></div>
+<div style="background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(12,10,9,.95));border:2px solid rgba(37,99,235,.45);border-radius:16px;padding:18px 20px;margin-bottom:20px;">
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;">
+<span style="font-size:1.8rem;">🔗</span>
 <div>
-<div style="font-family:'Alegreya',serif;font-size:1.08rem;font-weight:800;color:#93c5fd;">Edexcel 4HI1 Mark Schemes — Google Drive</div>
-<div style="font-size:.82rem;color:#bfdbfe;margin-top:3px;">All mark schemes are stored securely in Google Drive. Click any link to open the PDF in a new tab — no login required.</div>
+<div style="font-family:'Alegreya',Georgia,serif;font-size:1.08rem;font-weight:800;color:#93c5fd;">Official Edexcel Mark Schemes — Direct Links</div>
+<div style="font-size:.82rem;color:#bfdbfe;margin-top:3px;">Select a year and paper to open the official PDF on the Pearson website. All mark schemes are publicly available — no login required.</div>
 </div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end;margin-bottom:12px;">
 <div>
-<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#60a5fa;margin-bottom:9px;padding-bottom:5px;border-bottom:1px solid rgba(37,99,235,.3);">📘 Paper 1 — Cold War &amp; Stalin</div>
-<div style="display:flex;flex-direction:column;gap:5px;">
-<a href="https://drive.google.com/file/d/13MOpxsUM81gXTf5H91eLFzvMlGQ2Woyl/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 1</a>
-<a href="https://drive.google.com/file/d/1ATAtutk9fW8rwaCJeYb1v4SKcBkfAJzf/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 2</a>
-<a href="https://drive.google.com/file/d/1C97hKVaelfxu16C5vSQLjLqt2Ahx7Dd7/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 3</a>
-<a href="https://drive.google.com/file/d/1DSoid4UcZBJN0xO_teNBHbRcSCtbvNtl/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 4</a>
-<a href="https://drive.google.com/file/d/1E4IhCUa965-I6T0ltU7eu1M2c4hHpkmi/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 5</a>
-<a href="https://drive.google.com/file/d/1F8mbOzxZbx8l3QLBY2X-O1DEUof8fRok/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 6</a>
-<a href="https://drive.google.com/file/d/1IkJrW_ClWdbSpTleoApdyyOxsTnYIFxW/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 7</a>
-<a href="https://drive.google.com/file/d/1O-3dQrND6tMVBpcvI4HCR4j3TFXV2vJw/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 8</a>
-<a href="https://drive.google.com/file/d/1OL5h7cnHS96qyA0pL7_Kn860f3Rvqd_G/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 9</a>
-<a href="https://drive.google.com/file/d/1PLfiCgfC5tKoRCyJDmsrTzlgvUSsAU1w/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 10</a>
-<a href="https://drive.google.com/file/d/1RQZklXSXL9w4WfCNUk0JLUBmDUZ-RHhN/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Mark Scheme Set 11</a>
-</div>
+<label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Year</label>
+<select id="ms-year" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">
+<option value="2026">2026</option><option value="2025" selected>2025</option><option value="2024">2024</option>
+<option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option>
+</select>
 </div>
 <div>
-<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#f87171;margin-bottom:9px;padding-bottom:5px;border-bottom:1px solid rgba(220,38,38,.3);">📗 Paper 2 — Vietnam &amp; Medicine</div>
-<div style="display:flex;flex-direction:column;gap:5px;">
-<a href="https://drive.google.com/file/d/1VJgn-E7HcBNgiDLDPY4cSoGmzwD56Hzi/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 1</a>
-<a href="https://drive.google.com/file/d/1W2E6auNO52PYT22s2Je326J5yrtfuiE3/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 2</a>
-<a href="https://drive.google.com/file/d/1YafLFoDkt8TWa5e-igQcqiVHdNsv5uAA/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 3</a>
-<a href="https://drive.google.com/file/d/1YgJJhaIRuciGIa5f8IRGl8jh19k5HTPK/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 4</a>
-<a href="https://drive.google.com/file/d/1buqhZV-0cnEmhW8rwo1JS5HVOhqx268s/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 5</a>
-<a href="https://drive.google.com/file/d/1iJkiMOIpkuO-Xfd5J4RZiE8bmPfiqGv7/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 6</a>
-<a href="https://drive.google.com/file/d/1iONzhyb3bc0SoEak7y0YyXS4JMaKdsP_/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 7</a>
-<a href="https://drive.google.com/file/d/1rlzMiL_MLCVFDIQaaobEwMQ5k9SmV6_u/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 8</a>
-<a href="https://drive.google.com/file/d/1ro00zTmKTk7S-xJdaVj0YjgOTXrMey6E/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 9</a>
-<a href="https://drive.google.com/file/d/1slPonKd-8g57sqfGhmGMoY1E3rSWPDLk/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 10</a>
-<a href="https://drive.google.com/file/d/1yDgyxs635sM4kmxhv_A5ErC49M-SGPDq/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Mark Scheme Set 11</a>
+<label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Series</label>
+<select id="ms-series" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">
+<option value="Aug" selected>Summer (Aug)</option><option value="Jan">January (Jan)</option>
+</select>
+</div>
+<div>
+<label style="display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;">Paper</label>
+<select id="ms-paper" style="width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;">
+<option value="1">Paper 1 (Cold War / Stalin)</option><option value="2">Paper 2 (Vietnam / Medicine)</option>
+</select>
+</div>
+<div>
+<button id="ms-go-btn" onclick="msOpen()" style="background:#2563eb;color:#fff;border:none;border-radius:9px;padding:9px 16px;font-size:.88rem;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap;height:38px;">Open PDF ↗</button>
 </div>
 </div>
-</div>
-<div style="background:rgba(37,99,235,.1);border-radius:9px;padding:9px 13px;font-size:.82rem;color:#bfdbfe;margin-top:12px;line-height:1.65;">
-💡 <strong style="color:#93c5fd;">Tip:</strong> Open the mark scheme alongside your practice answer. Use the Level 1–4 descriptors to self-assess before submitting to the Marker above.
+<div id="ms-result" style="display:none;margin-bottom:10px;"></div>
+<div style="background:rgba(37,99,235,.12);border-radius:9px;padding:10px 13px;font-size:.82rem;color:#bfdbfe;line-height:1.65;">
+📌 <strong style="color:#93c5fd;">Can't find the PDF?</strong> All 4HI1 mark schemes are published on the Pearson website.
+<a href="https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses-and-edexcel-certificates/history-2017.html#tab=Documents" target="_blank" rel="noopener" style="color:#60a5fa;font-weight:700;text-decoration:underline;margin-left:4px;">Browse all available mark schemes on Pearson ↗</a>
 </div>
 </div>
 <div style="background:linear-gradient(135deg,rgba(37,99,235,.22),rgba(20,16,12,.96));border:2px solid rgba(37,99,235,.55);border-radius:14px;padding:18px 20px;margin:0 0 20px;">
@@ -2581,7 +2765,8 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-feed"></div>
 <button onclick="blogClear(this)" class="blog-clear">Clear my comments on this device</button>
 </div>
-</div></div></div></div>
+</div></div></div>
+</div>
 <div id="pg-parents" class="jhs-pg"><div class="pg-inner">
 <div class="sec-banner" style="background:linear-gradient(135deg,rgba(120,53,15,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/a/ab/The_Battle_of_Trafalgar_by_William_Clarkson_Stanfield.jpg) center/cover no-repeat;"><h2>👨‍👩‍👧 For Parents & Carers</h2><p>How to support your child's history studies at home.</p></div>
 <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:860px;margin:0 auto;">
@@ -2592,6 +2777,38 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 </div></div></div>
 <div id="pg-mk" class="jhs-pg">
 <div class="pg-inner">
+<div id="ms-panel" style="background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(12,10,9,.95));border:2px solid rgba(37,99,235,.45);border-radius:16px;padding:18px 20px;margin-bottom:22px;">
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;"><span style="font-size:1.8rem;">📋</span>
+<div><div style="font-family:'Alegreya',serif;font-size:1.08rem;font-weight:800;color:#93c5fd;">Edexcel 4HI1 Mark Schemes — Google Drive</div>
+<div style="font-size:.82rem;color:#bfdbfe;margin-top:3px;">All 22 mark schemes stored in your Google Drive. Click any link to open the PDF directly in a new tab — no login required.</div></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+<div><div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#60a5fa;margin-bottom:9px;padding-bottom:5px;border-bottom:1px solid rgba(37,99,235,.3);">📘 Paper 1 — Cold War &amp; Stalin</div>
+<div style="display:flex;flex-direction:column;gap:5px;"><a href="https://drive.google.com/file/d/13MOpxsUM81gXTf5H91eLFzvMlGQ2Woyl/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Jan 2026</a>
+<a href="https://drive.google.com/file/d/1ATAtutk9fW8rwaCJeYb1v4SKcBkfAJzf/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Nov 2025</a>
+<a href="https://drive.google.com/file/d/1C97hKVaelfxu16C5vSQLjLqt2Ahx7Dd7/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Jun 2025</a>
+<a href="https://drive.google.com/file/d/1DSoid4UcZBJN0xO_teNBHbRcSCtbvNtl/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Jan 2025</a>
+<a href="https://drive.google.com/file/d/1E4IhCUa965-I6T0ltU7eu1M2c4hHpkmi/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Nov 2024</a>
+<a href="https://drive.google.com/file/d/1F8mbOzxZbx8l3QLBY2X-O1DEUof8fRok/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Jun 2024</a>
+<a href="https://drive.google.com/file/d/1IkJrW_ClWdbSpTleoApdyyOxsTnYIFxW/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Jan 2024</a>
+<a href="https://drive.google.com/file/d/1O-3dQrND6tMVBpcvI4HCR4j3TFXV2vJw/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Nov 2023</a>
+<a href="https://drive.google.com/file/d/1OL5h7cnHS96qyA0pL7_Kn860f3Rvqd_G/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Jun 2023</a>
+<a href="https://drive.google.com/file/d/1PLfiCgfC5tKoRCyJDmsrTzlgvUSsAU1w/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Jan 2023</a>
+<a href="https://drive.google.com/file/d/1RQZklXSXL9w4WfCNUk0JLUBmDUZ-RHhN/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Paper 1 — Jun 2022</a></div></div>
+<div><div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#f87171;margin-bottom:9px;padding-bottom:5px;border-bottom:1px solid rgba(220,38,38,.3);">📗 Paper 2 — Vietnam &amp; Medicine</div>
+<div style="display:flex;flex-direction:column;gap:5px;"><a href="https://drive.google.com/file/d/1VJgn-E7HcBNgiDLDPY4cSoGmzwD56Hzi/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Jan 2026</a>
+<a href="https://drive.google.com/file/d/1W2E6auNO52PYT22s2Je326J5yrtfuiE3/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Nov 2025</a>
+<a href="https://drive.google.com/file/d/1YafLFoDkt8TWa5e-igQcqiVHdNsv5uAA/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Jun 2025</a>
+<a href="https://drive.google.com/file/d/1YgJJhaIRuciGIa5f8IRGl8jh19k5HTPK/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Jan 2025</a>
+<a href="https://drive.google.com/file/d/1buqhZV-0cnEmhW8rwo1JS5HVOhqx268s/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Nov 2024</a>
+<a href="https://drive.google.com/file/d/1iJkiMOIpkuO-Xfd5J4RZiE8bmPfiqGv7/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Jun 2024</a>
+<a href="https://drive.google.com/file/d/1iONzhyb3bc0SoEak7y0YyXS4JMaKdsP_/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Jan 2024</a>
+<a href="https://drive.google.com/file/d/1rlzMiL_MLCVFDIQaaobEwMQ5k9SmV6_u/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Nov 2023</a>
+<a href="https://drive.google.com/file/d/1ro00zTmKTk7S-xJdaVj0YjgOTXrMey6E/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Jun 2023</a>
+<a href="https://drive.google.com/file/d/1slPonKd-8g57sqfGhmGMoY1E3rSWPDLk/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Jan 2023</a>
+<a href="https://drive.google.com/file/d/1yDgyxs635sM4kmxhv_A5ErC49M-SGPDq/view" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.3);border-radius:9px;color:#fca5a5;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(220,38,38,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(220,38,38,.14)';this.style.color='#fca5a5'">📄 Paper 2 — Jun 2022</a></div></div></div>
+<div style="background:rgba(37,99,235,.1);border-radius:9px;padding:9px 13px;font-size:.82rem;color:#bfdbfe;margin-top:12px;line-height:1.65;">
+💡 <strong style="color:#93c5fd;">Tip:</strong> Open the relevant mark scheme alongside your practice answer and compare your work against the Level 1–4 descriptors before using the Answer Marker above. Dates are approximate — update labels if needed.</div></div>
+
 
   <!-- PAGE HEADER BANNER -->
   <div style="position:relative;border-radius:22px;overflow:hidden;padding:38px 30px;margin-bottom:24px;
@@ -3580,42 +3797,5 @@ document.addEventListener('click',function(){setTimeout(initIG,250);},true);
   setTimeout(checkAndBuild, 400);
 })();
 </script>
-
-<div style="background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(12,10,9,.95));border:2px solid rgba(37,99,235,.45);border-radius:16px;padding:18px 20px;margin-bottom:20px;">
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;">
-<span style="font-size:1.8rem;">📋</span>
-<div>
-<div style="font-family:'Alegreya',serif;font-size:1.08rem;font-weight:800;color:#93c5fd;">Edexcel 4HI1 Mark Schemes — Google Drive</div>
-<div style="font-size:.82rem;color:#bfdbfe;margin-top:3px;">All mark schemes are stored in your Google Drive. Click any link below to open the PDF directly — no login required.</div>
-</div>
-</div>
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:12px;">
-<a href="https://drive.google.com/file/d/13MOpxsUM81gXTf5H91eLFzvMlGQ2Woyl/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 1</a>
-<a href="https://drive.google.com/file/d/1ATAtutk9fW8rwaCJeYb1v4SKcBkfAJzf/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 2</a>
-<a href="https://drive.google.com/file/d/1C97hKVaelfxu16C5vSQLjLqt2Ahx7Dd7/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 3</a>
-<a href="https://drive.google.com/file/d/1DSoid4UcZBJN0xO_teNBHbRcSCtbvNtl/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 4</a>
-<a href="https://drive.google.com/file/d/1E4IhCUa965-I6T0ltU7eu1M2c4hHpkmi/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 5</a>
-<a href="https://drive.google.com/file/d/1F8mbOzxZbx8l3QLBY2X-O1DEUof8fRok/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 6</a>
-<a href="https://drive.google.com/file/d/1IkJrW_ClWdbSpTleoApdyyOxsTnYIFxW/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 7</a>
-<a href="https://drive.google.com/file/d/1O-3dQrND6tMVBpcvI4HCR4j3TFXV2vJw/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 8</a>
-<a href="https://drive.google.com/file/d/1OL5h7cnHS96qyA0pL7_Kn860f3Rvqd_G/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 9</a>
-<a href="https://drive.google.com/file/d/1PLfiCgfC5tKoRCyJDmsrTzlgvUSsAU1w/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 10</a>
-<a href="https://drive.google.com/file/d/1RQZklXSXL9w4WfCNUk0JLUBmDUZ-RHhN/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 11</a>
-<a href="https://drive.google.com/file/d/1VJgn-E7HcBNgiDLDPY4cSoGmzwD56Hzi/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 12</a>
-<a href="https://drive.google.com/file/d/1W2E6auNO52PYT22s2Je326J5yrtfuiE3/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 13</a>
-<a href="https://drive.google.com/file/d/1YafLFoDkt8TWa5e-igQcqiVHdNsv5uAA/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 14</a>
-<a href="https://drive.google.com/file/d/1YgJJhaIRuciGIa5f8IRGl8jh19k5HTPK/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 15</a>
-<a href="https://drive.google.com/file/d/1buqhZV-0cnEmhW8rwo1JS5HVOhqx268s/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 16</a>
-<a href="https://drive.google.com/file/d/1iJkiMOIpkuO-Xfd5J4RZiE8bmPfiqGv7/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 17</a>
-<a href="https://drive.google.com/file/d/1iONzhyb3bc0SoEak7y0YyXS4JMaKdsP_/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 18</a>
-<a href="https://drive.google.com/file/d/1rlzMiL_MLCVFDIQaaobEwMQ5k9SmV6_u/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 19</a>
-<a href="https://drive.google.com/file/d/1ro00zTmKTk7S-xJdaVj0YjgOTXrMey6E/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 20</a>
-<a href="https://drive.google.com/file/d/1slPonKd-8g57sqfGhmGMoY1E3rSWPDLk/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 21</a>
-<a href="https://drive.google.com/file/d/1yDgyxs635sM4kmxhv_A5ErC49M-SGPDq/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(37,99,235,.14);border:1px solid rgba(37,99,235,.35);border-radius:9px;color:#93c5fd;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .15s;" onmouseover="this.style.background='rgba(37,99,235,.28)';this.style.color='#fff'" onmouseout="this.style.background='rgba(37,99,235,.14)';this.style.color='#93c5fd'">📄 Mark Scheme 22</a>
-</div>
-<div style="background:rgba(37,99,235,.12);border-radius:9px;padding:10px 13px;font-size:.82rem;color:#bfdbfe;line-height:1.65;">
-📌 <strong style="color:#93c5fd;">These are your Google Drive mark schemes.</strong> All 22 files open directly in a new tab. Files from Pearson Edexcel — 4HI1 History specification.
-</div>
-</div>
 </body>
 </html>
