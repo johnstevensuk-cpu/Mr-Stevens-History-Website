@@ -166,6 +166,16 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 /* SOURCE STUDIES DETAIL */
 .src-detail{display:none;background:rgba(34,28,22,.97);border:1px solid rgba(15,118,110,.3);border-radius:18px;margin-bottom:14px;overflow:hidden;box-shadow:0 18px 55px rgba(0,0,0,.5);}
 
+
+/* ── Microphone button ── */
+.tutor-mic{background:rgba(220,38,38,.18);color:#fca5a5;border:1.5px solid rgba(220,38,38,.35);border-radius:9px;width:36px;height:36px;cursor:pointer;font-size:.9rem;align-self:flex-end;flex-shrink:0;transition:.15s;}
+.tutor-mic:hover{background:rgba(220,38,38,.32);color:#fff;}
+.tutor-mic.recording{background:#dc2626!important;color:#fff!important;border-color:#dc2626!important;animation:mic-pulse 1s infinite;}
+@keyframes mic-pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.blog-mic-btn{background:rgba(220,38,38,.18);color:#fca5a5;border:1.5px solid rgba(220,38,38,.35);border-radius:7px;padding:3px 8px;font-size:.78rem;cursor:pointer;font-weight:700;transition:.15s;white-space:nowrap;}
+.blog-mic-btn:hover{background:rgba(220,38,38,.32);color:#fff;}
+.blog-mic-btn.recording{background:#dc2626!important;color:#fff!important;animation:mic-pulse 1s infinite;}
+
 </style>
 </head>
 <body>
@@ -341,6 +351,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="hs" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_hs">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -350,6 +361,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Can a source ever be both biased and genuinely useful as historical evidence?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Apply WACA</button><button onclick="blogChip(this)" class="blog-chip">Think about Aim</button><button onclick="blogChip(this)" class="blog-chip">Compare source types</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -403,6 +415,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="1066" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_1066">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -412,6 +425,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Were Harold Godwinson's own mistakes the MAIN reason William won at Hastings?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Harold's march</button><button onclick="blogChip(this)" class="blog-chip">William's tactics</button><button onclick="blogChip(this)" class="blog-chip">Role of luck</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -640,6 +654,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="med" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_med">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -649,6 +664,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">What does medieval entertainment reveal about inequality and social control?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -704,6 +720,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="bd" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_bd">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -713,6 +730,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Did the Black Death ultimately strengthen or weaken ordinary people's position in society?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Labour shortage</button><button onclick="blogChip(this)" class="blog-chip">Peasants' Revolt</button><button onclick="blogChip(this)" class="blog-chip">Feudalism</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -755,6 +773,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="cas" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_cas">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -764,12 +783,13 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Were Norman castles more important as military defences or as symbols of power?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
 </div>
 <div class="blog-feed"></div>
-<div id="pg-y7-hs" class="jhs-pg" style="display:none"><div class="pg-inner"><div class="sub-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg);"><div class="sub-hero-ov"></div><div class="sub-hero-content"><button class="sub-back" onclick="showPg('y7')">← Back to Year 7</button><span class="sub-tag">📅 Year 7 · Medieval England · Introduction · 8 Lessons</span><h1 class="sub-title">🔍 What is History?<br>&amp; The Norman Conquest 1066</h1><p class="sub-intro">History is what historians argue happened, based on evidence they can find and interpret. The year 1066 is the most famous date in English history. Understanding WHY William won — and what changed forever — is where your study of medieval England begins.</p></div></div><div class="key-facts-row"><div class="kf"><span class="kf-label">📅 Key Date</span><span class="kf-value">14 October 1066 — Battle of Hastings</span></div><div class="kf"><span class="kf-label">🔑 Key Concept</span><span class="kf-value">Chronology · Provenance · Change</span></div><div class="kf"><span class="kf-label">📖 Key Method</span><span class="kf-value">WACA — Who, Audience, Context, Aim</span></div><div class="kf"><span class="kf-label">🧠 HPL Focus</span><span class="kf-value">Critical analysis · Curiosity</span></div></div><div class="fw-bar"><span style="background:#1e40af;color:#93c5fd;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">📘 Teaching &amp; Learning</span><span style="background:#14532d;color:#86efac;border:1.5px solid #16a34a;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⭐ High Performance Learning</span><span style="background:#1e3a8a;color:#bfdbfe;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">☮️ SDG 16: Peace &amp; Justice</span><span style="background:#1f2937;color:#d1d5db;border:1.5px solid #374151;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🤖 AI Literacy (G6)</span></div><div class="listen-row"><span style="font-size:.6rem;text-transform:uppercase;font-weight:700;color:#6a6350;letter-spacing:.1em;">🔊 Listen:</span><button class="listen-btn" onclick="listenSection('hs',this)">🇬🇧 English</button><button class="listen-btn" style="background:rgba(5,150,105,.14);border-color:rgba(5,150,105,.28);color:#6ee7b7;" onclick="document.getElementById('lang-hs').value='ar-SA';listenSection('hs',this)">🇸🇦 عربي</button><button class="listen-btn" style="background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.28);color:#fca5a5;" onclick="stopListen()">⏹</button><input type="hidden" id="lang-hs" value="en-GB"></div><div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;"><div>
+<div id="pg-y7-hs" class="jhs-pg" style="display:none"><div class="pg-inner"><div class="sub-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg);"><div class="sub-hero-ov"></div><div class="sub-hero-content"><button class="sub-back" onclick="showPg('y7')">← Back to Year 7</button><span class="sub-tag">📅 Year 7 · Medieval England · Introduction · 8 Lessons</span><h1 class="sub-title">🔍 What is History?<br>&amp; The Norman Conquest 1066</h1><p class="sub-intro">History is what historians argue happened, based on evidence they can find and interpret. The year 1066 is the most famous date in English history. Understanding WHY William won — and what changed forever — is where your study of medieval England begins.</p></div></div><div class="key-facts-row"><div class="kf"><span class="kf-label">📅 Key Date</span><span class="kf-value">14 October 1066 — Battle of Hastings</span></div><div class="kf"><span class="kf-label">🔑 Key Concept</span><span class="kf-value">Chronology · Provenance · Change</span></div><div class="kf"><span class="kf-label">📖 Key Method</span><span class="kf-value">WACA — Who, Audience, Context, Aim</span></div><div class="kf"><span class="kf-label">🧠 HPL Focus</span><span class="kf-value">Critical analysis · Curiosity</span></div></div><div class="fw-bar"><span style="background:#1e40af;color:#93c5fd;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">📘 Teaching &amp; Learning</span><span style="background:#14532d;color:#86efac;border:1.5px solid #16a34a;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⭐ High Performance Learning</span><span style="background:#1e3a8a;color:#bfdbfe;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">☮️ SDG 16: Peace &amp; Justice</span><span style="background:#1f2937;color:#d1d5db;border:1.5px solid #374151;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🤖 AI Literacy (G6)</span></div><div class="listen-row"><span style="font-size:.6rem;text-transform:uppercase;font-weight:700;color:#6a6350;letter-spacing:.1em;">🔊 Listen:</span><input type="hidden" id="lang-hs" value="en-GB"></div><div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;"><div>
 <h2 class="sp-hdr" id="listen-hs">🧠 The WACA Framework — Apply to Every Source</h2>
 <p class="ov">History is not about memorising dates — it demands asking questions, finding evidence, and building justified arguments. The key skill is WACA: apply it to every source before using it as evidence.</p>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0;">
@@ -803,7 +823,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="yt-block"><div class="yt-hdr">🎥 Dan Snow · The History Guy · Crash Course</div><a href="https://www.youtube.com/results?search_query=dan+snow+Norman+conquest+1066" target="_blank" rel="noopener" class="yt-link">🎥 Dan Snow: The Norman Conquest</a><a href="https://www.youtube.com/results?search_query=the+history+guy+battle+of+hastings" target="_blank" rel="noopener" class="yt-link">🎥 The History Guy: Battle of Hastings</a><a href="https://www.youtube.com/results?search_query=%22Crash+Course%22+Norman+conquest+1066" target="_blank" rel="noopener" class="yt-link">🎥 Crash Course: The Norman Conquest</a></div>
 <div style="display:flex;flex-direction:column;gap:4px;margin:14px 0;"><a href="https://docs.google.com/presentation/d/1r9VfdXL3DU9YxEXh9sapSdZvFwuJM6U8/edit" target="_blank" rel="noopener" class="rlink">📊 What is History and 1066 — Master PPT</a><a href="https://drive.google.com/file/d/1bGTSeprSiBJ1ibgE3-MUyJeLCCJH-IvD/view" target="_blank" rel="noopener" class="rlink">📁 History Detectives Resource</a><a href="https://www.britannica.com/event/Battle-of-Hastings" target="_blank" rel="noopener" class="rlink">🔗 Britannica: Battle of Hastings</a><a href="https://www.britannica.com/topic/Norman-Conquest-of-England" target="_blank" rel="noopener" class="rlink">🔗 Britannica: Norman Conquest</a></div>
 </div><div style="position:sticky;top:72px;"><div class="verdict-box"><span class="verdict-label">🏛️ Historian's Verdict</span><span class="verdict-quote">&ldquo;The Norman Conquest was the greatest catastrophe that ever happened to England — an exchange of one ruling class for another that spoke a completely different language.&rdquo;</span><span class="verdict-attr">&mdash; Marc Morris, 2012</span></div><div class="dyk-box"><script>window._F=window._F||{};window._F["f_hs"]=["Harold marched 250 miles from Stamford Bridge to Hastings in just 13 days.", "The Bayeux Tapestry is 70 metres long and contains 623 human figures.", "William built 36 castles in 20 years across England to consolidate his conquest.", "Three battles in 1066: Gate Fulford, Stamford Bridge, Hastings.", "Norman French gave us beef, pork and mutton \u2014 words still used today."];</script><div class="dyk-label">💡 Did You Know?</div><div id="f_hs-t" class="dyk-text">Harold marched 250 miles from Stamford Bridge to Hastings in just 13 days.</div><div class="dyk-nav"><button onclick="dykGo('f_hs',(window._dykI['f_hs']||0)-1)" class="dyk-btn">&larr;</button><div id="f_hs-dots" class="dyk-dots"><button onclick="dykGo('f_hs',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_hs',1)" class="dyk-dot"></button><button onclick="dykGo('f_hs',2)" class="dyk-dot"></button><button onclick="dykGo('f_hs',3)" class="dyk-dot"></button><button onclick="dykGo('f_hs',4)" class="dyk-dot"></button></div><button onclick="dykGo('f_hs',(window._dykI['f_hs']||0)+1)" class="dyk-btn">&rarr;</button></div></div><div class="quiz-box" id="qhs"><div class="quiz-hdr">⚡ Quick Quiz</div><div class="quiz-q">Which battle did Harold win just 19 days BEFORE the Battle of Hastings?</div><button class="quiz-opt" onclick="qAns(this,true,"\u2705 Correct! Harold defeated Hardrada at Stamford Bridge on 25 September 1066.",'qhs')">A. Battle of Stamford Bridge — defeating Harald Hardrada of Norway</button><button class="quiz-opt" onclick="qAns(this,false,"\u274c Gate Fulford was WON by Hardrada. Harold won at Stamford Bridge.",'qhs')">B. Battle of Gate Fulford</button><button class="quiz-opt" onclick="qAns(this,false,"\u274c There was no Battle of Lincoln in 1066. The key battle was Stamford Bridge.",'qhs')">C. Battle of Lincoln</button><div class="quiz-fb" id="qhs-fb"></div></div><div class="tutor-box" data-tk="hs"><div class="tutor-hdr"><span class="tutor-ico">🧠</span><div><div class="tutor-name">Socrates, your historical AI tutor</div><div class="tutor-sub">Guides you · Never gives direct answers · Essay &amp; source skills</div></div></div><div style="background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.25);border-radius:8px;padding:7px 10px;margin-bottom:9px;font-size:.76rem;color:#6ee7b7;">🎤 <strong>You can speak your answer!</strong> Click the mic button below to record your response.</div><div class="tutor-modes"><button class="tutor-mode tutor-mode-active" onclick="tMode(this,'general')">💬 General</button><button class="tutor-mode" onclick="tMode(this,'essay')">✍️ Essay</button><button class="tutor-mode" onclick="tMode(this,'source')">📜 Source</button></div><div class="tutor-msgs"><div class="t-ai">Hello! I am Socrates, your historical AI tutor. I am here to help you with What is History? and the Norman Conquest 1066. What are you working on today?</div></div><div class="tutor-sugs"><button class="t-sug" onclick="tSug(this)">Help with an essay</button><button class="t-sug" onclick="tSug(this)">Apply WACA to a source</button><button class="t-sug" onclick="tSug(this)">Test my knowledge</button></div><div class="tutor-input-row"><textarea class="tutor-input" data-tk="hs" placeholder="Type your answer here — or use the 🎤 mic..." rows="2" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea><button class="tutor-mic" onclick="startMic(this,'hs')" title="🎤 Click to speak your answer">🎤</button><button class="tutor-send" onclick="tSend(this.previousElementSibling.previousElementSibling)">↑</button></div></div><div class="blog-box" data-bk="blog_hs"><div class="blog-hdr"><span style="font-size:1.3rem;">💬</span><div><div class="blog-title">Blog Spot</div><div class="blog-sub">Make a claim · Support it with evidence · Respond like a historian</div></div></div><div class="blog-q">Were Harold Godwinson's own mistakes the MAIN reason William won at Hastings?</div><div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Harold's forced march</button><button onclick="blogChip(this)" class="blog-chip">William's tactics</button><button onclick="blogChip(this)" class="blog-chip">Role of luck</button></div><div style="background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2);border-radius:7px;padding:6px 9px;margin-bottom:8px;font-size:.72rem;color:#d4af37;">🎤 <strong>Speak your argument!</strong> Click the mic to dictate your response.</div><textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea><div class="blog-row"><input type="text" class="blog-name" placeholder="Name or initials (optional)"><button class="tutor-mic" onclick="startMic(this,'hs')" title="🎤 Speak your argument" style="height:34px;width:34px;">🎤</button><button onclick="blogPost(this)" class="blog-post">Post</button></div><div class="blog-feed"></div><button onclick="blogClear(this)" class="blog-clear">Clear my comments</button></div></div></div><div style="margin-top:22px;text-align:center;"><button onclick="showPg('y7')" class="sub-back" style="display:inline-flex;">← Back to Year 7 Overview</button></div></div></div>
-<div id="pg-y7-bd" class="jhs-pg" style="display:none"><div class="pg-inner"><div class="sub-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/1/15/Danse_macabre_by_Michael_Wolgemut.jpg);"><div class="sub-hero-ov"></div><div class="sub-hero-content"><button class="sub-back" onclick="showPg('y7')">← Back to Year 7</button><span class="sub-tag">📅 Year 7 · Medieval England · Topic 3 · 16 Lessons</span><h1 class="sub-title">☠️ Health, Medicine<br>&amp; The Black Death</h1><p class="sub-intro">In the summer of 1348, a catastrophe arrived at the English port of Weymouth. Within two years, between a third and half of England's entire population was dead. Medieval medicine had no answer. Yet from this catastrophe came the slow collapse of the feudal system that had kept peasants in bondage for three centuries.</p></div></div><div class="key-facts-row"><div class="kf"><span class="kf-label">📅 Arrived</span><span class="kf-value">June 1348 — Weymouth, Dorset</span></div><div class="kf"><span class="kf-label">💀 Death Toll</span><span class="kf-value">~30–50% of England's population</span></div><div class="kf"><span class="kf-label">🦠 True Cause</span><span class="kf-value">Yersinia pestis — flea-borne bacteria</span></div><div class="kf"><span class="kf-label">📅 Cause Identified</span><span class="kf-value">Not until 1894 — 546 years later</span></div></div><div class="fw-bar"><span style="background:#1e40af;color:#93c5fd;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">📘 Teaching &amp; Learning</span><span style="background:#14532d;color:#86efac;border:1.5px solid #16a34a;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⭐ High Performance Learning</span><span style="background:#166534;color:#bbf7d0;border:1.5px solid #15803d;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🏥 SDG 3: Good Health</span><span style="background:#065f46;color:#a7f3d0;border:1.5px solid #059669;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🌍 SDG 12-15: Global Stewardship</span><span style="background:#1f2937;color:#d1d5db;border:1.5px solid #374151;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🤖 AI Literacy (G6)</span></div><div class="listen-row"><span style="font-size:.6rem;text-transform:uppercase;font-weight:700;color:#6a6350;letter-spacing:.1em;">🔊 Listen:</span><button class="listen-btn" onclick="listenSection('bd',this)">🇬🇧 English</button><button class="listen-btn" style="background:rgba(5,150,105,.14);border-color:rgba(5,150,105,.28);color:#6ee7b7;" onclick="document.getElementById('lang-bd').value='ar-SA';listenSection('bd',this)">🇸🇦 عربي</button><button class="listen-btn" style="background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.28);color:#fca5a5;" onclick="stopListen()">⏹</button><input type="hidden" id="lang-bd" value="en-GB"></div><div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;"><div>
+<div id="pg-y7-bd" class="jhs-pg" style="display:none"><div class="pg-inner"><div class="sub-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/1/15/Danse_macabre_by_Michael_Wolgemut.jpg);"><div class="sub-hero-ov"></div><div class="sub-hero-content"><button class="sub-back" onclick="showPg('y7')">← Back to Year 7</button><span class="sub-tag">📅 Year 7 · Medieval England · Topic 3 · 16 Lessons</span><h1 class="sub-title">☠️ Health, Medicine<br>&amp; The Black Death</h1><p class="sub-intro">In the summer of 1348, a catastrophe arrived at the English port of Weymouth. Within two years, between a third and half of England's entire population was dead. Medieval medicine had no answer. Yet from this catastrophe came the slow collapse of the feudal system that had kept peasants in bondage for three centuries.</p></div></div><div class="key-facts-row"><div class="kf"><span class="kf-label">📅 Arrived</span><span class="kf-value">June 1348 — Weymouth, Dorset</span></div><div class="kf"><span class="kf-label">💀 Death Toll</span><span class="kf-value">~30–50% of England's population</span></div><div class="kf"><span class="kf-label">🦠 True Cause</span><span class="kf-value">Yersinia pestis — flea-borne bacteria</span></div><div class="kf"><span class="kf-label">📅 Cause Identified</span><span class="kf-value">Not until 1894 — 546 years later</span></div></div><div class="fw-bar"><span style="background:#1e40af;color:#93c5fd;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">📘 Teaching &amp; Learning</span><span style="background:#14532d;color:#86efac;border:1.5px solid #16a34a;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⭐ High Performance Learning</span><span style="background:#166534;color:#bbf7d0;border:1.5px solid #15803d;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🏥 SDG 3: Good Health</span><span style="background:#065f46;color:#a7f3d0;border:1.5px solid #059669;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🌍 SDG 12-15: Global Stewardship</span><span style="background:#1f2937;color:#d1d5db;border:1.5px solid #374151;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🤖 AI Literacy (G6)</span></div><div class="listen-row"><span style="font-size:.6rem;text-transform:uppercase;font-weight:700;color:#6a6350;letter-spacing:.1em;">🔊 Listen:</span><input type="hidden" id="lang-bd" value="en-GB"></div><div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;"><div>
 <h2 class="sp-hdr" id="listen-bd">🖼️ WACA the Danse Macabre (c.1493)</h2>
 <p class="ov">The image above — the Danse Macabre (c.1493) — shows Death taking victims from every social class equally. But <strong>apply WACA immediately</strong>: it was painted 145 years AFTER the Black Death of 1348. The artist never witnessed the plague. This fundamentally changes how we can use it as evidence.</p>
 <figure style="margin:12px 0;border-radius:12px;overflow:hidden;border:1.5px solid rgba(212,175,55,.22);">
@@ -840,7 +860,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="yt-block"><div class="yt-hdr">🎥 Dan Snow · The History Guy · Crash Course</div><a href="https://www.youtube.com/results?search_query=dan+snow+Black+Death+plague+1348+England" target="_blank" rel="noopener" class="yt-link">🎥 Dan Snow: The Black Death</a><a href="https://www.youtube.com/results?search_query=the+history+guy+Black+Death+medieval" target="_blank" rel="noopener" class="yt-link">🎥 The History Guy: The Black Death</a><a href="https://www.youtube.com/results?search_query=%22Crash+Course%22+Black+Death+plague" target="_blank" rel="noopener" class="yt-link">🎥 Crash Course: The Black Death</a></div>
 <div style="display:flex;flex-direction:column;gap:4px;margin:14px 0;"><a href="https://docs.google.com/presentation/d/1mtjmp1A6vZeUCGn1Y2363HaKkRC1ZjTW/edit" target="_blank" rel="noopener" class="rlink">📊 Black Death — Lesson Presentation</a><a href="https://drive.google.com/file/d/1q_XMCXa5TEwwP597e0s0dHXqX9WKVnqV/view" target="_blank" rel="noopener" class="rlink">📁 Health and Medicine Resource (PDF)</a><a href="https://www.britannica.com/event/Black-Death" target="_blank" rel="noopener" class="rlink">🔗 Britannica: The Black Death</a><a href="https://docs.google.com/document/d/13cUk4QC_kwYei9Zv0FiymMBR9r1ATnyo/edit" target="_blank" rel="noopener" class="rlink">📄 Source Analysis Worksheet</a></div>
 </div><div style="position:sticky;top:72px;"><div class="verdict-box"><span class="verdict-label">🏛️ Historian's Verdict</span><span class="verdict-quote">&ldquo;The Black Death was arguably the most transformative event in medieval European history — not because of the death toll alone, but because of what those deaths made possible.&rdquo;</span><span class="verdict-attr">&mdash; David Herlihy, 1997</span></div><div class="dyk-box"><script>window._F=window._F||{};window._F["f_bd"]=["The Black Death killed 30\u201350% of England's population in just two years.", "It arrived at Weymouth, Dorset, in June 1348.", "The Danse Macabre was made in 1493 \u2014 145 years AFTER the Black Death of 1348.", "After the Black Death, wages for surviving workers DOUBLED \u2014 giving peasants bargaining power.", "In 1381, thousands of peasants marched on London \u2014 the Peasants' Revolt began with the Black Death."];</script><div class="dyk-label">💡 Did You Know?</div><div id="f_bd-t" class="dyk-text">The Black Death killed 30–50% of England's population in just two years.</div><div class="dyk-nav"><button onclick="dykGo('f_bd',(window._dykI['f_bd']||0)-1)" class="dyk-btn">&larr;</button><div id="f_bd-dots" class="dyk-dots"><button onclick="dykGo('f_bd',0)" class="dyk-dot dyk-dot-on"></button><button onclick="dykGo('f_bd',1)" class="dyk-dot"></button><button onclick="dykGo('f_bd',2)" class="dyk-dot"></button><button onclick="dykGo('f_bd',3)" class="dyk-dot"></button><button onclick="dykGo('f_bd',4)" class="dyk-dot"></button></div><button onclick="dykGo('f_bd',(window._dykI['f_bd']||0)+1)" class="dyk-btn">&rarr;</button></div></div><div class="quiz-box" id="qbd"><div class="quiz-hdr">⚡ Quick Quiz</div><div class="quiz-q">What was 'miasma theory'?</div><button class="quiz-opt" onclick="qAns(this,true,"\u2705 Correct! Miasma theory was a genuine medieval belief \u2014 doctors thought foul air caused disease.",'qbd')">A. The belief that disease was caused by bad or poisonous air</button><button class="quiz-opt" onclick="qAns(this,false,"\u274c Medieval people did NOT know about rats spreading disease. That was discovered in 1894.",'qbd')">B. The belief that rats spread disease through their bites</button><button class="quiz-opt" onclick="qAns(this,false,"\u274c That was Source A \u2014 a different medieval explanation. Miasma = bad air.",'qbd')">C. The belief that God caused all illness as punishment</button><div class="quiz-fb" id="qbd-fb"></div></div><div class="tutor-box" data-tk="bd"><div class="tutor-hdr"><span class="tutor-ico">🧠</span><div><div class="tutor-name">Socrates, your historical AI tutor</div><div class="tutor-sub">Guides you · Never gives direct answers · Essay &amp; source skills</div></div></div><div style="background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.25);border-radius:8px;padding:7px 10px;margin-bottom:9px;font-size:.76rem;color:#6ee7b7;">🎤 <strong>You can speak your answer!</strong> Click the mic button below to record your response.</div><div class="tutor-modes"><button class="tutor-mode tutor-mode-active" onclick="tMode(this,'general')">💬 General</button><button class="tutor-mode" onclick="tMode(this,'essay')">✍️ Essay</button><button class="tutor-mode" onclick="tMode(this,'source')">📜 Source</button></div><div class="tutor-msgs"><div class="t-ai">Hello! I am Socrates, your historical AI tutor. I am here to guide you through Health, Medicine &amp; The Black Death. What are you working on today?</div></div><div class="tutor-sugs"><button class="t-sug" onclick="tSug(this)">Help with an essay</button><button class="t-sug" onclick="tSug(this)">Apply WACA to a source</button><button class="t-sug" onclick="tSug(this)">Test my knowledge</button></div><div class="tutor-input-row"><textarea class="tutor-input" data-tk="bd" placeholder="Type your answer here — or use the 🎤 mic..." rows="2" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea><button class="tutor-mic" onclick="startMic(this,'bd')" title="🎤 Click to speak your answer">🎤</button><button class="tutor-send" onclick="tSend(this.previousElementSibling.previousElementSibling)">↑</button></div></div><div class="blog-box" data-bk="blog_bd"><div class="blog-hdr"><span style="font-size:1.3rem;">💬</span><div><div class="blog-title">Blog Spot</div><div class="blog-sub">Make a claim · Support it with evidence · Respond like a historian</div></div></div><div class="blog-q">Did the Black Death ultimately strengthen or weaken ordinary people's position in medieval society?</div><div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Labour shortage</button><button onclick="blogChip(this)" class="blog-chip">Peasants' Revolt</button><button onclick="blogChip(this)" class="blog-chip">Feudalism</button></div><div style="background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2);border-radius:7px;padding:6px 9px;margin-bottom:8px;font-size:.72rem;color:#d4af37;">🎤 <strong>Speak your argument!</strong> Click the mic to dictate your response.</div><textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea><div class="blog-row"><input type="text" class="blog-name" placeholder="Name or initials (optional)"><button class="tutor-mic" onclick="startMic(this,'bd')" title="🎤 Speak your argument" style="height:34px;width:34px;">🎤</button><button onclick="blogPost(this)" class="blog-post">Post</button></div><div class="blog-feed"></div><button onclick="blogClear(this)" class="blog-clear">Clear my comments</button></div></div></div><div style="margin-top:22px;text-align:center;"><button onclick="showPg('y7')" class="sub-back" style="display:inline-flex;">← Back to Year 7 Overview</button></div></div></div>
-<div id="pg-y7-cas" class="jhs-pg" style="display:none"><div class="pg-inner"><div class="sub-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/2/2d/Tower_of_London_viewed_from_the_River_Thames.jpg);"><div class="sub-hero-ov"></div><div class="sub-hero-content"><button class="sub-back" onclick="showPg('y7')">← Back to Year 7</button><span class="sub-tag">📅 Year 7 · Medieval England · Research Project · 10 Lessons</span><h1 class="sub-title">🏰 Castles — Motte &amp; Bailey<br>to Stone Behemoths</h1><p class="sub-intro">After Hastings, William the Conqueror faced a fundamental problem: how do you control a country whose entire population resents you? His answer was stone, timber, mortar and fear. Within months, Norman castles were rising across England — each one a statement to the conquered English: We are here. We are permanent. Try to resist.</p></div></div><div class="key-facts-row"><div class="kf"><span class="kf-label">⏱️ Build Time</span><span class="kf-value">Motte &amp; bailey: as little as 8 days</span></div><div class="kf"><span class="kf-label">🏰 Thickness</span><span class="kf-value">Tower of London: walls up to 2.5m</span></div><div class="kf"><span class="kf-label">📊 Scale</span><span class="kf-value">100+ castles built by 1086</span></div><div class="kf"><span class="kf-label">📅 Key</span><span class="kf-value">c.1078 — Tower of London begun</span></div></div><div class="fw-bar"><span style="background:#1e40af;color:#93c5fd;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">📘 Teaching &amp; Learning</span><span style="background:#14532d;color:#86efac;border:1.5px solid #16a34a;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⭐ High Performance Learning</span><span style="background:#1e3a8a;color:#bfdbfe;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">☮️ SDG 16: Peace &amp; Justice</span><span style="background:#065f46;color:#a7f3d0;border:1.5px solid #059669;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🌍 SDG 12-15: Global Stewardship</span><span style="background:#1f2937;color:#d1d5db;border:1.5px solid #374151;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🤖 AI Literacy (G6)</span></div><div class="listen-row"><span style="font-size:.6rem;text-transform:uppercase;font-weight:700;color:#6a6350;letter-spacing:.1em;">🔊 Listen:</span><button class="listen-btn" onclick="listenSection('cas',this)">🇬🇧 English</button><button class="listen-btn" style="background:rgba(5,150,105,.14);border-color:rgba(5,150,105,.28);color:#6ee7b7;" onclick="document.getElementById('lang-cas').value='ar-SA';listenSection('cas',this)">🇸🇦 عربي</button><button class="listen-btn" style="background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.28);color:#fca5a5;" onclick="stopListen()">⏹</button><input type="hidden" id="lang-cas" value="en-GB"></div><div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;"><div>
+<div id="pg-y7-cas" class="jhs-pg" style="display:none"><div class="pg-inner"><div class="sub-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/2/2d/Tower_of_London_viewed_from_the_River_Thames.jpg);"><div class="sub-hero-ov"></div><div class="sub-hero-content"><button class="sub-back" onclick="showPg('y7')">← Back to Year 7</button><span class="sub-tag">📅 Year 7 · Medieval England · Research Project · 10 Lessons</span><h1 class="sub-title">🏰 Castles — Motte &amp; Bailey<br>to Stone Behemoths</h1><p class="sub-intro">After Hastings, William the Conqueror faced a fundamental problem: how do you control a country whose entire population resents you? His answer was stone, timber, mortar and fear. Within months, Norman castles were rising across England — each one a statement to the conquered English: We are here. We are permanent. Try to resist.</p></div></div><div class="key-facts-row"><div class="kf"><span class="kf-label">⏱️ Build Time</span><span class="kf-value">Motte &amp; bailey: as little as 8 days</span></div><div class="kf"><span class="kf-label">🏰 Thickness</span><span class="kf-value">Tower of London: walls up to 2.5m</span></div><div class="kf"><span class="kf-label">📊 Scale</span><span class="kf-value">100+ castles built by 1086</span></div><div class="kf"><span class="kf-label">📅 Key</span><span class="kf-value">c.1078 — Tower of London begun</span></div></div><div class="fw-bar"><span style="background:#1e40af;color:#93c5fd;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">📘 Teaching &amp; Learning</span><span style="background:#14532d;color:#86efac;border:1.5px solid #16a34a;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⭐ High Performance Learning</span><span style="background:#1e3a8a;color:#bfdbfe;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">☮️ SDG 16: Peace &amp; Justice</span><span style="background:#065f46;color:#a7f3d0;border:1.5px solid #059669;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🌍 SDG 12-15: Global Stewardship</span><span style="background:#1f2937;color:#d1d5db;border:1.5px solid #374151;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🤖 AI Literacy (G6)</span></div><div class="listen-row"><span style="font-size:.6rem;text-transform:uppercase;font-weight:700;color:#6a6350;letter-spacing:.1em;">🔊 Listen:</span><input type="hidden" id="lang-cas" value="en-GB"></div><div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;"><div>
 <h2 class="sp-hdr" id="listen-cas">🏗️ Motte-and-Bailey Castles (1066–1100)</h2>
 <p class="ov">By 1086, over <strong>100 castles</strong> had been built across England. These had to be built quickly — wherever the Normans needed them. In Cambridge, <strong>25 houses</strong> were demolished to make way for a new castle. In Lincoln, the Normans pulled down <strong>over 150 houses</strong>. The English population had no choice.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:11px 0;">
@@ -889,7 +909,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <button onclick="blogClear(this)" class="blog-clear">Clear my comments on this device</button>
 </div></div>
 </div></div></div>
-<div id="pg-y7-med" class="jhs-pg" style="display:none"><div class="pg-inner"><div class="sub-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg);"><div class="sub-hero-ov"></div><div class="sub-hero-content"><button class="sub-back" onclick="showPg('y7')">← Back to Year 7</button><span class="sub-tag">📅 Year 7 · Medieval England · Topic 2 · 16 Lessons</span><h1 class="sub-title">🎭 Medieval<br>Entertainment &amp; Life</h1><p class="sub-intro">Leisure was not a right in medieval England — it was a rare gift. The Church structured life around feast days (from which the word 'holiday' derives, via 'holy day'), and only during these precious windows did ordinary people have time to play. What they chose to do reveals as much about the social order as any written chronicle.</p></div></div><div class="key-facts-row"><div class="kf"><span class="kf-label">📅 Key Date</span><span class="kf-value">1363 — Edward III bans mob football</span></div><div class="kf"><span class="kf-label">🔑 Key Concept</span><span class="kf-value">Change &amp; continuity</span></div><div class="kf"><span class="kf-label">📖 Key Term</span><span class="kf-value">Sumptuary laws</span></div><div class="kf"><span class="kf-label">🎯 Key Skill</span><span class="kf-value">Source analysis · WACA</span></div></div><div class="fw-bar"><span style="background:#1e40af;color:#93c5fd;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">📘 Teaching &amp; Learning</span><span style="background:#14532d;color:#86efac;border:1.5px solid #16a34a;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⭐ High Performance Learning</span><span style="background:#7e22ce;color:#e9d5ff;border:1.5px solid #9333ea;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⚖️ SDG 10: Inequalities</span><span style="background:#1e3a8a;color:#bfdbfe;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">☮️ SDG 16: Peace &amp; Justice</span><span style="background:#1f2937;color:#d1d5db;border:1.5px solid #374151;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🤖 AI Literacy (G6)</span></div><div class="listen-row"><span style="font-size:.6rem;text-transform:uppercase;font-weight:700;color:#6a6350;letter-spacing:.1em;">🔊 Listen:</span><button class="listen-btn" onclick="listenSection('med',this)">🇬🇧 English</button><button class="listen-btn" style="background:rgba(5,150,105,.14);border-color:rgba(5,150,105,.28);color:#6ee7b7;" onclick="document.getElementById('lang-med').value='ar-SA';listenSection('med',this)">🇸🇦 عربي</button><button class="listen-btn" style="background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.28);color:#fca5a5;" onclick="stopListen()">⏹</button><input type="hidden" id="lang-med" value="en-GB"></div><div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;"><div>
+<div id="pg-y7-med" class="jhs-pg" style="display:none"><div class="pg-inner"><div class="sub-hero" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/8/88/Pieter_Bruegel_the_Elder-_The_Peasant_Dance_-_Google_Art_Project.jpg);"><div class="sub-hero-ov"></div><div class="sub-hero-content"><button class="sub-back" onclick="showPg('y7')">← Back to Year 7</button><span class="sub-tag">📅 Year 7 · Medieval England · Topic 2 · 16 Lessons</span><h1 class="sub-title">🎭 Medieval<br>Entertainment &amp; Life</h1><p class="sub-intro">Leisure was not a right in medieval England — it was a rare gift. The Church structured life around feast days (from which the word 'holiday' derives, via 'holy day'), and only during these precious windows did ordinary people have time to play. What they chose to do reveals as much about the social order as any written chronicle.</p></div></div><div class="key-facts-row"><div class="kf"><span class="kf-label">📅 Key Date</span><span class="kf-value">1363 — Edward III bans mob football</span></div><div class="kf"><span class="kf-label">🔑 Key Concept</span><span class="kf-value">Change &amp; continuity</span></div><div class="kf"><span class="kf-label">📖 Key Term</span><span class="kf-value">Sumptuary laws</span></div><div class="kf"><span class="kf-label">🎯 Key Skill</span><span class="kf-value">Source analysis · WACA</span></div></div><div class="fw-bar"><span style="background:#1e40af;color:#93c5fd;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">📘 Teaching &amp; Learning</span><span style="background:#14532d;color:#86efac;border:1.5px solid #16a34a;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⭐ High Performance Learning</span><span style="background:#7e22ce;color:#e9d5ff;border:1.5px solid #9333ea;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">⚖️ SDG 10: Inequalities</span><span style="background:#1e3a8a;color:#bfdbfe;border:1.5px solid #2563eb;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">☮️ SDG 16: Peace &amp; Justice</span><span style="background:#1f2937;color:#d1d5db;border:1.5px solid #374151;;border-radius:8px;padding:5px 12px;font-size:.69rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;margin:2px;">🤖 AI Literacy (G6)</span></div><div class="listen-row"><span style="font-size:.6rem;text-transform:uppercase;font-weight:700;color:#6a6350;letter-spacing:.1em;">🔊 Listen:</span><input type="hidden" id="lang-med" value="en-GB"></div><div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;"><div>
 <h2 class="sp-hdr" id="listen-med">🎮 Could You Have Fun in the Middle Ages?</h2>
 <p class="ov">Ordinary people did not have 'holidays'. Instead, there were feast days through the year — Easter, May Day, Midsummer's Eve, Christmas, and various Saints' days. After church, they had some free time. Our word <strong>'holiday'</strong> comes from the term <strong>'holy day'</strong>. Here are the most popular pastimes:</p>
 
@@ -1065,6 +1085,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="sl" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_sl">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1074,6 +1095,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was the abolition of the slave trade in 1807 primarily a moral or an economic victory?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Equiano</button><button onclick="blogChip(this)" class="blog-chip">Brookes diagram</button><button onclick="blogChip(this)" class="blog-chip">1807 vs 1833</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1116,6 +1138,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="fm" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_fm">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1125,6 +1148,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Did the Industrial Revolution improve or worsen life for ordinary British people?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1167,6 +1191,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="lv" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_lv">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1176,6 +1201,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Why did it take catastrophes like cholera and the Great Stink to trigger public health reform?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1218,6 +1244,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="em" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_em">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1227,6 +1254,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was the British Empire primarily a force for progress, control, or exploitation?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1300,6 +1328,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="nel" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_nel">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1309,6 +1338,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was the Battle of Trafalgar more significant for British security or British national identity?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1362,6 +1392,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="ww1" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_ww1">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1371,6 +1402,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was World War One caused more by long-term tensions than by the Sarajevo assassination?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">M.A.I.N.</button><button onclick="blogChip(this)" class="blog-chip">Sarajevo spark</button><button onclick="blogChip(this)" class="blog-chip">Alliance system</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1424,6 +1456,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="lon" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_lon">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1433,6 +1466,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was the League of Nations structurally doomed to fail — or could better leadership have saved it?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1586,6 +1620,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="cw" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_cw">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1595,6 +1630,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was the USA or the USSR more responsible for the tensions that led to the Cold War?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Iron Curtain</button><button onclick="blogChip(this)" class="blog-chip">Truman Doctrine</button><button onclick="blogChip(this)" class="blog-chip">Cuba blockade</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1637,6 +1673,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="st" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_st">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1646,6 +1683,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was terror more important than propaganda in maintaining Stalin's power?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">NKVD/Gulag</button><button onclick="blogChip(this)" class="blog-chip">Cult of personality</button><button onclick="blogChip(this)" class="blog-chip">Show Trials</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1688,6 +1726,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="vn" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_vn">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1697,6 +1736,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was the Tet Offensive the turning point of the Vietnam War — or just the moment the truth became visible?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Tet: military win</button><button onclick="blogChip(this)" class="blog-chip">Tet: political defeat</button><button onclick="blogChip(this)" class="blog-chip">US home front</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1739,6 +1779,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="md" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div><div class="blog-box" data-bk="blog_md">
 <div class="blog-hdr"><span style="font-size:1.4rem;">💬</span>
@@ -1748,6 +1789,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was World War Two the MAIN reason the NHS was created in 1948, or just an accelerator?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Penicillin 1928</button><button onclick="blogChip(this)" class="blog-chip">Beveridge Report</button><button onclick="blogChip(this)" class="blog-chip">BMA opposition</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1871,6 +1913,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="hs" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_hs">
@@ -1881,6 +1924,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Can a source ever be both biased and genuinely useful as historical evidence?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Apply WACA</button><button onclick="blogChip(this)" class="blog-chip">Think about Aim</button><button onclick="blogChip(this)" class="blog-chip">Compare source types</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1920,6 +1964,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="1066" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_1066">
@@ -1930,6 +1975,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Were Harold Godwinson's own mistakes the MAIN reason William won at Hastings?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Harold's march</button><button onclick="blogChip(this)" class="blog-chip">William's tactics</button><button onclick="blogChip(this)" class="blog-chip">Role of luck</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -1969,6 +2015,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="ww1" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_ww1">
@@ -1979,6 +2026,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was World War One caused more by long-term tensions than by the Sarajevo assassination?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">M.A.I.N.</button><button onclick="blogChip(this)" class="blog-chip">Sarajevo spark</button><button onclick="blogChip(this)" class="blog-chip">Alliance system</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2018,6 +2066,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="lon" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_lon">
@@ -2028,6 +2077,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was the League of Nations structurally doomed to fail — or could better leadership have saved it?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2067,6 +2117,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="cw" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_cw">
@@ -2077,6 +2128,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was the USA or the USSR more responsible for the tensions that led to the Cold War?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Iron Curtain</button><button onclick="blogChip(this)" class="blog-chip">Truman Doctrine</button><button onclick="blogChip(this)" class="blog-chip">Cuba blockade</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2116,6 +2168,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="st" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_st">
@@ -2126,6 +2179,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was terror more important than propaganda in maintaining Stalin's power?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">NKVD/Gulag</button><button onclick="blogChip(this)" class="blog-chip">Cult of personality</button><button onclick="blogChip(this)" class="blog-chip">Show Trials</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2165,6 +2219,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="vn" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_vn">
@@ -2175,6 +2230,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was the Tet Offensive the turning point of the Vietnam War — or just the moment the truth became visible?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Tet: military win</button><button onclick="blogChip(this)" class="blog-chip">Tet: political defeat</button><button onclick="blogChip(this)" class="blog-chip">US home front</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2214,6 +2270,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="md" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_md">
@@ -2224,6 +2281,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Was World War Two the MAIN reason the NHS was created in 1948, or just an accelerator?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Penicillin 1928</button><button onclick="blogChip(this)" class="blog-chip">Beveridge Report</button><button onclick="blogChip(this)" class="blog-chip">BMA opposition</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2402,6 +2460,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srcbayeux" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srcbayeux">
@@ -2412,6 +2471,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2455,6 +2515,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srcasc" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srcasc">
@@ -2465,6 +2526,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2508,6 +2570,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srcdanse" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srcdanse">
@@ -2518,6 +2581,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2561,6 +2625,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srcbrookes" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srcbrookes">
@@ -2571,6 +2636,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2614,6 +2680,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srctrench" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srctrench">
@@ -2624,6 +2691,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2667,6 +2735,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srcselassie" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srcselassie">
@@ -2677,6 +2746,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2720,6 +2790,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srcchurchill" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srcchurchill">
@@ -2730,6 +2801,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2773,6 +2845,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srccuba" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srccuba">
@@ -2783,6 +2856,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2826,6 +2900,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srcstalint" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srcstalint">
@@ -2836,6 +2911,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2879,6 +2955,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srcvietnam" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srcvietnam">
@@ -2889,6 +2966,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -2932,6 +3010,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="tutor-input-row">
 <textarea class="tutor-input" data-tk="srcpen" placeholder="Type your question or answer here..." rows="2"
   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea>
+<button class="tutor-mic" onclick="startTutorMic(this)" title="🎤 Click to speak your answer">🎤</button>
 <button class="tutor-send" onclick="tSend(this.previousElementSibling)">&#8593;</button>
 </div></div>
 <div class="blog-box" data-bk="blog_srcpen">
@@ -2942,6 +3021,7 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <div class="blog-q">Which historical argument from this topic is most convincing — and why?</div>
 <div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Make a claim</button><button onclick="blogChip(this)" class="blog-chip">Use evidence</button><button onclick="blogChip(this)" class="blog-chip">Challenge a view</button></div>
 <textarea class="blog-ta" placeholder="I would argue… because… The evidence shows…"></textarea>
+<div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="blog-mic-btn" onclick="startBlogMic(this)" title="🎤 Speak your answer">🎤 Speak</button></div>
 <div class="blog-row">
 <input type="text" class="blog-name" placeholder="Name or initials (optional)">
 <button onclick="blogPost(this)" class="blog-post">Post</button>
@@ -3256,7 +3336,7 @@ function msOpen(){
       +"<input type=\"text\" id=\"mk-question\" style=\"width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:8px 10px;font-size:.88rem;color:#fff;font-family:inherit;outline:none;\" placeholder=\"e.g. How far do you agree that the Berlin Blockade was the main cause of Cold War tensions?\"></div>"
       +"</div>"
       +"<div style=\"margin-bottom:8px;\"><label style=\"display:block;font-size:.78rem;font-weight:700;color:#bfdbfe;margin-bottom:5px;\">Your Answer <span id=\"mk-wc\" style=\"color:#60a5fa;font-weight:800;\"></span></label>"
-      +"<textarea id=\"mk-answer\" style=\"width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:9px;padding:10px 12px;font-size:.9rem;font-family:inherit;color:#fff;outline:none;resize:vertical;min-height:180px;\" placeholder=\"Paste or type your practice answer here...\"></textarea></div>"
+      +"<textarea id=\"mk-answer\" style=\"width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(37,99,235,.4);border-radius:9px;padding:10px 12px;font-size:.9rem;font-family:inherit;color:#fff;outline:none;resize:vertical;min-height:180px;\" placeholder=\"Paste or type your practice answer here...\"></textarea><div style=\"margin-top:6px;\"><button class=\"blog-mic-btn\" onclick=\"startMarkerMic(this)\" title=\"🎤 Speak your answer\">🎤 Speak your answer</button></div></div>"
       +"<div style=\"display:flex;gap:8px;align-items:center;margin-bottom:14px;\">"
       +"<label style=\"display:inline-flex;align-items:center;gap:6px;background:rgba(37,99,235,.2);border:1.5px solid rgba(37,99,235,.4);border-radius:8px;padding:7px 12px;font-size:.82rem;font-weight:700;color:#93c5fd;cursor:pointer;\">📎 Upload .txt file<input type=\"file\" id=\"mk-file\" accept=\".txt\" style=\"display:none;\"></label>"
       +"</div>"
@@ -3980,6 +4060,59 @@ document.addEventListener('click',function(){setTimeout(initIG,250);},true);
 
   setTimeout(checkAndBuild, 400);
 })();
+
+/* ── Microphone (Web Speech API) ── */
+var _micRec = null, _micActive = false, _micTarget = null;
+
+function startMic(btn, targetEl) {
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { alert('Speech recognition needs Chrome or Edge.'); return; }
+  if (_micActive) { _stopMic(btn); return; }
+  _micTarget = targetEl;
+  _micRec = new SR();
+  _micRec.continuous = true;
+  _micRec.interimResults = true;
+  _micRec.lang = 'en-GB';
+  _micRec.onstart = function() {
+    _micActive = true;
+    btn.classList.add('recording');
+    btn.textContent = '🔴';
+  };
+  _micRec.onresult = function(e) {
+    var t = '';
+    for (var i = e.resultIndex; i < e.results.length; i++) {
+      t += e.results[i][0].transcript;
+    }
+    if (_micTarget) _micTarget.value = t;
+  };
+  _micRec.onerror = function() { _stopMic(btn); };
+  _micRec.onend = function() { _stopMic(btn); };
+  _micRec.start();
+}
+
+function _stopMic(btn) {
+  if (_micRec) { try { _micRec.stop(); } catch(e){} _micRec = null; }
+  _micActive = false;
+  if (btn) { btn.classList.remove('recording'); btn.textContent = '🎤'; }
+}
+
+function startTutorMic(btn) {
+  var row = btn.closest('.tutor-input-row');
+  var ta = row ? row.querySelector('.tutor-input') : null;
+  startMic(btn, ta);
+}
+
+function startBlogMic(btn) {
+  var box = btn.closest('.blog-box');
+  var ta = box ? box.querySelector('.blog-ta') : null;
+  startMic(btn, ta);
+}
+
+function startMarkerMic(btn) {
+  var ta = document.getElementById('mk-answer');
+  startMic(btn, ta);
+}
+
 </script>
 </body>
 </html>
