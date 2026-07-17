@@ -251,6 +251,60 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 .ae-dl:hover{background:#1d4ed8;}
 .ae-cnt{font-size:.7rem;color:#6b7280;}
 
+
+/* === STAFF/STUDENT GATEWAY + TEACHER PHASE 2 === */
+body.gateway{padding-left:0!important;}
+body.gateway #sb{transform:translateX(-100%)!important;}
+body.gateway #hbtn{display:none!important;}
+.gw-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,rgba(120,53,15,.28),rgba(10,8,5,.98) 70%);padding:24px;text-align:center;}
+.gw-card{max-width:520px;width:100%;}
+.gw-title{font-family:'Alegreya',serif;font-size:clamp(2rem,6vw,3.2rem);color:#fbbf24;line-height:1.05;margin:10px 0;}
+.gw-sub{color:rgba(212,175,55,.74);font-size:1rem;margin-bottom:34px;}
+.gw-btn{display:block;width:100%;border-radius:16px;padding:22px 26px;margin:14px 0;cursor:pointer;font-family:inherit;font-weight:900;font-size:1.08rem;transition:.18s;border:2px solid;}
+.gw-btn:hover{transform:translateY(-2px);}
+.gw-student{background:linear-gradient(135deg,rgba(37,99,235,.94),rgba(29,78,216,.94));border-color:rgba(37,99,235,.65);color:#fff;box-shadow:0 8px 24px rgba(37,99,235,.3);}
+.gw-staff{background:linear-gradient(135deg,rgba(120,53,15,.94),rgba(92,40,10,.94));border-color:rgba(212,175,55,.55);color:#fbbf24;box-shadow:0 8px 24px rgba(120,53,15,.3);}
+.gw-note{font-size:.78rem;font-weight:500;opacity:.78;margin-top:4px;}
+.tp-ov{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9900;display:none;align-items:center;justify-content:center;}
+.tp-ov.tpv{display:flex;}
+.tp-box{background:#1a1008;border:2px solid rgba(212,175,55,.4);border-radius:16px;padding:32px;width:min(440px,92vw);text-align:center;}
+.tp-box h2{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.7rem;margin-bottom:6px;}
+.tp-box p{color:#a8a29e;font-size:.86rem;margin-bottom:18px;}
+.tp-inp,.tp-sel,.tp-ta{width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(212,175,55,.3);border-radius:8px;padding:10px 14px;color:#fff;font-family:inherit;outline:none;box-sizing:border-box;margin-bottom:10px;}
+.tp-ta{min-height:76px;resize:vertical;}
+.tp-inp:focus,.tp-sel:focus,.tp-ta:focus{border-color:#d4af37;}
+.tp-btn{background:#d4af37;color:#1a0a00;border:none;border-radius:8px;padding:10px 15px;font-size:.88rem;font-weight:900;cursor:pointer;font-family:inherit;margin:4px;}
+.tp-btn.sec{background:rgba(255,255,255,.08);color:#e8e4d0;border:1px solid rgba(255,255,255,.2);}
+.tp-btn.blue{background:#2563eb;color:#fff}.tp-btn.green{background:#059669;color:#fff}.tp-btn.red{background:#dc2626;color:#fff}.tp-btn.amber{background:#d97706;color:#fff}
+#pg-teacher .tp-pnl{background:rgba(28,22,12,.95);border:1.5px solid rgba(212,175,55,.25);border-radius:14px;padding:20px;margin-bottom:18px;}
+#pg-teacher .tp-pnl h3{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.15rem;margin-bottom:12px;}
+.tp-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
+.tp-tab{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#a8a29e;border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.tp-tab.on,.tp-tab:hover{background:#d4af37;color:#1a0a00;border-color:#d4af37;}
+.tp-sec{display:none}.tp-sec.on{display:block}
+.tp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;}
+.tp-card{background:rgba(28,22,12,.9);border:1.5px solid rgba(212,175,55,.2);border-radius:12px;padding:14px;margin-bottom:10px;}
+.tp-card h4{color:#fbbf24;font-family:'Alegreya',serif;font-size:1rem;margin-bottom:4px;}
+.tp-card p{color:#a8a29e;font-size:.78rem;margin-bottom:8px;}
+.tp-chip{display:inline-block;border-radius:999px;background:rgba(255,255,255,.1);padding:3px 9px;font-size:.72rem;color:#e8e4d0;margin:2px;}
+.tp-tbl{width:100%;border-collapse:collapse;font-size:.78rem;}
+.tp-tbl th{background:rgba(212,175,55,.2);color:#fbbf24;padding:8px 10px;text-align:left;border-bottom:2px solid rgba(212,175,55,.3);}
+.tp-tbl td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.06);color:#e8e4d0;vertical-align:middle;}
+.gb{display:inline-block;border-radius:5px;padding:2px 8px;font-size:.68rem;font-weight:900;}
+.gsa{background:#7c3aed;color:#fff}.gab{background:#0284c7;color:#fff}.ga{background:#2563eb;color:#fff}.gi{background:#059669;color:#fff}.gbp{background:#d97706;color:#fff}.gbb{background:#dc2626;color:#fff}.gsb{background:#991b1b;color:#fff}.gig{background:#4f46e5;color:#fff}
+.ae-feedback{background:#f8fafc;border:1.5px solid #cbd5e1;border-radius:8px;padding:10px 12px;margin-top:8px;color:#111;font-size:.82rem;line-height:1.55;}
+.ae-feedback h4{font-family:Calibri,Arial,sans-serif;color:#1e3a8a;margin:0 0 5px;font-size:.95rem;}
+.ae-feedback ul{margin:.25rem 0 .25rem 1rem;}
+.ae-mark-btn{background:#7c3aed;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.ae-improve-btn{background:#d97706;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.ae-submit-btn{background:#059669;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.ae-fb-dl{background:#2563eb;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;}
+#pg-student .sp-card{background:rgba(28,22,12,.9);border:1.5px solid rgba(37,99,235,.25);border-radius:12px;padding:16px;margin-bottom:12px;}
+.sp-ring{width:64px;height:64px;border-radius:50%;border:4px solid;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.9rem;flex-shrink:0;text-align:center;}
+.sp-fb{background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3);border-radius:8px;padding:10px 13px;font-size:.82rem;color:#6ee7b7;margin-top:8px;line-height:1.6;}
+.test-ok{color:#86efac}.test-warn{color:#fbbf24}.test-bad{color:#fca5a5}
+@media(max-width:768px){.tp-grid{grid-template-columns:1fr}.gw-card{max-width:420px}}
+
 </style>
 </head>
 <body>
@@ -279,71 +333,23 @@ select{color:#fff;}select option{background:#1c1917;color:#fff;}
 <a href="https://johnshistorysite.my.canva.site/the-seven-years-war" target="_blank" rel="noopener">The Seven Years' War</a>
 <a href="https://johnshistorysite.my.canva.site/wilberforce-essay-assistant" target="_blank" rel="noopener">Wilberforce Essay Assistant</a>
 <div class="sb-section">
+<div class="sb-section-label">Staff</div>
+<button onclick="showPg('teacher')" class="sb-btn" data-p="teacher">👩‍🏫 Teacher Portal</button>
+<button onclick="showPg('student')" class="sb-btn" data-p="student">📊 My Work &amp; Feedback</button>
+</div>
+<div class="sb-section">
 <div class="sb-section-label">About</div>
 <button onclick="showPg('ack')" class="sb-btn" data-p="ack">📜 Acknowledgements</button>
 </div>
 </div></nav>
 <button id="hbtn" onclick="sbToggle()">☰</button>
 <div id="pg-home" class="jhs-pg active">
-<div class="hero"><div class="hero-bg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Cheshire_Regiment_trench_Somme_1916.jpg" loading="eager" onerror="this.remove()"></div>
-<div class="hero-inner">
-<div class="hero-ey">📜 Where Evidence Meets Imagination</div>
-<h1 class="hero-h1"><em style="color:#fbbf24;font-style:normal;">Mr Stevens'</em> History Hub</h1>
-<p class="hero-sub">Discover · Investigate · Debate</p>
-<p class="hero-desc">A complete history resource from Norman castles to the Cuban Missile Crisis — real historical photographs, Crash Course, Dan Snow, The History Guy, Britannica research links, WACA primary source analysis, Socrates AI tutor, Blog Spot debates, iGCSE marking tool and full exam revision.</p>
-</div></div>
-<div class="pg-inner">
-<div class="feat-bar">
-<div class="feat-lbl">📌 Featured Related Sites</div>
-<div class="feat-grid">
-<a href="https://johnshistorysite.my.canva.site/victorian-public-health" target="_blank" rel="noopener" class="feat-a">Victorian Public Health</a>
-<a href="https://johnshistorysite.my.canva.site/diesease-and-public-health" target="_blank" rel="noopener" class="feat-a">Disease &amp; Public Health</a>
-<a href="https://johnshistorysite.my.canva.site/the-seven-years-war" target="_blank" rel="noopener" class="feat-a">The Seven Years' War</a>
-<a href="https://johnshistorysite.my.canva.site/wilberforce-essay-assistant" target="_blank" rel="noopener" class="feat-a">Wilberforce Essay Assistant</a>
-</div></div>
-<div class="year-grid">
-<button type="button" class="y-card" onclick="showPg('y7')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg);background-color:#3a1a6e;">
-<div class="y-card-ov"></div>
-<div class="y-card-txt">
-<span class="y-card-label">📅 Year 7</span>
-<span class="y-card-title">Medieval England 1066–1500</span>
-<span class="y-card-sub">Norman Conquest · Black Death · Castles</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('y8')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/a/a4/Brookes_slave_ship%2C_British_Library.jpg);background-color:#065f46;">
-<div class="y-card-ov"></div>
-<div class="y-card-txt">
-<span class="y-card-label">⚓ Year 8</span>
-<span class="y-card-title">Slavery, Industry & Empire</span>
-<span class="y-card-sub">Slave Trade · Industrial Revolution · Empire</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('y9')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/f/fa/Cheshire_Regiment_trench_Somme_1916.jpg);background-color:#3a0a0a;">
-<div class="y-card-ov"></div>
-<div class="y-card-txt">
-<span class="y-card-label">🌍 Year 9</span>
-<span class="y-card-title">World War One & The League of Nations</span>
-<span class="y-card-sub">Nelson · WW1 · League of Nations</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('ig')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/f/f3/EXCOMM_meeting%2C_Cuban_Missile_Crisis%2C_29_October_1962.jpg);background-color:#3a0808;">
-<div class="y-card-ov"></div>
-<div class="y-card-txt">
-<span class="y-card-label">🎯 Year 10–11 · iGCSE</span>
-<span class="y-card-title">Stalin, Cold War, Vietnam & Medicine</span>
-<span class="y-card-sub">P1: 16 May · P2: 5 Jun · Includes Marking Tool</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('rv')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/2/2c/Domesday-book-1085-1086.jpg);background-color:#1a2a6e;">
-<div class="y-card-ov"></div>
-<div class="y-card-txt">
-<span class="y-card-label">✏️ Revision Hub</span>
-<span class="y-card-title">Key Dates · Terms · Exam Technique</span>
-<span class="y-card-sub">Year 7–11 · 6/8/16-mark guides</span>
-</div></button>
-<button type="button" class="y-card" onclick="showPg('src')" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/4/4e/Cuban_missiles.jpg);background-color:#1a0a3a;">
-<div class="y-card-ov"></div>
-<div class="y-card-txt">
-<span class="y-card-label">🔍 Source Studies</span>
-<span class="y-card-title">Primary Source Analysis</span>
-<span class="y-card-sub">WACA · LOOK-CHECK-INFER-JUDGE</span>
-</div></button>
+<div class="gw-wrap"><div class="gw-card">
+<div style="font-size:3.8rem;">📜</div>
+<h1 class="gw-title">Mr Stevens' History Hub</h1>
+<p class="gw-sub">Where Evidence Meets Imagination</p>
+<button class="gw-btn gw-student" onclick="enterStudentSite()"><div style="font-size:2rem;margin-bottom:6px;">👨‍🎓</div>Student Site<div class="gw-note">Lessons · Activities · Quizzes · AI Tutor</div></button>
+<button class="gw-btn gw-staff" onclick="showPg('teacher')"><div style="font-size:2rem;margin-bottom:6px;">👩‍🏫</div>Staff Portal<div class="gw-note">Lesson plans · Classes · Marking · Feedback</div></button>
 </div></div></div>
 <div id="pg-y7" class="jhs-pg"><div class="pg-inner"><div class="sec-banner" style="background:linear-gradient(135deg,rgba(109,40,217,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg) center/cover no-repeat;"><h2>📅 Year 7 — Medieval England 1066–1500</h2><p>The Norman Conquest, medieval society, health and medicine, and castles.</p></div><div class="topics-grid"><button type="button" onclick="toggleTopic('td-hs')"
   style="position:relative;border-radius:16px;overflow:hidden;min-height:175px;cursor:pointer;
@@ -6678,7 +6684,7 @@ function msOpen(){
 document.querySelectorAll('[id^="rvs-"]').forEach(function(el){el.classList.add('rv-detail-item');});
 </script>
 
-<script id="igcse-marker-js">
+<script id="igcse-marker-js" type="text/plain">
 /* ── IGCSE MARKER (embedded) ── */
 (function(){
 'use strict';
@@ -8042,7 +8048,12 @@ function glossarySearch(q) {
       +'<input type="color" class="ae-clr" value="#fff176" onchange="document.execCommand(\'hiliteColor\',false,this.value)" title="Highlight">'
       +'</div>'
       +'<div class="ae-area" contenteditable="true" oninput="aeCount(this,\'aec'+idx+'\')" placeholder="Write your answer here..."></div>'
-      +'<div class="ae-foot"><span id="aec'+idx+'" class="ae-cnt">0 chars</span>'
+      +'<div class="ae-foot"><div class="ae-native-tools" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;width:100%;">'
+      +'<button class="ae-mark-btn" onclick="autoMarkWork(this)" style="background:#7c3aed;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">🤖 Auto Mark My Work</button>'
+      +'<button class="ae-improve-btn" onclick="improveAnswer(this)" style="background:#d97706;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">✨ Improve My Answer</button>'
+      +'<button class="ae-fb-dl" onclick="downloadFeedback(this)" style="background:#2563eb;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">📥 Download Feedback</button>'
+      +'<button class="ae-submit-btn" onclick="submitToTeacher(this)" style="background:#059669;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">📤 Submit to Teacher</button>'
+      +'</div><span id="aec'+idx+'" class="ae-cnt">0 chars</span>'
       +'<button class="ae-dl" onclick="aeDl(this)">&#128229; Download as Word</button>'
       +'</div>';
     return d;
@@ -8130,5 +8141,114 @@ function downloadRag(topic){
   document.body.removeChild(a); URL.revokeObjectURL(url);
 }
 </script>
+
+
+<div id="pg-teacher" class="jhs-pg"><div class="pg-inner">
+<div id="tp-overlay" class="tp-ov"><div class="tp-box"><div style="font-size:2.4rem">👩‍🏫</div><h2>Teacher Portal</h2><p>Enter the staff PIN. Default PIN: <strong>2626</strong></p><input id="tp-pin" type="password" class="tp-inp" placeholder="Enter PIN" onkeydown="if(event.key==='Enter')TPlogin()"><button class="tp-btn" onclick="TPlogin()">Enter Portal</button><div id="tp-err" class="tp-err">Incorrect PIN.</div><button class="tp-btn sec" onclick="showPg('home')">Back</button></div></div>
+<div id="tp-dash" style="display:none;">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px"><div><h1 style="font-family:'Alegreya',serif;color:#fbbf24;font-size:2rem">👩‍🏫 Staff Portal</h1><p style="color:#a8a29e">Lesson plans · Classes · Auto-marking · Feedback</p></div><div><button class="tp-btn red" onclick="TPlogout()">Log Out</button><button class="tp-btn sec" onclick="showPg('home')">Gateway</button></div></div>
+<div class="tp-tabs"><button class="tp-tab on" id="tptab-lp" onclick="TPtab('lp')">📋 Lesson Plans</button><button class="tp-tab" id="tptab-cl" onclick="TPtab('cl')">👥 Classes</button><button class="tp-tab" id="tptab-ms" onclick="TPtab('ms')">📊 Marksheet</button><button class="tp-tab" id="tptab-test" onclick="TPtab('test')">🧪 Test Centre</button><button class="tp-tab" id="tptab-st" onclick="TPtab('st')">⚙️ Settings</button></div>
+<div id="tpsec-lp" class="tp-sec on"><div class="tp-pnl"><h3>📋 Detailed Lesson Plans — all topics and sections</h3><div style="display:inline-block;background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.45);color:#c4b5fd;border-radius:999px;padding:4px 10px;font-size:.72rem;font-weight:800;margin-bottom:10px;">Phase 2C auto-marking build</div><p style="color:#a8a29e;font-size:.84rem">Plans are generated from the actual live topic content. Each document uses narrow margins and includes overview, objectives, HPL/T&amp;L/SDG/AI links, key vocabulary, detailed lesson stages, differentiation, plenary, assessment opportunities and activity rubrics.</p><div style="margin:10px 0"><button class="tp-btn green" onclick="TPscanPlans()">🔄 Scan live topics</button><button class="tp-btn blue" onclick="TPdownloadAllPlanIndex()">📥 Download plan index</button></div><div id="tp-lplist" class="tp-grid"></div></div></div>
+<div id="tpsec-cl" class="tp-sec"><div class="tp-pnl"><h3>➕ Create class</h3><div class="tp-grid"><input id="tc-name" class="tp-inp" placeholder="Class name e.g. 7A History"><select id="tc-year" class="tp-sel"><option>Year 7</option><option>Year 8</option><option>Year 9</option><option>Year 10</option><option>Year 11</option></select><input id="tc-pin" class="tp-inp" placeholder="Class PIN e.g. history7a"></div><button class="tp-btn green" onclick="TPcreateClass()">Create class</button></div><div class="tp-pnl"><h3>👥 My classes</h3><div id="tp-cllist"></div></div></div>
+<div id="tpsec-ms" class="tp-sec"><div class="tp-pnl"><h3>📊 Class marksheet</h3><p style="color:#a8a29e;font-size:.84rem">Submitted work appears here with automatic grade and feedback. Teachers can override grades manually.</p><div id="tp-ms"></div></div></div>
+<div id="tpsec-test" class="tp-sec"><div class="tp-pnl"><h3>🧪 Testing Centre</h3><p style="color:#a8a29e;font-size:.84rem">Use this to test the whole workflow safely.</p><button class="tp-btn green" onclick="TPdemoData()">Create demo class + submissions</button><button class="tp-btn blue" onclick="TPtab('ms')">Open marksheet</button><button class="tp-btn amber" onclick="TPclearDemo()">Clear demo data</button><div id="tp-testlog" style="margin-top:12px;font-size:.84rem;color:#e8e4d0"></div></div></div>
+<div id="tpsec-st" class="tp-sec"><div class="tp-pnl"><h3>⚙️ Settings and backup</h3><input id="st-cur" type="password" class="tp-inp" placeholder="Current PIN"><input id="st-new" type="password" class="tp-inp" placeholder="New PIN"><input id="st-con" type="password" class="tp-inp" placeholder="Confirm new PIN"><button class="tp-btn" onclick="TPchangePin()">Change PIN</button><hr style="border-color:rgba(255,255,255,.1);margin:14px 0"><button class="tp-btn blue" onclick="TPexport()">Export all data</button><button class="tp-btn red" onclick="TPclearAll()">Clear all data</button></div></div>
+</div></div></div>
+<div id="pg-student" class="jhs-pg"><div class="pg-inner"><div style="max-width:760px;margin:0 auto"><div style="text-align:center;padding:24px 0"><div style="font-size:3rem">👨‍🎓</div><h1 style="font-family:'Alegreya',serif;color:#fbbf24;font-size:2rem">My Work &amp; Feedback</h1><p style="color:#a8a29e">View submitted work and teacher feedback</p></div><div id="sp-login" class="tp-pnl"><h3>🔐 Access feedback</h3><input id="sp-name" class="tp-inp" placeholder="Your name"><input id="sp-code" class="tp-inp" placeholder="Class code"><button class="tp-btn" onclick="SPlogin()">View My Work</button></div><div id="sp-portal" style="display:none"><div style="display:flex;justify-content:space-between;align-items:center"><h3 id="sp-welcome" style="color:#fbbf24;font-family:'Alegreya',serif"></h3><button class="tp-btn red" onclick="SPlogout()">Log out</button></div><div id="sp-list"></div></div></div></div></div>
+
+
+<script id="tp-phase2-engine">
+(function(){"use strict";
+var SK='mrsh_tp_phase2_v1', SSK='mrsh_sp_phase2_v1';
+function gd(){try{return JSON.parse(localStorage.getItem(SK)||'{}')}catch(e){return {}}}
+function sd(d){try{localStorage.setItem(SK,JSON.stringify(d))}catch(e){}}
+function gsd(){try{return JSON.parse(localStorage.getItem(SSK)||'{}')}catch(e){return {}}}
+function ssd(d){try{localStorage.setItem(SSK,JSON.stringify(d))}catch(e){}}
+function esc(s){return String(s||'').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function plain(el){return (el?el.innerText||el.textContent||'':'').replace(/\s+/g,' ').trim()}
+function gradeClass(g){return {'Sig. Above':'gsa','Above+':'gab','Above':'ga','Inline':'gi','Below+':'gbp','Below':'gbb','Sig. Below':'gsb'}[g]||'gig'}
+function gradeColour(g){return {'Sig. Above':'#7c3aed','Above+':'#0284c7','Above':'#2563eb','Inline':'#059669','Below+':'#d97706','Below':'#dc2626','Sig. Below':'#991b1b'}[g]||'#4f46e5'}
+function isIGCSEBox(box){var page=box.closest('.jhs-pg');var id=page?page.id:'';var t=plain(box).toLowerCase();return id.indexOf('ig')>-1||/igcse|edexcel|cold war|stalin|vietnam|medicine|16-mark|8-mark|6-mark|4 marks/.test(t)}
+function getRubric(box){var title=plain(box.querySelector('.act-title'))||'Activity';var body=plain(box.querySelector('.act-body'))||plain(box);var ig=isIGCSEBox(box);var words=(title+' '+body).toLowerCase().split(/[^a-z0-9']+/).filter(Boolean);var stop='the and for with from this that your you are was were have has had will would should could about into each using write explain what why how identify create apply source activity task one two three does which'.split(' ');var freq={};words.forEach(function(w){if(w.length>4&&stop.indexOf(w)<0)freq[w]=(freq[w]||0)+1});var keys=Object.keys(freq).sort(function(a,b){return freq[b]-freq[a]}).slice(0,10);return {title:title,body:body,isIGCSE:ig,keyTerms:keys,criteria:[ig?'Accurate and precise subject knowledge':'Accurate historical knowledge',ig?'Clear explanation linked to the question':'Clear explanation and development',/source|waca|evidence|chronicle|poster|photograph/i.test(title+' '+body)?'Source evaluation / WACA where relevant':'Specific evidence from the topic',/judgement|how far|agree|evaluate|assess|conclusion/i.test(title+' '+body)?'Balanced judgement with a conclusion':'A clear final judgement or answer']}}
+window.autoMarkWork=function(btn){var box=btn.closest('.act-box');var ed=btn.closest('.act-editor');var area=ed?ed.querySelector('.ae-area'):null;var ans=area?plain(area):'';if(!ans){alert('Write your answer in the editor first.');return null}var r=getRubric(box);var low=ans.toLowerCase();var wc=ans.split(/\s+/).filter(Boolean).length;var score=0, strengths=[], targets=[];
+if(wc>=180){score+=3;strengths.push('Your response is extended and developed.')}else if(wc>=90){score+=2;strengths.push('Your response has useful length and some development.')}else if(wc>=45){score+=1;targets.push('Develop your answer with more explanation and examples.')}else{targets.push('Your answer is too brief; add more detail and evidence.')}
+var used=r.keyTerms.filter(function(k){return low.indexOf(k)>=0});score+=Math.min(3,used.length);if(used.length>=3)strengths.push('You use relevant topic vocabulary: '+used.slice(0,5).join(', ')+'.');else targets.push('Use more precise topic vocabulary such as: '+r.keyTerms.slice(0,5).join(', ')+'.');
+if(/because|therefore|this shows|this suggests|as a result|consequently|however|although|whereas|significant|important/.test(low)){score+=2;strengths.push('You include explanatory language and make links between ideas.')}else targets.push('Use explanatory connectives such as because, therefore, however and this suggests.');
+if(/waca|who|audience|context|aim|provenance|useful|limited|bias|reliable|source/.test(low)){score+=2;strengths.push('You refer to source usefulness, provenance or WACA-style thinking.')}else if(/source|waca|evidence|chronicle|poster|photograph/i.test(r.title+' '+r.body)){targets.push('This task needs source evaluation: include Who, Audience, Context and Aim.');}
+if(/\b(10[0-9]{2}|11[0-9]{2}|12[0-9]{2}|13[0-9]{2}|14[0-9]{2}|15[0-9]{2}|16[0-9]{2}|17[0-9]{2}|18[0-9]{2}|19[0-9]{2}|20[0-9]{2})\b/.test(ans)){score+=1;strengths.push('You include specific dates or precise evidence.')}else targets.push('Add precise factual evidence such as dates, names, examples or source details.');
+if(/in conclusion|overall|therefore|ultimately|i agree|i disagree|how far/.test(low)){score+=1;strengths.push('You attempt a judgement or conclusion.')}else if(/how far|agree|evaluate|assess|most important/i.test(r.title+' '+r.body)){targets.push('Add a clear judgement or conclusion that directly answers the question.');}
+var grade;if(r.isIGCSE){grade=score>=10?'9':score>=9?'8':score>=8?'7':score>=7?'6':score>=6?'5':score>=5?'4':score>=4?'3':score>=3?'2':'1'}else{grade=score>=10?'Sig. Above':score>=9?'Above+':score>=7?'Above':score>=5?'Inline':score>=4?'Below+':score>=2?'Below':'Sig. Below'}
+if(strengths.length===0)strengths.push('You have started the task and can now build on this answer.');if(targets.length===0)targets.push('To improve further, sharpen your judgement and add another precise piece of evidence.');
+var fb={grade:grade,score:score,title:r.title,isIGCSE:r.isIGCSE,keyTerms:r.keyTerms,strengths:strengths,targets:targets,criteria:r.criteria,answer:ans,date:new Date().toISOString()};
+ed._lastFeedback=fb;renderFeedback(ed,fb);return fb}
+function renderFeedback(ed,fb){var old=ed.querySelector('.ae-feedback');if(old)old.remove();var div=document.createElement('div');div.className='ae-feedback';div.innerHTML='<h4>Auto-mark feedback: <span class="gb '+gradeClass(fb.grade)+'">'+fb.grade+'</span></h4><div><strong>Success criteria:</strong><ul>'+fb.criteria.map(function(c){return '<li>'+esc(c)+'</li>'}).join('')+'</ul></div><div><strong>Strengths:</strong><ul>'+fb.strengths.map(function(c){return '<li>'+esc(c)+'</li>'}).join('')+'</ul></div><div><strong>Next steps:</strong><ul>'+fb.targets.map(function(c){return '<li>'+esc(c)+'</li>'}).join('')+'</ul></div>';ed.appendChild(div)}
+window.improveAnswer=function(btn){var ed=btn.closest('.act-editor');var area=ed?ed.querySelector('.ae-area'):null;if(!area)return;var fb=ed._lastFeedback||autoMarkWork(btn);if(!fb)return;area.innerHTML += '<p><strong>Improvement target:</strong> '+esc(fb.targets[0]||'Add more precise evidence and explain why it matters.')+'</p>';}
+window.downloadFeedback=function(btn){var ed=btn.closest('.act-editor');var fb=ed&&ed._lastFeedback;if(!fb){fb=autoMarkWork(btn);if(!fb)return;}var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><style>@page{margin:.55in;}body{font-family:Calibri,Arial,sans-serif;margin:.55in;line-height:1.45;}h1{color:#1e3a5f;}li{margin-bottom:4px;}</style></head><body><h1>Feedback - '+esc(fb.title)+'</h1><p><b>Grade:</b> '+esc(fb.grade)+'</p><h2>Strengths</h2><ul>'+fb.strengths.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ul><h2>Next Steps</h2><ul>'+fb.targets.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ul><h2>Your Answer</h2><p>'+esc(fb.answer)+'</p></body></html>';var blob=new Blob([html],{type:'application/msword'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download=(fb.title||'feedback').replace(/[^a-z0-9]/gi,'_').slice(0,40)+'_feedback.doc';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+window.submitToTeacher=function(btn){var ed=btn.closest('.act-editor');var box=btn.closest('.act-box');var fb=ed&&ed._lastFeedback||autoMarkWork(btn);if(!fb)return;var name=localStorage.getItem('mrsh_sn')||prompt('Student name:');if(!name)return;localStorage.setItem('mrsh_sn',name);var code=localStorage.getItem('mrsh_sc')||prompt('Class code. Leave blank for local feedback only:');var d=gd();var cid=null;if(code){cid=Object.keys(d.classes||{}).find(function(id){return id.slice(-6).toUpperCase()===code.trim().toUpperCase()});if(!cid){alert('Class code not found. Feedback has been generated locally but not submitted.');localStorage.removeItem('mrsh_sc');return}}else{alert('No class code entered. Feedback has been generated locally only.');return}localStorage.setItem('mrsh_sc',code);if(!d.subs)d.subs={};var sid='sub_'+Date.now();d.subs[sid]={id:sid,student:name,classId:cid,title:fb.title,content:fb.answer,grade:fb.grade,feedback:fb.strengths.join(' ')+' Next: '+fb.targets.join(' '),at:new Date().toISOString(),auto:true};sd(d);btn.textContent='Submitted';btn.disabled=true;setTimeout(function(){btn.textContent='Submit to Teacher';btn.disabled=false},2200)}
+function addButtons(ed){if(ed.querySelector('.ae-mark-btn')||ed.querySelector('.ae-native-tools'))return;var foot=ed.querySelector('.ae-foot')||ed.querySelector('.aet-footer');if(!foot)return;var wrap=document.createElement('div');wrap.style.display='flex';wrap.style.gap='6px';wrap.style.flexWrap='wrap';wrap.innerHTML='<button class="ae-mark-btn" onclick="autoMarkWork(this)">🤖 Auto Mark My Work</button><button class="ae-improve-btn" onclick="improveAnswer(this)">✨ Improve My Answer</button><button class="ae-fb-dl" onclick="downloadFeedback(this)">📥 Download Feedback</button><button class="ae-submit-btn" onclick="submitToTeacher(this)">📤 Submit to Teacher</button>';foot.insertBefore(wrap,foot.firstChild)}
+function observeEditors(){document.querySelectorAll('.act-editor').forEach(addButtons);var obs=new MutationObserver(function(){document.querySelectorAll('.act-editor').forEach(addButtons)});obs.observe(document.body,{childList:true,subtree:true});setTimeout(function(){document.querySelectorAll('.act-editor').forEach(addButtons)},500);setTimeout(function(){document.querySelectorAll('.act-editor').forEach(addButtons)},1500)}
+function collectPlanNodes(){var nodes=[];document.querySelectorAll('[id^="td-"],#pg-rv,#pg-src,#pg-mk,#pg-parents,[id^="pg-ig-"]').forEach(function(n){var title=(n.querySelector('.sp-hdr,.sec-banner h2,h2')&&plain(n.querySelector('.sp-hdr,.sec-banner h2,h2'))) || n.id.replace(/^td-|^pg-/,'').toUpperCase();var acts=[].slice.call(n.querySelectorAll('.act-box'));var heads=[].slice.call(n.querySelectorAll('.sp-hdr,h2')).map(plain).filter(Boolean);if(acts.length||heads.length)nodes.push({id:n.id,title:title,acts:acts,heads:heads,node:n})});return nodes}
+window.TPscanPlans=function(){var c=document.getElementById('tp-lplist');if(!c)return;var plans=collectPlanNodes();if(!plans.length){c.innerHTML='<p style="color:#a8a29e">No topic sections found.</p>';return}c.innerHTML=plans.map(function(p,i){return '<div class="tp-card"><h4>'+esc(p.title)+'</h4><p>'+p.heads.length+' sections · '+p.acts.length+' activities</p><button class="tp-btn blue" onclick="TPdownloadPlan('+i+')">Download detailed plan</button><button class="tp-btn sec" onclick="TPdownloadRubric('+i+')">Download rubrics</button></div>'}).join('');window._tpPlans=plans}
+function planDoc(p, rubricsOnly){var acts=p.acts.map(function(a,idx){return {title:plain(a.querySelector('.act-title'))||('Activity '+(idx+1)),body:plain(a.querySelector('.act-body'))}});var sections=p.heads.length?p.heads:['Introduction','Main learning','Activities','Review'];var rows=sections.map(function(s,i){var linked=acts[i]?acts[i].title:'Teacher exposition, retrieval, supported practice';return '<tr><td>'+(i+1)+'</td><td><b>'+esc(s)+'</b></td><td>Starter retrieval, teacher modelling, guided practice, independent application, checking for understanding.</td><td>'+esc(linked)+'</td><td>Support: sentence stems, vocabulary bank, paired reading. Stretch: source comparison, extended judgement, independent research.</td></tr>'}).join('');var rub=acts.map(function(a,idx){var fake=document.createElement?null:null;return '<h3>'+esc(a.title)+'</h3><table><tr><th>Band</th><th>Descriptor</th></tr><tr><td>Sig. Above / 9-8</td><td>Precisely addresses the task, uses accurate evidence, explains significance, and reaches a substantiated judgement.</td></tr><tr><td>Above+ / 7</td><td>Detailed answer with clear explanation and relevant evidence; judgement is present but may be less fully balanced.</td></tr><tr><td>Above / 6</td><td>Sound knowledge and relevant examples; explanation is generally clear.</td></tr><tr><td>Inline / 5-4</td><td>Meets the core task with some accurate knowledge but needs more precise evidence or explanation.</td></tr><tr><td>Below+ / 3</td><td>Partial response with limited detail; some relevant knowledge but weak development.</td></tr><tr><td>Below / 2</td><td>Basic attempt; limited accuracy, detail or structure.</td></tr><tr><td>Sig. Below / 1</td><td>Very brief or unclear response; major gaps in knowledge or relevance.</td></tr></table><p><b>Expected evidence:</b> '+esc((a.body||'').slice(0,350))+'</p><p><b>Feedback bank:</b> Add more precise topic vocabulary; explain why the evidence matters; include a judgement; use WACA if this is a source task.</p>'}).join('');return '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>@page{margin:.55in;}body{font-family:Calibri,Arial,sans-serif;margin:.55in;line-height:1.35;font-size:10.5pt;}h1{color:#1e3a5f;border-bottom:3px solid #d4af37;}h2{color:#1e3a5f;border-left:5px solid #d4af37;padding-left:8px;}table{width:100%;border-collapse:collapse;margin:8px 0;}td,th{border:1px solid #bbb;padding:5px 7px;vertical-align:top;}th{background:#1e3a5f;color:#fff;}.small{font-size:9pt;color:#555;}</style></head><body><h1>'+esc(p.title)+' — Detailed Lesson Plan</h1><p><b>Generated from live website section:</b> '+esc(p.id)+'</p><h2>Lesson Overview</h2><p>This sequence develops historical knowledge, source evaluation, extended explanation and independent judgement through the live activities in this section.</p><h2>Learning Objectives</h2><ul><li>Recall and use accurate topic knowledge.</li><li>Use key vocabulary accurately.</li><li>Explain causes, consequences, change, continuity or significance as appropriate.</li><li>Use evidence from sources or content to support answers.</li><li>Move from description to explanation and judgement.</li></ul><h2>HPL / T&L / SDG / AI Links</h2><p><b>HPL:</b> Analysis, evaluation, making connections, intellectual curiosity. <b>T&amp;L:</b> Retrieval, modelling, guided practice, independent application, metacognition. <b>SDG:</b> SDG 4 Quality Education and relevant justice/equality links. <b>AI:</b> Critical evaluation of generated information and bias.</p><h2>Key Vocabulary</h2><p>'+esc((p.node.innerText||'').split(/[^A-Za-z]+/).filter(functionWord).slice(0,30).join(', '))+'</p><h2>Detailed Lesson Stages</h2><table><tr><th>#</th><th>Section</th><th>Teacher Input / Learning Sequence</th><th>Linked Activity</th><th>Differentiation</th></tr>'+rows+'</table><h2>Plenary / Exit Ticket</h2><p>Students answer: What is the most important point from today and what evidence supports it? For source tasks, they must include one WACA judgement sentence.</p><h2>Assessment and Rubrics</h2>'+rub+'<p class="small">Narrow margin teacher document generated by Mr Stevens History Hub.</p></body></html>'}
+function functionWord(w){return w.length>5&&!/activity|student|students|history|historical|teacher|source|using|write|explain|because|which|should|would/.test(w.toLowerCase())}
+function downloadDoc(name,html){var blob=new Blob([html],{type:'application/msword'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download=name.replace(/[^a-z0-9]/gi,'_').slice(0,55)+'.doc';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+window.TPdownloadPlan=function(i){var p=(window._tpPlans||collectPlanNodes())[i];if(p)downloadDoc(p.title+'_lesson_plan',planDoc(p,false))}
+window.TPdownloadRubric=function(i){var p=(window._tpPlans||collectPlanNodes())[i];if(p)downloadDoc(p.title+'_rubrics',planDoc(p,true))}
+window.TPdownloadAllPlanIndex=function(){var plans=collectPlanNodes();var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><style>@page{margin:.55in;}body{font-family:Calibri;margin:.55in}table{border-collapse:collapse;width:100%}td,th{border:1px solid #bbb;padding:5px}</style></head><body><h1>Mr Stevens History Hub — Lesson Plan Index</h1><table><tr><th>Topic</th><th>Sections</th><th>Activities</th></tr>'+plans.map(function(p){return '<tr><td>'+esc(p.title)+'</td><td>'+p.heads.length+'</td><td>'+p.acts.length+'</td></tr>'}).join('')+'</table></body></html>';downloadDoc('History_Hub_Lesson_Plan_Index',html)}
+window.TPcreateClass=function(){var n=document.getElementById('tc-name').value.trim(),y=document.getElementById('tc-year').value,p=document.getElementById('tc-pin').value.trim();if(!n||!p){alert('Enter class name and PIN.');return}var d=gd();if(!d.classes)d.classes={};var id='cls_'+Date.now();d.classes[id]={id:id,name:n,year:y,pin:p,students:[],created:new Date().toISOString()};sd(d);document.getElementById('tc-name').value='';document.getElementById('tc-pin').value='';TPrend_CL();alert('Class created. Code: '+id.slice(-6).toUpperCase())}
+window.TPaddStu=function(id){var inp=document.getElementById('si-'+id),d=gd(),cl=d.classes&&d.classes[id];if(!inp||!cl)return;inp.value.split('\n').map(function(x){return x.trim()}).filter(Boolean).forEach(function(n){if(!cl.students.find(function(s){return s.name===n}))cl.students.push({name:n,id:'s_'+Date.now()})});sd(d);TPrend_CL()}
+window.TPdelCls=function(id){if(!confirm('Delete this class?'))return;var d=gd();delete d.classes[id];sd(d);TPrend_CL()}
+function TPrend_CL(){var c=document.getElementById('tp-cllist');if(!c)return;var d=gd(),cls=d.classes||{},ks=Object.keys(cls);if(!ks.length){c.innerHTML='<p style="color:#a8a29e">No classes yet.</p>';return}c.innerHTML=ks.map(function(id){var cl=cls[id],code=id.slice(-6).toUpperCase();return '<div class="tp-card"><h4>'+esc(cl.name)+'</h4><p>'+esc(cl.year)+' · Code: <b style="color:#fbbf24">'+code+'</b> · '+(cl.students||[]).length+' students</p><div>'+(cl.students||[]).slice(0,10).map(function(s){return '<span class="tp-chip">'+esc(s.name)+'</span>'}).join('')+'</div><textarea id="si-'+id+'" class="tp-ta" placeholder="Add students, one per line"></textarea><button class="tp-btn green" onclick="TPaddStu(\''+id+'\')">Add students</button><button class="tp-btn red" onclick="TPdelCls(\''+id+'\')">Delete</button></div>'}).join('')}
+function TPrend_MS(){var c=document.getElementById('tp-ms');if(!c)return;var d=gd(),subs=Object.values(d.subs||{}),cls=d.classes||{};if(!subs.length){c.innerHTML='<p style="color:#a8a29e">No submissions yet.</p>';return}var by={};subs.forEach(function(s){(by[s.classId]=by[s.classId]||[]).push(s)});c.innerHTML=Object.keys(by).map(function(cid){var cl=cls[cid]||{name:'Unknown class'},rows=by[cid].map(function(s){return '<tr><td>'+esc(s.student)+'</td><td>'+esc(s.title)+'</td><td><span class="gb '+gradeClass(s.grade)+'">'+esc(s.grade||'Unmarked')+'</span></td><td>'+esc(s.feedback||'')+'</td><td><button class="tp-btn blue" onclick="TPmark(\''+s.id+'\')">Edit</button></td></tr>'}).join('');return '<h4 style="color:#fbbf24">'+esc(cl.name)+'</h4><table class="tp-tbl"><tr><th>Student</th><th>Activity</th><th>Grade</th><th>Feedback / next steps</th><th></th></tr>'+rows+'</table><div class="tp-card"><b>Gap analysis:</b> '+by[cid].filter(function(s){return /Below/.test(s.grade||'')}).length+' students currently below expected level. Suggested action: revisit vocabulary, provide model answer and reattempt activity.</div>'}).join('')}
+window.TPmark=function(id){var d=gd(),s=d.subs&&d.subs[id];if(!s)return;var g=prompt('Grade',s.grade||'Inline');if(!g)return;var f=prompt('Feedback',s.feedback||'');s.grade=g;s.feedback=f;s.markedAt=new Date().toISOString();sd(d);TPrend_MS()}
+window.TPdemoData=function(){var d=gd();if(!d.classes)d.classes={};var cid='cls_demo';d.classes[cid]={id:cid,name:'Demo Class 7A',year:'Year 7',pin:'demo',students:[{name:'Demo Student',id:'s_demo'}]};if(!d.subs)d.subs={};d.subs['sub_demo']={id:'sub_demo',student:'Demo Student',classId:cid,title:'Demo Activity',content:'This is a demo answer using evidence because it explains significance.',grade:'Inline',feedback:'Good start. Add more precise topic detail and a stronger judgement.',at:new Date().toISOString(),auto:true};sd(d);document.getElementById('tp-testlog').innerHTML='<span class="test-ok">Demo class and submission created. PIN/code: DEMO.</span>';TPrend_CL();TPrend_MS()}
+window.TPclearDemo=function(){var d=gd();if(d.classes)delete d.classes['cls_demo'];if(d.subs)delete d.subs['sub_demo'];sd(d);document.getElementById('tp-testlog').innerHTML='<span class="test-warn">Demo data cleared.</span>';TPrend_CL();TPrend_MS()}
+window.TPexport=function(){var blob=new Blob([JSON.stringify(gd(),null,2)],{type:'application/json'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='History_Hub_Teacher_Data.json';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+window.TPclearAll=function(){if(!confirm('Clear all teacher portal data?'))return;localStorage.removeItem(SK);localStorage.removeItem(SSK);TPrend_CL();TPrend_MS()}
+var APIN='2626';function lpin(){var d=gd();if(d.pin)APIN=d.pin}
+window.TPlogin=function(){lpin();var p=document.getElementById('tp-pin').value;if(p===APIN){document.getElementById('tp-overlay').classList.remove('tpv');document.getElementById('tp-dash').style.display='block';sessionStorage.setItem('tpa','1');TPtab('lp')}else{document.getElementById('tp-err').style.display='block'}}
+window.TPlogout=function(){sessionStorage.removeItem('tpa');document.getElementById('tp-dash').style.display='none';document.getElementById('tp-overlay').classList.add('tpv')}
+window.TPchangePin=function(){lpin();var c=document.getElementById('st-cur').value,n=document.getElementById('st-new').value,co=document.getElementById('st-con').value;if(c!==APIN){alert('Current PIN incorrect');return}if(n.length<4){alert('PIN must be at least 4 characters');return}if(n!==co){alert('PINs do not match');return}var d=gd();d.pin=n;sd(d);APIN=n;alert('PIN changed')}
+window.TPtab=function(t){document.querySelectorAll('.tp-sec').forEach(function(s){s.classList.remove('on')});document.querySelectorAll('.tp-tab').forEach(function(b){b.classList.remove('on')});var s=document.getElementById('tpsec-'+t),b=document.getElementById('tptab-'+t);if(s)s.classList.add('on');if(b)b.classList.add('on');if(t==='lp')TPscanPlans();if(t==='cl')TPrend_CL();if(t==='ms')TPrend_MS()}
+window.TPgenlink=function(){var pg=document.getElementById('tp-asel').value,link=location.href.split('?')[0].split('#')[0]+'?pg='+pg;document.getElementById('tp-lval').textContent=link;document.getElementById('tp-lout').style.display='block'}
+window.TPcopy=function(txt,btn){navigator.clipboard.writeText(txt).then(function(){var o=btn.textContent;btn.textContent='Copied';setTimeout(function(){btn.textContent=o},1500)}).catch(function(){prompt('Copy link',txt)})}
+window.SPlogin=function(){var n=document.getElementById('sp-name').value.trim(),c=document.getElementById('sp-code').value.trim();if(!n||!c){alert('Enter name and class code');return}var d=gd(),cid=Object.keys(d.classes||{}).find(function(id){return id.slice(-6).toUpperCase()===c.toUpperCase()||c.toLowerCase()===(d.classes[id].pin||'').toLowerCase()});if(!cid){alert('Class not found');return}localStorage.setItem('mrsh_sn',n);localStorage.setItem('mrsh_sc',c);document.getElementById('sp-login').style.display='none';document.getElementById('sp-portal').style.display='block';document.getElementById('sp-welcome').textContent='Welcome, '+n;SPrend(n,cid)}
+window.SPlogout=function(){document.getElementById('sp-login').style.display='block';document.getElementById('sp-portal').style.display='none'}
+function SPrend(n,cid){var c=document.getElementById('sp-list'),d=gd(),subs=Object.values(d.subs||{}).filter(function(s){return s.student===n&&s.classId===cid});if(!subs.length){c.innerHTML='<p style="color:#a8a29e">No submitted work yet.</p>';return}c.innerHTML=subs.map(function(s){var col=gradeColour(s.grade);return '<div class="sp-card"><div style="display:flex;gap:14px"><div class="sp-ring" style="border-color:'+col+';color:'+col+'">'+esc(s.grade||'?')+'</div><div><b style="color:#fff7ed">'+esc(s.title)+'</b><div style="color:#a8a29e;font-size:.76rem">'+new Date(s.at).toLocaleDateString('en-GB')+'</div><div class="sp-fb">'+esc(s.feedback||'No feedback yet.')+'</div></div></div></div>'}).join('')}
+window.enterStudentSite=function(){document.body.classList.remove('gateway');var sb=document.getElementById('sb');if(sb)sb.classList.add('open');showPg('y7')}
+var _origShowPg=window.showPg;window.showPg=function(id){if(_origShowPg)_origShowPg(id);if(id==='home'){document.body.classList.add('gateway')}else{document.body.classList.remove('gateway')}if(id==='teacher'){if(sessionStorage.getItem('tpa')==='1'){document.getElementById('tp-overlay').classList.remove('tpv');document.getElementById('tp-dash').style.display='block';TPtab('lp')}else{document.getElementById('tp-overlay').classList.add('tpv');document.getElementById('tp-dash').style.display='none'}}}
+document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('gateway');observeEditors();var p=new URLSearchParams(location.search).get('pg');if(p)setTimeout(function(){showPg(p)},600)});
+})();
+</script>
+
+
+<script id="ae-phase2c-safeguard">
+(function(){
+  function ensureTools(ed){
+    if(!ed || ed.querySelector('.ae-mark-btn') || ed.querySelector('.ae-native-tools')) return;
+    var foot = ed.querySelector('.ae-foot') || ed.querySelector('.aet-footer');
+    if(!foot) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'ae-native-tools';
+    wrap.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;width:100%;';
+    wrap.innerHTML = '<button class="ae-mark-btn" onclick="autoMarkWork(this)" style="background:#7c3aed;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">🤖 Auto Mark My Work</button><button class="ae-improve-btn" onclick="improveAnswer(this)" style="background:#d97706;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">✨ Improve My Answer</button><button class="ae-fb-dl" onclick="downloadFeedback(this)" style="background:#2563eb;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">📥 Download Feedback</button><button class="ae-submit-btn" onclick="submitToTeacher(this)" style="background:#059669;color:#fff;border:none;border-radius:7px;padding:7px 12px;font-size:.76rem;font-weight:800;cursor:pointer;font-family:inherit;">📤 Submit to Teacher</button>';
+    foot.insertBefore(wrap, foot.firstChild);
+  }
+  function ensureAll(){ document.querySelectorAll('.act-editor').forEach(ensureTools); }
+  document.addEventListener('DOMContentLoaded', function(){
+    ensureAll();
+    setTimeout(ensureAll, 100);
+    setTimeout(ensureAll, 500);
+    setTimeout(ensureAll, 1500);
+    var obs = new MutationObserver(ensureAll);
+    obs.observe(document.documentElement, {childList:true, subtree:true});
+  });
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest && e.target.closest('.act-toggle-btn');
+    if(btn){ setTimeout(ensureAll, 80); setTimeout(ensureAll, 250); }
+  }, true);
+})();
+</script>
+
 </body>
 </html>
