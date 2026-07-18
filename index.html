@@ -305,6 +305,26 @@ body.gateway #hbtn{display:none!important;}
 .test-ok{color:#86efac}.test-warn{color:#fbbf24}.test-bad{color:#fca5a5}
 @media(max-width:768px){.tp-grid{grid-template-columns:1fr}.gw-card{max-width:420px}}
 
+
+/* === PHASE 3 QA / ANALYTICS / ASSIGNMENTS === */
+.tp-pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 11px;font-size:.72rem;font-weight:800;background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.45);color:#c4b5fd;margin:0 0 10px 0;}
+.tp-mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0;}
+.tp-metric{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px;}
+.tp-metric-num{font-family:'Alegreya',serif;font-size:1.6rem;color:#fbbf24;font-weight:900;line-height:1;}
+.tp-metric-lbl{font-size:.72rem;color:#a8a29e;margin-top:4px;}
+.tp-checklist{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:12px 0;}
+.tp-check{background:rgba(28,22,12,.9);border:1px solid rgba(212,175,55,.18);border-radius:10px;padding:10px 12px;font-size:.82rem;color:#e8e4d0;line-height:1.5;}
+.tp-check strong{color:#fbbf24;}
+.tp-assign-card{background:rgba(37,99,235,.09);border:1.5px solid rgba(37,99,235,.25);border-radius:12px;padding:13px;margin-bottom:10px;}
+.tp-assign-card h4{font-family:'Alegreya',serif;color:#93c5fd;font-size:1rem;margin-bottom:4px;}
+.tp-select,.tp-textarea{width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(212,175,55,.25);border-radius:8px;padding:9px 11px;color:#fff;font-family:inherit;font-size:.84rem;box-sizing:border-box;}
+.tp-textarea{resize:vertical;min-height:76px;}
+.ae-phase3-tools{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;width:100%;}
+.ae-phase3-feedback{background:rgba(124,58,237,.10);border:1.5px solid rgba(124,58,237,.35);border-radius:10px;padding:10px 12px;color:#e8e4d0;font-size:.82rem;line-height:1.55;margin-top:8px;}
+.ae-phase3-feedback strong{color:#fbbf24;}
+.sp-progress-bar{height:12px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,.1);}
+.sp-progress-fill{height:100%;background:linear-gradient(90deg,#059669,#d4af37);border-radius:999px;}
+
 </style>
 </head>
 <body>
@@ -8147,11 +8167,15 @@ function downloadRag(topic){
 <div id="tp-overlay" class="tp-ov"><div class="tp-box"><div style="font-size:2.4rem">👩‍🏫</div><h2>Teacher Portal</h2><p>Enter the staff PIN. Default PIN: <strong>2626</strong></p><input id="tp-pin" type="password" class="tp-inp" placeholder="Enter PIN" onkeydown="if(event.key==='Enter')TPlogin()"><button class="tp-btn" onclick="TPlogin()">Enter Portal</button><div id="tp-err" class="tp-err">Incorrect PIN.</div><button class="tp-btn sec" onclick="showPg('home')">Back</button></div></div>
 <div id="tp-dash" style="display:none;">
 <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px"><div><h1 style="font-family:'Alegreya',serif;color:#fbbf24;font-size:2rem">👩‍🏫 Staff Portal</h1><p style="color:#a8a29e">Lesson plans · Classes · Auto-marking · Feedback</p></div><div><button class="tp-btn red" onclick="TPlogout()">Log Out</button><button class="tp-btn sec" onclick="showPg('home')">Gateway</button></div></div>
-<div class="tp-tabs"><button class="tp-tab on" id="tptab-lp" onclick="TPtab('lp')">📋 Lesson Plans</button><button class="tp-tab" id="tptab-cl" onclick="TPtab('cl')">👥 Classes</button><button class="tp-tab" id="tptab-ms" onclick="TPtab('ms')">📊 Marksheet</button><button class="tp-tab" id="tptab-test" onclick="TPtab('test')">🧪 Test Centre</button><button class="tp-tab" id="tptab-st" onclick="TPtab('st')">⚙️ Settings</button></div>
+<div class="tp-tabs"><button class="tp-tab on" id="tptab-lp" onclick="TPtab('lp')">📋 Lesson Plans</button><button class="tp-tab" id="tptab-cl" onclick="TPtab('cl')">👥 Classes</button><button class="tp-tab" id="tptab-ms" onclick="TPtab('ms')">📊 Marksheet</button><button class="tp-tab" id="tptab-an" onclick="TPtab('an')">📈 Analytics</button><button class="tp-tab" id="tptab-as" onclick="TPtab('as')">📝 Assignments</button><button class="tp-tab" id="tptab-test" onclick="TPtab('test')">🧪 Test Centre</button><button class="tp-tab" id="tptab-st" onclick="TPtab('st')">⚙️ Settings</button></div>
 <div id="tpsec-lp" class="tp-sec on"><div class="tp-pnl"><h3>📋 Detailed Lesson Plans — all topics and sections</h3><div style="display:inline-block;background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.45);color:#c4b5fd;border-radius:999px;padding:4px 10px;font-size:.72rem;font-weight:800;margin-bottom:10px;">Phase 2C auto-marking build</div><p style="color:#a8a29e;font-size:.84rem">Plans are generated from the actual live topic content. Each document uses narrow margins and includes overview, objectives, HPL/T&amp;L/SDG/AI links, key vocabulary, detailed lesson stages, differentiation, plenary, assessment opportunities and activity rubrics.</p><div style="margin:10px 0"><button class="tp-btn green" onclick="TPscanPlans()">🔄 Scan live topics</button><button class="tp-btn blue" onclick="TPdownloadAllPlanIndex()">📥 Download plan index</button></div><div id="tp-lplist" class="tp-grid"></div></div></div>
 <div id="tpsec-cl" class="tp-sec"><div class="tp-pnl"><h3>➕ Create class</h3><div class="tp-grid"><input id="tc-name" class="tp-inp" placeholder="Class name e.g. 7A History"><select id="tc-year" class="tp-sel"><option>Year 7</option><option>Year 8</option><option>Year 9</option><option>Year 10</option><option>Year 11</option></select><input id="tc-pin" class="tp-inp" placeholder="Class PIN e.g. history7a"></div><button class="tp-btn green" onclick="TPcreateClass()">Create class</button></div><div class="tp-pnl"><h3>👥 My classes</h3><div id="tp-cllist"></div></div></div>
 <div id="tpsec-ms" class="tp-sec"><div class="tp-pnl"><h3>📊 Class marksheet</h3><p style="color:#a8a29e;font-size:.84rem">Submitted work appears here with automatic grade and feedback. Teachers can override grades manually.</p><div id="tp-ms"></div></div></div>
-<div id="tpsec-test" class="tp-sec"><div class="tp-pnl"><h3>🧪 Testing Centre</h3><p style="color:#a8a29e;font-size:.84rem">Use this to test the whole workflow safely.</p><button class="tp-btn green" onclick="TPdemoData()">Create demo class + submissions</button><button class="tp-btn blue" onclick="TPtab('ms')">Open marksheet</button><button class="tp-btn amber" onclick="TPclearDemo()">Clear demo data</button><div id="tp-testlog" style="margin-top:12px;font-size:.84rem;color:#e8e4d0"></div></div></div>
+
+<div id="tpsec-an" class="tp-sec"><div class="tp-pnl"><h3>📈 Teacher Analytics Dashboard</h3><div class="tp-pill">Phase 3 analytics and QA build</div><p style="color:#a8a29e;font-size:.84rem">Class overview, gaps, intervention flags and suggested next steps based on submitted work.</p><div id="tp-analytics"></div><button class="tp-btn blue" onclick="TP3renderAnalytics()">Refresh analytics</button></div></div>
+
+<div id="tpsec-as" class="tp-sec"><div class="tp-pnl"><h3>📝 Assignment Mode</h3><div class="tp-pill">Create class assignments</div><p style="color:#a8a29e;font-size:.84rem">Create an assignment for a class, topic or activity. Assignments are stored locally in this browser and can be shared with students using the generated link.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0"><input id="tp3-as-title" class="tp-inp" placeholder="Assignment title"><select id="tp3-as-class" class="tp-select"><option value="">Choose class</option></select><select id="tp3-as-topic" class="tp-select"><option value="y7">Year 7</option><option value="y8">Year 8</option><option value="y9">Year 9</option><option value="ig">iGCSE</option><option value="src">Source Studies</option><option value="rv">Revision Hub</option></select><input id="tp3-as-due" class="tp-inp" placeholder="Due date text"></div><textarea id="tp3-as-inst" class="tp-textarea" placeholder="Teacher instructions for students"></textarea><div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0"><label style="color:#e8e4d0;font-size:.82rem"><input id="tp3-as-auto" type="checkbox" checked> Allow auto-marking</label><label style="color:#e8e4d0;font-size:.82rem"><input id="tp3-as-resub" type="checkbox" checked> Allow improvements/resubmission</label></div><button class="tp-btn green" onclick="TP3createAssignment()">Create assignment</button><div id="tp3-assign-list" style="margin-top:14px"></div></div></div>
+<div id="tpsec-test" class="tp-sec"><div class="tp-pnl"><h3>🧪 Testing Centre</h3><p style="color:#a8a29e;font-size:.84rem">Use this to test the whole workflow safely. Run each stage as a student and teacher before sharing with testers.</p><div class="tp-checklist"><div class="tp-check"><strong>Student test:</strong><br>Gateway → Student Site → open activity → type → format → table → image → auto-mark → improve → download feedback → submit.</div><div class="tp-check"><strong>Staff test:</strong><br>Portal → class → students → lesson plans → assignment link → marksheet → override feedback → analytics.</div><div class="tp-check"><strong>Feedback test:</strong><br>Student submits → teacher marks → student opens My Work & Feedback → grade and comments visible.</div></div><button class="tp-btn blue" onclick="TP3downloadTestingPack()">Download Testing Pack</button><button class="tp-btn green" onclick="TPdemoData()">Create demo class + submissions</button><button class="tp-btn blue" onclick="TPtab('ms')">Open marksheet</button><button class="tp-btn amber" onclick="TPclearDemo()">Clear demo data</button><div id="tp-testlog" style="margin-top:12px;font-size:.84rem;color:#e8e4d0"></div></div></div>
 <div id="tpsec-st" class="tp-sec"><div class="tp-pnl"><h3>⚙️ Settings and backup</h3><input id="st-cur" type="password" class="tp-inp" placeholder="Current PIN"><input id="st-new" type="password" class="tp-inp" placeholder="New PIN"><input id="st-con" type="password" class="tp-inp" placeholder="Confirm new PIN"><button class="tp-btn" onclick="TPchangePin()">Change PIN</button><hr style="border-color:rgba(255,255,255,.1);margin:14px 0"><button class="tp-btn blue" onclick="TPexport()">Export all data</button><button class="tp-btn red" onclick="TPclearAll()">Clear all data</button></div></div>
 </div></div></div>
 <div id="pg-student" class="jhs-pg"><div class="pg-inner"><div style="max-width:760px;margin:0 auto"><div style="text-align:center;padding:24px 0"><div style="font-size:3rem">👨‍🎓</div><h1 style="font-family:'Alegreya',serif;color:#fbbf24;font-size:2rem">My Work &amp; Feedback</h1><p style="color:#a8a29e">View submitted work and teacher feedback</p></div><div id="sp-login" class="tp-pnl"><h3>🔐 Access feedback</h3><input id="sp-name" class="tp-inp" placeholder="Your name"><input id="sp-code" class="tp-inp" placeholder="Class code"><button class="tp-btn" onclick="SPlogin()">View My Work</button></div><div id="sp-portal" style="display:none"><div style="display:flex;justify-content:space-between;align-items:center"><h3 id="sp-welcome" style="color:#fbbf24;font-family:'Alegreya',serif"></h3><button class="tp-btn red" onclick="SPlogout()">Log out</button></div><div id="sp-list"></div></div></div></div></div>
@@ -8247,6 +8271,105 @@ document.addEventListener('DOMContentLoaded',function(){document.body.classList.
     var btn = e.target.closest && e.target.closest('.act-toggle-btn');
     if(btn){ setTimeout(ensureAll, 80); setTimeout(ensureAll, 250); }
   }, true);
+})();
+</script>
+
+
+
+<script id="tp-phase3-engine">
+(function(){
+  'use strict';
+  var STORE='mrsh_tp_phase2_v1';
+  function getData(){try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}}
+  function saveData(d){try{localStorage.setItem(STORE,JSON.stringify(d))}catch(e){}}
+  function esc(s){return String(s||'').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]});}
+  function words(txt){return String(txt||'').trim().split(/\s+/).filter(Boolean).length;}
+  function textOf(el){return (el?el.innerText||el.textContent||'':'').trim();}
+  function currentTopicTitle(el){var page=el&&el.closest('.jhs-pg'); if(!page)return 'General Activity'; var h1=page.querySelector('h1,h2,.sec-title,.sp-hdr'); return textOf(h1)||page.id||'General Activity';}
+  function collectTopics(){
+    var cards=[];
+    document.querySelectorAll('.jhs-pg').forEach(function(pg){
+      var id=pg.id||''; if(!id||id==='pg-home'||id==='pg-teacher'||id==='pg-student')return;
+      var title=textOf(pg.querySelector('h1,h2,.sec-title,.pg-title'))||id.replace('pg-','').toUpperCase();
+      var sections=[].slice.call(pg.querySelectorAll('.sp-hdr')).map(textOf).filter(Boolean).slice(0,12);
+      var acts=[].slice.call(pg.querySelectorAll('.act-box')).map(function(a){return textOf(a.querySelector('.act-title'))||'Activity';}).filter(Boolean).slice(0,20);
+      if(sections.length||acts.length)cards.push({id:id,title:title,sections:sections,activities:acts});
+    });
+    return cards;
+  }
+  function inferRubric(title, activityText, answer){
+    var txt=(title+' '+activityText+' '+answer).toLowerCase();
+    var ig=/igcse|edexcel|4 marks|6 marks|8 marks|16 marks|cold war|stalin|vietnam|medicine/.test(txt);
+    var source=/source|waca|provenance|audience|context|aim|useful|reliable/.test(txt);
+    var essay=/how far|evaluate|agree|essay|judgement|conclusion|extent/.test(txt);
+    var required=[];
+    if(source)required.push('source provenance/WACA analysis','usefulness and limitation judgement','direct reference to source content');
+    if(essay)required.push('clear argument','specific supporting evidence','balanced judgement/conclusion');
+    required.push('accurate historical knowledge','topic vocabulary','explanation using because/therefore/this shows');
+    return {igcse:ig,source:source,essay:essay,required:required};
+  }
+  function markAnswer(answer, title, activityText){
+    var wc=words(answer); var lower=String(answer||'').toLowerCase(); var r=inferRubric(title,activityText,answer); var score=0; var hits=[];
+    if(wc>=40){score+=1;hits.push('developed response length')} if(wc>=100){score+=1;hits.push('sustained response')}
+    ['because','therefore','however','although','evidence','source','context','caused','consequence','significant','judgement','conclusion'].forEach(function(k){if(lower.indexOf(k)>-1){score+=0.35;hits.push(k)}});
+    var vocab=['waca','provenance','audience','context','aim','claimant','witan','norman','feudal','black death','plague','abolition','middle passage','industrial','empire','trench','treaty','versailles','cold war','containment','stalin','vietnam','medicine','detente'];
+    vocab.forEach(function(k){if(lower.indexOf(k)>-1){score+=0.5;hits.push(k)}});
+    if(r.source && /waca|provenance|audience|context|aim|useful|reliable|limitation/.test(lower))score+=1.5;
+    if(r.essay && /however|on the other hand|overall|therefore|in conclusion|how far/.test(lower))score+=1.5;
+    var grade, band;
+    if(r.igcse){ if(score>=7)grade='9'; else if(score>=6)grade='8'; else if(score>=5.2)grade='7'; else if(score>=4.4)grade='6'; else if(score>=3.4)grade='5'; else if(score>=2.5)grade='4'; else if(score>=1.6)grade='3'; else if(score>=.8)grade='2'; else grade='1'; band='iGCSE/Edexcel-style'; }
+    else { if(score>=7)grade='Sig. Above'; else if(score>=6)grade='Above+'; else if(score>=5)grade='Above'; else if(score>=3.4)grade='Inline'; else if(score>=2.4)grade='Below+'; else if(score>=1.2)grade='Below'; else grade='Sig. Below'; band='KS3 learning scale'; }
+    var strength = hits.length?('You included evidence of '+hits.slice(0,5).join(', ')+'.'):'You made a start and have something to build on.';
+    var next=[]; if(wc<80)next.push('Develop the answer with more precise detail and examples.'); if(r.source&&!/waca|provenance|audience|context|aim/.test(lower))next.push('Add WACA/provenance analysis and explain why the source is useful or limited.'); if(r.essay&&!/however|overall|conclusion|on the other hand/.test(lower))next.push('Add a balanced judgement using a counter-argument and conclusion.'); if(next.length===0)next.push('Now refine the answer by adding more specific evidence and a sharper final judgement.');
+    return {grade:grade,band:band,score:Math.round(score*10)/10,wordCount:wc,strength:strength,next:next,rubric:r};
+  }
+  window.HHPhase3Mark=function(btn){
+    var box=btn.closest('.act-editor')||btn.closest('.act-box'); var act=btn.closest('.act-box')||box&&box.closest('.act-box'); var area=act?act.querySelector('.ae-area,.aet-area'):null; var ans=area?area.innerText||area.textContent:''; var title=textOf(act&&act.querySelector('.act-title'))||currentTopicTitle(act); var body=textOf(act&&act.querySelector('.act-body'));
+    if(!ans.trim()){alert('Write an answer first.');return;}
+    var result=markAnswer(ans,title,body); act.dataset.hhGrade=result.grade; act.dataset.hhFeedback=JSON.stringify(result);
+    var fb=act.querySelector('.ae-phase3-feedback'); if(!fb){fb=document.createElement('div'); fb.className='ae-phase3-feedback'; act.appendChild(fb);}
+    fb.innerHTML='<strong>Auto-mark: '+esc(result.grade)+'</strong> <span style="color:#a8a29e">('+esc(result.band)+', score '+result.score+', '+result.wordCount+' words)</span><br><strong>Strength:</strong> '+esc(result.strength)+'<br><strong>Next step:</strong> '+esc(result.next[0])+'<br><strong>Rubric focus:</strong> '+esc(result.rubric.required.join(' · '));
+  };
+  window.HHPhase3Improve=function(btn){
+    var act=btn.closest('.act-box'); var area=act&&act.querySelector('.ae-area,.aet-area'); if(!area)return; var title=textOf(act.querySelector('.act-title')); var body=textOf(act.querySelector('.act-body')); var ans=area.innerText||''; var r=inferRubric(title,body,ans); var prompt='\n\nImprovement checklist:\n- Add one precise piece of historical evidence.\n- Explain why the evidence matters using because/therefore.\n- Use at least three key terms from the lesson.\n'; if(r.source)prompt+='- Add WACA: Who, Audience, Context and Aim, then explain usefulness and limitation.\n'; if(r.essay)prompt+='- Add a counter-argument and a final judgement.\n'; area.innerText=(ans.trim()?ans.trim():'')+prompt; area.focus();
+  };
+  window.HHPhase3FeedbackDownload=function(btn){
+    var act=btn.closest('.act-box'); var data={}; try{data=JSON.parse(act.dataset.hhFeedback||'{}')}catch(e){} if(!data.grade){HHPhase3Mark(btn); try{data=JSON.parse(act.dataset.hhFeedback||'{}')}catch(e){}}
+    var title=textOf(act.querySelector('.act-title'))||'Activity Feedback'; var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Feedback</title><style>body{font-family:Calibri,Arial,sans-serif;margin:1.27cm;line-height:1.5}h1{color:#1e3a5f;border-bottom:3px solid #d4af37;padding-bottom:6px}.box{border:1px solid #ccc;border-radius:8px;padding:10px;margin:10px 0}</style></head><body><h1>'+esc(title)+' — Feedback</h1><div class="box"><b>Grade:</b> '+esc(data.grade||'Not assessed')+'<br><b>Scale:</b> '+esc(data.band||'')+'<br><b>Words:</b> '+esc(data.wordCount||'')+'</div><h2>Strength</h2><p>'+esc(data.strength||'')+'</p><h2>Next Steps</h2><ul>'+((data.next||[]).map(function(n){return '<li>'+esc(n)+'</li>'}).join(''))+'</ul><h2>Rubric Focus</h2><p>'+esc(data.rubric?(data.rubric.required||[]).join(' · '):'')+'</p></body></html>';
+    var blob=new Blob([html],{type:'application/msword'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download=title.replace(/[^a-z0-9]/gi,'_').slice(0,45)+'_Feedback.doc'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+  };
+  function enhanceEditors(){
+    document.querySelectorAll('.act-editor').forEach(function(ed){
+      var act=ed.closest('.act-box'); if(!act)return; var foot=ed.querySelector('.ae-foot,.aet-footer'); if(!foot)return;
+      if(!ed.querySelector('.ae-phase3-tools')){
+        var wrap=document.createElement('div'); wrap.className='ae-phase3-tools'; wrap.innerHTML='<button class="tp-ab" style="background:#7c3aed" onclick="HHPhase3Mark(this)">🤖 Auto Mark My Work</button><button class="tp-ab a" onclick="HHPhase3Improve(this)">✨ Improve My Answer</button><button class="tp-ab" onclick="HHPhase3FeedbackDownload(this)">📥 Download Feedback</button>';
+        ed.insertBefore(wrap, foot);
+      }
+      if(!ed.querySelector('.tp-sub')){
+        var sub=document.createElement('button'); sub.className='tp-ab g tp-sub'; sub.textContent='📤 Submit to Teacher'; sub.onclick=function(){ if(window.TPsubmit) window.TPsubmit(sub); else alert('Staff portal submission tools are still loading.');}; foot.insertBefore(sub, foot.firstChild);
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded',function(){enhanceEditors(); new MutationObserver(enhanceEditors).observe(document.body,{childList:true,subtree:true}); setInterval(enhanceEditors,1500);});
+  function tpData(){try{return JSON.parse(localStorage.getItem('mrsh_tp_phase2_v1')||'{}')}catch(e){return {}}}
+  function saveTP(d){localStorage.setItem('mrsh_tp_phase2_v1',JSON.stringify(d));}
+  window.TP3renderAnalytics=function(){
+    var c=document.getElementById('tp-analytics'); if(!c)return; var d=tpData(); var subs=Object.values(d.subs||{}); var classes=Object.values(d.classes||{}); var un=subs.filter(function(s){return !s.grade}).length; var weak=subs.filter(function(s){return /Below|Sig/.test(s.grade||'')}).length; var strong=subs.filter(function(s){return /Above|9|8|7/.test(s.grade||'')}).length; var kw={}; subs.forEach(function(s){String(s.feedback||'').toLowerCase().split(/\W+/).forEach(function(w){if(w.length>5)kw[w]=(kw[w]||0)+1})}); var top=Object.keys(kw).sort(function(a,b){return kw[b]-kw[a]}).slice(0,8);
+    c.innerHTML='<div class="tp-mini-grid"><div class="tp-metric"><div class="tp-metric-num">'+classes.length+'</div><div class="tp-metric-lbl">Classes</div></div><div class="tp-metric"><div class="tp-metric-num">'+subs.length+'</div><div class="tp-metric-lbl">Submissions</div></div><div class="tp-metric"><div class="tp-metric-num">'+un+'</div><div class="tp-metric-lbl">Need review</div></div><div class="tp-metric"><div class="tp-metric-num">'+weak+'</div><div class="tp-metric-lbl">Intervention suggested</div></div><div class="tp-metric"><div class="tp-metric-num">'+strong+'</div><div class="tp-metric-lbl">High performance</div></div></div><div class="tp-check"><strong>Common feedback keywords:</strong> '+(top.join(', ')||'No feedback data yet')+'<br><strong>Suggested reteach action:</strong> Review source evidence, key terms and explanation depth with students flagged for intervention.</div>';
+  };
+  window.TP3createAssignment=function(){
+    var d=tpData(); if(!d.assignments)d.assignments={}; var id='as_'+Date.now(); d.assignments[id]={id:id,title:document.getElementById('tp3-as-title').value||'Untitled assignment',classId:document.getElementById('tp3-as-class').value,topic:document.getElementById('tp3-as-topic').value,due:document.getElementById('tp3-as-due').value,instructions:document.getElementById('tp3-as-inst').value,auto:document.getElementById('tp3-as-auto').checked,resub:document.getElementById('tp3-as-resub').checked,created:new Date().toISOString()}; saveTP(d); TP3renderAssignments(); alert('Assignment created.');
+  };
+  window.TP3renderAssignments=function(){
+    var d=tpData(); var list=document.getElementById('tp3-assign-list'); var sel=document.getElementById('tp3-as-class'); if(sel){var current=sel.value; sel.innerHTML='<option value="">Choose class</option>'; Object.values(d.classes||{}).forEach(function(c){sel.innerHTML+='<option value="'+c.id+'">'+esc(c.name)+'</option>'}); sel.value=current;}
+    if(!list)return; var arr=Object.values(d.assignments||{}); if(!arr.length){list.innerHTML='<p style="color:#a8a29e">No assignments yet.</p>';return;} list.innerHTML=arr.map(function(a){var link=location.href.split('?')[0]+'?pg='+encodeURIComponent(a.topic)+'&assignment='+encodeURIComponent(a.id); return '<div class="tp-assign-card"><h4>'+esc(a.title)+'</h4><div style="font-size:.76rem;color:#a8a29e">Topic: '+esc(a.topic)+' · Due: '+esc(a.due||'not set')+'</div><p style="font-size:.82rem;color:#e8e4d0">'+esc(a.instructions||'No instructions')+'</p><div class="tp-lb">'+esc(link)+'</div></div>'}).join('');
+  };
+  window.TP3downloadTestingPack=function(){
+    var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>History Hub Testing Pack</title><style>body{font-family:Calibri,Arial,sans-serif;margin:1.27cm;line-height:1.5}h1{color:#1e3a5f;border-bottom:3px solid #d4af37;padding-bottom:6px}li{margin:4px 0}.box{border:1px solid #ccc;border-radius:8px;padding:10px;margin:10px 0}</style></head><body><h1>Mr Stevens History Hub — Full Workflow Testing Pack</h1><h2>Student-side testing</h2><ol><li>Open homepage and enter Student Site.</li><li>Open Year 7, Year 8, Year 9 and iGCSE.</li><li>Open at least three activity editors.</li><li>Type text, apply formatting, add a table and add an image.</li><li>Click Auto Mark My Work, Improve My Answer and Download Feedback.</li><li>Download as Word.</li><li>Submit to Teacher using a demo class code.</li></ol><h2>Staff-side testing</h2><ol><li>Enter Staff Portal with PIN 2626.</li><li>Create a demo class.</li><li>Add at least two demo students.</li><li>Download a detailed lesson plan and rubric.</li><li>Create an assignment.</li><li>Submit sample work as a student.</li><li>Open marksheet and check auto-grade/feedback.</li><li>Override feedback and refresh analytics.</li><li>Open My Work & Feedback as the student.</li></ol><h2>Expected outcomes</h2><div class="box">Editors show all Phase 3 tools. Staff Portal shows Lesson Plans, Classes, Marksheet, Analytics, Assignments, Test Centre and Settings. Student feedback displays grade and verbal comments.</div></body></html>';
+    var blob=new Blob([html],{type:'application/msword'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='History_Hub_Testing_Pack.doc'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+  };
+  var oldTab=window.TPtab; window.TPtab=function(t){ if(oldTab)oldTab(t); if(t==='an')TP3renderAnalytics(); if(t==='as')TP3renderAssignments(); };
+  document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){TP3renderAnalytics();TP3renderAssignments();},1000);});
 })();
 </script>
 
