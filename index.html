@@ -343,6 +343,26 @@ body.gateway #hbtn{display:none!important;}
 .p4-subnav{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.p4-subnav button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#e8e4d0;border-radius:8px;padding:6px 10px;font-size:.72rem;cursor:pointer;font-family:inherit}.p4-subnav button:hover{background:rgba(212,175,55,.18);border-color:rgba(212,175,55,.4)}
 @media(max-width:768px){.p4-grid{grid-template-columns:1fr}.p4-card{padding:12px}.p4-kpi .num{font-size:1.25rem}}
 
+
+/* === PHASE 4E SECTION PLANS + QA FIX === */
+.p4e-hidden{display:none!important;}
+.p4e-plan-header{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.p4e-close{background:rgba(220,38,38,.2);border:1px solid rgba(220,38,38,.45);color:#fecaca;border-radius:8px;padding:7px 14px;font-family:inherit;font-weight:800;cursor:pointer;}
+.p4e-close:hover{background:rgba(220,38,38,.32);}
+.p4e-mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:12px 0;}
+.p4e-evidence-card{background:rgba(28,22,12,.92);border:1.5px solid rgba(212,175,55,.22);border-radius:12px;padding:14px;}
+.p4e-evidence-card h4{font-family:'Alegreya',serif;color:#fbbf24;font-size:1rem;margin-bottom:6px;}
+.p4e-evidence-card p,.p4e-evidence-card li{font-size:.82rem;color:#d6d3d1;line-height:1.65;}
+.p4e-viewer h4{font-family:'Alegreya',serif;color:#fbbf24;margin:14px 0 6px;font-size:1.05rem;}
+.p4e-viewer p,.p4e-viewer li{font-size:.84rem;color:#e8e4d0;line-height:1.72;}
+.p4e-viewer ul{margin:6px 0 12px 18px;}
+.p4e-viewer .p4-btn{margin:4px 6px 4px 0;}
+.p4e-badge{display:inline-block;border:1px solid rgba(37,99,235,.55);background:rgba(37,99,235,.14);color:#bfdbfe;border-radius:999px;padding:4px 10px;font-size:.72rem;font-weight:800;margin:2px 4px 6px 0;}
+.p4e-green{border-color:rgba(5,150,105,.4);background:rgba(5,150,105,.12);color:#6ee7b7;}
+.p4e-amber{border-color:rgba(217,119,6,.45);background:rgba(217,119,6,.12);color:#fcd34d;}
+.p4e-section-btn{display:block;width:100%;text-align:left;margin:6px 0;background:#2563eb;color:#fff;border:none;border-radius:9px;padding:10px 13px;font-size:.82rem;font-weight:800;font-family:inherit;cursor:pointer;}
+.p4e-section-btn:hover{background:#1d4ed8;}
+
 </style>
 </head>
 <body>
@@ -8494,5 +8514,168 @@ function cleanTabs(){var lp=q('tptab-lp');if(lp)lp.innerHTML='📚 Section Plans
 document.addEventListener('DOMContentLoaded',function(){cleanTabs();renderSectionPlans();setTimeout(renderQA,400);setInterval(function(){cleanTabs();},1200)})
 })();
 </script>
+
+<script id="p4e-section-plans-qa-fix">
+(function(){
+'use strict';
+
+function q(id){return document.getElementById(id)}
+function qa(sel,root){return Array.from((root||document).querySelectorAll(sel))}
+function txt(el){return (el && el.innerText ? el.innerText : '').replace(/\s+/g,' ').trim()}
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function clean(s,n){s=txt({innerText:s||''});return n? s.slice(0,n):s}
+
+/* minimal docx writer: creates real .docx using stored ZIP entries */
+var P4E_DOCX=(function(){
+  var crcTable=null;
+  function bytes(s){return new TextEncoder().encode(s)}
+  function crc32(u){
+    if(!crcTable){crcTable=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=(c&1)?(0xedb88320^(c>>>1)):(c>>>1);crcTable[n]=c>>>0}}
+    var crc=0xffffffff;for(var i=0;i<u.length;i++)crc=crcTable[(crc^u[i])&0xff]^(crc>>>8);return (crc^0xffffffff)>>>0
+  }
+  function u16(a,v){a.push(v&255,(v>>>8)&255)}
+  function u32(a,v){a.push(v&255,(v>>>8)&255,(v>>>16)&255,(v>>>24)&255)}
+  function zip(files){
+    var local=[],central=[],offset=0;
+    files.forEach(function(f){
+      var name=bytes(f.name),data=(f.data instanceof Uint8Array)?f.data:bytes(f.data),crc=crc32(data),lh=[];
+      u32(lh,0x04034b50);u16(lh,20);u16(lh,0);u16(lh,0);u16(lh,0);u16(lh,0);u32(lh,crc);u32(lh,data.length);u32(lh,data.length);u16(lh,name.length);u16(lh,0);
+      local.push(new Uint8Array(lh),name,data);
+      var ch=[];u32(ch,0x02014b50);u16(ch,20);u16(ch,20);u16(ch,0);u16(ch,0);u16(ch,0);u16(ch,0);u32(ch,crc);u32(ch,data.length);u32(ch,data.length);u16(ch,name.length);u16(ch,0);u16(ch,0);u16(ch,0);u16(ch,0);u32(ch,0);u32(ch,offset);
+      central.push(new Uint8Array(ch),name);offset+=lh.length+name.length+data.length;
+    });
+    var localLen=offset,centLen=0;central.forEach(function(x){centLen+=x.length});var end=[];u32(end,0x06054b50);u16(end,0);u16(end,0);u16(end,files.length);u16(end,files.length);u32(end,centLen);u32(end,localLen);u16(end,0);
+    var total=localLen+centLen+end.length,out=new Uint8Array(total),p=0;local.concat(central,[new Uint8Array(end)]).forEach(function(part){out.set(part,p);p+=part.length});return out;
+  }
+  function p(text,style){text=String(text||'');var sty=style?'<w:pPr><w:pStyle w:val="'+style+'"/></w:pPr>':'';return '<w:p>'+sty+'<w:r><w:t xml:space="preserve">'+escXml(text)+'</w:t></w:r></w:p>'}
+  function bullet(text){return '<w:p><w:pPr><w:ind w:left="720" w:hanging="360"/></w:pPr><w:r><w:t xml:space="preserve">• '+escXml(text)+'</w:t></w:r></w:p>'}
+  function escXml(s){return String(s||'').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  function documentXml(title,blocks){
+    var body=p(title,'Title');
+    blocks.forEach(function(b){
+      if(!b)return;
+      if(b.h)body+=p(b.h,'Heading1');
+      if(b.h2)body+=p(b.h2,'Heading2');
+      if(b.p)body+=p(b.p);
+      if(b.bullets)(b.bullets||[]).forEach(function(x){body+=bullet(x)});
+    });
+    body+='<w:sectPr><w:pgMar w:top="720" w:right="720" w:bottom="720" w:left="720" w:header="360" w:footer="360" w:gutter="0"/></w:sectPr>';
+    return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>'+body+'</w:body></w:document>'
+  }
+  function styles(){return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:rPr><w:b/><w:sz w:val="32"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="Heading 1"/><w:rPr><w:b/><w:sz w:val="26"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="Heading 2"/><w:rPr><w:b/><w:sz w:val="22"/></w:rPr></w:style></w:styles>'}
+  function download(filename,title,blocks){
+    var files=[
+      {name:'[Content_Types].xml',data:'<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>'},
+      {name:'_rels/.rels',data:'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>'},
+      {name:'word/_rels/document.xml.rels',data:'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'},
+      {name:'word/document.xml',data:documentXml(title,blocks)},
+      {name:'word/styles.xml',data:styles()}
+    ];
+    var blob=new Blob([zip(files)],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(filename||'document.docx').replace(/\.doc$/i,'.docx');document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
+  }
+  return {download:download};
+})();
+window.P4E_DOCX=P4E_DOCX;
+
+function pageNodes(){return qa('.jhs-pg').filter(function(p){return !['pg-home','pg-teacher','pg-student','pg-parents','pg-ack'].includes(p.id)})}
+function getPageData(){
+  return pageNodes().map(function(pg){
+    var title=txt(pg.querySelector('h1,h2,.sub-title,.sec-title'))||pg.id.replace('pg-','').toUpperCase();
+    var hdrs=qa('.sp-hdr,h2,h3',pg).map(function(x){return txt(x)}).filter(function(x){return x&&x.length>4});
+    var acts=qa('.act-box',pg).map(function(a){return {title:txt(a.querySelector('.act-title'))||'Activity',body:txt(a.querySelector('.act-body'))||txt(a)}});
+    var vocab=(txt(pg).match(/\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?\b/g)||[]).slice(0,18);
+    return {id:pg.id,title:title,sections:Array.from(new Set(hdrs)).slice(0,12),acts:acts,vocab:Array.from(new Set(vocab)).slice(0,12),text:txt(pg).slice(0,1500)};
+  }).filter(function(p){return p.title&&p.text});
+}
+function inferFocus(title,section){
+  var s=(title+' '+section).toLowerCase();
+  if(s.includes('source')||s.includes('waca'))return 'source evaluation and evidential judgement';
+  if(s.includes('igcse')||s.includes('cold war')||s.includes('stalin')||s.includes('vietnam')||s.includes('medicine'))return 'Edexcel iGCSE knowledge, explanation and exam technique';
+  if(s.includes('1066')||s.includes('norman'))return 'causation, consequence and historical significance';
+  if(s.includes('slavery'))return 'historical empathy, evidence and global inequality';
+  if(s.includes('war')||s.includes('league'))return 'causation, consequence, interpretations and judgement';
+  return 'knowledge building, historical explanation and evidence use';
+}
+function rubricsFor(data,section){
+  var acts=data.acts.slice(0,6);if(!acts.length)acts=[{title:'Section written response',body:section}];
+  return acts.map(function(a){
+    var body=(a.body||'').toLowerCase();var title=(a.title||'Activity');var criteria=['Accurate knowledge linked to the section focus','Specific evidence or examples from the topic','Clear explanation using historical vocabulary','Structured answer with developed sentences'];
+    if(body.includes('source')||body.includes('waca')||title.toLowerCase().includes('source'))criteria.push('Uses WACA/provenance and evaluates usefulness/limitations');
+    if(body.includes('how far')||body.includes('agree')||body.includes('evaluate'))criteria.push('Balanced judgement with a justified conclusion');
+    return {title:title,criteria:criteria};
+  });
+}
+function planBlocks(data,section){
+  var focus=inferFocus(data.title,section);var rub=rubricsFor(data,section);
+  var blocks=[
+    {h:'Section focus',p:section||data.title},
+    {h:'Curriculum intent',p:'This section develops '+focus+' through the live history hub content, linked activities and student reflection. It is designed to support sequenced curriculum delivery, lesson consistency and inspection/QA evidence.'},
+    {h:'Prior knowledge',bullets:['Students should recall the broader unit context: '+data.title,'Students should understand key chronology, people, events and vocabulary from previous lessons.','Students should know how to use the activity editor and RAG/self-assessment tools where relevant.']},
+    {h:'Learning objectives',bullets:['Describe the key knowledge in this section accurately.','Explain causes, consequences, change, continuity or significance where relevant.','Use precise historical vocabulary and supporting evidence.','Complete the linked activity using structured paragraphs and, where relevant, source evaluation.','Reflect on feedback and identify a next step.']},
+    {h:'HPL / Teaching & Learning / AI / SDG links',bullets:['HPL: analysing, connecting, evaluating and meta-thinking.','T&L: modelling, guided practice, independent writing, feedback and improvement.','AI literacy: students evaluate evidence, avoid unsupported claims and use feedback responsibly.','SDG: quality education, peace/justice and reduced inequalities where relevant to the topic.']},
+    {h:'Key vocabulary',bullets:(data.vocab.length?data.vocab:['evidence','source','cause','consequence','significance','judgement'])},
+    {h:'Lesson sequence',bullets:['Starter: knowledge retrieval from the previous lesson and quick vocabulary check.','Teacher exposition: introduce the section focus and model the key concept using an example from the page.','Guided practice: read/view the section content and annotate key evidence as a class.','Independent practice: students complete the linked activity in the editor.','Feedback loop: students auto-mark, improve, then submit or save their feedback.','Plenary: exit ticket requiring one precise evidence point and one next-step reflection.']},
+    {h:'Differentiation and inclusion',bullets:['Support: sentence starters, keyword list, model paragraph and chunked instructions.','SEND/EAL: pre-teach vocabulary, reduce cognitive load with visuals and allow oral rehearsal before writing.','Challenge: require judgement, source comparison or a second paragraph using contrasting evidence.']},
+    {h:'Common misconceptions',bullets:['Students may describe events without explaining why they matter.','Students may make broad claims without evidence.','Students may treat all sources as equally reliable without considering provenance.','Students may confuse chronology or significance with simple description.']},
+    {h:'Assessment opportunity',p:'The activity response should be assessed using the rubric below. Students should receive a grade, a strength, a target and a next-step instruction. Teacher moderation can override auto-feedback if required.'}
+  ];
+  rub.forEach(function(r){blocks.push({h:'Rubric: '+r.title,bullets:r.criteria.concat(['Higher performance: sustained explanation, precise evidence, clear judgement and independent historical vocabulary.','Next step: improve the weakest criterion and resubmit or discuss in class.'])})});
+  blocks.push({h:'Homework / extension',bullets:['Complete or improve the activity response using feedback.','Revise the key vocabulary and produce a 5-question quiz for another student.','For iGCSE sections: attempt a relevant 4/6/8/16-mark practice question.']});
+  return blocks;
+}
+function viewPlan(data,section){
+  var view=q('p4e-plan-view');if(!view){view=document.createElement('div');view.id='p4e-plan-view';view.className='tp-pnl p4e-viewer';var target=q('tpsec-lp')||q('tpsec-p4lib');if(target)target.prepend(view)}
+  var blocks=planBlocks(data,section);
+  view.innerHTML='<div class="p4e-plan-header"><div><h3>📚 '+esc(section||data.title)+'</h3><span class="p4e-badge">'+esc(data.title)+'</span><span class="p4e-badge p4e-green">Inspection-ready section plan</span></div><button class="p4e-close" onclick="document.getElementById(\'p4e-plan-view\').style.display=\'none\'">Close</button></div>'+blocks.map(function(b){return '<h4>'+esc(b.h)+'</h4>'+(b.p?'<p>'+esc(b.p)+'</p>':'')+(b.bullets?'<ul>'+b.bullets.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')}).join('')+'<button class="p4-btn green" onclick="P4EDownloadCurrentPlan()">Download this section plan as .docx</button>';
+  view.style.display='block';view.scrollIntoView({behavior:'smooth',block:'start'});window.P4E_CURRENT_PLAN={data:data,section:section,blocks:blocks};
+}
+window.P4EViewPlan=function(pageId,idx){var d=getPageData().find(function(p){return p.id===pageId});if(!d)return;var sec=d.sections[idx]||d.title;viewPlan(d,sec)};
+window.P4EDownloadCurrentPlan=function(){var c=window.P4E_CURRENT_PLAN;if(!c)return;P4E_DOCX.download((c.section||c.data.title).replace(/[^a-z0-9]+/gi,'_')+'_Section_Plan.docx','Section Plan — '+(c.section||c.data.title),c.blocks)};
+window.P4EDownloadThis=function(pageId,idx){var d=getPageData().find(function(p){return p.id===pageId});if(!d)return;var sec=d.sections[idx]||d.title;P4E_DOCX.download((sec||d.title).replace(/[^a-z0-9]+/gi,'_')+'_Section_Plan.docx','Section Plan — '+sec,planBlocks(d,sec))};
+window.P4EDownloadIndex=function(){var ps=getPageData();var blocks=[{h:'Purpose',p:'This index summarises the section-plan library generated from the current live History Hub content.'}];ps.forEach(function(p){blocks.push({h:p.title,p:(p.sections.length?p.sections.length:1)+' section focus points detected; '+p.acts.length+' activities detected.'});(p.sections.length?p.sections:[p.title]).forEach(function(s){blocks.push({h2:s,p:'Inspection-ready section plan available inside the Staff Portal.'})})});P4E_DOCX.download('History_Hub_Section_Plan_Index.docx','History Hub Section Plan Index',blocks)};
+function buildSectionPlansIntoLessonTab(){
+  var tab=q('tptab-lp');if(tab)tab.innerHTML='📚 Section Plans';
+  var oldTab=q('tptab-p4lib');if(oldTab)oldTab.classList.add('p4e-hidden');
+  var sec=q('tpsec-lp');if(!sec)return;
+  var ps=getPageData();
+  sec.innerHTML='<div class="tp-pnl"><h3>📚 Section Plans Library</h3><span class="p4e-badge p4e-green">Replaces individual lesson plans</span><p style="color:#a8a29e;font-size:.84rem">Open a section plan to view it in the portal. Each plan is generated from the live topic, section and activity content, then can be downloaded as a proper .docx file.</p><button class="p4-btn green" onclick="P4EDownloadIndex()">Download section-plan index (.docx)</button></div><div class="p4-grid">'+ps.map(function(p){var ss=p.sections.length?p.sections.slice(0,12):[p.title];return '<div class="p4-card"><h4>'+esc(p.title)+'</h4><p>'+ss.length+' section plans · '+p.acts.length+' linked activities</p>'+ss.map(function(s,i){return '<button class="p4e-section-btn" onclick="P4EViewPlan(\''+p.id+'\','+i+')">View: '+esc(s).slice(0,80)+'</button>'}).join('')+'</div>'}).join('')+'</div>';
+}
+function qaBlocks(){var ps=getPageData();var subCount=0;try{var d=JSON.parse(localStorage.getItem('mrsh_tp_v8')||localStorage.getItem('mrsh_tp_v7')||'{}');subCount=Object.keys(d.subs||{}).length}catch(e){}
+  return [
+    {h:'Inspection narrative',p:'The History Hub provides a sequenced digital curriculum across Key Stage 3 and iGCSE, combining substantive knowledge, source evaluation, activity-based learning, self-assessment, auto-feedback and teacher feedback workflows.'},
+    {h:'Curriculum intent',bullets:['Students move from foundational historical skills in Year 7 towards increasingly complex causation, consequence, interpretations and exam-style responses.','Topic pages contain sectioned knowledge, activities, source studies, revision tools and RAG reflection.','Framework badges link learning to HPL, Teaching & Learning, AI literacy and SDG priorities.']},
+    {h:'Implementation evidence',bullets:['Live section plans are generated from '+ps.length+' topic/page areas.','Each section plan contains objectives, vocabulary, stages, differentiation, misconceptions, assessment and rubrics.','Activity editors support writing, tables, images, feedback, submission and download workflows.']},
+    {h:'Assessment and feedback',bullets:['Students can receive instant auto-feedback even without a class enrolment.','Teachers can review submissions in the marksheet and override grades/feedback.','Feedback identifies strengths, next steps and intervention needs.']},
+    {h:'Intervention and inclusion',bullets:['Support prompts, sentence starters and SEND/EAL strategies are built into section plans.','Intervention flags identify incomplete, weak or vocabulary-light responses.','Analytics and marksheet exports support department review and targeted follow-up.']},
+    {h:'Student ownership',bullets:['Students can download work and feedback, improve responses, complete RAG sheets and view feedback in the student portal.','Progress tools support reflection and next-step planning.']},
+    {h:'Current evidence snapshot',bullets:['Topic/page areas detected: '+ps.length,'Recorded submissions in local browser store: '+subCount,'Section-plan library: live generated from current deployed content.']}
+  ]}
+function renderQA(){var sec=q('tpsec-p4qa');if(!sec)return;var blocks=qaBlocks();sec.innerHTML='<div class="tp-pnl p4e-viewer"><div class="p4e-plan-header"><div><h3>✅ QA / Inspection Evidence Centre</h3><span class="p4e-badge p4e-green">Viewable in portal</span><span class="p4e-badge p4e-amber">Downloadable .docx</span></div></div>'+blocks.map(function(b){return '<h4>'+esc(b.h)+'</h4>'+(b.p?'<p>'+esc(b.p)+'</p>':'')+(b.bullets?'<ul>'+b.bullets.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')}).join('')+'<div class="p4e-mini-grid"><div class="p4e-evidence-card"><h4>Curriculum coverage</h4><p>Topic pages, sequence, section plans, activities and revision support.</p></div><div class="p4e-evidence-card"><h4>Assessment</h4><p>Auto-feedback, teacher marking, marksheet export and activity rubrics.</p></div><div class="p4e-evidence-card"><h4>Student ownership</h4><p>Feedback downloads, RAG reflection and student progress profile.</p></div></div><button class="p4-btn green" onclick="P4EDownloadQA()">Download QA evidence pack (.docx)</button></div>'}
+window.P4EDownloadQA=function(){P4E_DOCX.download('History_Hub_QA_Evidence_Pack.docx','History Hub QA / Inspection Evidence Pack',qaBlocks())};
+/* override earlier broken/HTML downloads */
+window.P4DownloadAllSectionPlans=window.P4EDownloadIndex;
+window.P4DownloadQAEvidence=window.P4EDownloadQA;
+window.P4DownloadSectionPlan=function(pageId,idx){window.P4EDownloadThis(pageId,idx)};
+
+function enhanceTabs(){
+  var old=q('tptab-p4lib');if(old)old.classList.add('p4e-hidden');
+  var lp=q('tptab-lp');if(lp)lp.innerHTML='📚 Section Plans';
+  var qa=q('tptab-p4qa');if(qa)qa.innerHTML='✅ QA Evidence';
+  buildSectionPlansIntoLessonTab();renderQA();
+}
+/* Hook TPtab so Section Plans replaces individual lesson plans */
+var oldTPtab=window.TPtab;
+window.TPtab=function(t){if(oldTPtab)oldTPtab(t);if(t==='lp')setTimeout(buildSectionPlansIntoLessonTab,50);if(t==='p4qa')setTimeout(renderQA,50)};
+
+/* reliable activity and feedback docx overrides */
+function editorText(btn){var ed=btn.closest('.act-editor');var area=ed&&ed.querySelector('.ae-area');var act=btn.closest('.act-box');return {title:(act&&act.querySelector('.act-title')?txt(act.querySelector('.act-title')):'Activity'),body:area?txt(area):''}}
+window.aeDl=function(btn){var d=editorText(btn);P4E_DOCX.download(d.title.replace(/[^a-z0-9]+/gi,'_')+'_Response.docx',d.title,[{h:'Student response',p:d.body||'No response entered.'},{h:'Download note',p:'Generated from Mr Stevens History Hub activity editor.'}])};
+window.p4DownloadFeedback=function(btn){var d=editorText(btn);var fb=btn.closest('.act-editor')&&btn.closest('.act-editor').querySelector('.p4-feedback');P4E_DOCX.download(d.title.replace(/[^a-z0-9]+/gi,'_')+'_Feedback.docx','Feedback — '+d.title,[{h:'Student response',p:d.body||'No response entered.'},{h:'Feedback',p:fb?txt(fb):'No feedback generated yet.'},{h:'Next step',p:'Use the feedback to improve the response, then re-mark or submit to the teacher.'}])};
+function patchFeedbackButtons(){qa('.act-editor').forEach(function(ed){qa('button',ed).forEach(function(b){if(/Download Feedback/i.test(b.textContent||''))b.onclick=function(){p4DownloadFeedback(b)};if(/Download as Word/i.test(b.textContent||''))b.onclick=function(){aeDl(b)}})})}
+document.addEventListener('DOMContentLoaded',function(){setTimeout(enhanceTabs,250);setTimeout(patchFeedbackButtons,500);var mo=new MutationObserver(function(){patchFeedbackButtons()});if(document.body)mo.observe(document.body,{childList:true,subtree:true})});
+})();
+</script>
+
 </body>
 </html>
