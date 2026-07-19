@@ -395,6 +395,25 @@ body.gateway #hbtn{display:none!important;}
 .p4g-btn{background:#2563eb;color:#fff;border:none;border-radius:9px;padding:8px 13px;font-size:.78rem;font-weight:800;font-family:inherit;cursor:pointer;margin:4px 6px 4px 0;}
 .p4g-btn.green{background:#059669;}.p4g-btn:hover{filter:brightness(1.1)}
 
+
+/* === PHASE 4H FINAL CLEAN UNIT PLANS === */
+.p4h-card{background:rgba(28,22,12,.94);border:1.5px solid rgba(212,175,55,.25);border-radius:14px;padding:16px;margin-bottom:12px;}
+.p4h-card h4{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.08rem;margin-bottom:5px;}
+.p4h-card p{color:#a8a29e;font-size:.82rem;line-height:1.6;margin:4px 0 10px;}
+.p4h-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px;}
+.p4h-view{background:rgba(20,16,12,.98);border:1.5px solid rgba(212,175,55,.3);border-radius:16px;padding:18px;margin-bottom:16px;}
+.p4h-view-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px;}
+.p4h-view h3{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.45rem;margin:0 0 6px;}
+.p4h-view h4{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.05rem;margin:14px 0 6px;}
+.p4h-view p,.p4h-view li{font-size:.84rem;color:#e8e4d0;line-height:1.72;}
+.p4h-view ul{margin:5px 0 12px 18px;}
+.p4h-close{background:rgba(220,38,38,.22);border:1px solid rgba(220,38,38,.5);color:#fecaca;border-radius:9px;padding:8px 15px;font-family:inherit;font-weight:800;cursor:pointer;}
+.p4h-pill{display:inline-block;border:1px solid rgba(37,99,235,.55);background:rgba(37,99,235,.14);color:#bfdbfe;border-radius:999px;padding:4px 10px;font-size:.72rem;font-weight:800;margin:2px 4px 6px 0;}
+.p4h-green{border-color:rgba(5,150,105,.4);background:rgba(5,150,105,.12);color:#6ee7b7;}
+.p4h-btn{background:#2563eb;color:#fff;border:none;border-radius:9px;padding:8px 13px;font-size:.78rem;font-weight:800;font-family:inherit;cursor:pointer;margin:4px 6px 4px 0;}
+.p4h-btn.green{background:#059669;}.p4h-btn:hover{filter:brightness(1.1)}
+.p4h-note{background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.18);border-radius:11px;padding:11px;margin:9px 0;color:#d6d3d1;font-size:.82rem;line-height:1.65;}
+
 </style>
 </head>
 <body>
@@ -8415,7 +8434,7 @@ document.addEventListener('DOMContentLoaded',function(){document.body.classList.
 </script>
 
 
-<script id="phase4-section-plans-qa-fixed">
+<script type="text/plain" id="phase4-section-plans-qa-fixed-disabled">
 (function(){
 'use strict';
 function q(id){return document.getElementById(id)}
@@ -8452,7 +8471,7 @@ document.addEventListener('DOMContentLoaded',function(){enhance();buildLib();set
 .p4-qa-card h4{color:#fbbf24;font-family:'Alegreya',serif;margin-bottom:4px;}
 </style>
 
-<script id="phase4-fix-engine">
+<script type="text/plain" id="phase4-fix-engine-disabled">
 (function(){
 'use strict';
 function q(id){return document.getElementById(id)}
@@ -8495,7 +8514,7 @@ document.addEventListener('DOMContentLoaded',function(){cleanDuplicateTabs();ren
 .p4clean-section h4{font-size:1rem;margin-bottom:5px;}
 .p4qa-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:10px}.p4qa-table th{background:rgba(212,175,55,.20);color:#fbbf24;padding:8px;text-align:left}.p4qa-table td{border-bottom:1px solid rgba(255,255,255,.08);padding:8px;color:#e8e4d0;vertical-align:top}
 </style>
-<script id="phase4-clean-fix-engine">
+<script type="text/plain" id="phase4-clean-fix-engine-disabled">
 (function(){
 'use strict';
 function q(id){return document.getElementById(id)}
@@ -8547,7 +8566,7 @@ document.addEventListener('DOMContentLoaded',function(){cleanTabs();renderSectio
 })();
 </script>
 
-<script id="p4e-section-plans-qa-fix">
+<script type="text/plain" id="p4e-section-plans-qa-fix-disabled">
 (function(){
 'use strict';
 
@@ -8710,7 +8729,7 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(enhanceTabs,2
 </script>
 
 
-<script id="p4f-unit-lesson-plans-fix">
+<script type="text/plain" id="p4f-unit-lesson-plans-fix-disabled">
 (function(){
 'use strict';
 function q(id){return document.getElementById(id)}
@@ -8854,7 +8873,7 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(renderUnitLib
 </script>
 
 
-<script id="p4g-final-lesson-plan-fix">
+<script type="text/plain" id="p4g-final-lesson-plan-fix-disabled">
 (function(){
 'use strict';
 function q(id){return document.getElementById(id)}
@@ -8891,6 +8910,66 @@ window.P4DownloadQAEvidence=function(forceDownload){if(forceDownload===true){if(
 var oldTPtab=window.TPtab;
 window.TPtab=function(t){if(oldTPtab)oldTPtab(t);if(t==='lp')setTimeout(renderUnitOnlyLibrary,80);if(t==='p4qa')setTimeout(qaViewOnly,80)};
 document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){renderUnitOnlyLibrary();qaViewOnly();},600);setInterval(function(){var lp=q('tpsec-lp');if(lp&&lp.offsetParent!==null&&!lp.innerHTML.includes('Unit Lesson Plans Library'))renderUnitOnlyLibrary();},1200)});
+})();
+</script>
+
+
+<script id="p4h-final-clean-unit-plans">
+(function(){
+'use strict';
+function q(id){return document.getElementById(id)}
+function qa(sel,root){return Array.from((root||document).querySelectorAll(sel))}
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+/* Real .docx writer, no automatic download calls */
+var DOCX=(function(){
+ var crcTable=null;
+ function bytes(s){return new TextEncoder().encode(String(s||''))}
+ function crc32(u){if(!crcTable){crcTable=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=(c&1)?(0xedb88320^(c>>>1)):(c>>>1);crcTable[n]=c>>>0}}var crc=0xffffffff;for(var i=0;i<u.length;i++)crc=crcTable[(crc^u[i])&255]^(crc>>>8);return (crc^0xffffffff)>>>0}
+ function u16(a,v){a.push(v&255,(v>>>8)&255)}function u32(a,v){a.push(v&255,(v>>>8)&255,(v>>>16)&255,(v>>>24)&255)}
+ function zip(files){var local=[],central=[],offset=0;files.forEach(function(f){var name=bytes(f.name),data=bytes(f.data),crc=crc32(data),lh=[];u32(lh,0x04034b50);u16(lh,20);u16(lh,0);u16(lh,0);u16(lh,0);u16(lh,0);u32(lh,crc);u32(lh,data.length);u32(lh,data.length);u16(lh,name.length);u16(lh,0);local.push(new Uint8Array(lh),name,data);var ch=[];u32(ch,0x02014b50);u16(ch,20);u16(ch,20);u16(ch,0);u16(ch,0);u16(ch,0);u16(ch,0);u32(ch,crc);u32(ch,data.length);u32(ch,data.length);u16(ch,name.length);u16(ch,0);u16(ch,0);u16(ch,0);u16(ch,0);u32(ch,0);u32(ch,offset);central.push(new Uint8Array(ch),name);offset+=lh.length+name.length+data.length});var loc=offset,cen=0;central.forEach(function(x){cen+=x.length});var end=[];u32(end,0x06054b50);u16(end,0);u16(end,0);u16(end,files.length);u16(end,files.length);u32(end,cen);u32(end,loc);u16(end,0);var total=loc+cen+end.length,out=new Uint8Array(total),p=0;local.concat(central,[new Uint8Array(end)]).forEach(function(part){out.set(part,p);p+=part.length});return out}
+ function x(s){return String(s||'').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+ function para(t,style){var st=style?'<w:pPr><w:pStyle w:val="'+style+'"/></w:pPr>':'';return '<w:p>'+st+'<w:r><w:t xml:space="preserve">'+x(t)+'</w:t></w:r></w:p>'}
+ function bullet(t){return '<w:p><w:pPr><w:ind w:left="720" w:hanging="360"/></w:pPr><w:r><w:t xml:space="preserve">• '+x(t)+'</w:t></w:r></w:p>'}
+ function docXml(title,blocks){var body=para(title,'Title');blocks.forEach(function(b){if(b.h)body+=para(b.h,'Heading1');if(b.h2)body+=para(b.h2,'Heading2');if(b.p)body+=para(b.p);if(b.bullets)(b.bullets||[]).forEach(function(y){body+=bullet(y)})});body+='<w:sectPr><w:pgMar w:top="720" w:right="720" w:bottom="720" w:left="720" w:header="360" w:footer="360" w:gutter="0"/></w:sectPr>';return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>'+body+'</w:body></w:document>'}
+ function styles(){return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:rPr><w:b/><w:sz w:val="32"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="Heading 1"/><w:rPr><w:b/><w:sz w:val="26"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="Heading 2"/><w:rPr><w:b/><w:sz w:val="22"/></w:rPr></w:style></w:styles>'}
+ function down(fn,title,blocks){var files=[{name:'[Content_Types].xml',data:'<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>'},{name:'_rels/.rels',data:'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>'},{name:'word/_rels/document.xml.rels',data:'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'},{name:'word/document.xml',data:docXml(title,blocks)},{name:'word/styles.xml',data:styles()}];var blob=new Blob([zip(files)],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
+ return {download:down};
+})();
+window.P4H_DOCX=DOCX;
+
+var UNITS=[
+{key:'what-is-history',year:'Year 7',title:'What is History?',summary:'Historical skills unit: chronology/timelines, source types, fact/opinion and cause/effect.',lessons:[['Chronology and timelines','BC/AD, sequence, duration, periodisation and building timelines.'],['Types of source','Primary and secondary sources, provenance, WACA and usefulness.'],['Fact and opinion','Separating evidence from interpretation and unsupported claims.'],['Cause and effect','Causal chains, short-term/long-term causes and consequences.']]},
+{key:'norman-1066',year:'Year 7',title:'The Norman Conquest 1066',summary:'England in 1066, claimants, pre-Hastings events, Hastings and after Hastings.',lessons:[['What was England like in 1066?','Anglo-Saxon England, Witan, earls, Edward the Confessor and the succession crisis.'],['Claimants to the throne','Harold Godwinson, William of Normandy and Harald Hardrada.'],['What happened before Hastings?','Gate Fulford, Stamford Bridge, William’s landing and Harold’s march south.'],['What happened in the Battle of Hastings?','Shield wall, Norman tactics, feigned retreat and reasons for victory/defeat.'],['What happened after Hastings?','Coronation, castles, feudal system, Domesday Book and long-term Norman control.']]},
+{key:'castles',year:'Year 7',title:'Castles Research Project',summary:'Castle location, motte-and-bailey, stone keeps, siege warfare and castle decline.',lessons:[['Castle location','Defensive sites, rivers, roads, settlement control and recommendation writing.'],['Motte-and-bailey castles','Motte, bailey, keep, speed of construction, strengths and weaknesses.'],['Stone keeps and development','Stone, gatehouses, battlements, murder holes and example castles.'],['Siege warfare and decline','Trebuchets, mining, gunpowder and why castles became less useful.']]},
+{key:'black-death',year:'Year 7',title:'Health, Medicine and the Black Death',summary:'Medieval beliefs, plague, treatments, source evidence and consequences.',lessons:[['Medieval medicine and beliefs','Four Humours, miasma, religion, astrology and treatments.'],['The Black Death arrives','Spread, symptoms, reactions and source evidence.'],['Consequences','Labour shortage, wage demands, social change and links to the Peasants’ Revolt.']]},
+{key:'medieval-entertainment',year:'Year 7',title:'Medieval Entertainment',summary:'Work/free time, music/storytelling, sports, games and festivals.',lessons:[['Work and free time','Peasant work, holy days and the medieval calendar.'],['Music and storytelling','Minstrels, ballads, oral culture and performance.'],['Sports and festivals','Fairs, archery, mob football and community life.']]},
+{key:'slavery',year:'Year 8',title:'The Transatlantic Slave Trade',summary:'Triangular Trade, Middle Passage, abolition and legacy.',lessons:[['Triangular Trade','Three trade legs, profit, goods and human suffering.'],['Middle Passage and sources','Equiano, Brookes Diagram, WACA and source limitations.'],['Abolition and legacy','Abolitionists, 1807, moral/economic arguments and modern slavery.']]},
+{key:'industrial',year:'Year 8',title:'Industrial Britain',summary:'Farms to factories, factory work, living conditions, public health and reform.',lessons:[['Farms to factories','Inventions, factory system, urbanisation and industrial change.'],['Factory conditions','Child labour, hours, wages, dangers and Factory Acts.'],['Public health','Cholera, Chadwick, John Snow, Bazalgette and Public Health Acts.']]},
+{key:'empire',year:'Year 8',title:'British Empire and India',summary:'Empire motives, India, rebellion and legacy.',lessons:[['Why empire?','Economic, strategic, political and cultural motives.'],['India','East India Company, Plassey, rebellion and Crown rule.'],['Interpretations and legacy','Benefits/harms, exploitation, resistance and reparations debates.']]},
+{key:'nelson',year:'Year 9',title:'Nelson and Trafalgar',summary:'Nelson, naval power, Trafalgar and historical memory.',lessons:[['Nelson and naval Britain','Naval power, empire, blockade and leadership.'],['Battle of Trafalgar','Tactics, events, consequences and significance.']]},
+{key:'ww1',year:'Year 9',title:'World War One',summary:'MAIN causes, trenches, poetry, Home Front and Versailles.',lessons:[['MAIN causes','Militarism, alliances, imperialism, nationalism and assassination.'],['Trenches and experience','Trench conditions, attrition, poetry and source evaluation.'],['Versailles and consequences','Treaty terms, war guilt, reparations and historical judgement.']]},
+{key:'league',year:'Year 9',title:'League of Nations',summary:'Aims, structure, successes, Manchuria, Abyssinia and failure.',lessons:[['Aims and structure','Collective security, assembly, council, sanctions and weaknesses.'],['Success and failure','Early successes, Manchuria, Abyssinia and reasons for failure.']]},
+{key:'cold-war',year:'iGCSE',title:'Cold War and Superpower Relations',summary:'Origins, early tension, crises, détente and end of Cold War.',lessons:[['Reasons for the Cold War','Ideology, Grand Alliance, conferences, Long Telegram and Iron Curtain.'],['Early developments','Truman Doctrine, Marshall Plan, Soviet expansion, Berlin Blockade and NATO.'],['Superpower rivalry','Korea, arms race, peaceful coexistence and Hungary.'],['Crises and détente','Berlin Wall, Cuba, Czechoslovakia, SALT and détente.']]},
+{key:'stalin',year:'iGCSE',title:'Stalin’s Russia',summary:'Rise to power, economy, collectivisation, terror and society.',lessons:[['Rise to power','Lenin’s death, Trotsky, Stalin’s roles and tactics.'],['Economy and collectivisation','Five-Year Plans, collectivisation, famine and targets.'],['Control and society','Purges, show trials, propaganda, youth and women.']]},
+{key:'vietnam',year:'iGCSE',title:'Vietnam War',summary:'Background, escalation, tactics, opposition, Tet and withdrawal.',lessons:[['Background and causes','French Indochina, Ho Chi Minh, Geneva and Domino Theory.'],['US escalation and tactics','Gulf of Tonkin, bombing, search and destroy, guerrilla warfare.'],['Opposition and withdrawal','Tet, media, protest, Vietnamisation and fall of Saigon.']]},
+{key:'medicine',year:'iGCSE',title:'Changes in Medicine',summary:'Cause of disease, treatment, hospitals, public health and key individuals.',lessons:[['Disease ideas','Miasma, germ theory, Pasteur, Koch and changing explanations.'],['Treatment and surgery','Anaesthetics, antiseptics, aseptic surgery and blood transfusion.'],['Public health and hospitals','Chadwick, Public Health Acts, hospitals and NHS origins.']]}
+];
+function rubricFor(u,l){return ['Students use accurate knowledge for '+l[0]+'.','Students use precise vocabulary and evidence.','Students explain significance, cause, consequence or source value where relevant.','Students write in developed sentences with a clear judgement or next step when appropriate.','Higher performance: independent detail, comparison, balanced evaluation and clear conclusion.']}
+function blocks(u){var b=[{h:'Unit / topic',p:u.title+' — '+u.year},{h:'Curriculum intent',p:'This plan is organised as a coherent teacher-facing unit, not as a scraped list of student-site headings. It supports classroom delivery, QA and inspection evidence.'},{h:'Prior knowledge',bullets:['Students should know the broader unit chronology and vocabulary.','Students should understand how to use evidence in historical explanation.','Students should be familiar with the activity editor, feedback and RAG tools where relevant.']},{h:'Learning objectives across the unit',bullets:u.lessons.map(function(l){return l[0]+': '+l[1]})},{h:'HPL / T&L / AI / SDG links',bullets:['HPL: analysing, linking, evaluating and meta-thinking.','T&L: retrieval, modelling, guided practice, independent practice, feedback and improvement.','AI literacy: students evaluate evidence and use feedback critically.','SDG: quality education, peace/justice and responsible citizenship where relevant.']},{h:'Detailed unit sequence',bullets:u.lessons.map(function(l,i){return 'Lesson '+(i+1)+' — '+l[0]+': '+l[1]})},{h:'Differentiation and inclusion',bullets:['Support: vocabulary lists, sentence starters, model paragraphs and chunked tasks.','SEND/EAL: pre-teach key terms, use visuals and allow oral rehearsal before writing.','Challenge: require judgement, comparison, source evaluation or counter-argument.']},{h:'Common misconceptions',bullets:['Students may describe instead of explain.','Students may omit specific evidence.','Students may confuse cause, consequence and significance.','Students may treat sources as reliable without considering provenance.']},{h:'Assessment opportunities',bullets:['Main activity response provides formative evidence.','Auto-feedback gives initial strengths and targets.','Teacher marking/override provides moderated evidence.','End-of-unit extended response can be used as summative assessment.']}];u.lessons.forEach(function(l,i){b.push({h:'Lesson '+(i+1)+': '+l[0],p:l[1]});b.push({h2:'Suggested activities',bullets:['Starter retrieval linked to previous lesson.','Teacher exposition/model using the student-site content.','Guided reading or source analysis.','Independent activity editor response.','Auto-mark/improve/submit workflow.']});b.push({h2:'Activity marking rubric',bullets:rubricFor(u,l)});});b.push({h:'Homework / extension',bullets:['Improve the main written response using feedback.','Create flashcards for the key vocabulary.','Prepare one quiz question and one extended-answer question.']});return b}
+function renderView(u){var sec=q('tpsec-lp');if(!sec)return;var view=q('p4h-unit-view');if(!view){view=document.createElement('div');view.id='p4h-unit-view';view.className='p4h-view';sec.prepend(view)}var html='<div class="p4h-view-head"><div><h3>📚 '+esc(u.title)+'</h3><span class="p4h-pill">'+esc(u.year)+'</span><span class="p4h-pill p4h-green">Teacher unit plan</span></div><button class="p4h-close" onclick="document.getElementById(\'p4h-unit-view\').style.display=\'none\'">Close</button></div>';blocks(u).forEach(function(x){html+='<h4>'+esc(x.h||x.h2)+'</h4>';if(x.p)html+='<p>'+esc(x.p)+'</p>';if(x.bullets)html+='<ul>'+x.bullets.map(function(y){return '<li>'+esc(y)+'</li>'}).join('')+'</ul>'});html+='<button class="p4h-btn green" onclick="P4HDownloadUnit(\''+u.key+'\')">Download this unit plan (.docx)</button>';view.innerHTML=html;view.style.display='block';view.scrollIntoView({behavior:'smooth',block:'start'})}
+window.P4HViewUnit=function(key){var u=UNITS.find(function(x){return x.key===key});if(u)renderView(u)};
+window.P4HDownloadUnit=function(key){var u=UNITS.find(function(x){return x.key===key});if(u)DOCX.download(u.title.replace(/[^a-z0-9]+/gi,'_')+'_Unit_Lesson_Plan.docx','Unit Lesson Plan — '+u.title,blocks(u))};
+window.P4HDownloadIndex=function(){var b=[{h:'Purpose',p:'Index of teacher-facing unit lesson plans in the Staff Portal.'}];UNITS.forEach(function(u){b.push({h:u.title,p:u.year+' — '+u.summary});u.lessons.forEach(function(l,i){b.push({h2:'Lesson '+(i+1)+': '+l[0],p:l[1]})})});DOCX.download('History_Hub_Unit_Lesson_Plans_Index.docx','History Hub Unit Lesson Plans Index',b)};
+function renderLibrary(){var sec=q('tpsec-lp');if(!sec)return;var tab=q('tptab-lp');if(tab)tab.innerHTML='📚 Unit Lesson Plans';var old=q('tptab-p4lib');if(old)old.style.display='none';sec.innerHTML='<div class="tp-pnl"><h3>📚 Unit Lesson Plans Library</h3><span class="p4h-pill p4h-green">Corrected planning structure</span><p style="color:#a8a29e;font-size:.84rem">These plans are organised as teacher-facing curriculum units, not as every heading on the student site. What is History includes chronology, sources, fact/opinion and cause/effect. 1066 includes England in 1066, claimants, before Hastings, Hastings and after Hastings.</p><button class="p4h-btn green" onclick="P4HDownloadIndex()">Download unit-plan index (.docx)</button></div><div class="p4h-grid">'+UNITS.map(function(u){return '<div class="p4h-card"><h4>'+esc(u.title)+'</h4><p><strong>'+esc(u.year)+'</strong> — '+esc(u.summary)+'</p><p>'+u.lessons.length+' lesson focus points</p><button class="p4h-btn" onclick="P4HViewUnit(\''+u.key+'\')">View unit lesson plan</button><button class="p4h-btn green" onclick="P4HDownloadUnit(\''+u.key+'\')">Download .docx</button></div>'}).join('')+'</div>'}
+function renderQA(){var sec=q('tpsec-p4qa');if(!sec)return;sec.innerHTML='<div class="tp-pnl p4h-view"><h3>✅ QA / Inspection Evidence Centre</h3><span class="p4h-pill p4h-green">Viewable in portal</span><span class="p4h-pill">No automatic downloads</span><h4>Curriculum design and sequencing</h4><ul><li>Unit lesson plans are now organised by coherent teacher-facing units.</li><li>Each unit identifies sequence, activities, vocabulary, rubrics and assessment.</li><li>KS3 progression builds from historical skills to causation, source evaluation and judgement; iGCSE units build exam-style knowledge and analysis.</li></ul><h4>Implementation evidence</h4><ul><li>Teachers can view plans before downloading.</li><li>Plans now use unit logic, not scraped headings.</li><li>The Staff Portal provides planning, marking, assignment, analytics and QA evidence workflows.</li></ul><h4>Assessment and feedback</h4><ul><li>Auto-feedback supports independent student improvement.</li><li>Teacher marksheets provide review, intervention and evidence of impact.</li></ul><button class="p4h-btn green" onclick="P4HDownloadQA()">Download QA evidence pack (.docx)</button></div>'}
+window.P4HDownloadQA=function(){DOCX.download('History_Hub_QA_Evidence_Pack.docx','History Hub QA Evidence Pack',[{h:'Inspection narrative',p:'The History Hub supports curriculum intent, implementation and impact through unit planning, activity rubrics, student feedback and teacher analytics.'},{h:'Curriculum design',bullets:['Coherent unit lesson plans replace student-page heading extraction.','Each unit defines sequence, vocabulary, misconceptions and assessment.']},{h:'Implementation evidence',bullets:['Teacher-facing Staff Portal plans.','Activity editor workflows.','Auto marking and marksheet evidence.']},{h:'Impact evidence',bullets:['Student feedback records.','Progress dashboard.','Teacher analytics and intervention flags.']}])};
+/* Block old automatic QA download functions permanently. */
+window.P4DownloadQAEvidence=function(forceDownload){if(forceDownload===true){return window.P4HDownloadQA()}renderQA()};
+window.P4EDownloadQA=function(){return window.P4HDownloadQA()};
+var oldTPtab=window.TPtab;
+window.TPtab=function(t){if(oldTPtab)oldTPtab(t);if(t==='lp')setTimeout(renderLibrary,50);if(t==='p4qa')setTimeout(renderQA,50)};
+document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){renderLibrary();renderQA()},500);setInterval(function(){var lp=q('tpsec-lp');if(lp&&lp.offsetParent!==null&&!lp.innerHTML.includes('Unit Lesson Plans Library'))renderLibrary();},1000)});
 })();
 </script>
 
