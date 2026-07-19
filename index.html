@@ -384,6 +384,17 @@ body.gateway #hbtn{display:none!important;}
 .p4f-lesson-box{background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.18);border-radius:11px;padding:12px;margin:9px 0;}
 .p4f-lesson-box strong{color:#fbbf24;}
 
+
+/* === PHASE 4G FINAL UNIT PLAN + NO AUTO DOWNLOAD FIX === */
+.p4g-card{background:rgba(28,22,12,.94);border:1.5px solid rgba(212,175,55,.24);border-radius:14px;padding:16px;margin-bottom:12px;}
+.p4g-card h4{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.05rem;margin-bottom:5px;}
+.p4g-card p{color:#a8a29e;font-size:.82rem;line-height:1.6;margin:4px 0 10px;}
+.p4g-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px;}
+.p4g-pill{display:inline-block;border:1px solid rgba(37,99,235,.55);background:rgba(37,99,235,.14);color:#bfdbfe;border-radius:999px;padding:4px 10px;font-size:.72rem;font-weight:800;margin:2px 4px 6px 0;}
+.p4g-green{border-color:rgba(5,150,105,.4);background:rgba(5,150,105,.12);color:#6ee7b7;}
+.p4g-btn{background:#2563eb;color:#fff;border:none;border-radius:9px;padding:8px 13px;font-size:.78rem;font-weight:800;font-family:inherit;cursor:pointer;margin:4px 6px 4px 0;}
+.p4g-btn.green{background:#059669;}.p4g-btn:hover{filter:brightness(1.1)}
+
 </style>
 </head>
 <body>
@@ -8839,6 +8850,47 @@ function renderQAEnhanced(){var sec=q('tpsec-p4qa');if(!sec)return;var blocks=ex
 var prevTPtab=window.TPtab;
 window.TPtab=function(t){if(prevTPtab)prevTPtab(t);if(t==='lp')setTimeout(renderUnitLibrary,60);if(t==='p4qa')setTimeout(renderQAEnhanced,60)};
 document.addEventListener('DOMContentLoaded',function(){setTimeout(renderUnitLibrary,350);setTimeout(renderQAEnhanced,500)});
+})();
+</script>
+
+
+<script id="p4g-final-lesson-plan-fix">
+(function(){
+'use strict';
+function q(id){return document.getElementById(id)}
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+var UNITS=[
+ ['what-is-history','What is History?','Year 7','Chronology/timelines, source types, fact/opinion and cause/effect',4],
+ ['norman-1066','The Norman Conquest 1066','Year 7','England in 1066, claimants, before Hastings, the Battle of Hastings and after Hastings',5],
+ ['castles','Castles Research Project','Year 7','Castle location, motte-and-bailey, stone keeps, siege warfare and decline',4],
+ ['black-death','Health, Medicine and the Black Death','Year 7','Medieval beliefs, plague, treatments, consequences and social change',3],
+ ['medieval-entertainment','Medieval Entertainment','Year 7','Work/free time, music/storytelling, sports, games and festivals',3],
+ ['slavery','The Transatlantic Slave Trade','Year 8','Triangular Trade, Middle Passage, abolition and legacy',3],
+ ['industrial','Industrial Britain','Year 8','Farms to factories, factory conditions, public health and reform',3],
+ ['empire','British Empire and India','Year 8','Empire motives, India, rebellion and imperial legacy',3],
+ ['nelson','Nelson and Trafalgar','Year 9','Nelson, naval power and the Battle of Trafalgar',2],
+ ['ww1','World War One','Year 9','MAIN causes, trenches, poetry, Home Front and Versailles',3],
+ ['league','League of Nations','Year 9','Aims, structure, successes, Manchuria, Abyssinia and failure',2],
+ ['cold-war','Cold War and Superpower Relations','iGCSE','Origins, early developments, crises, détente and the end of the Cold War',4],
+ ['stalin','Stalin’s Russia','iGCSE','Rise to power, economy, collectivisation, terror and society',3],
+ ['vietnam','Vietnam War','iGCSE','Background, escalation, tactics, opposition, Tet and withdrawal',3],
+ ['medicine','Changes in Medicine','iGCSE','Cause of disease, treatment/surgery, hospitals and public health',3]
+];
+function renderUnitOnlyLibrary(){
+ var sec=q('tpsec-lp');if(!sec)return;
+ var old=q('tptab-p4lib');if(old)old.style.display='none';
+ var tab=q('tptab-lp');if(tab)tab.innerHTML='📚 Unit Lesson Plans';
+ sec.innerHTML='<div class="tp-pnl"><h3>📚 Unit Lesson Plans Library</h3><span class="p4g-pill p4g-green">Corrected teacher planning structure</span><p style="color:#a8a29e;font-size:.84rem">These are proper unit lesson plans, not a scraped list of every student-site heading. Open a unit to view the lesson sequence, activities, vocabulary, rubrics and assessment guidance.</p><button class="p4g-btn green" onclick="P4FDownloadAllUnits&&P4FDownloadAllUnits()">Download unit-plan index (.docx)</button></div><div class="p4g-grid">'+UNITS.map(function(u){return '<div class="p4g-card"><h4>'+esc(u[1])+'</h4><p><strong>'+esc(u[2])+'</strong> — '+esc(u[3])+'</p><p>'+u[4]+' lesson focus points</p><button class="p4g-btn" onclick="P4FViewUnit&&P4FViewUnit(\''+u[0]+'\')">View unit lesson plan</button><button class="p4g-btn green" onclick="P4FDownloadUnit&&P4FDownloadUnit(\''+u[0]+'\')">Download .docx</button></div>'}).join('')+'</div>';
+}
+function qaViewOnly(){
+ var sec=q('tpsec-p4qa');if(!sec)return;
+ sec.innerHTML='<div class="tp-pnl p4e-viewer"><h3>✅ QA / Inspection Evidence Centre</h3><span class="p4g-pill p4g-green">Viewable in portal</span><span class="p4g-pill">No automatic downloads</span><h4>Curriculum design and sequencing</h4><ul><li>Unit Lesson Plans are organised by coherent teacher-facing units rather than every student-site section title.</li><li>Each unit identifies the lesson sequence, activities, vocabulary, misconceptions, differentiation and assessment evidence.</li><li>KS3 progression moves from historical skills to source evaluation, causation and judgement; iGCSE units shift towards exam-style evidence and analysis.</li></ul><h4>Implementation evidence</h4><ul><li>Staff can view plans before downloading.</li><li>Plans use unit logic such as What is History: chronology, sources, fact/opinion, cause/effect.</li><li>1066 is sequenced as England in 1066, claimants, before Hastings, battle and after Hastings.</li></ul><h4>Assessment and feedback</h4><ul><li>Activity rubrics support consistent marking and auto-feedback.</li><li>Teacher marksheets and feedback tools provide evidence of response, intervention and improvement.</li></ul><button class="p4g-btn green" onclick="P4EDownloadQA&&P4EDownloadQA()">Download QA evidence pack (.docx)</button></div>';
+}
+/* Stop old Phase 4 scripts from triggering downloads on page load. Old scripts call P4DownloadQAEvidence(false); this now only renders the QA view. */
+window.P4DownloadQAEvidence=function(forceDownload){if(forceDownload===true){if(window.P4EDownloadQA)window.P4EDownloadQA();return;}qaViewOnly();};
+var oldTPtab=window.TPtab;
+window.TPtab=function(t){if(oldTPtab)oldTPtab(t);if(t==='lp')setTimeout(renderUnitOnlyLibrary,80);if(t==='p4qa')setTimeout(qaViewOnly,80)};
+document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){renderUnitOnlyLibrary();qaViewOnly();},600);setInterval(function(){var lp=q('tpsec-lp');if(lp&&lp.offsetParent!==null&&!lp.innerHTML.includes('Unit Lesson Plans Library'))renderUnitOnlyLibrary();},1200)});
 })();
 </script>
 
