@@ -363,6 +363,27 @@ body.gateway #hbtn{display:none!important;}
 .p4e-section-btn{display:block;width:100%;text-align:left;margin:6px 0;background:#2563eb;color:#fff;border:none;border-radius:9px;padding:10px 13px;font-size:.82rem;font-weight:800;font-family:inherit;cursor:pointer;}
 .p4e-section-btn:hover{background:#1d4ed8;}
 
+
+/* === PHASE 4F UNIT LESSON PLANS FIX === */
+.p4f-unit-card{background:rgba(28,22,12,.92);border:1.5px solid rgba(212,175,55,.22);border-radius:14px;padding:16px;margin-bottom:12px;}
+.p4f-unit-card h4{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.05rem;margin-bottom:5px;}
+.p4f-unit-card p{color:#a8a29e;font-size:.82rem;line-height:1.6;margin:4px 0 10px;}
+.p4f-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px;}
+.p4f-view{background:rgba(20,16,12,.98);border:1.5px solid rgba(212,175,55,.3);border-radius:16px;padding:18px;margin-bottom:16px;}
+.p4f-view-header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px;}
+.p4f-view h3{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.45rem;margin-bottom:4px;}
+.p4f-view h4{font-family:'Alegreya',serif;color:#fbbf24;font-size:1.05rem;margin:14px 0 6px;}
+.p4f-view p,.p4f-view li{font-size:.84rem;color:#e8e4d0;line-height:1.72;}
+.p4f-view ul{margin:5px 0 12px 18px;}
+.p4f-close{background:rgba(220,38,38,.22);border:1px solid rgba(220,38,38,.5);color:#fecaca;border-radius:9px;padding:8px 15px;font-family:inherit;font-weight:800;cursor:pointer;}
+.p4f-pill{display:inline-block;border:1px solid rgba(37,99,235,.55);background:rgba(37,99,235,.14);color:#bfdbfe;border-radius:999px;padding:4px 10px;font-size:.72rem;font-weight:800;margin:2px 4px 6px 0;}
+.p4f-green{border-color:rgba(5,150,105,.4);background:rgba(5,150,105,.12);color:#6ee7b7;}
+.p4f-btn{background:#2563eb;color:#fff;border:none;border-radius:9px;padding:8px 13px;font-size:.78rem;font-weight:800;font-family:inherit;cursor:pointer;margin:4px 6px 4px 0;}
+.p4f-btn:hover{background:#1d4ed8;}
+.p4f-btn.green{background:#059669;}.p4f-btn.green:hover{background:#047857;}
+.p4f-lesson-box{background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.18);border-radius:11px;padding:12px;margin:9px 0;}
+.p4f-lesson-box strong{color:#fbbf24;}
+
 </style>
 </head>
 <body>
@@ -8674,6 +8695,150 @@ window.aeDl=function(btn){var d=editorText(btn);P4E_DOCX.download(d.title.replac
 window.p4DownloadFeedback=function(btn){var d=editorText(btn);var fb=btn.closest('.act-editor')&&btn.closest('.act-editor').querySelector('.p4-feedback');P4E_DOCX.download(d.title.replace(/[^a-z0-9]+/gi,'_')+'_Feedback.docx','Feedback — '+d.title,[{h:'Student response',p:d.body||'No response entered.'},{h:'Feedback',p:fb?txt(fb):'No feedback generated yet.'},{h:'Next step',p:'Use the feedback to improve the response, then re-mark or submit to the teacher.'}])};
 function patchFeedbackButtons(){qa('.act-editor').forEach(function(ed){qa('button',ed).forEach(function(b){if(/Download Feedback/i.test(b.textContent||''))b.onclick=function(){p4DownloadFeedback(b)};if(/Download as Word/i.test(b.textContent||''))b.onclick=function(){aeDl(b)}})})}
 document.addEventListener('DOMContentLoaded',function(){setTimeout(enhanceTabs,250);setTimeout(patchFeedbackButtons,500);var mo=new MutationObserver(function(){patchFeedbackButtons()});if(document.body)mo.observe(document.body,{childList:true,subtree:true})});
+})();
+</script>
+
+
+<script id="p4f-unit-lesson-plans-fix">
+(function(){
+'use strict';
+function q(id){return document.getElementById(id)}
+function qa(sel,root){return Array.from((root||document).querySelectorAll(sel))}
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function bulletList(arr){return '<ul>'+arr.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>'}
+function textBlock(title,items){return '<h4>'+esc(title)+'</h4>'+bulletList(items)}
+
+var UNIT_PLANS=[
+{key:'what-is-history',year:'Year 7',title:'What is History?',summary:'Foundational historical skills: chronology, timelines, types of source, fact/opinion and cause/effect.',lessons:[
+ {t:'Chronology and timelines',o:'Students understand how historians organise time, including BC/AD, sequence and duration.',acts:['Build a class timeline from ancient to modern examples.','Order mixed BC/AD dates and explain why BC counts backwards.','Create a personal timeline and compare it with historical periodisation.'],vocab:['chronology','timeline','BC','AD','period','sequence','duration'],rubric:['Accurate date order','Clear explanation of BC/AD','Uses timeline vocabulary','Explains why chronology matters']},
+ {t:'Types of source',o:'Students distinguish primary and secondary evidence and explain the value/limits of each.',acts:['Classify Bayeux Tapestry, textbook, photograph, film and diary sources.','Apply Who/Audience/Context/Aim to one source.','Write a usefulness judgement sentence.'],vocab:['primary source','secondary source','evidence','provenance','WACA','bias'],rubric:['Correct source classification','Justifies classification','Uses provenance language','Identifies usefulness and limitation']},
+ {t:'Fact and opinion',o:'Students separate statements of evidence from interpretations and unsupported claims.',acts:['Sort historical statements into fact/opinion categories.','Rewrite opinion statements into evidence-based historical claims.','Identify language that signals judgement or bias.'],vocab:['fact','opinion','interpretation','claim','evidence','support'],rubric:['Correctly identifies facts and opinions','Explains the difference clearly','Uses evidence to support claims','Avoids unsupported assertions']},
+ {t:'Cause and effect',o:'Students explain why events happen and what changes as a result.',acts:['Sort cards into cause/effect chains.','Create a flowchart showing cause → event → consequence.','Write a PEEL paragraph explaining one cause and one effect.'],vocab:['cause','effect','consequence','trigger','long-term','short-term'],rubric:['Accurately identifies causes and effects','Uses because/therefore language','Explains links between events','Develops a complete paragraph']}
+]},
+{key:'norman-1066',year:'Year 7',title:'The Norman Conquest 1066',summary:'A complete unit plan covering England before 1066, claimants, events before Hastings, the battle and consequences after Hastings.',lessons:[
+ {t:'What was England like in 1066?',o:'Students understand Anglo-Saxon England, Edward the Confessor, the Witan, earldoms, wealth, religion and vulnerability.',acts:['Create a profile of Anglo-Saxon England in 1066.','Explain why Edward’s death created a succession problem.','Map the main earldoms and identify why England was valuable.'],vocab:['Anglo-Saxon','Witan','earl','succession','kingdom','heir'],rubric:['Describes features of England in 1066','Explains the succession problem','Uses correct political vocabulary','Links context to later invasion']},
+ {t:'Claimants to the throne',o:'Students compare Harold Godwinson, William of Normandy and Harald Hardrada.',acts:['Complete a three-claimants comparison table.','Rank the claimants by strength of claim.','Write a judgement: Who had the strongest claim and why?'],vocab:['claimant','oath','Normandy','Norway','deathbed promise','Witan'],rubric:['Accurately describes each claimant','Uses evidence for each claim','Compares strengths and weaknesses','Reaches a justified judgement']},
+ {t:'What happened before Hastings?',o:'Students trace Gate Fulford, Stamford Bridge, William’s landing and Harold’s forced march south.',acts:['Create a September–October 1066 timeline.','Explain how Stamford Bridge weakened Harold.','Map Harold’s movement north and south.'],vocab:['Gate Fulford','Stamford Bridge','Pevensey','march','fyrd','housecarls'],rubric:['Correct sequence of events','Explains impact of Stamford Bridge','Uses dates/place evidence','Links pre-Hastings events to the final battle']},
+ {t:'What happened in the Battle of Hastings?',o:'Students understand tactics, weapons, shield wall, feigned retreat and reasons for Harold’s defeat.',acts:['Label a Hastings battlefield diagram.','Rank reasons for William’s victory.','Explain the importance of the feigned retreat.'],vocab:['shield wall','cavalry','archers','feigned retreat','Senlac Hill','tactics'],rubric:['Describes key battle events','Explains tactics clearly','Evaluates reasons for victory/defeat','Uses specific battle evidence']},
+ {t:'What happened after Hastings?',o:'Students understand William’s coronation, castles, Domesday Book, feudal system and long-term change.',acts:['Create a consequence web for the Norman Conquest.','Explain why castles helped William keep control.','Write an 8-mark answer on the most important consequence.'],vocab:['coronation','castle','feudal system','Domesday Book','tenant-in-chief','control'],rubric:['Explains short and long-term consequences','Uses precise terms','Links changes to Norman control','Develops a balanced conclusion']}
+]},
+{key:'castles',year:'Year 7',title:'Castles Research Project',summary:'Castle location, motte-and-bailey design, stone keeps, siege warfare, castle life and castle decline.',lessons:[
+ {t:'Where should a castle be built?',o:'Students judge defensive location using high ground, water, roads and settlement control.',acts:['Evaluate five possible castle sites.','Write a recommendation report to William.'],vocab:['site','defence','high ground','river','settlement','control'],rubric:['Compares advantages/disadvantages','Uses location evidence','Makes a justified recommendation']},
+ {t:'Motte-and-bailey castles',o:'Students explain why early Norman castles were fast, cheap and effective.',acts:['Label a motte-and-bailey diagram.','Explain strengths and weaknesses of wood castles.'],vocab:['motte','bailey','keep','palisade','ditch','drawbridge'],rubric:['Labels features accurately','Explains defensive purpose','Identifies weaknesses clearly']},
+ {t:'Stone keeps and castle development',o:'Students explain changes in castle design and why stone replaced timber.',acts:['Compare motte-and-bailey with stone keep.','Research Tower of London or Rochester.'],vocab:['stone keep','gatehouse','battlements','murder holes','portcullis'],rubric:['Compares designs','Explains change over time','Uses specific castle examples']},
+ {t:'Siege warfare and decline',o:'Students understand how castles were attacked and why gunpowder reduced their usefulness.',acts:['Explain three siege methods.','Assess why castles declined after the Middle Ages.'],vocab:['siege','trebuchet','battering ram','mining','gunpowder','cannon'],rubric:['Explains siege methods','Links technology to decline','Uses precise military vocabulary']}
+]},
+{key:'black-death',year:'Year 7',title:'Health, Medicine and the Black Death',summary:'Medieval beliefs, plague causes/symptoms, treatments, source evidence and consequences.',lessons:[
+ {t:'Medieval medicine and beliefs',o:'Students understand the Four Humours, religion, astrology and miasma.',acts:['Match medieval causes to treatments.','Compare religious and natural explanations.'],vocab:['Four Humours','miasma','astrology','pilgrimage','physician'],rubric:['Describes beliefs accurately','Links treatment to cause','Explains limited scientific knowledge']},
+ {t:'The Black Death arrives',o:'Students trace spread, symptoms and immediate reactions.',acts:['Map the spread of plague.','Write a survivor diary using evidence.'],vocab:['plague','buboes','trade route','quarantine','pandemic'],rubric:['Accurate symptoms/spread','Uses evidence','Explains reactions']},
+ {t:'Consequences of the Black Death',o:'Students explain labour shortage, wage demands, Statute of Labourers and Peasants’ Revolt links.',acts:['Create a cause-effect chain.','Write an explanation paragraph on social change.'],vocab:['labour shortage','wages','Statute of Labourers','Peasants’ Revolt'],rubric:['Explains causal chain','Links plague to social change','Uses consequence vocabulary']}
+]},
+{key:'medieval-entertainment',year:'Year 7',title:'Medieval Entertainment',summary:'Work, leisure, festivals, music, sport, storytelling and community life.',lessons:[
+ {t:'Work and free time',o:'Students evaluate how much leisure ordinary people had and why feast days mattered.',acts:['Compare medieval and modern free time.','Explain the role of the Church calendar.'],vocab:['feast day','holy day','peasant','harvest','leisure'],rubric:['Uses comparison','Explains context','Avoids modern assumptions']},
+ {t:'Music, storytelling and performance',o:'Students explore minstrels, oral culture and popular entertainment.',acts:['Create a minstrel performance description.','Explain why stories mattered before mass literacy.'],vocab:['minstrel','ballad','oral tradition','performance'],rubric:['Describes entertainment accurately','Explains purpose','Uses evidence from the section']},
+ {t:'Sports, games and festivals',o:'Students explore football, archery, fairs and festivals.',acts:['Design a medieval fair guide.','Evaluate whether entertainment was dangerous or community-building.'],vocab:['fair','archery','mob football','festival','community'],rubric:['Gives examples','Explains social importance','Includes a balanced judgement']}
+]},
+{key:'slavery',year:'Year 8',title:'The Transatlantic Slave Trade',summary:'Triangular Trade, Middle Passage, plantation life, resistance, abolition and modern legacy.',lessons:[
+ {t:'Triangular Trade',o:'Students map the three trade legs and explain who profited and who suffered.',acts:['Draw and annotate the trade triangle.','Explain one economic motive.'],vocab:['triangular trade','manufactured goods','plantation','profit'],rubric:['Accurate three-leg description','Identifies profit/suffering','Uses trade vocabulary']},
+ {t:'Middle Passage and sources',o:'Students analyse Equiano and Brookes Diagram using WACA.',acts:['Apply WACA to Equiano.','Evaluate the Brookes Diagram as evidence.'],vocab:['Middle Passage','Equiano','Brookes Diagram','provenance','abolitionist'],rubric:['Uses WACA','Explains usefulness and limitation','Uses source evidence sensitively']},
+ {t:'Abolition and legacy',o:'Students explain abolitionist campaigns, 1807 Act and modern slavery links.',acts:['Compare abolitionists.','Write an argument: morality or economics?'],vocab:['abolition','Wilberforce','Sharp','Clarkson','Modern Slavery'],rubric:['Explains factors in abolition','Uses named individuals','Reaches a balanced judgement']}
+]},
+{key:'industrial',year:'Year 8',title:'Industrial Britain: Farms to Factories and Living Conditions',summary:'Agricultural change, inventions, factory work, child labour, cities, public health and reform.',lessons:[
+ {t:'Farms to factories',o:'Students explain why Britain industrialised and how inventions changed production.',acts:['Create an invention chain.','Explain why factories replaced domestic work.'],vocab:['Industrial Revolution','factory','spinning jenny','power loom','urbanisation'],rubric:['Explains change over time','Uses invention examples','Links cause and consequence']},
+ {t:'Child labour and factory conditions',o:'Students understand working conditions and early reform.',acts:['Investigate child worker evidence.','Assess why reform was slow.'],vocab:['child labour','Factory Act','hours','wages','conditions'],rubric:['Uses specific evidence','Shows empathy and accuracy','Explains reform factors']},
+ {t:'Victorian living conditions and public health',o:'Students explain urban problems and reformers such as Chadwick, Snow, Bazalgette and Nightingale.',acts:['Create a public health timeline.','Evaluate the Great Stink as a turning point.'],vocab:['cholera','sanitation','Chadwick','John Snow','Bazalgette','Public Health Act'],rubric:['Explains health problems','Uses reformer evidence','Evaluates turning points']}
+]},
+{key:'empire',year:'Year 8',title:'British Empire and India',summary:'Empire motives, India, rebellion, imperial benefits/harms and historical interpretations.',lessons:[
+ {t:'Why did Britain build an empire?',o:'Students explain economic, strategic, political and cultural motives.',acts:['Sort motives for empire.','Explain which motive was most important.'],vocab:['empire','colony','trade','imperialism','strategic'],rubric:['Explains multiple motives','Uses evidence','Makes a judgement']},
+ {t:'India and the British Empire',o:'Students trace Company rule, Plassey, rebellion and Crown rule.',acts:['Create an India timeline.','Explain causes of the 1857 Rebellion.'],vocab:['East India Company','Plassey','sepoy','rebellion','Crown rule'],rubric:['Accurate timeline','Explains causes','Uses India-specific vocabulary']},
+ {t:'Was empire good or bad?',o:'Students evaluate interpretations and legacy.',acts:['Build a balanced table.','Write a 400-word judgement.'],vocab:['legacy','exploitation','development','resistance','reparations'],rubric:['Balanced argument','Specific evidence','Clear conclusion']}
+]},
+{key:'nelson',year:'Year 9',title:'Nelson and Trafalgar',summary:'Nelson, naval warfare, Trafalgar, leadership, empire and historical memory.',lessons:[
+ {t:'Nelson and naval Britain',o:'Students understand Britain’s naval power and Nelson’s role.',acts:['Create a Nelson profile.','Explain why naval power mattered.'],vocab:['navy','admiral','blockade','empire','fleet'],rubric:['Accurate knowledge','Explains significance','Uses naval vocabulary']},
+ {t:'Battle of Trafalgar',o:'Students explain tactics, events and consequences of Trafalgar.',acts:['Annotate battle tactics.','Explain why Britain won.'],vocab:['Trafalgar','line of battle','Nelson touch','Victory','tactics'],rubric:['Explains tactics','Uses battle evidence','Judges significance']}
+]},
+{key:'ww1',year:'Year 9',title:'World War One',summary:'Causes, trenches, Home Front, poetry, interpretations and Versailles.',lessons:[
+ {t:'MAIN causes of WW1',o:'Students explain militarism, alliances, imperialism and nationalism.',acts:['Complete MAIN carousel.','Rank the causes by importance.'],vocab:['militarism','alliance','imperialism','nationalism','assassination'],rubric:['Explains all four causes','Uses evidence','Ranks with justification']},
+ {t:'Trench warfare and soldier experience',o:'Students use sources to understand conditions and attrition.',acts:['Analyse trench photograph.','Apply WACA to Owen.'],vocab:['trench','attrition','no man’s land','gas attack','Owen'],rubric:['Uses source evidence','Shows contextual understanding','Evaluates usefulness']},
+ {t:'Versailles and consequences',o:'Students assess treaty terms and debate whether Versailles caused future conflict.',acts:['Annotate treaty clauses.','Write a 16-mark judgement.'],vocab:['Versailles','reparations','war guilt','League of Nations','self-determination'],rubric:['Explains terms','Balances arguments','Uses precise evidence']}
+]},
+{key:'league',year:'Year 9',title:'League of Nations',summary:'Aims, structure, successes, failures and Manchuria/Abyssinia.',lessons:[
+ {t:'Aims and structure',o:'Students explain why the League was created and how it was meant to preserve peace.',acts:['Create a League structure diagram.','Explain strengths/weaknesses.'],vocab:['collective security','assembly','council','sanction','disarmament'],rubric:['Explains aims','Understands structure','Identifies weaknesses']},
+ {t:'Successes and failures',o:'Students compare early successes with Manchuria and Abyssinia.',acts:['Case study comparison.','Evaluate why the League failed.'],vocab:['Manchuria','Abyssinia','Mussolini','Japan','sanctions'],rubric:['Uses case study evidence','Explains failure factors','Develops judgement']}
+]},
+{key:'cold-war',year:'iGCSE',title:'Cold War and Superpower Relations',summary:'Origins, Berlin, Korea/Hungary, Cuba, Czechoslovakia, détente and end of Cold War.',lessons:[
+ {t:'Reasons for the Cold War',o:'Students explain ideology, Grand Alliance, conferences and early mistrust.',acts:['Compare capitalism/communism.','Analyse Long Telegram and Iron Curtain speech.'],vocab:['ideology','capitalism','communism','Yalta','Potsdam','Iron Curtain'],rubric:['Explains ideology','Uses conference evidence','Evaluates source provenance']},
+ {t:'Early developments 1945-49',o:'Students explain Truman Doctrine, Marshall Plan, Soviet expansion and Berlin Blockade.',acts:['Timeline early Cold War events.','Explain why Berlin Blockade failed.'],vocab:['containment','Truman Doctrine','Marshall Plan','Berlin Blockade','Airlift'],rubric:['Accurate chronology','Explains cause/consequence','Uses specific dates']},
+ {t:'Superpower rivalry 1950-56',o:'Students cover Korean War, arms race, peaceful coexistence and Hungary.',acts:['Analyse nuclear arms race table.','Evaluate Hungarian Uprising.'],vocab:['Korean War','arms race','MAD','Hungary','Khrushchev'],rubric:['Uses case study evidence','Explains rivalry','Evaluates significance']},
+ {t:'Crises and détente',o:'Students explain Berlin Wall, Cuba, Czechoslovakia and détente.',acts:['Cuba 13-day timeline.','16-mark essay on crisis resolution.'],vocab:['Berlin Wall','Cuba','missile crisis','Prague Spring','détente','SALT'],rubric:['Explains crisis stages','Uses source/evidence','Reaches developed judgement']}
+]},
+{key:'stalin',year:'iGCSE',title:'Stalin’s Russia',summary:'Power struggle, collectivisation, Five-Year Plans, terror, propaganda and society.',lessons:[
+ {t:'Stalin’s rise to power',o:'Students explain Lenin’s death, Trotsky, party roles and Stalin’s tactics.',acts:['Rank reasons Stalin won.','Create a power struggle timeline.'],vocab:['Trotsky','Politburo','General Secretary','Lenin Testament'],rubric:['Explains multiple factors','Uses named evidence','Judges importance']},
+ {t:'Economy and collectivisation',o:'Students explain Five-Year Plans, collectivisation, kulaks and famine.',acts:['Analyse production statistics.','Evaluate success/failure.'],vocab:['Five-Year Plan','collectivisation','kulak','famine','Gosplan'],rubric:['Uses statistics','Explains impact','Balances success/failure']},
+ {t:'Control, terror and society',o:'Students explain purges, show trials, propaganda and women/youth.',acts:['WACA show trial source.','Assess Stalin’s control methods.'],vocab:['purge','NKVD','show trial','cult of personality','propaganda'],rubric:['Explains terror/control','Uses source analysis','Evaluates impact']}
+]},
+{key:'vietnam',year:'iGCSE',title:'Vietnam War',summary:'French Indochina, causes of US involvement, escalation, tactics, opposition and withdrawal.',lessons:[
+ {t:'Background and causes',o:'Students explain French rule, Ho Chi Minh, Geneva and domino theory.',acts:['Create causes timeline.','Explain why the USA became involved.'],vocab:['Ho Chi Minh','Geneva Accords','Domino Theory','Viet Minh'],rubric:['Accurate background','Explains US motives','Uses key terms']},
+ {t:'US escalation and tactics',o:'Students explain Johnson, Gulf of Tonkin, search and destroy, bombing and guerrilla warfare.',acts:['Compare US/Vietcong tactics.','Evaluate why US technology struggled.'],vocab:['Gulf of Tonkin','guerrilla','search and destroy','Agent Orange','napalm'],rubric:['Explains tactics','Uses examples','Evaluates effectiveness']},
+ {t:'Opposition, Tet and withdrawal',o:'Students explain media, protest, Tet Offensive, Vietnamisation and fall of Saigon.',acts:['Analyse protest source.','Evaluate why the USA withdrew.'],vocab:['Tet Offensive','Vietnamisation','Kent State','My Lai','Saigon'],rubric:['Explains opposition','Uses named events','Judges withdrawal factors']}
+]},
+{key:'medicine',year:'iGCSE',title:'Changes in Medicine',summary:'Medicine c.1848-c.1948: ideas, treatment, hospitals, public health and key individuals.',lessons:[
+ {t:'Ideas about cause of disease',o:'Students trace miasma to germ theory and changing scientific understanding.',acts:['Compare miasma and germ theory.','Explain Pasteur/Koch significance.'],vocab:['miasma','germ theory','Pasteur','Koch','microbe'],rubric:['Explains change','Uses individuals','Judges significance']},
+ {t:'Treatment and surgery',o:'Students explain anaesthetics, antiseptics, aseptic surgery and blood transfusion.',acts:['Create surgery improvement timeline.','Evaluate Lister’s significance.'],vocab:['anaesthetic','antiseptic','aseptic','Lister','Simpson'],rubric:['Accurate treatment changes','Explains impact','Uses evidence']},
+ {t:'Public health and hospitals',o:'Students explain urban disease, Public Health Acts, NHS origins and welfare state.',acts:['Assess 1875 Public Health Act.','Evaluate Bevan and the NHS.'],vocab:['Public Health Act','Chadwick','Bazalgette','NHS','Bevan'],rubric:['Explains policy change','Links government action to health','Evaluates significance']}
+]}
+];
+function unitList(){return UNIT_PLANS}
+
+function blocksForUnit(u){
+ var blocks=[
+  {h:'Unit / topic',p:u.title+' — '+u.year},
+  {h:'Curriculum intent',p:'This teacher-facing unit plan is organised around the actual learning sequence of the unit rather than every small section of the student site. It identifies the key lesson focus points, activities, vocabulary, rubrics and assessment opportunities needed for coherent classroom delivery.'},
+  {h:'Prior knowledge',bullets:['Students should understand the previous unit context and key chronology.','Students should be familiar with using evidence to support explanations.','Students should know how to use the student activity editor, auto-feedback and RAG/self-assessment tools where appropriate.']},
+  {h:'Learning objectives across the unit',bullets:u.lessons.map(function(l){return l.t+': '+l.o})},
+  {h:'HPL / T&L / AI / SDG links',bullets:['HPL: analysing, connecting, evaluating, creating and meta-thinking.','Teaching and Learning: retrieval, modelling, guided practice, independent writing, feedback and improvement.','AI literacy: students use feedback critically and evaluate evidence rather than accepting unsupported claims.','SDG: quality education and, where relevant, peace/justice, reduced inequalities and responsible citizenship.']},
+  {h:'Detailed lesson sequence',bullets:u.lessons.map(function(l,i){return 'Lesson '+(i+1)+' — '+l.t+': '+l.o+' Activities: '+l.acts.join(' / ')})},
+  {h:'Differentiation and inclusion',bullets:['Support: vocabulary mats, sentence starters, model paragraphs and reduced writing load where needed.','SEND/EAL: pre-teach key terms, chunk tasks, use visuals and allow oral rehearsal before extended writing.','Challenge: require judgement, comparison, counter-argument or source evaluation.']},
+  {h:'Common misconceptions',bullets:['Students may describe rather than explain.','Students may omit evidence or dates.','Students may make broad judgements without support.','Students may confuse cause, consequence and significance.','In source tasks, students may describe the source without using provenance or usefulness language.']},
+  {h:'Assessment opportunities',bullets:['Activity editor tasks provide formative evidence.','Auto-feedback gives initial grade, strengths and next steps.','Teacher marksheet allows moderation and override.','Use one end-of-unit extended response as a summative assessment.']}
+ ];
+ u.lessons.forEach(function(l,i){
+   blocks.push({h:'Lesson '+(i+1)+': '+l.t,p:l.o});
+   blocks.push({h2:'Key vocabulary',bullets:l.vocab});
+   blocks.push({h2:'Activities',bullets:l.acts});
+   blocks.push({h2:'Activity marking rubric',bullets:l.rubric.concat(['Higher performance: precise knowledge, developed explanation, evidence and judgement.','Next step: improve the weakest rubric criterion, then resubmit or redraft.'])});
+ });
+ blocks.push({h:'Homework / extension',bullets:['Improve the main activity response using feedback.','Create revision flashcards using the key vocabulary.','Prepare one quiz question and one exam-style question for the next lesson.']});
+ return blocks;
+}
+function renderUnitPlan(u){
+ var view=q('p4f-unit-view');if(!view){view=document.createElement('div');view.id='p4f-unit-view';view.className='p4f-view';var sec=q('tpsec-lp');if(sec)sec.prepend(view)}
+ var blocks=blocksForUnit(u);
+ view.innerHTML='<div class="p4f-view-header"><div><h3>📚 '+esc(u.title)+'</h3><span class="p4f-pill">'+esc(u.year)+'</span><span class="p4f-pill p4f-green">Unit lesson plan</span></div><button class="p4f-close" onclick="document.getElementById(\'p4f-unit-view\').style.display=\'none\'">Close</button></div>'+blocks.map(function(b){return '<h4>'+esc(b.h||b.h2)+'</h4>'+(b.p?'<p>'+esc(b.p)+'</p>':'')+(b.bullets?'<ul>'+b.bullets.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')}).join('')+'<button class="p4f-btn green" onclick="P4FDownloadUnit(\''+u.key+'\')">Download this unit lesson plan (.docx)</button>';
+ view.style.display='block';window.P4F_CURRENT=u;view.scrollIntoView({behavior:'smooth',block:'start'});
+}
+window.P4FViewUnit=function(key){var u=unitList().find(function(x){return x.key===key});if(u)renderUnitPlan(u)};
+window.P4FDownloadUnit=function(key){var u=unitList().find(function(x){return x.key===key})||window.P4F_CURRENT;if(!u)return;P4E_DOCX.download(u.title.replace(/[^a-z0-9]+/gi,'_')+'_Unit_Lesson_Plan.docx','Unit Lesson Plan — '+u.title,blocksForUnit(u))};
+window.P4FDownloadAllUnits=function(){var blocks=[{h:'Purpose',p:'This index lists teacher-facing unit lesson plans. These replace the previous section-by-section extraction and are designed for classroom planning and QA.'}];unitList().forEach(function(u){blocks.push({h:u.title,p:u.year+' — '+u.summary});u.lessons.forEach(function(l,i){blocks.push({h2:'Lesson '+(i+1)+': '+l.t,p:l.o})})});P4E_DOCX.download('History_Hub_Unit_Lesson_Plan_Index.docx','History Hub Unit Lesson Plan Index',blocks)};
+function renderUnitLibrary(){
+ var sec=q('tpsec-lp');if(!sec)return;
+ var tab=q('tptab-lp');if(tab)tab.innerHTML='📚 Unit Lesson Plans';
+ var old=q('tptab-p4lib');if(old)old.classList.add('p4e-hidden');
+ sec.innerHTML='<div class="tp-pnl"><h3>📚 Unit Lesson Plans Library</h3><span class="p4f-pill p4f-green">Replaces extracted section list</span><p style="color:#a8a29e;font-size:.84rem">These are teacher-facing unit plans organised by proper lesson sequence. For example, What is History includes chronology/timelines, source types, fact/opinion and cause/effect; 1066 includes England in 1066, claimants, pre-Hastings events, the battle and after Hastings.</p><button class="p4f-btn green" onclick="P4FDownloadAllUnits()">Download unit-plan index (.docx)</button></div><div class="p4f-grid">'+unitList().map(function(u){return '<div class="p4f-unit-card"><h4>'+esc(u.title)+'</h4><p><strong>'+esc(u.year)+'</strong> — '+esc(u.summary)+'</p><p>'+u.lessons.length+' lesson focus points</p><button class="p4f-btn" onclick="P4FViewUnit(\''+u.key+'\')">View unit lesson plan</button><button class="p4f-btn green" onclick="P4FDownloadUnit(\''+u.key+'\')">Download .docx</button></div>'}).join('')+'</div>';
+}
+function extraQABlocks(){return [
+ {h:'Curriculum design and sequencing',bullets:['Unit Lesson Plans are now organised by coherent teacher-facing units rather than extracted student-site headings.','Each unit breaks down the intended learning journey into lesson focus points, activities, vocabulary and rubrics.','KS3 builds from foundational historical skills toward causation, source evaluation and extended judgement; iGCSE units align with exam-style knowledge, source and interpretation skills.']},
+ {h:'Planning and implementation evidence',bullets:['Staff can view unit plans in the portal before downloading.','Lesson plans include curriculum intent, prior knowledge, lesson sequence, misconceptions, differentiation and assessment.','The close button allows staff to move between unit plans in the same way students move between unit pages.']},
+ {h:'Assessment and feedback evidence',bullets:['Activity rubrics identify evidence of knowledge, explanation, vocabulary, source use and judgement.','Auto-feedback supports independent student improvement before teacher moderation.','Teacher marksheets still allow override, review and intervention tracking.']},
+ {h:'Inclusion and intervention',bullets:['Each unit includes support, SEND/EAL approaches, challenge and next-step prompts.','Intervention flags support follow-up for incomplete or weak submissions.','Student progress tools support ownership of feedback and improvement.']},
+ {h:'Inspection narrative',p:'The platform supports curriculum intent, implementation and impact through linked student learning, teacher planning, assessment evidence, feedback loops and QA-ready documentation.'}
+]}
+var oldRenderQA=window.renderQA;
+window.P4EDownloadQA=function(){P4E_DOCX.download('History_Hub_QA_Evidence_Pack.docx','History Hub QA / Inspection Evidence Pack',extraQABlocks())};
+function renderQAEnhanced(){var sec=q('tpsec-p4qa');if(!sec)return;var blocks=extraQABlocks();sec.innerHTML='<div class="tp-pnl p4e-viewer"><div class="p4e-plan-header"><div><h3>✅ QA / Inspection Evidence Centre</h3><span class="p4f-pill p4f-green">Expanded for unit planning</span><span class="p4f-pill">Inspection ready</span></div></div>'+blocks.map(function(b){return '<h4>'+esc(b.h)+'</h4>'+(b.p?'<p>'+esc(b.p)+'</p>':'')+(b.bullets?'<ul>'+b.bullets.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')}).join('')+'<button class="p4f-btn green" onclick="P4EDownloadQA()">Download QA evidence pack (.docx)</button></div>'}
+var prevTPtab=window.TPtab;
+window.TPtab=function(t){if(prevTPtab)prevTPtab(t);if(t==='lp')setTimeout(renderUnitLibrary,60);if(t==='p4qa')setTimeout(renderQAEnhanced,60)};
+document.addEventListener('DOMContentLoaded',function(){setTimeout(renderUnitLibrary,350);setTimeout(renderQAEnhanced,500)});
 })();
 </script>
 
