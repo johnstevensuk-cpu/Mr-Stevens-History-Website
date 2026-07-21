@@ -510,6 +510,12 @@ body.gateway #hbtn{display:none!important;}
 .student-home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}.student-year-card{display:flex;gap:13px;align-items:flex-start;text-align:left;background:rgba(28,22,12,.92);border:1.5px solid color-mix(in srgb,var(--year-col) 45%,transparent);border-radius:17px;padding:16px;color:#e8e4d0;font-family:inherit;cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease;box-shadow:0 12px 36px rgba(0,0,0,.28)}.student-year-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.065);border-color:var(--year-col)}.student-year-icon{width:48px;height:48px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--year-col) 22%,rgba(255,255,255,.06));font-size:1.5rem;flex-shrink:0}.student-year-card h3{font-family:'Alegreya',serif;margin:0 0 4px;color:#fff7ed;font-size:1.08rem}.student-year-card p{margin:0 0 8px;color:#a8a29e;font-size:.8rem;line-height:1.45}.student-year-card span{color:var(--year-col);font-weight:900;font-size:.78rem}
 @media(max-width:720px){.hag-card{min-width:190px;max-width:190px}.student-home-grid{grid-template-columns:1fr}.hag-desc{min-height:72px}}
 
+
+/* History at a glance v2 — compact moveable circle timeline */
+.hag2-wrap{background:linear-gradient(135deg,rgba(20,16,12,.97),rgba(12,10,9,.94));border:2px solid rgba(212,175,55,.35);border-radius:22px;padding:18px;margin-bottom:20px;box-shadow:0 22px 70px rgba(0,0,0,.45);overflow:hidden;}
+.hag2-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:12px}.hag2-kicker{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:#d4af37;font-weight:900}.hag2-head h2{font-family:'Alegreya',serif;color:#fff7ed;font-size:1.75rem;margin:3px 0 5px}.hag2-head p{color:#a8a29e;line-height:1.55;max-width:900px;margin:0}.hag2-scroll-hint{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);border-radius:999px;padding:7px 12px;color:#fbbf24;font-size:.75rem;font-weight:900;white-space:nowrap}.hag2-linebox{position:relative;overflow-x:auto;padding:18px 4px 22px;scrollbar-color:rgba(212,175,55,.55) rgba(255,255,255,.06)}.hag2-linebox::-webkit-scrollbar{height:9px}.hag2-linebox::-webkit-scrollbar-track{background:rgba(255,255,255,.06);border-radius:999px}.hag2-linebox::-webkit-scrollbar-thumb{background:rgba(212,175,55,.55);border-radius:999px}.hag2-line{position:absolute;left:28px;right:28px;top:45px;height:3px;background:linear-gradient(90deg,#fbbf24,#60a5fa,#22c55e);border-radius:999px;min-width:1600px}.hag2-nodes{display:flex;gap:42px;min-width:1680px;position:relative;z-index:2;align-items:flex-start}.hag2-node{width:78px;min-width:78px;background:transparent;border:0;color:#e8e4d0;font-family:inherit;cursor:pointer;text-align:center;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px}.hag2-dot{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#fff7ed 0,#fff7ed 10%,var(--hag-col) 33%,#15100c 75%);border:3px solid var(--hag-col);box-shadow:0 0 0 5px rgba(255,255,255,.04),0 10px 22px rgba(0,0,0,.35);font-size:1.25rem;transition:transform .16s ease,box-shadow .16s ease}.hag2-node:hover .hag2-dot,.hag2-node.active .hag2-dot{transform:scale(1.12);box-shadow:0 0 0 7px color-mix(in srgb,var(--hag-col) 24%,transparent),0 12px 26px rgba(0,0,0,.42)}.hag2-date{font-size:.68rem;font-weight:900;color:var(--hag-col);line-height:1.15;max-width:86px}.hag2-synopsis{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.055);border:1.5px solid rgba(255,255,255,.12);border-radius:17px;padding:15px;margin-top:2px}.hag2-syn-icon{width:54px;height:54px;border-radius:16px;background:rgba(212,175,55,.12);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0}.hag2-syn-main h3{font-family:'Alegreya',serif;color:#fff7ed;font-size:1.25rem;margin:2px 0 6px}.hag2-syn-date{font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:#fbbf24;font-weight:900}.hag2-person{color:#93c5fd;font-weight:800;font-size:.83rem;margin:0 0 6px}.hag2-synopsis p{color:#a8a29e;line-height:1.52;margin:0 0 7px;font-size:.86rem}.hag2-why{color:#d6d3d1!important}.hag2-link{background:linear-gradient(135deg,#2563eb,#1d4ed8);border:0;border-radius:10px;padding:9px 13px;color:#fff;font-weight:900;cursor:pointer;font-family:inherit;margin-top:4px}.hag2-link:hover{filter:brightness(1.08)}
+@media(max-width:720px){.hag2-wrap{padding:14px}.hag2-head h2{font-size:1.45rem}.hag2-nodes{gap:28px;min-width:1380px}.hag2-line{min-width:1320px}.hag2-synopsis{flex-direction:row;padding:13px}.hag2-syn-icon{width:46px;height:46px;font-size:1.45rem}.hag2-node{width:66px;min-width:66px}.hag2-dot{width:38px;height:38px}.hag2-date{font-size:.62rem}}
+
 </style>
 </head>
 <body>
@@ -571,117 +577,90 @@ body.gateway #hbtn{display:none!important;}
       </div>
     </section>
 
-    <section id="history-at-a-glance" style="background:linear-gradient(135deg,rgba(20,16,12,.96),rgba(12,10,9,.92));border:2px solid rgba(212,175,55,.35);border-radius:22px;padding:20px;margin-bottom:20px;box-shadow:0 22px 70px rgba(0,0,0,.45);overflow:hidden;">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px;">
-        <div>
-          <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:#d4af37;font-weight:900;">Immersive timeline</div>
-          <h2 style="font-family:'Alegreya',serif;color:#fff7ed;font-size:1.8rem;margin:3px 0 5px;">🕰️ History at a glance</h2>
-          <p style="color:#a8a29e;line-height:1.58;max-width:880px;">Swipe or scroll sideways through key moments. Each thumbnail opens a linked story, topic or in-depth page from the site.</p>
-        </div>
-        <div style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);border-radius:999px;padding:8px 13px;color:#fbbf24;font-size:.78rem;font-weight:900;white-space:nowrap;">← Scroll timeline →</div>
-      </div>
-      <div class="hag-track">
-        
-<button onclick="showPg('y7-1066-1')" class="hag-card" style="--hag-col:#fbbf24;">
-  <div class="hag-thumb"><span>👑</span></div>
-  <div class="hag-date">1066</div>
-  <div class="hag-title">Norman Conquest</div>
-  <div class="hag-desc">Edward dies, rivals fight, Harold falls and William transforms England.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('y7-1066-5')" class="hag-card" style="--hag-col:#d4af37;">
-  <div class="hag-thumb"><span>📜</span></div>
-  <div class="hag-date">1086</div>
-  <div class="hag-title">Domesday Book</div>
-  <div class="hag-desc">William records land, wealth and power across England.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('y7')" class="hag-card" style="--hag-col:#a78bfa;">
-  <div class="hag-thumb"><span>🦠</span></div>
-  <div class="hag-date">1348</div>
-  <div class="hag-title">Black Death</div>
-  <div class="hag-desc">A deadly pandemic changes medieval life, work and belief.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('y7')" class="hag-card" style="--hag-col:#f87171;">
-  <div class="hag-thumb"><span>🌹</span></div>
-  <div class="hag-date">1485</div>
-  <div class="hag-title">End of the Middle Ages?</div>
-  <div class="hag-desc">Bosworth and the Tudor age open the door to major change.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('y9-nel-3')" class="hag-card" style="--hag-col:#38bdf8;">
-  <div class="hag-thumb"><span>⚓</span></div>
-  <div class="hag-date">1805</div>
-  <div class="hag-title">Battle of Trafalgar</div>
-  <div class="hag-desc">Nelson defeats the Franco-Spanish fleet and secures British naval power.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('y8')" class="hag-card" style="--hag-col:#fb923c;">
-  <div class="hag-thumb"><span>🏭</span></div>
-  <div class="hag-date">1830s–40s</div>
-  <div class="hag-title">Industrial Britain</div>
-  <div class="hag-desc">Factories, reform and urban life reshape society.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('y9-ww1-1')" class="hag-card" style="--hag-col:#ef4444;">
-  <div class="hag-thumb"><span>💥</span></div>
-  <div class="hag-date">1914</div>
-  <div class="hag-title">First World War Begins</div>
-  <div class="hag-desc">Alliances, empires and nationalism drag Europe into war.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('y9-ww1-2')" class="hag-card" style="--hag-col:#dc2626;">
-  <div class="hag-thumb"><span>🪖</span></div>
-  <div class="hag-date">1916</div>
-  <div class="hag-title">Life in the Trenches</div>
-  <div class="hag-desc">Weapons, medicine, mud and fear transform modern warfare.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('y9-ww1-4')" class="hag-card" style="--hag-col:#f59e0b;">
-  <div class="hag-thumb"><span>📋</span></div>
-  <div class="hag-date">1919</div>
-  <div class="hag-title">Treaty of Versailles</div>
-  <div class="hag-desc">The peace settlement raises questions of blame, punishment and future conflict.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('y9-lon-1')" class="hag-card" style="--hag-col:#22c55e;">
-  <div class="hag-thumb"><span>🕊️</span></div>
-  <div class="hag-date">1920</div>
-  <div class="hag-title">League of Nations</div>
-  <div class="hag-desc">A new organisation tries to prevent another world war.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('ig-cw-1')" class="hag-card" style="--hag-col:#60a5fa;">
-  <div class="hag-thumb"><span>🌍</span></div>
-  <div class="hag-date">1945</div>
-  <div class="hag-title">Cold War Begins</div>
-  <div class="hag-desc">The USA and USSR emerge from war as rival superpowers.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('ig-cw-3')" class="hag-card" style="--hag-col:#f97316;">
-  <div class="hag-thumb"><span>🚀</span></div>
-  <div class="hag-date">1962</div>
-  <div class="hag-title">Cuban Missile Crisis</div>
-  <div class="hag-desc">The world comes close to nuclear war.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('ig-vn-1')" class="hag-card" style="--hag-col:#34d399;">
-  <div class="hag-thumb"><span>🚁</span></div>
-  <div class="hag-date">1975</div>
-  <div class="hag-title">Vietnam War Ends</div>
-  <div class="hag-desc">Conflict, containment and public opinion reshape US foreign policy.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-<button onclick="showPg('ig-cw-4')" class="hag-card" style="--hag-col:#93c5fd;">
-  <div class="hag-thumb"><span>🧊</span></div>
-  <div class="hag-date">1991</div>
-  <div class="hag-title">End of the Cold War</div>
-  <div class="hag-desc">The Soviet Union collapses and the post-war world changes again.</div>
-  <div class="hag-open">Open story →</div>
-</button>
-      </div>
-    </section>
+    
+<section id="history-at-a-glance" class="hag2-wrap">
+  <div class="hag2-head">
+    <div>
+      <div class="hag2-kicker">Moveable timeline</div>
+      <h2>🕰️ History at a glance</h2>
+      <p>Scroll the timeline and tap a small circle to reveal a quick synopsis of the person, date or event. Then open the linked site page if you want to explore it properly.</p>
+    </div>
+    <div class="hag2-scroll-hint">← drag / swipe timeline →</div>
+  </div>
+  <div class="hag2-linebox" aria-label="History at a glance scrolling timeline">
+    <div class="hag2-line"></div>
+    <div class="hag2-nodes">
+      
+      <button class="hag2-node" onclick="hagOpen('norman-1066')" style="--hag-col:#fbbf24;" aria-label="Open 1066 Norman Conquest">
+        <span class="hag2-dot">👑</span>
+        <span class="hag2-date">1066</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('domesday-1086')" style="--hag-col:#d4af37;" aria-label="Open 1086 Domesday Book">
+        <span class="hag2-dot">📜</span>
+        <span class="hag2-date">1086</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('blackdeath-1348')" style="--hag-col:#a78bfa;" aria-label="Open 1348 Black Death">
+        <span class="hag2-dot">🦠</span>
+        <span class="hag2-date">1348</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('bosworth-1485')" style="--hag-col:#f87171;" aria-label="Open 1485 Bosworth and Tudor England">
+        <span class="hag2-dot">🌹</span>
+        <span class="hag2-date">1485</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('trafalgar-1805')" style="--hag-col:#38bdf8;" aria-label="Open 1805 Battle of Trafalgar">
+        <span class="hag2-dot">⚓</span>
+        <span class="hag2-date">1805</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('industrial-1840')" style="--hag-col:#fb923c;" aria-label="Open 1830s–40s Industrial Britain">
+        <span class="hag2-dot">🏭</span>
+        <span class="hag2-date">1830s–40s</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('ww1-1914')" style="--hag-col:#ef4444;" aria-label="Open 1914 First World War Begins">
+        <span class="hag2-dot">💥</span>
+        <span class="hag2-date">1914</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('trenches-1916')" style="--hag-col:#dc2626;" aria-label="Open 1916 Life in the Trenches">
+        <span class="hag2-dot">🪖</span>
+        <span class="hag2-date">1916</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('versailles-1919')" style="--hag-col:#f59e0b;" aria-label="Open 1919 Treaty of Versailles">
+        <span class="hag2-dot">📋</span>
+        <span class="hag2-date">1919</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('league-1920')" style="--hag-col:#22c55e;" aria-label="Open 1920 League of Nations">
+        <span class="hag2-dot">🕊️</span>
+        <span class="hag2-date">1920</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('coldwar-1945')" style="--hag-col:#60a5fa;" aria-label="Open 1945 Cold War Begins">
+        <span class="hag2-dot">🌍</span>
+        <span class="hag2-date">1945</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('cuba-1962')" style="--hag-col:#f97316;" aria-label="Open 1962 Cuban Missile Crisis">
+        <span class="hag2-dot">🚀</span>
+        <span class="hag2-date">1962</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('vietnam-1975')" style="--hag-col:#34d399;" aria-label="Open 1975 Vietnam War Ends">
+        <span class="hag2-dot">🚁</span>
+        <span class="hag2-date">1975</span>
+      </button>
+      <button class="hag2-node" onclick="hagOpen('endcoldwar-1991')" style="--hag-col:#93c5fd;" aria-label="Open 1991 End of the Cold War">
+        <span class="hag2-dot">🧊</span>
+        <span class="hag2-date">1991</span>
+      </button>
+    </div>
+  </div>
+  <div id="hag2Synopsis" class="hag2-synopsis">
+    <div class="hag2-syn-icon" id="hagSynIcon">⭕️</div>
+    <div class="hag2-syn-main">
+      <div class="hag2-syn-date" id="hagSynDate">Choose a circle on the timeline</div>
+      <h3 id="hagSynTitle">Open a quick history snapshot</h3>
+      <p id="hagSynPerson" class="hag2-person">Tap any timeline point to reveal the key person, date or event.</p>
+      <p id="hagSynText">The synopsis will appear here, with a link into the relevant part of the History Hub.</p>
+      <p id="hagSynWhy" class="hag2-why"></p>
+      <button id="hagSynLink" onclick="hagOpenPage()" class="hag2-link" style="display:none;">Open linked page →</button>
+    </div>
+  </div>
+</section>
 
     <section style="margin:20px 0 8px;">
       <div style="display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
@@ -10062,6 +10041,29 @@ document.addEventListener('DOMContentLoaded', function(){
     setTimeout(updateStudentDashboard,600);
   });
   window.updateStudentDashboard=updateStudentDashboard;
+})();
+</script>
+<script id="hag2-timeline-engine">
+(function(){
+  var HAG2 = [{"id": "norman-1066", "date": "1066", "icon": "👑", "title": "Norman Conquest", "person": "William, Harold and Hardrada", "synopsis": "Edward the Confessor died without a clear heir. The rival claims triggered invasion, Hastings and a transformation of England.", "why": "Power, succession and conquest changed language, castles, landholding and government.", "link": "y7-1066-1", "colour": "#fbbf24"}, {"id": "domesday-1086", "date": "1086", "icon": "📜", "title": "Domesday Book", "person": "William I", "synopsis": "A kingdom-wide survey recorded land, wealth, villages, mills, animals and obligations.", "why": "It reveals how the Normans controlled England and how government became more centralised.", "link": "y7-1066-5", "colour": "#d4af37"}, {"id": "blackdeath-1348", "date": "1348", "icon": "🦠", "title": "Black Death", "person": "Medieval society", "synopsis": "A devastating plague killed huge numbers and unsettled work, belief, medicine and power.", "why": "It helps students understand crisis, continuity and change in medieval life.", "link": "y7", "colour": "#a78bfa"}, {"id": "bosworth-1485", "date": "1485", "icon": "🌹", "title": "Bosworth and Tudor England", "person": "Henry Tudor and Richard III", "synopsis": "The Battle of Bosworth ended Richard III’s reign and brought the Tudors to power.", "why": "It is a useful marker for debating whether the medieval period really ended.", "link": "y7", "colour": "#f87171"}, {"id": "trafalgar-1805", "date": "1805", "icon": "⚓", "title": "Battle of Trafalgar", "person": "Nelson", "synopsis": "Nelson’s fleet defeated the Franco-Spanish fleet and protected Britain from invasion by sea.", "why": "It links leadership, naval power, empire and the way heroic reputations are created.", "link": "y9-nel-3", "colour": "#38bdf8"}, {"id": "industrial-1840", "date": "1830s–40s", "icon": "🏭", "title": "Industrial Britain", "person": "Workers, reformers and factory owners", "synopsis": "Factories, towns, sanitation and labour changed quickly during industrialisation.", "why": "It raises questions about progress, poverty, reform and evidence from eyewitnesses.", "link": "y8", "colour": "#fb923c"}, {"id": "ww1-1914", "date": "1914", "icon": "💥", "title": "First World War Begins", "person": "European powers", "synopsis": "Militarism, alliances, imperialism and nationalism combined with crisis after Sarajevo.", "why": "Students can see how long-term tensions and short-term decisions create war.", "link": "y9-ww1-1", "colour": "#ef4444"}, {"id": "trenches-1916", "date": "1916", "icon": "🪖", "title": "Life in the Trenches", "person": "Soldiers and medics", "synopsis": "Trench warfare involved mud, fear, industrial weapons, wounds, illness and survival.", "why": "It links weapons, medicine, source evidence and the human experience of war.", "link": "y9-ww1-2", "colour": "#dc2626"}, {"id": "versailles-1919", "date": "1919", "icon": "📋", "title": "Treaty of Versailles", "person": "Peacemakers and Germany", "synopsis": "The peace settlement punished Germany and tried to create a new international order.", "why": "It helps explain arguments about blame, justice and future instability.", "link": "y9-ww1-4", "colour": "#f59e0b"}, {"id": "league-1920", "date": "1920", "icon": "🕊️", "title": "League of Nations", "person": "Wilson and member states", "synopsis": "The League aimed to keep peace through collective security and cooperation.", "why": "It is central for judging why international peacekeeping sometimes works and sometimes fails.", "link": "y9-lon-1", "colour": "#22c55e"}, {"id": "coldwar-1945", "date": "1945", "icon": "🌍", "title": "Cold War Begins", "person": "USA and USSR", "synopsis": "After defeating Nazi Germany, the superpowers disagreed over ideology, security and Europe.", "why": "It frames the post-war world and introduces rivalry without direct superpower war.", "link": "ig-cw-1", "colour": "#60a5fa"}, {"id": "cuba-1962", "date": "1962", "icon": "🚀", "title": "Cuban Missile Crisis", "person": "Kennedy, Khrushchev and Castro", "synopsis": "Nuclear missiles in Cuba brought the world close to direct superpower conflict.", "why": "It is perfect for studying brinkmanship, evidence and historical interpretations.", "link": "ig-cw-3", "colour": "#f97316"}, {"id": "vietnam-1975", "date": "1975", "icon": "🚁", "title": "Vietnam War Ends", "person": "Vietnamese forces and the USA", "synopsis": "The fall of Saigon symbolised the end of a long and controversial conflict.", "why": "It links containment, guerrilla warfare, media, protest and consequences.", "link": "ig-vn-1", "colour": "#34d399"}, {"id": "endcoldwar-1991", "date": "1991", "icon": "🧊", "title": "End of the Cold War", "person": "Gorbachev, Reagan and Eastern Europe", "synopsis": "The Soviet Union collapsed after years of pressure, reform and economic problems.", "why": "It helps students judge causes of change and the meaning of “end of an era”.", "link": "ig-cw-4", "colour": "#93c5fd"}];
+  var activeLink = null;
+  window.hagOpen = function(id){
+    var item = HAG2.find(function(x){return x.id===id;});
+    if(!item) return;
+    activeLink = item.link;
+    document.querySelectorAll('.hag2-node').forEach(function(btn){btn.classList.remove('active');});
+    var btn = document.querySelector('.hag2-node[onclick="hagOpen(\''+id+'\')"]');
+    if(btn) btn.classList.add('active');
+    var icon=document.getElementById('hagSynIcon'); if(icon) icon.textContent=item.icon;
+    var date=document.getElementById('hagSynDate'); if(date) date.textContent=item.date;
+    var title=document.getElementById('hagSynTitle'); if(title) title.textContent=item.title;
+    var person=document.getElementById('hagSynPerson'); if(person) person.textContent=item.person;
+    var text=document.getElementById('hagSynText'); if(text) text.textContent=item.synopsis;
+    var why=document.getElementById('hagSynWhy'); if(why) why.textContent='Why it matters: '+item.why;
+    var link=document.getElementById('hagSynLink'); if(link){link.style.display='inline-block'; link.textContent='Open linked page →';}
+  };
+  window.hagOpenPage = function(){ if(activeLink && window.showPg) showPg(activeLink); };
+  document.addEventListener('DOMContentLoaded', function(){ setTimeout(function(){ if(document.getElementById('history-at-a-glance')) hagOpen('norman-1066'); }, 250); });
 })();
 </script>
 </body>
