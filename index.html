@@ -499,6 +499,17 @@ body.gateway #hbtn{display:none!important;}
 .ko-dl-btn{background:#2563eb;color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;}
 .ko-dl-btn:hover{background:#1d4ed8;}
 
+
+/* Student Home — History at a glance */
+.hag-track{display:flex;gap:13px;overflow-x:auto;scroll-snap-type:x proximity;padding:8px 2px 14px;scrollbar-color:rgba(212,175,55,.55) rgba(255,255,255,.06);}
+.hag-track::-webkit-scrollbar{height:10px}.hag-track::-webkit-scrollbar-track{background:rgba(255,255,255,.06);border-radius:999px}.hag-track::-webkit-scrollbar-thumb{background:rgba(212,175,55,.55);border-radius:999px}
+.hag-card{scroll-snap-align:start;min-width:215px;max-width:215px;background:rgba(255,255,255,.045);border:1.5px solid color-mix(in srgb,var(--hag-col) 45%,transparent);border-radius:16px;padding:13px;text-align:left;color:#e8e4d0;font-family:inherit;cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease;position:relative;overflow:hidden;}
+.hag-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top left,color-mix(in srgb,var(--hag-col) 20%,transparent),transparent 55%);pointer-events:none}.hag-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.075);border-color:var(--hag-col)}
+.hag-thumb{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,var(--hag-col) 35%,#111),rgba(255,255,255,.06));display:flex;align-items:center;justify-content:center;font-size:1.65rem;margin-bottom:10px;box-shadow:0 12px 24px rgba(0,0,0,.28)}
+.hag-date{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--hag-col);font-weight:900;margin-bottom:5px}.hag-title{font-weight:900;color:#fff7ed;font-size:.95rem;line-height:1.25;margin-bottom:6px}.hag-desc{font-size:.76rem;color:#a8a29e;line-height:1.45;min-height:56px}.hag-open{font-size:.74rem;color:var(--hag-col);font-weight:900;margin-top:10px}
+.student-home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}.student-year-card{display:flex;gap:13px;align-items:flex-start;text-align:left;background:rgba(28,22,12,.92);border:1.5px solid color-mix(in srgb,var(--year-col) 45%,transparent);border-radius:17px;padding:16px;color:#e8e4d0;font-family:inherit;cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease;box-shadow:0 12px 36px rgba(0,0,0,.28)}.student-year-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.065);border-color:var(--year-col)}.student-year-icon{width:48px;height:48px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--year-col) 22%,rgba(255,255,255,.06));font-size:1.5rem;flex-shrink:0}.student-year-card h3{font-family:'Alegreya',serif;margin:0 0 4px;color:#fff7ed;font-size:1.08rem}.student-year-card p{margin:0 0 8px;color:#a8a29e;font-size:.8rem;line-height:1.45}.student-year-card span{color:var(--year-col);font-weight:900;font-size:.78rem}
+@media(max-width:720px){.hag-card{min-width:190px;max-width:190px}.student-home-grid{grid-template-columns:1fr}.hag-desc{min-height:72px}}
+
 </style>
 </head>
 <body>
@@ -508,6 +519,7 @@ body.gateway #hbtn{display:none!important;}
 <div class="sb-sec">
 <span class="sb-lbl">Navigate</span>
 <button class="sb-btn active" data-p="home" onclick="showPg('home')">🏠 Home</button>
+<button class="sb-btn" data-p="student-home" onclick="showPg('student-home')">🕰️ Student Home</button>
 <span class="sb-lbl sb-lbl-ks3">📚 Key Stage 3</span>
 <button class="sb-btn" data-p="y7" onclick="showPg('y7')">📅 Year 7 — Medieval England</button>
 <button class="sb-btn" data-p="y8" onclick="showPg('y8')">⚓ Year 8 — Slavery &amp; Industry</button>
@@ -545,6 +557,147 @@ body.gateway #hbtn{display:none!important;}
 <button class="gw-btn gw-student" onclick="enterStudentSite()"><div style="font-size:2rem;margin-bottom:6px;">👨‍🎓</div>Student Site<div class="gw-note">Lessons · Activities · Quizzes · AI Tutor</div></button>
 <button class="gw-btn gw-staff" onclick="showPg('teacher')"><div style="font-size:2rem;margin-bottom:6px;">👩‍🏫</div>Staff Portal<div class="gw-note">Lesson plans · Classes · Marking · Feedback</div></button>
 </div></div></div>
+
+<div id="pg-student-home" class="jhs-pg">
+  <div class="pg-inner">
+    <section style="margin-bottom:18px;">
+      <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-bottom:12px;">
+        <div>
+          <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:#d4af37;font-weight:900;">Student Site</div>
+          <h1 style="font-family:'Alegreya',serif;color:#fff7ed;font-size:2.2rem;margin:2px 0 4px;">Welcome to Mr Stevens' History Hub</h1>
+          <p style="color:#a8a29e;max-width:820px;line-height:1.6;">Start with the big picture, then choose your year group. Scroll across the timeline, open the stories that interest you, and jump straight into lessons, source work and revision.</p>
+        </div>
+        <button onclick="showPg('student')" style="background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;border-radius:12px;padding:12px 16px;font-weight:900;cursor:pointer;font-family:inherit;box-shadow:0 10px 25px rgba(37,99,235,.25);">📊 My Work & Feedback</button>
+      </div>
+    </section>
+
+    <section id="history-at-a-glance" style="background:linear-gradient(135deg,rgba(20,16,12,.96),rgba(12,10,9,.92));border:2px solid rgba(212,175,55,.35);border-radius:22px;padding:20px;margin-bottom:20px;box-shadow:0 22px 70px rgba(0,0,0,.45);overflow:hidden;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px;">
+        <div>
+          <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:#d4af37;font-weight:900;">Immersive timeline</div>
+          <h2 style="font-family:'Alegreya',serif;color:#fff7ed;font-size:1.8rem;margin:3px 0 5px;">🕰️ History at a glance</h2>
+          <p style="color:#a8a29e;line-height:1.58;max-width:880px;">Swipe or scroll sideways through key moments. Each thumbnail opens a linked story, topic or in-depth page from the site.</p>
+        </div>
+        <div style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);border-radius:999px;padding:8px 13px;color:#fbbf24;font-size:.78rem;font-weight:900;white-space:nowrap;">← Scroll timeline →</div>
+      </div>
+      <div class="hag-track">
+        
+<button onclick="showPg('y7-1066-1')" class="hag-card" style="--hag-col:#fbbf24;">
+  <div class="hag-thumb"><span>👑</span></div>
+  <div class="hag-date">1066</div>
+  <div class="hag-title">Norman Conquest</div>
+  <div class="hag-desc">Edward dies, rivals fight, Harold falls and William transforms England.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('y7-1066-5')" class="hag-card" style="--hag-col:#d4af37;">
+  <div class="hag-thumb"><span>📜</span></div>
+  <div class="hag-date">1086</div>
+  <div class="hag-title">Domesday Book</div>
+  <div class="hag-desc">William records land, wealth and power across England.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('y7')" class="hag-card" style="--hag-col:#a78bfa;">
+  <div class="hag-thumb"><span>🦠</span></div>
+  <div class="hag-date">1348</div>
+  <div class="hag-title">Black Death</div>
+  <div class="hag-desc">A deadly pandemic changes medieval life, work and belief.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('y7')" class="hag-card" style="--hag-col:#f87171;">
+  <div class="hag-thumb"><span>🌹</span></div>
+  <div class="hag-date">1485</div>
+  <div class="hag-title">End of the Middle Ages?</div>
+  <div class="hag-desc">Bosworth and the Tudor age open the door to major change.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('y9-nel-3')" class="hag-card" style="--hag-col:#38bdf8;">
+  <div class="hag-thumb"><span>⚓</span></div>
+  <div class="hag-date">1805</div>
+  <div class="hag-title">Battle of Trafalgar</div>
+  <div class="hag-desc">Nelson defeats the Franco-Spanish fleet and secures British naval power.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('y8')" class="hag-card" style="--hag-col:#fb923c;">
+  <div class="hag-thumb"><span>🏭</span></div>
+  <div class="hag-date">1830s–40s</div>
+  <div class="hag-title">Industrial Britain</div>
+  <div class="hag-desc">Factories, reform and urban life reshape society.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('y9-ww1-1')" class="hag-card" style="--hag-col:#ef4444;">
+  <div class="hag-thumb"><span>💥</span></div>
+  <div class="hag-date">1914</div>
+  <div class="hag-title">First World War Begins</div>
+  <div class="hag-desc">Alliances, empires and nationalism drag Europe into war.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('y9-ww1-2')" class="hag-card" style="--hag-col:#dc2626;">
+  <div class="hag-thumb"><span>🪖</span></div>
+  <div class="hag-date">1916</div>
+  <div class="hag-title">Life in the Trenches</div>
+  <div class="hag-desc">Weapons, medicine, mud and fear transform modern warfare.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('y9-ww1-4')" class="hag-card" style="--hag-col:#f59e0b;">
+  <div class="hag-thumb"><span>📋</span></div>
+  <div class="hag-date">1919</div>
+  <div class="hag-title">Treaty of Versailles</div>
+  <div class="hag-desc">The peace settlement raises questions of blame, punishment and future conflict.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('y9-lon-1')" class="hag-card" style="--hag-col:#22c55e;">
+  <div class="hag-thumb"><span>🕊️</span></div>
+  <div class="hag-date">1920</div>
+  <div class="hag-title">League of Nations</div>
+  <div class="hag-desc">A new organisation tries to prevent another world war.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('ig-cw-1')" class="hag-card" style="--hag-col:#60a5fa;">
+  <div class="hag-thumb"><span>🌍</span></div>
+  <div class="hag-date">1945</div>
+  <div class="hag-title">Cold War Begins</div>
+  <div class="hag-desc">The USA and USSR emerge from war as rival superpowers.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('ig-cw-3')" class="hag-card" style="--hag-col:#f97316;">
+  <div class="hag-thumb"><span>🚀</span></div>
+  <div class="hag-date">1962</div>
+  <div class="hag-title">Cuban Missile Crisis</div>
+  <div class="hag-desc">The world comes close to nuclear war.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('ig-vn-1')" class="hag-card" style="--hag-col:#34d399;">
+  <div class="hag-thumb"><span>🚁</span></div>
+  <div class="hag-date">1975</div>
+  <div class="hag-title">Vietnam War Ends</div>
+  <div class="hag-desc">Conflict, containment and public opinion reshape US foreign policy.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+<button onclick="showPg('ig-cw-4')" class="hag-card" style="--hag-col:#93c5fd;">
+  <div class="hag-thumb"><span>🧊</span></div>
+  <div class="hag-date">1991</div>
+  <div class="hag-title">End of the Cold War</div>
+  <div class="hag-desc">The Soviet Union collapses and the post-war world changes again.</div>
+  <div class="hag-open">Open story →</div>
+</button>
+      </div>
+    </section>
+
+    <section style="margin:20px 0 8px;">
+      <div style="display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+        <div>
+          <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:#93c5fd;font-weight:900;">Choose your route</div>
+          <h2 style="font-family:'Alegreya',serif;color:#fff7ed;font-size:1.65rem;margin:3px 0;">Start learning</h2>
+        </div>
+        <span style="color:#a8a29e;font-size:.82rem;">Year groups · Revision · Sources</span>
+      </div>
+      <div class="student-home-grid">
+        <button onclick="showPg('y7')" class="student-year-card" style="--year-col:#a78bfa;"><div class="student-year-icon">📅</div><div><h3>Year 7 — Medieval England</h3><p>Norman Conquest · castles · medieval life · medicine</p><span>Start Year 7 →</span></div></button><button onclick="showPg('y8')" class="student-year-card" style="--year-col:#fb923c;"><div class="student-year-icon">⚓</div><div><h3>Year 8 — Slavery & Industry</h3><p>Empire · abolition · industrial towns · reform</p><span>Start Year 8 →</span></div></button><button onclick="showPg('y9')" class="student-year-card" style="--year-col:#22c55e;"><div class="student-year-icon">🌍</div><div><h3>Year 9 — World War One & League</h3><p>Nelson · WW1 · trenches · League of Nations</p><span>Start Year 9 →</span></div></button><button onclick="showPg('ig')" class="student-year-card" style="--year-col:#60a5fa;"><div class="student-year-icon">🎯</div><div><h3>Year 10 & 11 — iGCSE</h3><p>Cold War · Stalin · Vietnam · Medicine</p><span>Start iGCSE →</span></div></button><button onclick="showPg('rv')" class="student-year-card" style="--year-col:#fbbf24;"><div class="student-year-icon">✏️</div><div><h3>Revision Hub</h3><p>Practise, quiz and prepare with targeted revision tasks</p><span>Open Revision →</span></div></button><button onclick="showPg('src')" class="student-year-card" style="--year-col:#14b8a6;"><div class="student-year-icon">🔍</div><div><h3>Source Studies</h3><p>Explore evidence, source utility and WACA practice</p><span>Open Sources →</span></div></button>
+      </div>
+    </section>
+  </div>
+</div>
+
 <div id="pg-y7" class="jhs-pg"><div class="pg-inner"><div class="sec-banner" style="background:linear-gradient(135deg,rgba(109,40,217,.72),rgba(12,10,9,.75)),url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg) center/cover no-repeat;"><h2>📅 Year 7 — Medieval England 1066–1500</h2><p>The Norman Conquest, medieval society, health and medicine, and castles.</p></div><div class="topics-grid"><button type="button" onclick="toggleTopic('td-hs')"
   style="position:relative;border-radius:16px;overflow:hidden;min-height:175px;cursor:pointer;
   border:1.5px solid var(--border);background:url(https://upload.wikimedia.org/wikipedia/commons/6/6b/Bayeux_Tapestry_WillelmDux.jpg) center/cover no-repeat #3a1a6e;
@@ -8481,7 +8634,7 @@ window.TPcopy=function(txt,btn){navigator.clipboard.writeText(txt).then(function
 window.SPlogin=function(){var n=document.getElementById('sp-name').value.trim(),c=document.getElementById('sp-code').value.trim();if(!n||!c){alert('Enter name and class code');return}var d=gd(),cid=Object.keys(d.classes||{}).find(function(id){return id.slice(-6).toUpperCase()===c.toUpperCase()||c.toLowerCase()===(d.classes[id].pin||'').toLowerCase()});if(!cid){alert('Class not found');return}localStorage.setItem('mrsh_sn',n);localStorage.setItem('mrsh_sc',c);document.getElementById('sp-login').style.display='none';document.getElementById('sp-portal').style.display='block';document.getElementById('sp-welcome').textContent='Welcome, '+n;SPrend(n,cid)}
 window.SPlogout=function(){document.getElementById('sp-login').style.display='block';document.getElementById('sp-portal').style.display='none'}
 function SPrend(n,cid){var c=document.getElementById('sp-list'),d=gd(),subs=Object.values(d.subs||{}).filter(function(s){return s.student===n&&s.classId===cid});if(!subs.length){c.innerHTML='<p style="color:#a8a29e">No submitted work yet.</p>';return}c.innerHTML=subs.map(function(s){var col=gradeColour(s.grade);return '<div class="sp-card"><div style="display:flex;gap:14px"><div class="sp-ring" style="border-color:'+col+';color:'+col+'">'+esc(s.grade||'?')+'</div><div><b style="color:#fff7ed">'+esc(s.title)+'</b><div style="color:#a8a29e;font-size:.76rem">'+new Date(s.at).toLocaleDateString('en-GB')+'</div><div class="sp-fb">'+esc(s.feedback||'No feedback yet.')+'</div></div></div></div>'}).join('')}
-window.enterStudentSite=function(){document.body.classList.remove('gateway');var sb=document.getElementById('sb');if(sb)sb.classList.add('open');showPg('y7')}
+window.enterStudentSite=function(){document.body.classList.remove('gateway');var sb=document.getElementById('sb');if(sb)sb.classList.add('open');showPg('student-home')}
 var _origShowPg=window.showPg;window.showPg=function(id){if(_origShowPg)_origShowPg(id);if(id==='home'){document.body.classList.add('gateway')}else{document.body.classList.remove('gateway')}if(id==='teacher'){if(sessionStorage.getItem('tpa')==='1'){document.getElementById('tp-overlay').classList.remove('tpv');document.getElementById('tp-dash').style.display='block';TPtab('lp')}else{document.getElementById('tp-overlay').classList.add('tpv');document.getElementById('tp-dash').style.display='none'}}}
 document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('gateway');observeEditors();var p=new URLSearchParams(location.search).get('pg');if(p)setTimeout(function(){showPg(p)},600)});
 })();
