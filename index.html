@@ -9852,69 +9852,62 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <div style="display:flex;flex-direction:column;gap:12px;"><div class="verdict-box"><div class="verdict-label">🏛️ Historian's Verdict</div><span class="verdict-quote">&ldquo;The real test of collective security came in the 1930s, and the League failed it. But the idea survived — in the United Nations, in NATO, in the WTO. The League's failure taught the world what collective security needs to actually work.&rdquo;</span><span class="verdict-attr">&mdash; Zara Steiner, The Lights That Failed, 2005</span></div><div class="quiz-box" id="qlon-4"><div class="quiz-hdr">⚡ Quick Quiz</div><div class="quiz-q">Why is it significant that the United Nations was created in 1945 to replace the League?</div><button class="quiz-opt" onclick="qAns(this,true,"\u2705 Exactly right! The UN learned from the League's failures: the Security Council veto system acknowledged great power reality; UN peacekeeping forces gave it military capacity the League lacked; including the great powers as permanent members gave it real enforcement power. The League's failure ultimately led to a better system.","qlon-4")">A. The UN was designed to address the League's specific weaknesses — giving the great powers a veto (rather than requiring unanimity) but also creating its own peacekeeping forces</button><button class="quiz-opt" onclick="qAns(this,false,"\u274c Not quite. While the UN shared the League's basic principles of collective security, it was specifically designed to address the League's weaknesses \u2014 most importantly, great power membership with veto rights (not unanimity) and actual peacekeeping forces.","qlon-4")">B. The UN was exactly the same as the League but with a different name</button><button class="quiz-opt" onclick="qAns(this,false,"\u274c Not quite \u2014 the opposite. The UN was created because people STILL believed in collective security as an idea, but wanted to do it better. The League's failure showed HOW collective security needs to work, not that it could never work.","qlon-4")">C. The UN was created to prove that the League's concept of collective security was completely wrong</button><div class="quiz-fb" id="qlon-4-fb"></div></div><div class="tutor-box" data-tk="lon-4"><div class="tutor-hdr"><span class="tutor-ico">🧠</span><div><div class="tutor-name">Socrates, your AI tutor</div><div class="tutor-sub">Essay · Source · Revision</div></div></div><div class="tutor-modes"><button class="tutor-mode tutor-mode-active" onclick="tMode(this,'general')">💬 General</button><button class="tutor-mode" onclick="tMode(this,'essay')">✍️ Essay</button><button class="tutor-mode" onclick="tMode(this,'source')">📜 Source</button></div><div class="tutor-msgs"><div class="t-ai">Let's think about the League's legacy. Here's a big question: the League failed, but the idea of collective security survived in the United Nations. Does the League's failure actually teach us something valuable — by showing us what collective security NEEDS to work? And do you think the UN has done better than the League? Think about: Kosovo (1999), Iraq (2003), Syria (2015).</div></div><div class="tutor-sugs"><button class="t-sug" onclick="tSug(this)">Help with an essay</button><button class="t-sug" onclick="tSug(this)">Analyse a source</button><button class="t-sug" onclick="tSug(this)">Test my knowledge</button></div><div class="tutor-input-row"><textarea class="tutor-input" data-tk="lon-4" placeholder="Ask me anything..." rows="2" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tSend(this);}"></textarea><button class="tutor-mic" onclick="startTutorMic(this)">🎤</button><button class="tutor-send" onclick="tSend(this.previousElementSibling.previousElementSibling)">↑</button></div></div><div class="blog-box" data-bk="blog_lon-4"><div class="blog-hdr"><span style="font-size:1.3rem;">💬</span><div><div class="blog-title">Blog Spot</div><div class="blog-sub">Argue · Evidence · Debate</div></div></div><div class="blog-q">Did the League of Nations ultimately succeed by teaching the world how collective security should work?</div><div class="blog-chips"><button onclick="blogChip(this)" class="blog-chip">Failure taught important lessons</button><button onclick="blogChip(this)" class="blog-chip">Complete failure no lessons</button><button onclick="blogChip(this)" class="blog-chip">UN is better proof</button><button onclick="blogChip(this)" class="blog-chip">Collective security impossible</button><button onclick="blogChip(this)" class="blog-chip">Worth trying again</button></div><div style="position:relative;"><textarea class="blog-ta" placeholder="Build your argument..."></textarea></div><div class="blog-row"><input type="text" class="blog-name" placeholder="Name (optional)"><button onclick="blogPost(this)" class="blog-post">Post</button></div><div class="blog-feed"></div><button onclick="blogClear(this)" class="blog-clear">Clear</button></div></div>
 </div></div></div>
-<script id="phase-live-dashboard-final">
-(function(){
-  function safeJson(key, fallback){ try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); } catch(e){ return fallback; } }
-  function countArrayKeys(names){ for(const n of names){ const v=safeJson(n,null); if(Array.isArray(v)) return v.length; if(v && typeof v==='object') return Object.keys(v).length; } return 0; }
-  function calcProgress(){
-    const submissions = safeJson('studentSubmissions', safeJson('submissions', []));
-    const arr = Array.isArray(submissions) ? submissions : Object.values(submissions || {});
-    const submitted = arr.length;
-    const marked = arr.filter(x => x && (x.marked || x.grade || x.score || x.feedback)).length;
-    const feedback = submitted ? Math.round((arr.filter(x => x && (x.feedback || x.teacherFeedback || x.improvement)).length / submitted) * 100) : 0;
-    const bar = document.getElementById('studentProgressBar'); if(bar) bar.style.width = (submitted ? Math.max(feedback, Math.round(marked/submitted*100)) : 0) + '%';
-    const s=document.getElementById('spSubmitted'); if(s) s.textContent=submitted;
-    const m=document.getElementById('spMarked'); if(m) m.textContent=marked;
-    const f=document.getElementById('spFeedback'); if(f) f.textContent=feedback+'%';
-  }
-  function renderQA(){
-    const data = {
-      classes: countArrayKeys(['classes','teacherClasses','hhClasses']),
-      students: countArrayKeys(['students','studentList','hhStudents']),
-      submissions: countArrayKeys(['studentSubmissions','submissions']),
-      marked: 0,
-      packs: countArrayKeys(['teachingPacks','lessonPacks','hhTeachingPacks']),
-      kos: countArrayKeys(['knowledgeOrganisers','knowledgeOrganizers','hhKOs'])
-    };
-    const subs = safeJson('studentSubmissions', safeJson('submissions', []));
-    const arr = Array.isArray(subs) ? subs : Object.values(subs || {});
-    data.marked = arr.filter(x => x && (x.marked || x.grade || x.score || x.feedback)).length;
-    const target = document.getElementById('qa-live-data') || document.getElementById('qaLiveData');
-    if(target){
-      target.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;">' +
-        Object.entries(data).map(([k,v]) => '<div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px;text-align:center;"><div style="font-size:1.35rem;font-weight:800;color:#fff;">'+v+'</div><div style="font-size:.7rem;text-transform:uppercase;color:#a8a29e;font-weight:800;">'+k+'</div></div>').join('') + '</div>';
-    }
-  }
-  document.addEventListener('DOMContentLoaded', function(){ calcProgress(); renderQA(); });
-  window.refreshStudentProgressDashboard = calcProgress;
-  window.refreshQALiveData = renderQA;
-})();
-</script>
-<script id="student-dashboard-login-fix">
+<script id="student-dashboard-login-fix-v2">
 (function(){
   function safeData(){try{return JSON.parse(localStorage.getItem('mrsh_tp_phase2_v1')||'{}')}catch(e){return {}}}
-  function findClassId(d, code){return Object.keys(d.classes||{}).find(function(id){return id.slice(-6).toUpperCase()===String(code||'').toUpperCase()||String(code||'').toLowerCase()===(d.classes[id].pin||'').toLowerCase()})}
+  function classIdForCode(d, code){
+    code=String(code||'');
+    return Object.keys(d.classes||{}).find(function(id){
+      return id.slice(-6).toUpperCase()===code.toUpperCase() || code.toLowerCase()===(d.classes[id].pin||'').toLowerCase();
+    });
+  }
+  function textOf(el){return (el?el.innerText||el.textContent||'':'').replace(/\s+/g,' ').trim();}
   function updateStudentDashboard(){
     var dash=document.getElementById('student-progress-dashboard'); if(!dash)return;
     var portal=document.getElementById('sp-portal');
-    var logged=portal && portal.style.display!=='none';
+    var logged=!!(portal && portal.style.display!=='none');
     dash.style.display=logged?'block':'none';
-    if(!logged)return;
-    var n=(document.getElementById('sp-name')||{}).value||localStorage.getItem('mrsh_sn')||'';
-    var c=(document.getElementById('sp-code')||{}).value||localStorage.getItem('mrsh_sc')||'';
-    var d=safeData(); var cid=findClassId(d,c);
-    var subs=Object.values(d.subs||{}).filter(function(s){return (!n||s.student===n)&&(!cid||s.classId===cid)});
-    var submitted=subs.length;
-    var marked=subs.filter(function(s){return s.grade||s.feedback}).length;
-    var feedback=submitted?Math.round(subs.filter(function(s){return s.feedback&&s.feedback!=='No feedback yet.'}).length/submitted*100):0;
-    var bar=document.getElementById('studentProgressBar'); if(bar)bar.style.width=(submitted?Math.max(feedback,Math.round(marked/submitted*100)):0)+'%';
-    var a=document.getElementById('spSubmitted'); if(a)a.textContent=submitted;
-    var b=document.getElementById('spMarked'); if(b)b.textContent=marked;
-    var f=document.getElementById('spFeedback'); if(f)f.textContent=feedback+'%';
+    if(!logged){return;}
+    var submitted=0, marked=0, feedback=0;
+    var cards=[].slice.call(document.querySelectorAll('#sp-list .sp-card'));
+    if(cards.length){
+      submitted=cards.length;
+      cards.forEach(function(card){
+        var ring=textOf(card.querySelector('.sp-ring'));
+        var fb=textOf(card.querySelector('.sp-fb'));
+        if(ring && ring!=='?') marked++;
+        if(fb && fb!=='No feedback yet.') feedback++;
+      });
+    } else {
+      var n=(document.getElementById('sp-name')||{}).value||localStorage.getItem('mrsh_sn')||'';
+      var c=(document.getElementById('sp-code')||{}).value||localStorage.getItem('mrsh_sc')||'';
+      var d=safeData(); var cid=classIdForCode(d,c);
+      var subs=Object.values(d.subs||{}).filter(function(s){return (!n||s.student===n)&&(!cid||s.classId===cid)});
+      submitted=subs.length;
+      marked=subs.filter(function(s){return s.grade||s.feedback}).length;
+      feedback=subs.filter(function(s){return s.feedback && s.feedback!=='No feedback yet.'}).length;
+    }
+    var fbPct=submitted?Math.round(feedback/submitted*100):0;
+    var markedPct=submitted?Math.round(marked/submitted*100):0;
+    var bar=document.getElementById('studentProgressBar'); if(bar)bar.style.width=Math.max(fbPct,markedPct)+'%';
+    var s=document.getElementById('spSubmitted'); if(s)s.textContent=submitted;
+    var m=document.getElementById('spMarked'); if(m)m.textContent=marked;
+    var f=document.getElementById('spFeedback'); if(f)f.textContent=fbPct+'%';
   }
-  var oldLogin=window.SPlogin; window.SPlogin=function(){ if(oldLogin)oldLogin(); setTimeout(updateStudentDashboard,60); };
-  var oldLogout=window.SPlogout; window.SPlogout=function(){ if(oldLogout)oldLogout(); setTimeout(updateStudentDashboard,60); };
-  document.addEventListener('DOMContentLoaded',function(){setTimeout(updateStudentDashboard,150)});
+  function wrap(name){
+    var old=window[name];
+    window[name]=function(){
+      var result = old ? old.apply(this, arguments) : undefined;
+      setTimeout(updateStudentDashboard,80);
+      setTimeout(updateStudentDashboard,250);
+      return result;
+    };
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    wrap('SPlogin'); wrap('SPlogout');
+    setTimeout(updateStudentDashboard,150);
+    setTimeout(updateStudentDashboard,600);
+  });
   window.updateStudentDashboard=updateStudentDashboard;
 })();
 </script>
